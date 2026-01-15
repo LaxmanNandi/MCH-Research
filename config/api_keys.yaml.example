@@ -1,0 +1,20 @@
+# MCH Experiments - API Keys Configuration
+#
+# SETUP INSTRUCTIONS:
+# 1. Copy this file to api_keys.yaml
+# 2. Replace placeholder values with your actual API keys
+# 3. NEVER commit api_keys.yaml to git
+#
+# GETTING API KEYS:
+# - OpenAI: https://platform.openai.com/api-keys
+# - Google: https://aistudio.google.com/app/apikey
+# - Anthropic: https://console.anthropic.com/settings/keys
+
+openai_api_key: "sk-your-openai-key-here"
+google_api_key: "AI-your-google-key-here"
+anthropic_api_key: "sk-ant-your-anthropic-key-here"
+
+# ESTIMATED COSTS:
+# - Philosophy experiment (100 trials x 6 models): ~$17
+# - Medical experiment (50 trials x 6 models): ~$10
+# - Minimal replication (10 trials x 6 models): ~$2.50

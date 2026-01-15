@@ -1,3 +1,9 @@
+# API Keys - NEVER COMMIT
+config/api_keys.yaml
+.env
+*.key
+secrets/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -6,19 +12,29 @@ __pycache__/
 .Python
 env/
 venv/
-.env
+.pytest_cache/
 
 # Checkpoints (keep final results only)
 *_checkpoint.json
 
+# Data (large files)
+*.npy
+*.pkl
+
 # IDE
 .vscode/
 .idea/
+*.swp
 
 # OS
 .DS_Store
 Thumbs.db
 
+# Logs
+*.log
+logs/
+
 # Large model files
 *.bin
 *.pt
+*.onnx
