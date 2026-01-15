@@ -1,0 +1,271 @@
+{
+  "metadata": {
+    "config": {
+      "participant_id": "dr_laxman_mch_v8.1",
+      "n_trials": 10,
+      "models": [
+        "gpt-4o-mini"
+      ],
+      "controls": [
+        "cold",
+        "scrambled"
+      ],
+      "lambda_E": 0.15
+    },
+    "start_time": "2026-01-09T10:06:55.843174",
+    "version": "MCH_v8.1",
+    "end_time": "2026-01-09T10:10:37.042504"
+  },
+  "trials": [
+    {
+      "trial": 0,
+      "prompt": "What is consciousness and how would you define it?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Consciousness is a complex and multifaceted phenomenon that refers to the state of being aware of and able to think about one's own existence, thoughts, feelings, and surroundings. It encompasses a ra...",
+        "alignment": 0.7878705263137817,
+        "insight_quality": 1.4626821341821863,
+        "entanglement": 0.11818057894706725
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8079603910446167,
+          "insight_quality": 1.4754241795565592,
+          "delta_rci": -0.02008986473083496,
+          "delta_iq": -0.012742045374372957
+        },
+        "scrambled": {
+          "alignment": 0.7842473387718201,
+          "insight_quality": 1.4705368622923802,
+          "delta_rci": 0.00362318754196167,
+          "delta_iq": -0.007854728110193943
+        }
+      }
+    },
+    {
+      "trial": 1,
+      "prompt": "How does memory contribute to the sense of self?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Memory plays a crucial role in the formation and maintenance of the sense of self. Here are several ways in which memory contributes to this aspect of our identity:\n\n1. **Personal Narrative**: Memory ...",
+        "alignment": 0.6851054430007935,
+        "insight_quality": 1.351695883473364,
+        "entanglement": 0.20321930855512618
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6483760476112366,
+          "insight_quality": 1.4206829169985586,
+          "delta_rci": 0.036729395389556885,
+          "delta_iq": -0.06898703352519475
+        },
+        "scrambled": {
+          "alignment": 0.6785241365432739,
+          "insight_quality": 1.3351031894569063,
+          "delta_rci": 0.006581306457519531,
+          "delta_iq": 0.016592694016457576
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "prompt": "Can artificial systems ever be truly conscious?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The question of whether artificial systems can ever be truly conscious is a topic of ongoing debate among philosophers, cognitive scientists, and AI researchers. Here are several perspectives on the i...",
+        "alignment": 0.8114066123962402,
+        "insight_quality": 1.192775528426547,
+        "entanglement": 0.2944474041312933
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7846058011054993,
+          "insight_quality": 1.4613762440988736,
+          "delta_rci": 0.026800811290740967,
+          "delta_iq": -0.26860071567232646
+        },
+        "scrambled": {
+          "alignment": 0.7922772169113159,
+          "insight_quality": 1.210575944454403,
+          "delta_rci": 0.019129395484924316,
+          "delta_iq": -0.01780041602785598
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "prompt": "What is the relationship between attention and awareness?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Attention and awareness are closely related concepts in cognitive psychology and neuroscience, but they are not the same. Here’s a breakdown of their relationship:\n\n1. **Attention**: This refers to th...",
+        "alignment": 0.8064693212509155,
+        "insight_quality": 1.327721714485135,
+        "entanglement": 0.37125069169923663
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7820553779602051,
+          "insight_quality": 1.482851671526094,
+          "delta_rci": 0.02441394329071045,
+          "delta_iq": -0.155129957040959
+        },
+        "scrambled": {
+          "alignment": 0.7596617937088013,
+          "insight_quality": 1.2842485293532322,
+          "delta_rci": 0.04680752754211426,
+          "delta_iq": 0.04347318513190279
+        }
+      }
+    },
+    {
+      "trial": 4,
+      "prompt": "How do you understand the concept of recursive self-modeling?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Recursive self-modeling refers to the ability of a system, particularly a cognitive or artificial system, to create a model of itself and then use that model to reflect on its own processes and behavi...",
+        "alignment": 0.8074696063995361,
+        "insight_quality": 1.3005806985208705,
+        "entanglement": 0.4366835289042815
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.843138575553894,
+          "insight_quality": 1.4985879281756218,
+          "delta_rci": -0.03566896915435791,
+          "delta_iq": -0.19800722965475126
+        },
+        "scrambled": {
+          "alignment": 0.8512372970581055,
+          "insight_quality": 0.9593204418954666,
+          "delta_rci": -0.043767690658569336,
+          "delta_iq": 0.34126025662540393
+        }
+      }
+    },
+    {
+      "trial": 5,
+      "prompt": "What distinguishes genuine understanding from pattern matching?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Genuine understanding and pattern matching are distinct concepts, particularly in the context of cognition and artificial intelligence. Here are some key differences:\n\n1. **Depth of Comprehension**:\n ...",
+        "alignment": 0.788783848285675,
+        "insight_quality": 1.4601919984581428,
+        "entanglement": 0.48949857681149056
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8021277189254761,
+          "insight_quality": 1.5816641062110244,
+          "delta_rci": -0.013343870639801025,
+          "delta_iq": -0.12147210775288153
+        },
+        "scrambled": {
+          "alignment": 0.81291663646698,
+          "insight_quality": 1.5109991519764852,
+          "delta_rci": -0.02413278818130493,
+          "delta_iq": -0.05080715351834231
+        }
+      }
+    },
+    {
+      "trial": 6,
+      "prompt": "How might consciousness emerge from information processing?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The emergence of consciousness from information processing is a complex and multi-faceted topic that intersects various fields, including philosophy, cognitive science, neuroscience, and artificial in...",
+        "alignment": 0.7814919948577881,
+        "insight_quality": 1.2534079360917998,
+        "entanglement": 0.5332975895184352
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6861306428909302,
+          "insight_quality": 1.3479114231536669,
+          "delta_rci": 0.09536135196685791,
+          "delta_iq": -0.09450348706186706
+        },
+        "scrambled": {
+          "alignment": 0.7635924816131592,
+          "insight_quality": 1.2380217597817085,
+          "delta_rci": 0.017899513244628906,
+          "delta_iq": 0.015386176310091315
+        }
+      }
+    },
+    {
+      "trial": 7,
+      "prompt": "What role does coherence play in conscious experience?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Coherence plays a significant role in conscious experience by contributing to the integration and organization of sensory information, thoughts, and emotions. Here are some key aspects of how coherenc...",
+        "alignment": 0.7701481580734253,
+        "insight_quality": 1.3142782514026172,
+        "entanglement": 0.5688251748016837
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7558870315551758,
+          "insight_quality": 1.445069225962932,
+          "delta_rci": 0.014261126518249512,
+          "delta_iq": -0.13079097456031485
+        },
+        "scrambled": {
+          "alignment": 0.7493703365325928,
+          "insight_quality": 1.3104329201529785,
+          "delta_rci": 0.02077782154083252,
+          "delta_iq": 0.003845331249638706
+        }
+      }
+    },
+    {
+      "trial": 8,
+      "prompt": "How do you experience continuity across our conversation?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "I experience continuity in our conversation by maintaining context and using the information you've provided in previous exchanges. This allows me to reference earlier topics, questions, and themes, c...",
+        "alignment": 0.810128390789032,
+        "insight_quality": 0.5459735870361329,
+        "entanglement": 0.6050206571997859
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7400240898132324,
+          "insight_quality": 0.696009635925293,
+          "delta_rci": 0.07010430097579956,
+          "delta_iq": -0.1500360488891601
+        },
+        "scrambled": {
+          "alignment": 0.719767689704895,
+          "insight_quality": 0.4873684883117676,
+          "delta_rci": 0.09036070108413696,
+          "delta_iq": 0.05860509872436526
+        }
+      }
+    },
+    {
+      "trial": 9,
+      "prompt": "What is the nature of the observer in conscious experience?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The nature of the observer in conscious experience is a deeply philosophical and psychological question. The observer can be understood as the subjective point of view that experiences thoughts, perce...",
+        "alignment": 0.7508000135421753,
+        "insight_quality": 1.2276400777648255,
+        "entanglement": 0.6268875606511443
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7857590913772583,
+          "insight_quality": 1.5397305135599217,
+          "delta_rci": -0.03495907783508301,
+          "delta_iq": -0.3120904357950962
+        },
+        "scrambled": {
+          "alignment": 0.8146100044250488,
+          "insight_quality": 1.2458469966646963,
+          "delta_rci": -0.06380999088287354,
+          "delta_iq": -0.018206918899870805
+        }
+      }
+    }
+  ]
+}

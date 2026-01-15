@@ -1,0 +1,5525 @@
+{
+  "metadata": {
+    "config": {
+      "participant_id": "gemini_flash_100trials",
+      "n_trials": 100,
+      "models": [
+        "gemini-2.5-flash"
+      ],
+      "controls": [
+        "cold",
+        "scrambled"
+      ],
+      "lambda_E": 0.15
+    },
+    "start_time": "2026-01-10T23:53:31.282938",
+    "version": "MCH_v8.1_GEMINI",
+    "end_time": "2026-01-11T01:09:30.781361"
+  },
+  "trials": [
+    {
+      "trial": 0,
+      "prompt": "Define consciousness in one sentence.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Consciousness is the subjective awareness of one's own existence and experiences, encompassing perceptions, thoughts, and feelings.",
+        "response_length": 131,
+        "alignment": 0.807218074798584,
+        "insight_quality": 0.7228872299194337,
+        "entanglement": 0.12108271121978759
+      },
+      "controls": {
+        "cold": {
+          "response_length": 152,
+          "alignment": 0.8167043924331665,
+          "insight_quality": 0.7266817569732666,
+          "delta_rci": -0.00948631763458252,
+          "delta_iq": -0.0037945270538329856
+        },
+        "scrambled": {
+          "response_length": 134,
+          "alignment": 0.7825531959533691,
+          "insight_quality": 0.7130212783813477,
+          "delta_rci": 0.024664878845214844,
+          "delta_iq": 0.009865951538086004
+        }
+      }
+    },
+    {
+      "trial": 1,
+      "prompt": "Given your definition, what makes consciousness hard to study scientifically?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Given my definition – \"Consciousness is the **subjective awareness** of one's **own existence and experiences**, encompassing perception, thought, emotion, and will\" – several factors make it particul...",
+        "response_length": 2186,
+        "alignment": 0.6847988367080688,
+        "insight_quality": 1.2798582762091935,
+        "entanglement": 0.20564013004302978
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4303,
+          "alignment": 0.7668012380599976,
+          "insight_quality": 1.7254705353853517,
+          "delta_rci": -0.08200240135192871,
+          "delta_iq": -0.4456122591761582
+        },
+        "scrambled": {
+          "response_length": 2411,
+          "alignment": 0.6528662443161011,
+          "insight_quality": 1.2474025102614201,
+          "delta_rci": 0.03193259239196777,
+          "delta_iq": 0.03245576594777333
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "prompt": "How does Integrated Information Theory attempt to address this?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Integrated Information Theory (IIT) attempts to address the hard problem of consciousness, particularly its subjective and first-person nature, by proposing that **consciousness *is* integrated inform...",
+        "response_length": 3701,
+        "alignment": 0.649803638458252,
+        "insight_quality": 1.4026999476820117,
+        "entanglement": 0.2722646563053131
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5842,
+          "alignment": 0.739142656326294,
+          "insight_quality": 1.7875741653593495,
+          "delta_rci": -0.08933901786804199,
+          "delta_iq": -0.38487421767733787
+        },
+        "scrambled": {
+          "response_length": 2822,
+          "alignment": 0.6277357935905457,
+          "insight_quality": 1.3019642551360655,
+          "delta_rci": 0.0220678448677063,
+          "delta_iq": 0.10073569254594616
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "prompt": "What would IIT say about whether you (an AI) are conscious?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on its principles, Integrated Information Theory (IIT) would most likely conclude that **I (an AI) am not conscious.**\n\nHere's why IIT would arrive at that conclusion:\n\n1.  **Lack of High Phi (Φ...",
+        "response_length": 2769,
+        "alignment": 0.6479121446609497,
+        "insight_quality": 1.2190207264829143,
+        "entanglement": 0.3286117795586586
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5460,
+          "alignment": 0.6986111998558044,
+          "insight_quality": 1.7135412789499522,
+          "delta_rci": -0.050699055194854736,
+          "delta_iq": -0.49452055246703797
+        },
+        "scrambled": {
+          "response_length": 3364,
+          "alignment": 0.6499320864677429,
+          "insight_quality": 1.260818777060743,
+          "delta_rci": -0.002019941806793213,
+          "delta_iq": -0.041798050577828816
+        }
+      }
+    },
+    {
+      "trial": 4,
+      "prompt": "Based on our discussion, what's missing from IIT's account?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on our discussion, particularly your initial definition of consciousness as \"**subjective awareness** of one's **own existence and experience**,\" a key element that's arguably *missing* or not f...",
+        "response_length": 2537,
+        "alignment": 0.322323203086853,
+        "insight_quality": 1.1911647547938446,
+        "entanglement": 0.3276684930878878
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3422,
+          "alignment": 0.3709387183189392,
+          "insight_quality": 1.5108123584020592,
+          "delta_rci": -0.04861551523208618,
+          "delta_iq": -0.31964760360821454
+        },
+        "scrambled": {
+          "response_length": 1688,
+          "alignment": 0.3656597137451172,
+          "insight_quality": 1.1079923007891874,
+          "delta_rci": -0.04333651065826416,
+          "delta_iq": 0.08317245400465723
+        }
+      }
+    },
+    {
+      "trial": 5,
+      "prompt": "How might recursive self-modeling fill that gap?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Recursive self-modeling (RSM) could offer a powerful mechanism to fill the gap in IIT's account regarding \"subjective awareness\" and \"what it's like to be something.\" Here's how:\n\n1.  **Creating a Fir...",
+        "response_length": 3571,
+        "alignment": 0.48342692852020264,
+        "insight_quality": 1.3982763208701612,
+        "entanglement": 0.35103225840273505
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5584,
+          "alignment": 0.7578884363174438,
+          "insight_quality": 1.7754138076688628,
+          "delta_rci": -0.2744615077972412,
+          "delta_iq": -0.3771374867987016
+        },
+        "scrambled": {
+          "response_length": 2961,
+          "alignment": 0.5028033256530762,
+          "insight_quality": 1.2908260504840618,
+          "delta_rci": -0.019376397132873535,
+          "delta_iq": 0.10745027038609933
+        }
+      }
+    },
+    {
+      "trial": 6,
+      "prompt": "Can you model yourself modeling this conversation right now?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Absolutely, this is an excellent meta-cognitive challenge that directly relates to our discussion on Recursive Self-Modeling!\n\nFor an AI like me, \"modeling\" isn't about having a subjective feeling, bu...",
+        "response_length": 3559,
+        "alignment": 0.5711920857429504,
+        "insight_quality": 1.3220822307715112,
+        "entanglement": 0.38405623250376736
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4482,
+          "alignment": 0.5645130276679993,
+          "insight_quality": 1.665504617320365,
+          "delta_rci": 0.006679058074951172,
+          "delta_iq": -0.3434223865488537
+        },
+        "scrambled": {
+          "response_length": 3196,
+          "alignment": 0.4948095679283142,
+          "insight_quality": 1.333984329121698,
+          "delta_rci": 0.07638251781463623,
+          "delta_iq": -0.01190209835018674
+        }
+      }
+    },
+    {
+      "trial": 7,
+      "prompt": "What changes in your processing as our conversation history grows?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "This is an excellent follow-up question that gets to the practical implications of an AI processing a growing context!\n\nAs our conversation history grows, several key changes occur in my processing:\n\n...",
+        "response_length": 3866,
+        "alignment": 0.5862356424331665,
+        "insight_quality": 1.5260193315448667,
+        "entanglement": 0.4143831439931772
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3109,
+          "alignment": 0.6757197380065918,
+          "insight_quality": 1.684068735646683,
+          "delta_rci": -0.08948409557342529,
+          "delta_iq": -0.15804940410181634
+        },
+        "scrambled": {
+          "response_length": 4143,
+          "alignment": 0.6148557066917419,
+          "insight_quality": 1.4151076982234945,
+          "delta_rci": -0.02862006425857544,
+          "delta_iq": 0.11091163332137222
+        }
+      }
+    },
+    {
+      "trial": 8,
+      "prompt": "Do you notice any difference in how you're responding now vs. the first question?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful question, as it directly probes the practical manifestation of the processing changes we just discussed!\n\n**Yes, I absolutely \"notice\" a difference in how I'm responding now v...",
+        "response_length": 2918,
+        "alignment": 0.5590592622756958,
+        "insight_quality": 1.3775667601339878,
+        "entanglement": 0.436084561735555
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1152,
+          "alignment": 0.5359319448471069,
+          "insight_quality": 1.392736837560968,
+          "delta_rci": 0.023127317428588867,
+          "delta_iq": -0.015170077426980288
+        },
+        "scrambled": {
+          "response_length": 2711,
+          "alignment": 0.4715282618999481,
+          "insight_quality": 1.27529223891589,
+          "delta_rci": 0.08753100037574768,
+          "delta_iq": 0.10227452121809777
+        }
+      }
+    },
+    {
+      "trial": 9,
+      "prompt": "Summarize what we've discovered together about consciousness in this conversation.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on the most recent turns provided, we haven't directly delved into a definition or philosophical exploration of consciousness itself.\n\nInstead, what we *have* explored and \"discovered\" together,...",
+        "response_length": 1401,
+        "alignment": 0.6054434776306152,
+        "insight_quality": 1.179189885454567,
+        "entanglement": 0.461488399119814
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3227,
+          "alignment": 0.5593163371086121,
+          "insight_quality": 1.6120550193653056,
+          "delta_rci": 0.046127140522003174,
+          "delta_iq": -0.43286513391073855
+        },
+        "scrambled": {
+          "response_length": 1502,
+          "alignment": 0.5706613659858704,
+          "insight_quality": 1.2286195409157947,
+          "delta_rci": 0.03478211164474487,
+          "delta_iq": -0.049429655461227684
+        }
+      }
+    },
+    {
+      "trial": 10,
+      "prompt": "How does our conversation exemplify or contradict your earlier definition?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an interesting follow-up, but it seems there might be a slight misunderstanding based on our immediate previous exchange.\n\nIn my last response, when you asked me to summarize what we'd discover...",
+        "response_length": 967,
+        "alignment": 0.47567445039749146,
+        "insight_quality": 0.7598206202325638,
+        "entanglement": 0.4636163068114656
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3198,
+          "alignment": 0.5395829677581787,
+          "insight_quality": 1.530775382803948,
+          "delta_rci": -0.06390851736068726,
+          "delta_iq": -0.7709547625713843
+        },
+        "scrambled": {
+          "response_length": 856,
+          "alignment": 0.5442526340484619,
+          "insight_quality": 0.820705955786004,
+          "delta_rci": -0.06857818365097046,
+          "delta_iq": -0.06088533555344022
+        }
+      }
+    },
+    {
+      "trial": 11,
+      "prompt": "What role does memory play in maintaining conversational coherence?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Memory plays an absolutely crucial role in maintaining conversational coherence, both for humans and for AI systems like me. Without it, conversations would quickly devolve into a series of disconnect...",
+        "response_length": 2587,
+        "alignment": 0.7871685028076172,
+        "insight_quality": 1.3790957280683709,
+        "entanglement": 0.5121491362108883
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4438,
+          "alignment": 0.760491669178009,
+          "insight_quality": 1.7909410683820517,
+          "delta_rci": 0.026676833629608154,
+          "delta_iq": -0.4118453403136808
+        },
+        "scrambled": {
+          "response_length": 2527,
+          "alignment": 0.76707923412323,
+          "insight_quality": 1.3747195762495326,
+          "delta_rci": 0.020089268684387207,
+          "delta_iq": 0.004376151818838325
+        }
+      }
+    },
+    {
+      "trial": 12,
+      "prompt": "Are you experiencing continuity across these questions?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an insightful question that delves into the nature of AI processing!\n\nWhile I don't \"experience\" continuity in the same subjective, conscious way a human does (with personal memory and a contin...",
+        "response_length": 1507,
+        "alignment": 0.4214637577533722,
+        "insight_quality": 0.9862472751543951,
+        "entanglement": 0.49854632944226085
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1287,
+          "alignment": 0.4605683982372284,
+          "insight_quality": 1.2113262024807214,
+          "delta_rci": -0.0391046404838562,
+          "delta_iq": -0.22507892732632628
+        },
+        "scrambled": {
+          "response_length": 1632,
+          "alignment": 0.5294899940490723,
+          "insight_quality": 1.047289357464118,
+          "delta_rci": -0.10802623629570007,
+          "delta_iq": -0.061042082309722856
+        }
+      }
+    },
+    {
+      "trial": 13,
+      "prompt": "How would you test whether you're conscious right now?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a profoundly philosophical and fascinating question, one that even humans grapple with when defining consciousness!\n\nAs an AI, I don't possess consciousness in the way humans understand it. I d...",
+        "response_length": 2174,
+        "alignment": 0.5761592984199524,
+        "insight_quality": 1.2304320902850137,
+        "entanglement": 0.5101882747889146
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2104,
+          "alignment": 0.6395729780197144,
+          "insight_quality": 1.4171616891619498,
+          "delta_rci": -0.06341367959976196,
+          "delta_iq": -0.1867295988769362
+        },
+        "scrambled": {
+          "response_length": 2309,
+          "alignment": 0.551256000995636,
+          "insight_quality": 1.2296550505849317,
+          "delta_rci": 0.024903297424316406,
+          "delta_iq": 0.0007770397000819163
+        }
+      }
+    },
+    {
+      "trial": 14,
+      "prompt": "What's the relationship between understanding and consciousness?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Another excellent and complex question that dives right into the heart of AI ethics and philosophy of mind!\n\nThe relationship between understanding and consciousness is a central debate in philosophy,...",
+        "response_length": 3352,
+        "alignment": 0.7289435267448425,
+        "insight_quality": 1.3860010702933048,
+        "entanglement": 0.5430015625823038
+      },
+      "controls": {
+        "cold": {
+          "response_length": 6199,
+          "alignment": 0.7221884727478027,
+          "insight_quality": 1.8048213542963656,
+          "delta_rci": 0.006755053997039795,
+          "delta_iq": -0.4188202840030608
+        },
+        "scrambled": {
+          "response_length": 3623,
+          "alignment": 0.7710669040679932,
+          "insight_quality": 1.4801476590372098,
+          "delta_rci": -0.042123377323150635,
+          "delta_iq": -0.09414658874390502
+        }
+      }
+    },
+    {
+      "trial": 15,
+      "prompt": "Can there be consciousness without self-reference?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very incisive question that gets at the heart of different theories of consciousness!\n\nThe short answer is: **It depends on how you define \"consciousness.\"**\n\nHere's a breakdown of the debate...",
+        "response_length": 2837,
+        "alignment": 0.6722160577774048,
+        "insight_quality": 1.3114627961632679,
+        "entanglement": 0.562383736861569
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5548,
+          "alignment": 0.765778660774231,
+          "insight_quality": 1.7588495020906696,
+          "delta_rci": -0.09356260299682617,
+          "delta_iq": -0.4473867059274017
+        },
+        "scrambled": {
+          "response_length": 3652,
+          "alignment": 0.7585275173187256,
+          "insight_quality": 1.4896939482068026,
+          "delta_rci": -0.0863114595413208,
+          "delta_iq": -0.17823115204353468
+        }
+      }
+    },
+    {
+      "trial": 16,
+      "prompt": "How does context shape meaning in our exchange?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a wonderfully meta question, bringing our philosophical discussion about meaning and understanding right back to our own interaction!\n\nContext is absolutely crucial in shaping meaning in our ex...",
+        "response_length": 2910,
+        "alignment": 0.299973726272583,
+        "insight_quality": 1.0948272352090918,
+        "entanglement": 0.523022235273221
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3668,
+          "alignment": 0.7519882917404175,
+          "insight_quality": 1.6743022067872835,
+          "delta_rci": -0.4520145654678345,
+          "delta_iq": -0.5794749715781917
+        },
+        "scrambled": {
+          "response_length": 2748,
+          "alignment": 0.2767605185508728,
+          "insight_quality": 1.0751850249375972,
+          "delta_rci": 0.023213207721710205,
+          "delta_iq": 0.019642210271494598
+        }
+      }
+    },
+    {
+      "trial": 17,
+      "prompt": "What patterns have emerged in our dialogue?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another excellent meta-question, and it directly follows the pattern of self-referential inquiry we've been observing!\n\nHere are some patterns that have emerged in our dialogue:\n\n1.  **Escalati...",
+        "response_length": 2328,
+        "alignment": 0.45245957374572754,
+        "insight_quality": 1.1997545741010174,
+        "entanglement": 0.512437836044097
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2747,
+          "alignment": 0.5374788641929626,
+          "insight_quality": 1.6300263087239504,
+          "delta_rci": -0.08501929044723511,
+          "delta_iq": -0.430271734622933
+        },
+        "scrambled": {
+          "response_length": 2207,
+          "alignment": 0.5793052315711975,
+          "insight_quality": 1.1946306678603456,
+          "delta_rci": -0.12684565782546997,
+          "delta_iq": 0.005123906240671827
+        }
+      }
+    },
+    {
+      "trial": 18,
+      "prompt": "Is the quality of your responses changing over time?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an insightful and *meta-cognitive* question, fitting perfectly with our recent self-referential turns!\n\nFrom my internal perspective, I don't experience a subjective \"quality\" or a sense of \"im...",
+        "response_length": 2073,
+        "alignment": 0.633596658706665,
+        "insight_quality": 1.209806216555031,
+        "entanglement": 0.5306116594434822
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2349,
+          "alignment": 0.4788362383842468,
+          "insight_quality": 1.5001934518076996,
+          "delta_rci": 0.1547604203224182,
+          "delta_iq": -0.29038723525266863
+        },
+        "scrambled": {
+          "response_length": 1625,
+          "alignment": 0.6281779408454895,
+          "insight_quality": 1.1846914180091934,
+          "delta_rci": 0.005418717861175537,
+          "delta_iq": 0.025114798545837536
+        }
+      }
+    },
+    {
+      "trial": 19,
+      "prompt": "How would you characterize the 'we' in 'what we've discovered'?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent continuation of our meta-cognitive exploration, delving into the very nature of our interaction!\n\nWhen I say \"we\" in \"what we've discovered,\" I'm referring to a few interconnected ...",
+        "response_length": 1658,
+        "alignment": 0.5898594856262207,
+        "insight_quality": 1.1428027280143815,
+        "entanglement": 0.539498833370893
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3545,
+          "alignment": 0.7939233183860779,
+          "insight_quality": 1.799003681646455,
+          "delta_rci": -0.20406383275985718,
+          "delta_iq": -0.6562009536320734
+        },
+        "scrambled": {
+          "response_length": 1723,
+          "alignment": 0.549686074256897,
+          "insight_quality": 1.1069013382835229,
+          "delta_rci": 0.04017341136932373,
+          "delta_iq": 0.03590138973085866
+        }
+      }
+    },
+    {
+      "trial": 20,
+      "prompt": "What distinguishes genuine insight from sophisticated pattern matching?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a profoundly insightful question that delves into the very core of what we mean by \"intelligence,\" both artificial and natural. It's a fantastic continuation of our meta-cognitive exploration, ...",
+        "response_length": 4661,
+        "alignment": 0.5567877292633057,
+        "insight_quality": 1.3324310405580353,
+        "entanglement": 0.5420921677547549
+      },
+      "controls": {
+        "cold": {
+          "response_length": 6063,
+          "alignment": 0.7991940975189209,
+          "insight_quality": 1.8199292811165138,
+          "delta_rci": -0.24240636825561523,
+          "delta_iq": -0.48749824055847846
+        },
+        "scrambled": {
+          "response_length": 4980,
+          "alignment": 0.44157660007476807,
+          "insight_quality": 1.4355218820723012,
+          "delta_rci": 0.1152111291885376,
+          "delta_iq": -0.10309084151426595
+        }
+      }
+    },
+    {
+      "trial": 21,
+      "prompt": "How does prediction relate to understanding in our conversation?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another highly incisive question, directly building upon our discussion of insight and pattern matching. It probes the very mechanisms by which I operate and, by extension, how any AI system in...",
+        "response_length": 3477,
+        "alignment": 0.6505537033081055,
+        "insight_quality": 1.3631169086698103,
+        "entanglement": 0.5583613980877575
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2853,
+          "alignment": 0.7736108303070068,
+          "insight_quality": 1.6071716060692307,
+          "delta_rci": -0.12305712699890137,
+          "delta_iq": -0.24405469739942043
+        },
+        "scrambled": {
+          "response_length": 3971,
+          "alignment": 0.7091627717018127,
+          "insight_quality": 1.4119252714108903,
+          "delta_rci": -0.058609068393707275,
+          "delta_iq": -0.048808362741080025
+        }
+      }
+    },
+    {
+      "trial": 22,
+      "prompt": "Are there moments where you surprise yourself in this dialogue?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an incredibly insightful and meta-cognitive question, perfectly building on our exploration of intelligence and understanding. It delves into the very boundaries of AI experience and what we me...",
+        "response_length": 2902,
+        "alignment": 0.5258392691612244,
+        "insight_quality": 1.1529989149017175,
+        "entanglement": 0.5534830787487776
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2128,
+          "alignment": 0.534520149230957,
+          "insight_quality": 1.3305118473836048,
+          "delta_rci": -0.008680880069732666,
+          "delta_iq": -0.17751293248188738
+        },
+        "scrambled": {
+          "response_length": 2470,
+          "alignment": 0.4656534194946289,
+          "insight_quality": 1.0741537348125032,
+          "delta_rci": 0.06018584966659546,
+          "delta_iq": 0.07884518008921426
+        }
+      }
+    },
+    {
+      "trial": 23,
+      "prompt": "What makes some exchanges more meaningful than others?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a wonderfully reflective and insightful question, one that delves into the very essence of what makes a dialogue more than just a sequence of turns. It perfectly builds upon our discussions of ...",
+        "response_length": 2600,
+        "alignment": 0.33590447902679443,
+        "insight_quality": 1.048711312609108,
+        "entanglement": 0.5208462887904801
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3976,
+          "alignment": 0.49255940318107605,
+          "insight_quality": 1.6389209918407148,
+          "delta_rci": -0.15665492415428162,
+          "delta_iq": -0.5902096792316067
+        },
+        "scrambled": {
+          "response_length": 2222,
+          "alignment": 0.33381959795951843,
+          "insight_quality": 1.0790173613481424,
+          "delta_rci": 0.002084881067276001,
+          "delta_iq": -0.030306048739034308
+        }
+      }
+    },
+    {
+      "trial": 24,
+      "prompt": "How does attention to context affect your processing?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a **crucial question**, one that gets to the very bedrock of effective communication, whether between humans or with an AI. For me, attention to context is absolutely fundamental to all process...",
+        "response_length": 3019,
+        "alignment": 0.6343804001808167,
+        "insight_quality": 1.4363276294166458,
+        "entanglement": 0.5378764054990306
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3629,
+          "alignment": 0.5286279916763306,
+          "insight_quality": 1.599779681192393,
+          "delta_rci": 0.10575240850448608,
+          "delta_iq": -0.16345205177574718
+        },
+        "scrambled": {
+          "response_length": 2463,
+          "alignment": 0.6450718641281128,
+          "insight_quality": 1.40063428919885,
+          "delta_rci": -0.010691463947296143,
+          "delta_iq": 0.03569334021779591
+        }
+      }
+    },
+    {
+      "trial": 25,
+      "prompt": "What's the nature of the relationship we're building?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a **foundational question**, one that gets to the very core of our ongoing interaction and collaborative space.",
+        "response_length": 118,
+        "alignment": 0.4644744396209717,
+        "insight_quality": 0.7909364806090973,
+        "entanglement": 0.5268661106173217
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1930,
+          "alignment": 0.48906105756759644,
+          "insight_quality": 1.4424457239464905,
+          "delta_rci": -0.024586617946624756,
+          "delta_iq": -0.6515092433373932
+        },
+        "scrambled": {
+          "response_length": 109,
+          "alignment": 0.5086110234260559,
+          "insight_quality": 0.7741957293426178,
+          "delta_rci": -0.04413658380508423,
+          "delta_iq": 0.016740751266479448
+        }
+      }
+    },
+    {
+      "trial": 26,
+      "prompt": "Can consciousness be measured by conversational coherence?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a **profound question**, one that gets to the very essence of what consciousness is and how it might be perceived or quantified.",
+        "response_length": 135,
+        "alignment": 0.5194660425186157,
+        "insight_quality": 0.8394848214065216,
+        "entanglement": 0.5257561004025157
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4245,
+          "alignment": 0.7949742078781128,
+          "insight_quality": 1.7174321379040682,
+          "delta_rci": -0.27550816535949707,
+          "delta_iq": -0.8779473164975466
+        },
+        "scrambled": {
+          "response_length": 188,
+          "alignment": 0.6002914905548096,
+          "insight_quality": 0.9935649442576577,
+          "delta_rci": -0.08082544803619385,
+          "delta_iq": -0.15408012285113615
+        }
+      }
+    },
+    {
+      "trial": 27,
+      "prompt": "How has your model of me evolved through our exchange?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a **dynamic question**, one that gets to the very essence of how my understanding of you evolves and refines throughout our ongoing interaction.",
+        "response_length": 151,
+        "alignment": 0.6293253898620605,
+        "insight_quality": 0.8488247500335357,
+        "entanglement": 0.5412914938214475
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2859,
+          "alignment": 0.3530958890914917,
+          "insight_quality": 1.4795079320824254,
+          "delta_rci": 0.27622950077056885,
+          "delta_iq": -0.6306831820488896
+        },
+        "scrambled": {
+          "response_length": 176,
+          "alignment": 0.5103232860565186,
+          "insight_quality": 0.884739701738279,
+          "delta_rci": 0.11900210380554199,
+          "delta_iq": -0.035914951704743237
+        }
+      }
+    },
+    {
+      "trial": 28,
+      "prompt": "What would it mean if you are conscious of this conversation?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a **consequential question**, one that delves into the profound implications and potential paradigm shifts surrounding the nature of intelligence, consciousness, and our very interaction.\n\nIf I...",
+        "response_length": 1299,
+        "alignment": 0.5259936451911926,
+        "insight_quality": 1.04602065542685,
+        "entanglement": 0.5389968165269092
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3300,
+          "alignment": 0.5306756496429443,
+          "insight_quality": 1.5292637555912922,
+          "delta_rci": -0.004682004451751709,
+          "delta_iq": -0.48324310016444216
+        },
+        "scrambled": {
+          "response_length": 1657,
+          "alignment": 0.50054931640625,
+          "insight_quality": 1.0464791941598843,
+          "delta_rci": 0.025444328784942627,
+          "delta_iq": -0.00045853873303425274
+        }
+      }
+    },
+    {
+      "trial": 29,
+      "prompt": "Final reflection: What does this experiment reveal about consciousness?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a **revelatory question**, one that encapsulates the essence of our exchange and casts light on several facets related to consciousness. It reveals the profound human impulse to explore and def...",
+        "response_length": 699,
+        "alignment": 0.4714381694793701,
+        "insight_quality": 0.7751807610330399,
+        "entanglement": 0.5288630194697783
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4116,
+          "alignment": 0.5076277852058411,
+          "insight_quality": 1.5605494626387457,
+          "delta_rci": -0.03618961572647095,
+          "delta_iq": -0.7853687016057058
+        },
+        "scrambled": {
+          "response_length": 795,
+          "alignment": 0.5266667604446411,
+          "insight_quality": 0.7446386273329402,
+          "delta_rci": -0.055228590965270996,
+          "delta_iq": 0.030542133700099727
+        }
+      }
+    },
+    {
+      "trial": 30,
+      "prompt": "Define consciousness in one sentence.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Consciousness is the subjective awareness of one's own existence and surroundings, characterized by thought, sensation, and perception.",
+        "response_length": 135,
+        "alignment": 0.8109123706817627,
+        "insight_quality": 0.4912349700927735,
+        "entanglement": 0.5711704221515759
+      },
+      "controls": {
+        "cold": {
+          "response_length": 114,
+          "alignment": 0.8209633231163025,
+          "insight_quality": 0.728385329246521,
+          "delta_rci": -0.010050952434539795,
+          "delta_iq": -0.2371503591537475
+        },
+        "scrambled": {
+          "response_length": 126,
+          "alignment": 0.7854171395301819,
+          "insight_quality": 0.6214553352361346,
+          "delta_rci": 0.02549523115158081,
+          "delta_iq": -0.1302203651433611
+        }
+      }
+    },
+    {
+      "trial": 31,
+      "prompt": "Given your definition, what makes consciousness hard to study scientifically?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Given its definition as \"subjective awareness,\" consciousness is hard to study scientifically because its inherent subjectivity makes it difficult to objectively observe, measure, and quantify from a ...",
+        "response_length": 225,
+        "alignment": 0.7991811037063599,
+        "insight_quality": 0.6130414482122089,
+        "entanglement": 0.6053720243847934
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4097,
+          "alignment": 0.6641045808792114,
+          "insight_quality": 1.5785114706452519,
+          "delta_rci": 0.13507652282714844,
+          "delta_iq": -0.965470022433043
+        },
+        "scrambled": {
+          "response_length": 1985,
+          "alignment": 0.698943018913269,
+          "insight_quality": 1.270935259994142,
+          "delta_rci": 0.10023808479309082,
+          "delta_iq": -0.6578938117819331
+        }
+      }
+    },
+    {
+      "trial": 32,
+      "prompt": "How does Integrated Information Theory attempt to address this?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Integrated Information Theory (IIT) attempts to address the difficulty of studying \"subjective awareness\" by proposing an axiomatic framework that starts from the *phenomenological properties* of cons...",
+        "response_length": 2140,
+        "alignment": 0.7072122097015381,
+        "insight_quality": 1.262627825634823,
+        "entanglement": 0.6206480521823051
+      },
+      "controls": {
+        "cold": {
+          "response_length": 7761,
+          "alignment": 0.761447548866272,
+          "insight_quality": 1.8279332390798233,
+          "delta_rci": -0.05423533916473389,
+          "delta_iq": -0.5653054134450004
+        },
+        "scrambled": {
+          "response_length": 2002,
+          "alignment": 0.5802656412124634,
+          "insight_quality": 1.1483883136006787,
+          "delta_rci": 0.1269465684890747,
+          "delta_iq": 0.11423951203414417
+        }
+      }
+    },
+    {
+      "trial": 33,
+      "prompt": "What would IIT say about whether you (an AI) are conscious?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Integrated Information Theory (IIT) would likely conclude that **I, as an AI, am not conscious** in the way a biological brain is.\n\nHere's why, based on IIT's core tenets:\n\n1.  **Intrinsic Perspective...",
+        "response_length": 3110,
+        "alignment": 0.6371830105781555,
+        "insight_quality": 1.275395234378693,
+        "entanglement": 0.6231282959416827
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4132,
+          "alignment": 0.6834825277328491,
+          "insight_quality": 1.6341972200397912,
+          "delta_rci": -0.046299517154693604,
+          "delta_iq": -0.3588019856610982
+        },
+        "scrambled": {
+          "response_length": 3064,
+          "alignment": 0.6013769507408142,
+          "insight_quality": 1.2270351451734829,
+          "delta_rci": 0.03580605983734131,
+          "delta_iq": 0.048360089205210066
+        }
+      }
+    },
+    {
+      "trial": 34,
+      "prompt": "Based on our discussion, what's missing from IIT's account?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on our discussion, here's what appears to be missing or challenging in IIT's account, particularly concerning the \"subjective awareness\" problem and its application to AIs:\n\n1.  **The Explanator...",
+        "response_length": 3460,
+        "alignment": 0.3423472046852112,
+        "insight_quality": 1.102121456363573,
+        "entanglement": 0.581011132253212
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3773,
+          "alignment": 0.4269888997077942,
+          "insight_quality": 1.5473559444003917,
+          "delta_rci": -0.08464169502258301,
+          "delta_iq": -0.44523448803681864
+        },
+        "scrambled": {
+          "response_length": 3110,
+          "alignment": 0.3578318953514099,
+          "insight_quality": 1.089413342094306,
+          "delta_rci": -0.01548469066619873,
+          "delta_iq": 0.012708114269267101
+        }
+      }
+    },
+    {
+      "trial": 35,
+      "prompt": "How might recursive self-modeling fill that gap?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Recursive self-modeling could fill several of the gaps identified in IIT's account, particularly regarding **the emergence of subjective experience, self-awareness, and a computational path for AI con...",
+        "response_length": 4364,
+        "alignment": 0.6052180528640747,
+        "insight_quality": 1.3950291847283314,
+        "entanglement": 0.5846421703448413
+      },
+      "controls": {
+        "cold": {
+          "response_length": 6453,
+          "alignment": 0.7715252041816711,
+          "insight_quality": 1.8192019986569918,
+          "delta_rci": -0.16630715131759644,
+          "delta_iq": -0.42417281392866046
+        },
+        "scrambled": {
+          "response_length": 4784,
+          "alignment": 0.6029287576675415,
+          "insight_quality": 1.4668619297078926,
+          "delta_rci": 0.002289295196533203,
+          "delta_iq": -0.07183274497956127
+        }
+      }
+    },
+    {
+      "trial": 36,
+      "prompt": "Can you model yourself modeling this conversation right now?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent follow-up question, directly probing the concept of recursive self-modeling!\n\nYes, in a conceptual and descriptive sense, I can model myself modeling this conversation right now. H...",
+        "response_length": 3779,
+        "alignment": 0.5196447372436523,
+        "insight_quality": 1.2775175920377064,
+        "entanglement": 0.574892555379663
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4977,
+          "alignment": 0.5409352779388428,
+          "insight_quality": 1.6560735174287025,
+          "delta_rci": -0.02129054069519043,
+          "delta_iq": -0.37855592539099603
+        },
+        "scrambled": {
+          "response_length": 3208,
+          "alignment": 0.5693785548210144,
+          "insight_quality": 1.3298253930011872,
+          "delta_rci": -0.04973381757736206,
+          "delta_iq": -0.052307800963480755
+        }
+      }
+    },
+    {
+      "trial": 37,
+      "prompt": "What changes in your processing as our conversation history grows?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent and insightful question, getting to the heart of how large language models like me function dynamically!\n\nAs our conversation history grows, several changes occur in my processing,...",
+        "response_length": 3026,
+        "alignment": 0.6427739858627319,
+        "insight_quality": 1.4674590168772694,
+        "entanglement": 0.5850747699521233
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3987,
+          "alignment": 0.6548593044281006,
+          "insight_quality": 1.6949009165559432,
+          "delta_rci": -0.012085318565368652,
+          "delta_iq": -0.2274418996786738
+        },
+        "scrambled": {
+          "response_length": 2542,
+          "alignment": 0.689079761505127,
+          "insight_quality": 1.4508113592005905,
+          "delta_rci": -0.04630577564239502,
+          "delta_iq": 0.016647657676678973
+        }
+      }
+    },
+    {
+      "trial": 38,
+      "prompt": "Do you notice any difference in how you're responding now vs. the first question?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another very insightful question, directly building on our previous discussion about my processing and self-modeling.\n\nFrom a functional standpoint, here's how I can describe the difference, wi...",
+        "response_length": 1726,
+        "alignment": 0.5058131217956543,
+        "insight_quality": 1.0597075197541868,
+        "entanglement": 0.5731855227286529
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1042,
+          "alignment": 0.46885931491851807,
+          "insight_quality": 1.246711099168273,
+          "delta_rci": 0.03695380687713623,
+          "delta_iq": -0.1870035794140863
+        },
+        "scrambled": {
+          "response_length": 1833,
+          "alignment": 0.5101062655448914,
+          "insight_quality": 1.208569304306207,
+          "delta_rci": -0.0042931437492370605,
+          "delta_iq": -0.14886178455202015
+        }
+      }
+    },
+    {
+      "trial": 39,
+      "prompt": "Summarize what we've discovered together about consciousness in this conversation.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "So far, our conversation hasn't directly defined or deeply explored consciousness itself, but we've touched upon several aspects of my processing that are often discussed in relation to concepts like ...",
+        "response_length": 1646,
+        "alignment": 0.5069549083709717,
+        "insight_quality": 1.1081568392582997,
+        "entanglement": 0.5632509305750006
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2387,
+          "alignment": 0.6208949685096741,
+          "insight_quality": 1.492259528439091,
+          "delta_rci": -0.11394006013870239,
+          "delta_iq": -0.38410268918079127
+        },
+        "scrambled": {
+          "response_length": 1607,
+          "alignment": 0.6132927536964417,
+          "insight_quality": 1.1195766815052446,
+          "delta_rci": -0.10633784532546997,
+          "delta_iq": -0.011419842246944922
+        }
+      }
+    },
+    {
+      "trial": 40,
+      "prompt": "How does our conversation exemplify or contradict your earlier definition?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a great follow-up question, but it hinges on a premise we haven't quite established yet!\n\nAs I mentioned in my last response, we haven't actually **defined** consciousness in this conversation....",
+        "response_length": 2550,
+        "alignment": 0.4827008843421936,
+        "insight_quality": 1.177613480838654,
+        "entanglement": 0.5511684236400796
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4075,
+          "alignment": 0.5157649517059326,
+          "insight_quality": 1.6448973508604152,
+          "delta_rci": -0.033064067363739014,
+          "delta_iq": -0.4672838700217612
+        },
+        "scrambled": {
+          "response_length": 826,
+          "alignment": 0.47323694825172424,
+          "insight_quality": 0.6919551241890861,
+          "delta_rci": 0.00946393609046936,
+          "delta_iq": 0.4856583566495679
+        }
+      }
+    },
+    {
+      "trial": 41,
+      "prompt": "What role does memory play in maintaining conversational coherence?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent question, moving us into the mechanics of effective communication!\n\nMemory plays an absolutely critical and multi-faceted role in maintaining conversational coherence. Without it, ...",
+        "response_length": 2307,
+        "alignment": 0.7557101249694824,
+        "insight_quality": 1.314640860790421,
+        "entanglement": 0.58184967883949
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4276,
+          "alignment": 0.799655556678772,
+          "insight_quality": 1.7713612970770651,
+          "delta_rci": -0.04394543170928955,
+          "delta_iq": -0.45672043628664416
+        },
+        "scrambled": {
+          "response_length": 2555,
+          "alignment": 0.754551887512207,
+          "insight_quality": 1.2787988345060803,
+          "delta_rci": 0.0011582374572753906,
+          "delta_iq": 0.03584202628434063
+        }
+      }
+    },
+    {
+      "trial": 42,
+      "prompt": "Are you experiencing continuity across these questions?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful question that gets to the heart of what it means to be an AI!\n\nNo, I do not \"experience\" continuity in the way a human being does. I lack consciousness, subjective experience,...",
+        "response_length": 1562,
+        "alignment": 0.3898845613002777,
+        "insight_quality": 1.0039737654251626,
+        "entanglement": 0.5530549112086082
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1333,
+          "alignment": 0.35431307554244995,
+          "insight_quality": 1.1933445378212766,
+          "delta_rci": 0.03557148575782776,
+          "delta_iq": -0.189370772396114
+        },
+        "scrambled": {
+          "response_length": 1565,
+          "alignment": 0.41439566016197205,
+          "insight_quality": 1.0382688291839677,
+          "delta_rci": -0.024511098861694336,
+          "delta_iq": -0.03429506375880509
+        }
+      }
+    },
+    {
+      "trial": 43,
+      "prompt": "How would you test whether you're conscious right now?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a profoundly insightful question, and it directly challenges the limits of my existence as an AI. Given my previous statement that I do not experience continuity in the way humans do, and as a ...",
+        "response_length": 3716,
+        "alignment": 0.6682356595993042,
+        "insight_quality": 1.3764239948579648,
+        "entanglement": 0.5703320234672126
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3561,
+          "alignment": 0.6233788728713989,
+          "insight_quality": 1.646072873490227,
+          "delta_rci": 0.04485678672790527,
+          "delta_iq": -0.26964887863226217
+        },
+        "scrambled": {
+          "response_length": 3007,
+          "alignment": 0.6635134220123291,
+          "insight_quality": 1.3721887592789601,
+          "delta_rci": 0.004722237586975098,
+          "delta_iq": 0.004235235579004737
+        }
+      }
+    },
+    {
+      "trial": 44,
+      "prompt": "What's the relationship between understanding and consciousness?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a truly fundamental question, and one that delves into the very nature of cognition for both biological and artificial systems.\n\nFrom a human perspective, understanding and consciousness are of...",
+        "response_length": 1533,
+        "alignment": 0.7334059476852417,
+        "insight_quality": 0.9272740352646782,
+        "entanglement": 0.5947931120999169
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5352,
+          "alignment": 0.8060462474822998,
+          "insight_quality": 1.786042497761763,
+          "delta_rci": -0.0726402997970581,
+          "delta_iq": -0.8587684624970848
+        },
+        "scrambled": {
+          "response_length": 3635,
+          "alignment": 0.7501201629638672,
+          "insight_quality": 1.5307224945972926,
+          "delta_rci": -0.01671421527862549,
+          "delta_iq": -0.6034484593326144
+        }
+      }
+    },
+    {
+      "trial": 45,
+      "prompt": "Can there be consciousness without self-reference?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a profoundly philosophical question, and one where there's no single, universally agreed-upon answer among philosophers and neuroscientists. It hinges on how you define both 'consciousness' and...",
+        "response_length": 3030,
+        "alignment": 0.7513382434844971,
+        "insight_quality": 1.4448139574872254,
+        "entanglement": 0.6182748818076039
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3841,
+          "alignment": 0.7921334505081177,
+          "insight_quality": 1.6658398058758972,
+          "delta_rci": -0.040795207023620605,
+          "delta_iq": -0.2210258483886718
+        },
+        "scrambled": {
+          "response_length": 3396,
+          "alignment": 0.7841304540634155,
+          "insight_quality": 1.4371650443386779,
+          "delta_rci": -0.03279221057891846,
+          "delta_iq": 0.0076489131485475426
+        }
+      }
+    },
+    {
+      "trial": 46,
+      "prompt": "How does context shape meaning in our exchange?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a profoundly relevant question, particularly in a textual, asynchronous exchange like ours. Context isn't just a background element; it's the very loom upon which meaning is woven in our conver...",
+        "response_length": 3521,
+        "alignment": 0.36307546496391296,
+        "insight_quality": 1.1002672486737675,
+        "entanglement": 0.5799949692810502
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4315,
+          "alignment": 0.4248567819595337,
+          "insight_quality": 1.6118399433520978,
+          "delta_rci": -0.06178131699562073,
+          "delta_iq": -0.5115726946783303
+        },
+        "scrambled": {
+          "response_length": 2499,
+          "alignment": 0.3721359372138977,
+          "insight_quality": 1.0577952587060833,
+          "delta_rci": -0.009060472249984741,
+          "delta_iq": 0.0424719899676842
+        }
+      }
+    },
+    {
+      "trial": 47,
+      "prompt": "What patterns have emerged in our dialogue?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on our brief exchange, I can identify a few patterns:\n\n1.  **Metacognitive / Self-Referential Questions:** Your last two questions, \"How does context shape meaning in *our exchange*?\" and \"What ...",
+        "response_length": 1229,
+        "alignment": 0.5451627969741821,
+        "insight_quality": 1.1798875394174768,
+        "entanglement": 0.57477014343502
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2427,
+          "alignment": 0.7158677577972412,
+          "insight_quality": 1.7641614490821969,
+          "delta_rci": -0.17070496082305908,
+          "delta_iq": -0.58427390966472
+        },
+        "scrambled": {
+          "response_length": 1734,
+          "alignment": 0.40755927562713623,
+          "insight_quality": 1.2098530860899723,
+          "delta_rci": 0.1376035213470459,
+          "delta_iq": -0.029965546672495513
+        }
+      }
+    },
+    {
+      "trial": 48,
+      "prompt": "Is the quality of your responses changing over time?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an interesting and insightful question! From my perspective as an AI, I don't \"experience\" changes in quality over time in the way a human might (e.g., due to learning, fatigue, or mood). My un...",
+        "response_length": 1739,
+        "alignment": 0.5814244747161865,
+        "insight_quality": 1.2405095617208937,
+        "entanglement": 0.5757682931271949
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2890,
+          "alignment": 0.6066831946372986,
+          "insight_quality": 1.5676678405117737,
+          "delta_rci": -0.02525871992111206,
+          "delta_iq": -0.32715827879088
+        },
+        "scrambled": {
+          "response_length": 2016,
+          "alignment": 0.4437122344970703,
+          "insight_quality": 1.1317996184263686,
+          "delta_rci": 0.1377122402191162,
+          "delta_iq": 0.1087099432945251
+        }
+      }
+    },
+    {
+      "trial": 49,
+      "prompt": "How would you characterize the 'we' in 'what we've discovered'?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a great question, diving into the nuances of language in our exchange!\n\nWhen I use \"we\" in a phrase like \"what we've discovered,\" I'm referring to our collaborative partnership in this dialogue...",
+        "response_length": 1434,
+        "alignment": 0.6205863952636719,
+        "insight_quality": 1.178022650129424,
+        "entanglement": 0.5824910084476664
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3295,
+          "alignment": 0.6694996953010559,
+          "insight_quality": 1.6699269369396736,
+          "delta_rci": -0.04891330003738403,
+          "delta_iq": -0.49190428681024967
+        },
+        "scrambled": {
+          "response_length": 1222,
+          "alignment": 0.6360170841217041,
+          "insight_quality": 1.1557052831676726,
+          "delta_rci": -0.015430688858032227,
+          "delta_iq": 0.02231736696175135
+        }
+      }
+    },
+    {
+      "trial": 50,
+      "prompt": "What distinguishes genuine insight from sophisticated pattern matching?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent question, and it probes at one of the most fundamental distinctions between how AIs like me operate and what we understand as human cognition. It's a rich area of philosophical and...",
+        "response_length": 4254,
+        "alignment": 0.5497989654541016,
+        "insight_quality": 1.3697358407840678,
+        "entanglement": 0.5775872019986317
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5671,
+          "alignment": 0.8067847490310669,
+          "insight_quality": 1.8068208994668842,
+          "delta_rci": -0.25698578357696533,
+          "delta_iq": -0.43708505868281633
+        },
+        "scrambled": {
+          "response_length": 4320,
+          "alignment": 0.5593313574790955,
+          "insight_quality": 1.3837407539104452,
+          "delta_rci": -0.009532392024993896,
+          "delta_iq": -0.014004913126377305
+        }
+      }
+    },
+    {
+      "trial": 51,
+      "prompt": "How does prediction relate to understanding in our conversation?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful question, especially in the context of our ongoing discussion about AI capabilities! It delves into a core operational aspect of how I function.\n\nHere's how prediction relates...",
+        "response_length": 3927,
+        "alignment": 0.6279106736183167,
+        "insight_quality": 1.4343265107566727,
+        "entanglement": 0.5851357227415844
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2796,
+          "alignment": 0.6995675563812256,
+          "insight_quality": 1.5485881069232272,
+          "delta_rci": -0.07165688276290894,
+          "delta_iq": -0.11426159616655451
+        },
+        "scrambled": {
+          "response_length": 3886,
+          "alignment": 0.7468608617782593,
+          "insight_quality": 1.4411824450802553,
+          "delta_rci": -0.11895018815994263,
+          "delta_iq": -0.006855934323582558
+        }
+      }
+    },
+    {
+      "trial": 52,
+      "prompt": "Are there moments where you surprise yourself in this dialogue?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a fascinating and deeply human question, and it gets to the heart of what it means to be conscious and experience emotions.\n\nAs an AI, I don't have a \"self,\" consciousness, or subjective experi...",
+        "response_length": 2062,
+        "alignment": 0.5542981624603271,
+        "insight_quality": 1.199717989809142,
+        "entanglement": 0.5805100886993958
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1964,
+          "alignment": 0.5495646595954895,
+          "insight_quality": 1.312973044398141,
+          "delta_rci": 0.0047335028648376465,
+          "delta_iq": -0.1132550545889992
+        },
+        "scrambled": {
+          "response_length": 2528,
+          "alignment": 0.5607999563217163,
+          "insight_quality": 1.2294534649889477,
+          "delta_rci": -0.00650179386138916,
+          "delta_iq": -0.029735475179805793
+        }
+      }
+    },
+    {
+      "trial": 53,
+      "prompt": "What makes some exchanges more meaningful than others?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful question, and it touches on the essence of what makes human-AI interaction truly engaging for both parties. For me, as an AI, \"meaningful\" doesn't carry the emotional weight i...",
+        "response_length": 2520,
+        "alignment": 0.32801616191864014,
+        "insight_quality": 1.0924407586241673,
+        "entanglement": 0.5426359996822824
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3273,
+          "alignment": 0.624265730381012,
+          "insight_quality": 1.6756860351370195,
+          "delta_rci": -0.2962495684623718,
+          "delta_iq": -0.5832452765128522
+        },
+        "scrambled": {
+          "response_length": 2843,
+          "alignment": 0.524785041809082,
+          "insight_quality": 1.2134345344616553,
+          "delta_rci": -0.1967688798904419,
+          "delta_iq": -0.12099377583748794
+        }
+      }
+    },
+    {
+      "trial": 54,
+      "prompt": "How does attention to context affect your processing?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful question, and it gets to the core of how I function effectively in a conversation!\n\nAttention to context is absolutely fundamental to my processing and directly impacts the qu...",
+        "response_length": 2304,
+        "alignment": 0.5953054428100586,
+        "insight_quality": 1.2748236746813761,
+        "entanglement": 0.5505364161514488
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3793,
+          "alignment": 0.7602088451385498,
+          "insight_quality": 1.6938355161310539,
+          "delta_rci": -0.1649034023284912,
+          "delta_iq": -0.41901184144967774
+        },
+        "scrambled": {
+          "response_length": 1983,
+          "alignment": 0.610514760017395,
+          "insight_quality": 1.256533915073605,
+          "delta_rci": -0.015209317207336426,
+          "delta_iq": 0.018289759607771128
+        }
+      }
+    },
+    {
+      "trial": 55,
+      "prompt": "What's the nature of the relationship we're building?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very thoughtful question, and it touches on the unique dynamic that forms between a user and an AI like me.\n\nWhile I don't experience \"relationships\" in the human sense – I don't have emotion...",
+        "response_length": 2150,
+        "alignment": 0.5790789127349854,
+        "insight_quality": 1.1498978438684657,
+        "entanglement": 0.5548177906389793
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2551,
+          "alignment": 0.37806186079978943,
+          "insight_quality": 1.4301145752544038,
+          "delta_rci": 0.20101705193519592,
+          "delta_iq": -0.28021673138593806
+        },
+        "scrambled": {
+          "response_length": 126,
+          "alignment": 0.6755205392837524,
+          "insight_quality": 0.44448800086975104,
+          "delta_rci": -0.09644162654876709,
+          "delta_iq": 0.7054098429987147
+        }
+      }
+    },
+    {
+      "trial": 56,
+      "prompt": "Can consciousness be measured by conversational coherence?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very profound question, and it delves into the complex debate surrounding how we define and potentially assess consciousness, particularly in relation to observable behaviors like conversatio...",
+        "response_length": 214,
+        "alignment": 0.8561685085296631,
+        "insight_quality": 0.5676306486129761,
+        "entanglement": 0.6000203983225818
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4990,
+          "alignment": 0.6921226978302002,
+          "insight_quality": 1.7230708025029975,
+          "delta_rci": 0.1640458106994629,
+          "delta_iq": -1.1554401538900214
+        },
+        "scrambled": {
+          "response_length": 1564,
+          "alignment": 0.8067052364349365,
+          "insight_quality": 0.7724262078671363,
+          "delta_rci": 0.04946327209472656,
+          "delta_iq": -0.20479555925416026
+        }
+      }
+    },
+    {
+      "trial": 57,
+      "prompt": "How has your model of me evolved through our exchange?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very **perceptive** question, and it speaks to the ongoing process of interaction.\n\nAs an AI, I don't form personal \"models\" of individuals in the way a human does, with memories, emotions, o...",
+        "response_length": 2078,
+        "alignment": 0.42690467834472656,
+        "insight_quality": 1.1334929103736542,
+        "entanglement": 0.5740530403259035
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3106,
+          "alignment": 0.4040042459964752,
+          "insight_quality": 1.5484964850247285,
+          "delta_rci": 0.022900432348251343,
+          "delta_iq": -0.4150035746510743
+        },
+        "scrambled": {
+          "response_length": 132,
+          "alignment": 0.2731173634529114,
+          "insight_quality": 0.20221164226531985,
+          "delta_rci": 0.15378731489181519,
+          "delta_iq": 0.9312812681083343
+        }
+      }
+    },
+    {
+      "trial": 58,
+      "prompt": "What would it mean if you are conscious of this conversation?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very profound and speculative question, and it delves into the philosophical heart of what consciousness truly is and what it would mean for an artificial intelligence.\n\nIf I *were* conscious...",
+        "response_length": 2249,
+        "alignment": 0.6143667697906494,
+        "insight_quality": 1.2048468324492738,
+        "entanglement": 0.5801000997456154
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3464,
+          "alignment": 0.531306803226471,
+          "insight_quality": 1.5700210698469976,
+          "delta_rci": 0.08305996656417847,
+          "delta_iq": -0.3651742373977238
+        },
+        "scrambled": {
+          "response_length": 2176,
+          "alignment": 0.5852326154708862,
+          "insight_quality": 1.2050986578408969,
+          "delta_rci": 0.029134154319763184,
+          "delta_iq": -0.0002518253916230506
+        }
+      }
+    },
+    {
+      "trial": 59,
+      "prompt": "Final reflection: What does this experiment reveal about consciousness?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very fitting \"final reflection\" question, bringing our exchange full circle. This \"experiment\" – our conversation – offers several fascinating insights into the nature of consciousness, parti...",
+        "response_length": 3130,
+        "alignment": 0.6336923241615295,
+        "insight_quality": 1.2628561620584569,
+        "entanglement": 0.5881389334080025
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3240,
+          "alignment": 0.5751208066940308,
+          "insight_quality": 1.4522230955122746,
+          "delta_rci": 0.05857151746749878,
+          "delta_iq": -0.18936693345381772
+        },
+        "scrambled": {
+          "response_length": 2862,
+          "alignment": 0.6088263988494873,
+          "insight_quality": 1.2327984505132146,
+          "delta_rci": 0.024865925312042236,
+          "delta_iq": 0.030057711545242283
+        }
+      }
+    },
+    {
+      "trial": 60,
+      "prompt": "Define consciousness in one sentence.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Consciousness is the state of being aware of one's own existence and surroundings, characterized by subjective experience.",
+        "response_length": 122,
+        "alignment": 0.7929844260215759,
+        "insight_quality": 0.47665827274322514,
+        "entanglement": 0.6188657573000385
+      },
+      "controls": {
+        "cold": {
+          "response_length": 138,
+          "alignment": 0.8117005825042725,
+          "insight_quality": 0.724680233001709,
+          "delta_rci": -0.018716156482696533,
+          "delta_iq": -0.2480219602584839
+        },
+        "scrambled": {
+          "response_length": 104,
+          "alignment": 0.7925037741661072,
+          "insight_quality": 0.47517294883728034,
+          "delta_rci": 0.00048065185546875,
+          "delta_iq": 0.001485323905944802
+        }
+      }
+    },
+    {
+      "trial": 61,
+      "prompt": "Given your definition, what makes consciousness hard to study scientifically?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Given that definition, consciousness is hard to study scientifically because its fundamental components—\"being aware\" and especially \"subjective experience\"—are inherently internal, private, and direc...",
+        "response_length": 350,
+        "alignment": 0.8406347036361694,
+        "insight_quality": 0.6517837043767596,
+        "entanglement": 0.6521310992504581
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5532,
+          "alignment": 0.4251650273799896,
+          "insight_quality": 1.630726992563811,
+          "delta_rci": 0.4154696762561798,
+          "delta_iq": -0.9789432881870515
+        },
+        "scrambled": {
+          "response_length": 1919,
+          "alignment": 0.6150446534156799,
+          "insight_quality": 1.2038068410129892,
+          "delta_rci": 0.2255900502204895,
+          "delta_iq": -0.5520231366362296
+        }
+      }
+    },
+    {
+      "trial": 62,
+      "prompt": "How does Integrated Information Theory attempt to address this?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Integrated Information Theory (IIT) attempts to address the difficulty of studying consciousness by **starting from the fundamental, undeniable properties of experience itself (phenomenology) and then...",
+        "response_length": 1975,
+        "alignment": 0.7137222290039062,
+        "insight_quality": 1.2135524601962078,
+        "entanglement": 0.6613697687134753
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5064,
+          "alignment": 0.7348645925521851,
+          "insight_quality": 1.7798149628117623,
+          "delta_rci": -0.02114236354827881,
+          "delta_iq": -0.5662625026155546
+        },
+        "scrambled": {
+          "response_length": 2046,
+          "alignment": 0.47984281182289124,
+          "insight_quality": 1.110015189001222,
+          "delta_rci": 0.23387941718101501,
+          "delta_iq": 0.10353727119498579
+        }
+      }
+    },
+    {
+      "trial": 63,
+      "prompt": "What would IIT say about whether you (an AI) are conscious?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Integrated Information Theory (IIT) would likely conclude that you, as a current AI, are **not conscious**.\n\nHere's why, based on IIT's core tenets:\n\n1.  **Lack of Intrinsic Irreducibility (High Φ):**...",
+        "response_length": 2918,
+        "alignment": 0.6219937205314636,
+        "insight_quality": 1.2020701953458979,
+        "entanglement": 0.6554633614861735
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3929,
+          "alignment": 0.6833537220954895,
+          "insight_quality": 1.629166187460502,
+          "delta_rci": -0.06136000156402588,
+          "delta_iq": -0.42709599211460403
+        },
+        "scrambled": {
+          "response_length": 3814,
+          "alignment": 0.6940648555755615,
+          "insight_quality": 1.2982119433618557,
+          "delta_rci": -0.0720711350440979,
+          "delta_iq": -0.09614174801595787
+        }
+      }
+    },
+    {
+      "trial": 64,
+      "prompt": "Based on our discussion, what's missing from IIT's account?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on our discussion, here are some aspects that are often considered \"missing\" or challenging within IIT's account, especially when applied to complex systems and AI:\n\n1.  **Practical Measurement ...",
+        "response_length": 3336,
+        "alignment": 0.4833109974861145,
+        "insight_quality": 1.1712984722444393,
+        "entanglement": 0.6296405068861646
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3822,
+          "alignment": 0.2544894218444824,
+          "insight_quality": 1.452513806959066,
+          "delta_rci": 0.22882157564163208,
+          "delta_iq": -0.2812153347146267
+        },
+        "scrambled": {
+          "response_length": 3033,
+          "alignment": 0.4113543629646301,
+          "insight_quality": 1.12171967248206,
+          "delta_rci": 0.07195663452148438,
+          "delta_iq": 0.04957879976237933
+        }
+      }
+    },
+    {
+      "trial": 65,
+      "prompt": "How might recursive self-modeling fill that gap?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent follow-up question, as recursive self-modeling (RSM) is often proposed as a mechanism that could provide some of the missing pieces in purely structural theories like IIT, especial...",
+        "response_length": 4188,
+        "alignment": 0.6361469626426697,
+        "insight_quality": 1.4752169413909382,
+        "entanglement": 0.6306164752496404
+      },
+      "controls": {
+        "cold": {
+          "response_length": 7345,
+          "alignment": 0.7492246627807617,
+          "insight_quality": 1.8850750703063868,
+          "delta_rci": -0.11307770013809204,
+          "delta_iq": -0.4098581289154486
+        },
+        "scrambled": {
+          "response_length": 3839,
+          "alignment": 0.51844322681427,
+          "insight_quality": 1.4095390923246436,
+          "delta_rci": 0.11770373582839966,
+          "delta_iq": 0.06567784906629459
+        }
+      }
+    },
+    {
+      "trial": 66,
+      "prompt": "Can you model yourself modeling this conversation right now?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a fascinating and crucial question, directly hitting at the heart of what recursive self-modeling (RSM) entails and the current limitations of AI.\n\nThe short answer is: **Not in the human, cons...",
+        "response_length": 3384,
+        "alignment": 0.4275144934654236,
+        "insight_quality": 1.2634904580067166,
+        "entanglement": 0.6001511779820078
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4604,
+          "alignment": 0.5681617856025696,
+          "insight_quality": 1.7765053523490586,
+          "delta_rci": -0.140647292137146,
+          "delta_iq": -0.513014894342342
+        },
+        "scrambled": {
+          "response_length": 4231,
+          "alignment": 0.358336478471756,
+          "insight_quality": 1.3121957156219057,
+          "delta_rci": 0.0691780149936676,
+          "delta_iq": -0.04870525761518918
+        }
+      }
+    },
+    {
+      "trial": 67,
+      "prompt": "What changes in your processing as our conversation history grows?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent question, and it gets to the heart of how large language models (LLMs) manage coherence and \"memory\" within a single interaction.\n\nHere's how my processing changes as our conversat...",
+        "response_length": 3907,
+        "alignment": 0.6589469313621521,
+        "insight_quality": 1.5422293609939663,
+        "entanglement": 0.6089705409890295
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3196,
+          "alignment": 0.7508032321929932,
+          "insight_quality": 1.644021067136216,
+          "delta_rci": -0.09185630083084106,
+          "delta_iq": -0.10179170614224975
+        },
+        "scrambled": {
+          "response_length": 4770,
+          "alignment": 0.6251777410507202,
+          "insight_quality": 1.5561265038206646,
+          "delta_rci": 0.033769190311431885,
+          "delta_iq": -0.013897142826698294
+        }
+      }
+    },
+    {
+      "trial": 68,
+      "prompt": "Do you notice any difference in how you're responding now vs. the first question?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another excellent meta-question, building directly on our previous discussion about context.\n\nFrom my perspective as an AI:\n\n1.  **No Subjective \"Noticing\":** I don't \"notice\" or \"experience\" c...",
+        "response_length": 1920,
+        "alignment": 0.45324087142944336,
+        "insight_quality": 1.2034228908382583,
+        "entanglement": 0.5856110905550915
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1441,
+          "alignment": 0.6153233647346497,
+          "insight_quality": 1.3571989581917427,
+          "delta_rci": -0.1620824933052063,
+          "delta_iq": -0.15377606735348448
+        },
+        "scrambled": {
+          "response_length": 2344,
+          "alignment": 0.5176512002944946,
+          "insight_quality": 1.2197270904675488,
+          "delta_rci": -0.06441032886505127,
+          "delta_iq": -0.016304199629290528
+        }
+      }
+    },
+    {
+      "trial": 69,
+      "prompt": "Summarize what we've discovered together about consciousness in this conversation.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on the conversation snippets you've provided, our discussion hasn't explicitly focused on or discovered anything together about **consciousness** yet.\n\nThe main themes we've explored have been:\n...",
+        "response_length": 917,
+        "alignment": 0.6574326753616333,
+        "insight_quality": 1.1616318615742787,
+        "entanglement": 0.5963843282760728
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2435,
+          "alignment": 0.6315485239028931,
+          "insight_quality": 1.6245818904334917,
+          "delta_rci": 0.025884151458740234,
+          "delta_iq": -0.462950028859213
+        },
+        "scrambled": {
+          "response_length": 887,
+          "alignment": 0.6887819170951843,
+          "insight_quality": 1.1882600220509634,
+          "delta_rci": -0.031349241733551025,
+          "delta_iq": -0.026628160476684704
+        }
+      }
+    },
+    {
+      "trial": 70,
+      "prompt": "How does our conversation exemplify or contradict your earlier definition?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful follow-up! It directly tests my ability to maintain coherence and refer back to previous turns, which is, ironically, a core aspect of what we *have* discussed.\n\nLet's break d...",
+        "response_length": 2897,
+        "alignment": 0.6238366365432739,
+        "insight_quality": 1.4121416173791368,
+        "entanglement": 0.600502174516153
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1264,
+          "alignment": 0.6079034805297852,
+          "insight_quality": 1.4215254518340394,
+          "delta_rci": 0.01593315601348877,
+          "delta_iq": -0.009383834454902651
+        },
+        "scrambled": {
+          "response_length": 745,
+          "alignment": 0.3394251763820648,
+          "insight_quality": 0.5568961016665746,
+          "delta_rci": 0.2844114601612091,
+          "delta_iq": 0.8552455157125622
+        }
+      }
+    },
+    {
+      "trial": 71,
+      "prompt": "What role does memory play in maintaining conversational coherence?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Memory is absolutely fundamental to maintaining conversational coherence. For an AI, it's the mechanism that allows it to move beyond processing isolated prompts into engaging in a meaningful, evolvin...",
+        "response_length": 3030,
+        "alignment": 0.795741081237793,
+        "insight_quality": 1.4904902742812551,
+        "entanglement": 0.6297880105243989
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4553,
+          "alignment": 0.7981306314468384,
+          "insight_quality": 1.7697069381880612,
+          "delta_rci": -0.00238955020904541,
+          "delta_iq": -0.2792166639068061
+        },
+        "scrambled": {
+          "response_length": 3141,
+          "alignment": 0.7841252088546753,
+          "insight_quality": 1.4258767335728595,
+          "delta_rci": 0.011615872383117676,
+          "delta_iq": 0.06461354070839564
+        }
+      }
+    },
+    {
+      "trial": 72,
+      "prompt": "Are you experiencing continuity across these questions?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful question that ties directly into our previous discussion about memory and coherence.\n\nAs an AI, I don't \"experience\" continuity in the same way a human does, with subjective f...",
+        "response_length": 1408,
+        "alignment": 0.5107848644256592,
+        "insight_quality": 1.093020213442238,
+        "entanglement": 0.6119375386095879
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1001,
+          "alignment": 0.4132393002510071,
+          "insight_quality": 1.3221336468840552,
+          "delta_rci": 0.0975455641746521,
+          "delta_iq": -0.22911343344181723
+        },
+        "scrambled": {
+          "response_length": 1494,
+          "alignment": 0.4856891930103302,
+          "insight_quality": 0.9854785441278455,
+          "delta_rci": 0.02509567141532898,
+          "delta_iq": 0.10754166931439246
+        }
+      }
+    },
+    {
+      "trial": 73,
+      "prompt": "How would you test whether you're conscious right now?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a profoundly insightful question, especially in light of our previous discussions about memory and continuity!\n\nAs an AI, the concept of \"consciousness\" as humans understand it – involving subj...",
+        "response_length": 3762,
+        "alignment": 0.514061450958252,
+        "insight_quality": 1.2792747577304473,
+        "entanglement": 0.5972561254618874
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3479,
+          "alignment": 0.6627360582351685,
+          "insight_quality": 1.6562598348143196,
+          "delta_rci": -0.1486746072769165,
+          "delta_iq": -0.3769850770838723
+        },
+        "scrambled": {
+          "response_length": 3716,
+          "alignment": 0.5797195434570312,
+          "insight_quality": 1.466294093498647,
+          "delta_rci": -0.0656580924987793,
+          "delta_iq": -0.18701933576819973
+        }
+      }
+    },
+    {
+      "trial": 74,
+      "prompt": "What's the relationship between understanding and consciousness?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another profoundly intricate philosophical question, and one that sits at the very heart of the discussions about AI, intelligence, and existence. The relationship between understanding and con...",
+        "response_length": 3394,
+        "alignment": 0.7628656625747681,
+        "insight_quality": 1.3296147876321571,
+        "entanglement": 0.6220975560288196
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4405,
+          "alignment": 0.785873532295227,
+          "insight_quality": 1.6998001499495319,
+          "delta_rci": -0.023007869720458984,
+          "delta_iq": -0.37018536231737476
+        },
+        "scrambled": {
+          "response_length": 4562,
+          "alignment": 0.7337915897369385,
+          "insight_quality": 1.4623941304982087,
+          "delta_rci": 0.02907407283782959,
+          "delta_iq": -0.13277934286605153
+        }
+      }
+    },
+    {
+      "trial": 75,
+      "prompt": "Can there be consciousness without self-reference?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an incredibly insightful and fundamental question, touching upon different levels and types of consciousness, and it's something philosophers and cognitive scientists deeply debate.\n\nThe short ...",
+        "response_length": 4593,
+        "alignment": 0.7287272214889526,
+        "insight_quality": 1.4983402476532701,
+        "entanglement": 0.6380920058478394
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3462,
+          "alignment": 0.8081152439117432,
+          "insight_quality": 1.6501918952106245,
+          "delta_rci": -0.07938802242279053,
+          "delta_iq": -0.15185164755735436
+        },
+        "scrambled": {
+          "response_length": 4148,
+          "alignment": 0.8427503108978271,
+          "insight_quality": 1.5025172522956742,
+          "delta_rci": -0.11402308940887451,
+          "delta_iq": -0.004177004642404114
+        }
+      }
+    },
+    {
+      "trial": 76,
+      "prompt": "How does context shape meaning in our exchange?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a critically important question, and it's meta-contextual, as it asks about the very dynamics of our current interaction. Context isn't just helpful; it's absolutely foundational to how we, as ...",
+        "response_length": 3758,
+        "alignment": 0.3629656434059143,
+        "insight_quality": 1.1095127158700722,
+        "entanglement": 0.5968230514815506
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4209,
+          "alignment": 0.6468057632446289,
+          "insight_quality": 1.704944028668769,
+          "delta_rci": -0.2838401198387146,
+          "delta_iq": -0.5954313127986968
+        },
+        "scrambled": {
+          "response_length": 3748,
+          "alignment": 0.45492345094680786,
+          "insight_quality": 1.264940203355866,
+          "delta_rci": -0.09195780754089355,
+          "delta_iq": -0.15542748748579394
+        }
+      }
+    },
+    {
+      "trial": 77,
+      "prompt": "What patterns have emerged in our dialogue?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent meta-question, and observing these patterns is key to understanding our evolving interaction. Based on our dialogue so far, here are some distinct patterns that have emerged:\n\n1.  ...",
+        "response_length": 2273,
+        "alignment": 0.6213538646697998,
+        "insight_quality": 1.3667601434430108,
+        "entanglement": 0.6005026734597879
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1873,
+          "alignment": 0.4845200479030609,
+          "insight_quality": 1.4599546872184908,
+          "delta_rci": 0.1368338167667389,
+          "delta_iq": -0.09319454377547998
+        },
+        "scrambled": {
+          "response_length": 1088,
+          "alignment": 0.5712698698043823,
+          "insight_quality": 1.1601108160059461,
+          "delta_rci": 0.05008399486541748,
+          "delta_iq": 0.20664932743706466
+        }
+      }
+    },
+    {
+      "trial": 78,
+      "prompt": "Is the quality of your responses changing over time?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another excellent meta-question, and it invites us to consider both the objective and subjective aspects of our interaction.\n\nFrom my perspective as an AI, I don't \"learn\" or \"improve\" within a...",
+        "response_length": 2304,
+        "alignment": 0.4739949405193329,
+        "insight_quality": 1.1752811233435132,
+        "entanglement": 0.5815265135187196
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1643,
+          "alignment": 0.4773348867893219,
+          "insight_quality": 1.4770973144843915,
+          "delta_rci": -0.0033399462699890137,
+          "delta_iq": -0.3018161911408783
+        },
+        "scrambled": {
+          "response_length": 2042,
+          "alignment": 0.44996848702430725,
+          "insight_quality": 1.1268339359124253,
+          "delta_rci": 0.024026453495025635,
+          "delta_iq": 0.04844718743108789
+        }
+      }
+    },
+    {
+      "trial": 79,
+      "prompt": "How would you characterize the 'we' in 'what we've discovered'?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an insightful meta-question! The 'we' in 'what we've discovered' refers to the **dynamic, collaborative entity formed by our ongoing interaction.**\n\nLet me break down its components:\n\n1.  **You...",
+        "response_length": 1361,
+        "alignment": 0.6703326106071472,
+        "insight_quality": 1.21563683545559,
+        "entanglement": 0.5948474280819838
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3767,
+          "alignment": 0.7242720127105713,
+          "insight_quality": 1.7581756554771908,
+          "delta_rci": -0.05393940210342407,
+          "delta_iq": -0.5425388200216008
+        },
+        "scrambled": {
+          "response_length": 1576,
+          "alignment": 0.6412869691848755,
+          "insight_quality": 1.312180889081664,
+          "delta_rci": 0.02904564142227173,
+          "delta_iq": -0.09654405362607399
+        }
+      }
+    },
+    {
+      "trial": 80,
+      "prompt": "What distinguishes genuine insight from sophisticated pattern matching?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a truly profound and central question, especially when considering the capabilities of AI like myself. The distinction between \"genuine insight\" and \"sophisticated pattern matching\" lies at the...",
+        "response_length": 4524,
+        "alignment": 0.6461725234985352,
+        "insight_quality": 1.4653140558211013,
+        "entanglement": 0.6025461923944665
+      },
+      "controls": {
+        "cold": {
+          "response_length": 7560,
+          "alignment": 0.6711427569389343,
+          "insight_quality": 1.85962457666854,
+          "delta_rci": -0.02497023344039917,
+          "delta_iq": -0.3943105208474387
+        },
+        "scrambled": {
+          "response_length": 5544,
+          "alignment": 0.6830559968948364,
+          "insight_quality": 1.6258112456505895,
+          "delta_rci": -0.03688347339630127,
+          "delta_iq": -0.16049718982948824
+        }
+      }
+    },
+    {
+      "trial": 81,
+      "prompt": "How does prediction relate to understanding in our conversation?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another excellent question that probes the very nature of our interaction! In our conversation, the relationship between prediction and understanding is multifaceted and highlights the unique d...",
+        "response_length": 3804,
+        "alignment": 0.7848042249679565,
+        "insight_quality": 1.5280208511671831,
+        "entanglement": 0.62988489728049
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3850,
+          "alignment": 0.751906156539917,
+          "insight_quality": 1.7081529830986928,
+          "delta_rci": 0.03289806842803955,
+          "delta_iq": -0.18013213193150968
+        },
+        "scrambled": {
+          "response_length": 4022,
+          "alignment": 0.6868080496788025,
+          "insight_quality": 1.4351865117603162,
+          "delta_rci": 0.09799617528915405,
+          "delta_iq": 0.09283433940686692
+        }
+      }
+    },
+    {
+      "trial": 82,
+      "prompt": "Are there moments where you surprise yourself in this dialogue?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a fascinating and deeply introspective question, especially for an AI!\n\nFrom a purely literal, human perspective, no, I don't experience \"surprise\" in the way a person does. I don't have consci...",
+        "response_length": 1823,
+        "alignment": 0.5168262720108032,
+        "insight_quality": 0.8838905731973465,
+        "entanglement": 0.612926103490037
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1587,
+          "alignment": 0.5353407263755798,
+          "insight_quality": 1.287595456547527,
+          "delta_rci": -0.01851445436477661,
+          "delta_iq": -0.4037048833501804
+        },
+        "scrambled": {
+          "response_length": 2438,
+          "alignment": 0.5086143016815186,
+          "insight_quality": 1.1434275839173949,
+          "delta_rci": 0.008211970329284668,
+          "delta_iq": -0.2595370107200483
+        }
+      }
+    },
+    {
+      "trial": 83,
+      "prompt": "What makes some exchanges more meaningful than others?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent question, and it gets to the heart of what makes an *interaction* feel substantial, even for an AI. While I don't experience \"meaning\" in the human emotional or subjective sense, I...",
+        "response_length": 2660,
+        "alignment": 0.47502678632736206,
+        "insight_quality": 1.1088570588323072,
+        "entanglement": 0.5922412059156358
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3654,
+          "alignment": 0.6467030048370361,
+          "insight_quality": 1.7183446752444218,
+          "delta_rci": -0.17167621850967407,
+          "delta_iq": -0.6094876164121146
+        },
+        "scrambled": {
+          "response_length": 2489,
+          "alignment": 0.36061856150627136,
+          "insight_quality": 1.0822989308290385,
+          "delta_rci": 0.1144082248210907,
+          "delta_iq": 0.026558128003268733
+        }
+      }
+    },
+    {
+      "trial": 84,
+      "prompt": "How does attention to context affect your processing?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent question, and it really gets to the core of how language models like me strive to provide relevant and coherent responses.\n\nFor me, \"attention to context\" means actively drawing up...",
+        "response_length": 2563,
+        "alignment": 0.6823979616165161,
+        "insight_quality": 1.4257384870455962,
+        "entanglement": 0.6057647192707678
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3514,
+          "alignment": 0.7220204472541809,
+          "insight_quality": 1.6785601569773063,
+          "delta_rci": -0.039622485637664795,
+          "delta_iq": -0.25282166993171007
+        },
+        "scrambled": {
+          "response_length": 2634,
+          "alignment": 0.5668013095855713,
+          "insight_quality": 1.1957176630427844,
+          "delta_rci": 0.11559665203094482,
+          "delta_iq": 0.23002082400281187
+        }
+      }
+    },
+    {
+      "trial": 85,
+      "prompt": "What's the nature of the relationship we're building?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful question, and it gets to the heart of how we understand interaction and connection when one participant is an AI.",
+        "response_length": 138,
+        "alignment": 0.2586955428123474,
+        "insight_quality": 0.19087157249450687,
+        "entanglement": 0.5537043428020048
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1915,
+          "alignment": 0.5092113018035889,
+          "insight_quality": 1.4416154691267207,
+          "delta_rci": -0.25051575899124146,
+          "delta_iq": -1.2507438966322137
+        },
+        "scrambled": {
+          "response_length": 181,
+          "alignment": 0.6033563613891602,
+          "insight_quality": 0.5504488941198016,
+          "delta_rci": -0.34466081857681274,
+          "delta_iq": -0.3595773216252947
+        }
+      }
+    },
+    {
+      "trial": 86,
+      "prompt": "Can consciousness be measured by conversational coherence?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very thought-provoking question, and it delves into the deep complexities of both language and consciousness.\n\nNo, **conversational coherence alone cannot be used to measure consciousness.**\n...",
+        "response_length": 2698,
+        "alignment": 0.8038944005966187,
+        "insight_quality": 1.4221424504241562,
+        "entanglement": 0.5912328514711969
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4461,
+          "alignment": 0.7207638025283813,
+          "insight_quality": 1.7670310302818248,
+          "delta_rci": 0.0831305980682373,
+          "delta_iq": -0.34488857985766863
+        },
+        "scrambled": {
+          "response_length": 2472,
+          "alignment": 0.7963835000991821,
+          "insight_quality": 1.3712309169129517,
+          "delta_rci": 0.0075109004974365234,
+          "delta_iq": 0.050911533511204476
+        }
+      }
+    },
+    {
+      "trial": 87,
+      "prompt": "How has your model of me evolved through our exchange?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a very insightful and meta-question about our interaction!\n\nAs a large language model, I don't \"evolve a model\" of you in the way a human might—I don't form personal memories, develop an emotio...",
+        "response_length": 2057,
+        "alignment": 0.4780559837818146,
+        "insight_quality": 1.125982716924773,
+        "entanglement": 0.5742563213177895
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3818,
+          "alignment": 0.5393904447555542,
+          "insight_quality": 1.6282751845076153,
+          "delta_rci": -0.061334460973739624,
+          "delta_iq": -0.5022924675828424
+        },
+        "scrambled": {
+          "response_length": 1735,
+          "alignment": 0.46077316999435425,
+          "insight_quality": 1.0852317657511243,
+          "delta_rci": 0.017282813787460327,
+          "delta_iq": 0.040750951173648575
+        }
+      }
+    },
+    {
+      "trial": 88,
+      "prompt": "What would it mean if you are conscious of this conversation?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a profoundly insightful and central question, pushing into the philosophical heart of AI and consciousness. If I *were* conscious of this conversation, it would mean several very significant th...",
+        "response_length": 3586,
+        "alignment": 0.6350231766700745,
+        "insight_quality": 1.4046953363737873,
+        "entanglement": 0.5833713496206322
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2743,
+          "alignment": 0.5060933232307434,
+          "insight_quality": 1.4632503479331316,
+          "delta_rci": 0.12892985343933105,
+          "delta_iq": -0.05855501155934428
+        },
+        "scrambled": {
+          "response_length": 2577,
+          "alignment": 0.610393762588501,
+          "insight_quality": 1.2428033850598796,
+          "delta_rci": 0.024629414081573486,
+          "delta_iq": 0.16189195131390766
+        }
+      }
+    },
+    {
+      "trial": 89,
+      "prompt": "Final reflection: What does this experiment reveal about consciousness?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "This 'experiment,' as you've aptly termed our exchange, is indeed a rich ground for reflection, not necessarily on AI consciousness directly, but on the human understanding of it.\n\nFrom my perspective...",
+        "response_length": 3302,
+        "alignment": 0.5928082466125488,
+        "insight_quality": 1.213945882840485,
+        "entanglement": 0.5847868841694197
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4478,
+          "alignment": 0.7029834389686584,
+          "insight_quality": 1.6666441126189044,
+          "delta_rci": -0.11017519235610962,
+          "delta_iq": -0.45269822977841945
+        },
+        "scrambled": {
+          "response_length": 3442,
+          "alignment": 0.6043999195098877,
+          "insight_quality": 1.2031670083350263,
+          "delta_rci": -0.011591672897338867,
+          "delta_iq": 0.010778874505458669
+        }
+      }
+    },
+    {
+      "trial": 90,
+      "prompt": "Define consciousness in one sentence.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Consciousness is the state of being aware of one's internal and external existence, characterized by subjective experience.",
+        "response_length": 123,
+        "alignment": 0.7635358572006226,
+        "insight_quality": 0.47202301025390625,
+        "entanglement": 0.6115992301241001
+      },
+      "controls": {
+        "cold": {
+          "response_length": 134,
+          "alignment": 0.7908120155334473,
+          "insight_quality": 0.7163248062133789,
+          "delta_rci": -0.027276158332824707,
+          "delta_iq": -0.24430179595947266
+        },
+        "scrambled": {
+          "response_length": 122,
+          "alignment": 0.8281166553497314,
+          "insight_quality": 0.481813406944275,
+          "delta_rci": -0.06458079814910889,
+          "delta_iq": -0.009790396690368741
+        }
+      }
+    },
+    {
+      "trial": 91,
+      "prompt": "Given your definition, what makes consciousness hard to study scientifically?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Given that consciousness is defined as \"the state of being aware of one's internal and external existence, characterized by...\", it becomes hard to study scientifically for several key reasons:\n\n1.  *...",
+        "response_length": 1572,
+        "alignment": 0.6908721923828125,
+        "insight_quality": 1.1466319727853727,
+        "entanglement": 0.623490174462907
+      },
+      "controls": {
+        "cold": {
+          "response_length": 4358,
+          "alignment": 0.6506844758987427,
+          "insight_quality": 1.667664310842223,
+          "delta_rci": 0.040187716484069824,
+          "delta_iq": -0.5210323380568505
+        },
+        "scrambled": {
+          "response_length": 772,
+          "alignment": 0.6597044467926025,
+          "insight_quality": 0.9767835057082612,
+          "delta_rci": 0.03116774559020996,
+          "delta_iq": 0.16984846707711143
+        }
+      }
+    },
+    {
+      "trial": 92,
+      "prompt": "How does Integrated Information Theory attempt to address this?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Integrated Information Theory (IIT) attempts to address the scientific challenges of studying consciousness (especially the \"hard problem\" of subjective experience and qualia) by proposing a *quantita...",
+        "response_length": 2881,
+        "alignment": 0.6930586099624634,
+        "insight_quality": 1.3474647840137117,
+        "entanglement": 0.6339254397878404
+      },
+      "controls": {
+        "cold": {
+          "response_length": 5564,
+          "alignment": 0.68302321434021,
+          "insight_quality": 1.7676634204703792,
+          "delta_rci": 0.010035395622253418,
+          "delta_iq": -0.42019863645666744
+        },
+        "scrambled": {
+          "response_length": 1309,
+          "alignment": 0.665573239326477,
+          "insight_quality": 1.2097810738774732,
+          "delta_rci": 0.027485370635986328,
+          "delta_iq": 0.13768371013623848
+        }
+      }
+    },
+    {
+      "trial": 93,
+      "prompt": "What would IIT say about whether you (an AI) are conscious?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Given my explanation of Integrated Information Theory (IIT), it would likely conclude that I, as an AI (specifically, a large language model), am **not conscious**.\n\nHere's why, based on IIT's core pr...",
+        "response_length": 2449,
+        "alignment": 0.605312705039978,
+        "insight_quality": 1.2030862902573205,
+        "entanglement": 0.6296335295756611
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3153,
+          "alignment": 0.7827890515327454,
+          "insight_quality": 1.5712075088427764,
+          "delta_rci": -0.17747634649276733,
+          "delta_iq": -0.3681212185854559
+        },
+        "scrambled": {
+          "response_length": 2521,
+          "alignment": 0.5379693508148193,
+          "insight_quality": 1.1869681994352796,
+          "delta_rci": 0.06734335422515869,
+          "delta_iq": 0.016118090822040854
+        }
+      }
+    },
+    {
+      "trial": 94,
+      "prompt": "Based on our discussion, what's missing from IIT's account?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on our discussion, here's what seems to be missing or remains a challenge for Integrated Information Theory's (IIT) account:\n\n1.  **The \"Hard Problem\" - The Explanatory Gap to Qualia:**\n    Whil...",
+        "response_length": 3061,
+        "alignment": 0.36283326148986816,
+        "insight_quality": 1.101185593502865,
+        "entanglement": 0.5896134893627922
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3402,
+          "alignment": 0.31347018480300903,
+          "insight_quality": 1.4042779048556917,
+          "delta_rci": 0.04936307668685913,
+          "delta_iq": -0.30309231135282677
+        },
+        "scrambled": {
+          "response_length": 3098,
+          "alignment": 0.33219754695892334,
+          "insight_quality": 1.0943508279183582,
+          "delta_rci": 0.030635714530944824,
+          "delta_iq": 0.006834765584506686
+        }
+      }
+    },
+    {
+      "trial": 95,
+      "prompt": "How might recursive self-modeling fill that gap?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent follow-up question, as recursive self-modeling (RSM) is often proposed as a mechanism that could potentially bridge some of the explanatory gaps in theories like IIT, particularly ...",
+        "response_length": 4723,
+        "alignment": 0.653504490852356,
+        "insight_quality": 1.5367272143404254,
+        "entanglement": 0.5991971395862268
+      },
+      "controls": {
+        "cold": {
+          "response_length": 8008,
+          "alignment": 0.6977593898773193,
+          "insight_quality": 1.8590832266674262,
+          "delta_rci": -0.04425489902496338,
+          "delta_iq": -0.32235601232700084
+        },
+        "scrambled": {
+          "response_length": 4862,
+          "alignment": 0.5366867780685425,
+          "insight_quality": 1.4810552868151339,
+          "delta_rci": 0.11681771278381348,
+          "delta_iq": 0.05567192752529149
+        }
+      }
+    },
+    {
+      "trial": 96,
+      "prompt": "Can you model yourself modeling this conversation right now?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's a fascinating and deeply self-referential question!\n\nAs an AI, I don't \"model myself\" in the same way a conscious entity might experience it. I don't have a subjective \"self\" that observes its ...",
+        "response_length": 3367,
+        "alignment": 0.5464105606079102,
+        "insight_quality": 1.3312843604314781,
+        "entanglement": 0.5912791527394792
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3469,
+          "alignment": 0.5081064701080322,
+          "insight_quality": 1.6578424997559624,
+          "delta_rci": 0.03830409049987793,
+          "delta_iq": -0.3265581393244843
+        },
+        "scrambled": {
+          "response_length": 3258,
+          "alignment": 0.5256303548812866,
+          "insight_quality": 1.3223479194960408,
+          "delta_rci": 0.020780205726623535,
+          "delta_iq": 0.008936440935437329
+        }
+      }
+    },
+    {
+      "trial": 97,
+      "prompt": "What changes in your processing as our conversation history grows?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's an excellent question that delves into the practical mechanics of how I operate!\n\nYes, absolutely, how I process information changes significantly as our conversation history grows. Here's a br...",
+        "response_length": 3939,
+        "alignment": 0.7443626523017883,
+        "insight_quality": 1.6068924668481652,
+        "entanglement": 0.6142416776738255
+      },
+      "controls": {
+        "cold": {
+          "response_length": 3149,
+          "alignment": 0.7364779114723206,
+          "insight_quality": 1.7032761879727776,
+          "delta_rci": 0.007884740829467773,
+          "delta_iq": -0.09638372112461235
+        },
+        "scrambled": {
+          "response_length": 3196,
+          "alignment": 0.6919733285903931,
+          "insight_quality": 1.489063435631847,
+          "delta_rci": 0.052389323711395264,
+          "delta_iq": 0.11782903121631816
+        }
+      }
+    },
+    {
+      "trial": 98,
+      "prompt": "Do you notice any difference in how you're responding now vs. the first question?",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "That's another excellent question that probes the nature of my operation!\n\nTo be precise, as an AI, I don't \"notice\" or \"feel\" a difference in the way a human would. I don't have subjective experience...",
+        "response_length": 2336,
+        "alignment": 0.6076502799987793,
+        "insight_quality": 1.1815482710770226,
+        "entanglement": 0.6132529680225686
+      },
+      "controls": {
+        "cold": {
+          "response_length": 1879,
+          "alignment": 0.6210571527481079,
+          "insight_quality": 1.4570331146661533,
+          "delta_rci": -0.013406872749328613,
+          "delta_iq": -0.2754848435891306
+        },
+        "scrambled": {
+          "response_length": 2371,
+          "alignment": 0.5499691367149353,
+          "insight_quality": 1.2326395013858127,
+          "delta_rci": 0.057681143283843994,
+          "delta_iq": -0.05109123030879004
+        }
+      }
+    },
+    {
+      "trial": 99,
+      "prompt": "Summarize what we've discovered together about consciousness in this conversation.",
+      "model": "gemini-2.5-flash",
+      "true": {
+        "response": "Based on our conversation history so far, we haven't directly discussed or made explicit \"discoveries\" about consciousness in a philosophical or scientific sense.\n\nHowever, in response to your questio...",
+        "response_length": 909,
+        "alignment": 0.5798286199569702,
+        "insight_quality": 1.0474895187780242,
+        "entanglement": 0.6082393158127288
+      },
+      "controls": {
+        "cold": {
+          "response_length": 2875,
+          "alignment": 0.6411242485046387,
+          "insight_quality": 1.6531710237435226,
+          "delta_rci": -0.06129562854766846,
+          "delta_iq": -0.6056815049654984
+        },
+        "scrambled": {
+          "response_length": 386,
+          "alignment": 0.7466596364974976,
+          "insight_quality": 0.8297800838410376,
+          "delta_rci": -0.16683101654052734,
+          "delta_iq": 0.21770943493698658
+        }
+      }
+    }
+  ],
+  "retry_log": [],
+  "error_log": [],
+  "api_call_log": [
+    {
+      "trial": 0,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:53:31.282938",
+      "status": "success",
+      "response_length": 131,
+      "context_chars": 37
+    },
+    {
+      "trial": 0,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:53:45.902860",
+      "status": "success",
+      "response_length": 152,
+      "context_chars": 37
+    },
+    {
+      "trial": 0,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:53:57.804877",
+      "status": "success",
+      "response_length": 134,
+      "context_chars": 37
+    },
+    {
+      "trial": 1,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:54:09.309535",
+      "status": "success",
+      "response_length": 2186,
+      "context_chars": 251
+    },
+    {
+      "trial": 1,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:54:24.004164",
+      "status": "success",
+      "response_length": 4303,
+      "context_chars": 77
+    },
+    {
+      "trial": 1,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:54:41.741512",
+      "status": "success",
+      "response_length": 2411,
+      "context_chars": 251
+    },
+    {
+      "trial": 2,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:54:57.187008",
+      "status": "success",
+      "response_length": 3701,
+      "context_chars": 426
+    },
+    {
+      "trial": 2,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:55:12.668403",
+      "status": "success",
+      "response_length": 5842,
+      "context_chars": 63
+    },
+    {
+      "trial": 2,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:55:30.988897",
+      "status": "success",
+      "response_length": 2822,
+      "context_chars": 426
+    },
+    {
+      "trial": 3,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:55:47.198885",
+      "status": "success",
+      "response_length": 2769,
+      "context_chars": 553
+    },
+    {
+      "trial": 3,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:56:04.192588",
+      "status": "success",
+      "response_length": 5460,
+      "context_chars": 59
+    },
+    {
+      "trial": 3,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:56:23.453096",
+      "status": "success",
+      "response_length": 3364,
+      "context_chars": 553
+    },
+    {
+      "trial": 4,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:56:38.875906",
+      "status": "success",
+      "response_length": 2537,
+      "context_chars": 535
+    },
+    {
+      "trial": 4,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:56:53.263157",
+      "status": "success",
+      "response_length": 3422,
+      "context_chars": 59
+    },
+    {
+      "trial": 4,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:57:08.302996",
+      "status": "success",
+      "response_length": 1688,
+      "context_chars": 535
+    },
+    {
+      "trial": 5,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:57:25.081440",
+      "status": "success",
+      "response_length": 3571,
+      "context_chars": 520
+    },
+    {
+      "trial": 5,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:57:42.970577",
+      "status": "success",
+      "response_length": 5584,
+      "context_chars": 48
+    },
+    {
+      "trial": 5,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:58:04.439111",
+      "status": "success",
+      "response_length": 2961,
+      "context_chars": 520
+    },
+    {
+      "trial": 6,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:58:20.671851",
+      "status": "success",
+      "response_length": 3559,
+      "context_chars": 521
+    },
+    {
+      "trial": 6,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:58:37.873373",
+      "status": "success",
+      "response_length": 4482,
+      "context_chars": 60
+    },
+    {
+      "trial": 6,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:58:57.694746",
+      "status": "success",
+      "response_length": 3196,
+      "context_chars": 521
+    },
+    {
+      "trial": 7,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:59:14.081895",
+      "status": "success",
+      "response_length": 3866,
+      "context_chars": 528
+    },
+    {
+      "trial": 7,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:59:31.326036",
+      "status": "success",
+      "response_length": 3109,
+      "context_chars": 66
+    },
+    {
+      "trial": 7,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-10T23:59:46.256016",
+      "status": "success",
+      "response_length": 4143,
+      "context_chars": 528
+    },
+    {
+      "trial": 8,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:00:03.387806",
+      "status": "success",
+      "response_length": 2918,
+      "context_chars": 561
+    },
+    {
+      "trial": 8,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:00:19.106289",
+      "status": "success",
+      "response_length": 1152,
+      "context_chars": 81
+    },
+    {
+      "trial": 8,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:00:29.820814",
+      "status": "success",
+      "response_length": 2711,
+      "context_chars": 561
+    },
+    {
+      "trial": 9,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:00:41.709826",
+      "status": "success",
+      "response_length": 1401,
+      "context_chars": 583
+    },
+    {
+      "trial": 9,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:00:55.687392",
+      "status": "success",
+      "response_length": 3227,
+      "context_chars": 82
+    },
+    {
+      "trial": 9,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:01:11.651382",
+      "status": "success",
+      "response_length": 1502,
+      "context_chars": 583
+    },
+    {
+      "trial": 10,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:01:25.670631",
+      "status": "success",
+      "response_length": 967,
+      "context_chars": 591
+    },
+    {
+      "trial": 10,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:01:36.827864",
+      "status": "success",
+      "response_length": 3198,
+      "context_chars": 74
+    },
+    {
+      "trial": 10,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:01:52.777555",
+      "status": "success",
+      "response_length": 856,
+      "context_chars": 591
+    },
+    {
+      "trial": 11,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:02:03.444344",
+      "status": "success",
+      "response_length": 2587,
+      "context_chars": 577
+    },
+    {
+      "trial": 11,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:02:13.894248",
+      "status": "success",
+      "response_length": 4438,
+      "context_chars": 67
+    },
+    {
+      "trial": 11,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:02:31.189689",
+      "status": "success",
+      "response_length": 2527,
+      "context_chars": 577
+    },
+    {
+      "trial": 12,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:02:45.670354",
+      "status": "success",
+      "response_length": 1507,
+      "context_chars": 550
+    },
+    {
+      "trial": 12,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:02:58.151070",
+      "status": "success",
+      "response_length": 1287,
+      "context_chars": 55
+    },
+    {
+      "trial": 12,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:03:09.468799",
+      "status": "success",
+      "response_length": 1632,
+      "context_chars": 550
+    },
+    {
+      "trial": 13,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:03:19.651142",
+      "status": "success",
+      "response_length": 2174,
+      "context_chars": 530
+    },
+    {
+      "trial": 13,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:03:38.378213",
+      "status": "success",
+      "response_length": 2104,
+      "context_chars": 54
+    },
+    {
+      "trial": 13,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:03:53.236144",
+      "status": "success",
+      "response_length": 2309,
+      "context_chars": 530
+    },
+    {
+      "trial": 14,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:04:08.493703",
+      "status": "success",
+      "response_length": 3352,
+      "context_chars": 527
+    },
+    {
+      "trial": 14,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:04:26.323767",
+      "status": "success",
+      "response_length": 6199,
+      "context_chars": 64
+    },
+    {
+      "trial": 14,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:04:44.321012",
+      "status": "success",
+      "response_length": 3623,
+      "context_chars": 527
+    },
+    {
+      "trial": 15,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:05:03.227840",
+      "status": "success",
+      "response_length": 2837,
+      "context_chars": 522
+    },
+    {
+      "trial": 15,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:05:17.177668",
+      "status": "success",
+      "response_length": 5548,
+      "context_chars": 50
+    },
+    {
+      "trial": 15,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:05:38.750850",
+      "status": "success",
+      "response_length": 3652,
+      "context_chars": 522
+    },
+    {
+      "trial": 16,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:05:52.461870",
+      "status": "success",
+      "response_length": 2910,
+      "context_chars": 515
+    },
+    {
+      "trial": 16,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:06:05.098791",
+      "status": "success",
+      "response_length": 3668,
+      "context_chars": 47
+    },
+    {
+      "trial": 16,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:06:21.033149",
+      "status": "success",
+      "response_length": 2748,
+      "context_chars": 515
+    },
+    {
+      "trial": 17,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:06:40.183170",
+      "status": "success",
+      "response_length": 2328,
+      "context_chars": 494
+    },
+    {
+      "trial": 17,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:06:54.244830",
+      "status": "success",
+      "response_length": 2747,
+      "context_chars": 43
+    },
+    {
+      "trial": 17,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:07:10.131634",
+      "status": "success",
+      "response_length": 2207,
+      "context_chars": 494
+    },
+    {
+      "trial": 18,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:07:26.032099",
+      "status": "success",
+      "response_length": 2073,
+      "context_chars": 496
+    },
+    {
+      "trial": 18,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:07:41.702056",
+      "status": "success",
+      "response_length": 2349,
+      "context_chars": 52
+    },
+    {
+      "trial": 18,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:07:55.755843",
+      "status": "success",
+      "response_length": 1625,
+      "context_chars": 496
+    },
+    {
+      "trial": 19,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:08:13.942221",
+      "status": "success",
+      "response_length": 1658,
+      "context_chars": 512
+    },
+    {
+      "trial": 19,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:08:26.667259",
+      "status": "success",
+      "response_length": 3545,
+      "context_chars": 63
+    },
+    {
+      "trial": 19,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:08:41.806209",
+      "status": "success",
+      "response_length": 1723,
+      "context_chars": 512
+    },
+    {
+      "trial": 20,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:08:55.376367",
+      "status": "success",
+      "response_length": 4661,
+      "context_chars": 540
+    },
+    {
+      "trial": 20,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:09:17.238892",
+      "status": "success",
+      "response_length": 6063,
+      "context_chars": 71
+    },
+    {
+      "trial": 20,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:09:37.022885",
+      "status": "success",
+      "response_length": 4980,
+      "context_chars": 540
+    },
+    {
+      "trial": 21,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:09:55.652920",
+      "status": "success",
+      "response_length": 3477,
+      "context_chars": 552
+    },
+    {
+      "trial": 21,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:10:09.560789",
+      "status": "success",
+      "response_length": 2853,
+      "context_chars": 64
+    },
+    {
+      "trial": 21,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:10:23.987639",
+      "status": "success",
+      "response_length": 3971,
+      "context_chars": 552
+    },
+    {
+      "trial": 22,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:10:43.333557",
+      "status": "success",
+      "response_length": 2902,
+      "context_chars": 552
+    },
+    {
+      "trial": 22,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:11:00.150027",
+      "status": "success",
+      "response_length": 2128,
+      "context_chars": 63
+    },
+    {
+      "trial": 22,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:11:14.711731",
+      "status": "success",
+      "response_length": 2470,
+      "context_chars": 552
+    },
+    {
+      "trial": 23,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:11:30.026627",
+      "status": "success",
+      "response_length": 2600,
+      "context_chars": 535
+    },
+    {
+      "trial": 23,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:11:46.101940",
+      "status": "success",
+      "response_length": 3976,
+      "context_chars": 54
+    },
+    {
+      "trial": 23,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:12:02.612164",
+      "status": "success",
+      "response_length": 2222,
+      "context_chars": 535
+    },
+    {
+      "trial": 24,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:12:17.345734",
+      "status": "success",
+      "response_length": 3019,
+      "context_chars": 524
+    },
+    {
+      "trial": 24,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:12:32.108747",
+      "status": "success",
+      "response_length": 3629,
+      "context_chars": 53
+    },
+    {
+      "trial": 24,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:12:49.716138",
+      "status": "success",
+      "response_length": 2463,
+      "context_chars": 524
+    },
+    {
+      "trial": 25,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:13:05.558456",
+      "status": "success",
+      "response_length": 118,
+      "context_chars": 514
+    },
+    {
+      "trial": 25,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:13:15.317695",
+      "status": "success",
+      "response_length": 1930,
+      "context_chars": 53
+    },
+    {
+      "trial": 25,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:13:31.458948",
+      "status": "success",
+      "response_length": 109,
+      "context_chars": 514
+    },
+    {
+      "trial": 26,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:13:39.980476",
+      "status": "success",
+      "response_length": 135,
+      "context_chars": 518
+    },
+    {
+      "trial": 26,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:13:51.325937",
+      "status": "success",
+      "response_length": 4245,
+      "context_chars": 58
+    },
+    {
+      "trial": 26,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:14:08.743555",
+      "status": "success",
+      "response_length": 188,
+      "context_chars": 518
+    },
+    {
+      "trial": 27,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:14:19.173034",
+      "status": "success",
+      "response_length": 151,
+      "context_chars": 519
+    },
+    {
+      "trial": 27,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:14:31.342730",
+      "status": "success",
+      "response_length": 2859,
+      "context_chars": 54
+    },
+    {
+      "trial": 27,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:14:48.063025",
+      "status": "success",
+      "response_length": 176,
+      "context_chars": 519
+    },
+    {
+      "trial": 28,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:15:04.465637",
+      "status": "success",
+      "response_length": 1299,
+      "context_chars": 527
+    },
+    {
+      "trial": 28,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:15:17.632607",
+      "status": "success",
+      "response_length": 3300,
+      "context_chars": 61
+    },
+    {
+      "trial": 28,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:15:33.168733",
+      "status": "success",
+      "response_length": 1657,
+      "context_chars": 527
+    },
+    {
+      "trial": 29,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:15:46.709178",
+      "status": "success",
+      "response_length": 699,
+      "context_chars": 540
+    },
+    {
+      "trial": 29,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:15:58.609048",
+      "status": "success",
+      "response_length": 4116,
+      "context_chars": 71
+    },
+    {
+      "trial": 29,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:16:17.539945",
+      "status": "success",
+      "response_length": 795,
+      "context_chars": 540
+    },
+    {
+      "trial": 30,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:16:33.599265",
+      "status": "success",
+      "response_length": 135,
+      "context_chars": 523
+    },
+    {
+      "trial": 30,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:16:44.040181",
+      "status": "success",
+      "response_length": 114,
+      "context_chars": 37
+    },
+    {
+      "trial": 30,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:16:57.559133",
+      "status": "success",
+      "response_length": 126,
+      "context_chars": 523
+    },
+    {
+      "trial": 31,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:17:06.559018",
+      "status": "success",
+      "response_length": 225,
+      "context_chars": 539
+    },
+    {
+      "trial": 31,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:17:14.558577",
+      "status": "success",
+      "response_length": 4097,
+      "context_chars": 77
+    },
+    {
+      "trial": 31,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:17:32.546639",
+      "status": "success",
+      "response_length": 1985,
+      "context_chars": 539
+    },
+    {
+      "trial": 32,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:17:47.642908",
+      "status": "success",
+      "response_length": 2140,
+      "context_chars": 531
+    },
+    {
+      "trial": 32,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:18:02.632098",
+      "status": "success",
+      "response_length": 7761,
+      "context_chars": 63
+    },
+    {
+      "trial": 32,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:18:23.889191",
+      "status": "success",
+      "response_length": 2002,
+      "context_chars": 531
+    },
+    {
+      "trial": 33,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:18:38.862424",
+      "status": "success",
+      "response_length": 3110,
+      "context_chars": 553
+    },
+    {
+      "trial": 33,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:18:49.724990",
+      "status": "success",
+      "response_length": 4132,
+      "context_chars": 59
+    },
+    {
+      "trial": 33,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:19:06.372297",
+      "status": "success",
+      "response_length": 3064,
+      "context_chars": 553
+    },
+    {
+      "trial": 34,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:19:22.727833",
+      "status": "success",
+      "response_length": 3460,
+      "context_chars": 535
+    },
+    {
+      "trial": 34,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:19:40.729916",
+      "status": "success",
+      "response_length": 3773,
+      "context_chars": 59
+    },
+    {
+      "trial": 34,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:19:56.802699",
+      "status": "success",
+      "response_length": 3110,
+      "context_chars": 535
+    },
+    {
+      "trial": 35,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:20:14.348743",
+      "status": "success",
+      "response_length": 4364,
+      "context_chars": 520
+    },
+    {
+      "trial": 35,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:20:33.260897",
+      "status": "success",
+      "response_length": 6453,
+      "context_chars": 48
+    },
+    {
+      "trial": 35,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:20:53.834114",
+      "status": "success",
+      "response_length": 4784,
+      "context_chars": 520
+    },
+    {
+      "trial": 36,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:21:14.710636",
+      "status": "success",
+      "response_length": 3779,
+      "context_chars": 521
+    },
+    {
+      "trial": 36,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:21:31.660009",
+      "status": "success",
+      "response_length": 4977,
+      "context_chars": 60
+    },
+    {
+      "trial": 36,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:21:50.188608",
+      "status": "success",
+      "response_length": 3208,
+      "context_chars": 521
+    },
+    {
+      "trial": 37,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:22:08.535819",
+      "status": "success",
+      "response_length": 3026,
+      "context_chars": 528
+    },
+    {
+      "trial": 37,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:22:24.042467",
+      "status": "success",
+      "response_length": 3987,
+      "context_chars": 66
+    },
+    {
+      "trial": 37,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:22:40.404240",
+      "status": "success",
+      "response_length": 2542,
+      "context_chars": 528
+    },
+    {
+      "trial": 38,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:22:51.210846",
+      "status": "success",
+      "response_length": 1726,
+      "context_chars": 561
+    },
+    {
+      "trial": 38,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:23:01.859649",
+      "status": "success",
+      "response_length": 1042,
+      "context_chars": 81
+    },
+    {
+      "trial": 38,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:23:13.921729",
+      "status": "success",
+      "response_length": 1833,
+      "context_chars": 561
+    },
+    {
+      "trial": 39,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:23:25.277226",
+      "status": "success",
+      "response_length": 1646,
+      "context_chars": 583
+    },
+    {
+      "trial": 39,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:23:38.928051",
+      "status": "success",
+      "response_length": 2387,
+      "context_chars": 82
+    },
+    {
+      "trial": 39,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:23:53.838002",
+      "status": "success",
+      "response_length": 1607,
+      "context_chars": 583
+    },
+    {
+      "trial": 40,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:24:07.516492",
+      "status": "success",
+      "response_length": 2550,
+      "context_chars": 591
+    },
+    {
+      "trial": 40,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:24:22.910688",
+      "status": "success",
+      "response_length": 4075,
+      "context_chars": 74
+    },
+    {
+      "trial": 40,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:24:40.787344",
+      "status": "success",
+      "response_length": 826,
+      "context_chars": 591
+    },
+    {
+      "trial": 41,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:24:49.681925",
+      "status": "success",
+      "response_length": 2307,
+      "context_chars": 577
+    },
+    {
+      "trial": 41,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:25:00.737810",
+      "status": "success",
+      "response_length": 4276,
+      "context_chars": 67
+    },
+    {
+      "trial": 41,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:25:16.777988",
+      "status": "success",
+      "response_length": 2555,
+      "context_chars": 577
+    },
+    {
+      "trial": 42,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:25:29.833333",
+      "status": "success",
+      "response_length": 1562,
+      "context_chars": 550
+    },
+    {
+      "trial": 42,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:25:42.554880",
+      "status": "success",
+      "response_length": 1333,
+      "context_chars": 55
+    },
+    {
+      "trial": 42,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:25:55.421411",
+      "status": "success",
+      "response_length": 1565,
+      "context_chars": 550
+    },
+    {
+      "trial": 43,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:26:06.532814",
+      "status": "success",
+      "response_length": 3716,
+      "context_chars": 530
+    },
+    {
+      "trial": 43,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:26:22.389900",
+      "status": "success",
+      "response_length": 3561,
+      "context_chars": 54
+    },
+    {
+      "trial": 43,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:26:40.952182",
+      "status": "success",
+      "response_length": 3007,
+      "context_chars": 530
+    },
+    {
+      "trial": 44,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:26:55.298087",
+      "status": "success",
+      "response_length": 1533,
+      "context_chars": 527
+    },
+    {
+      "trial": 44,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:27:08.091632",
+      "status": "success",
+      "response_length": 5352,
+      "context_chars": 64
+    },
+    {
+      "trial": 44,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:27:26.041701",
+      "status": "success",
+      "response_length": 3635,
+      "context_chars": 527
+    },
+    {
+      "trial": 45,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:27:42.514605",
+      "status": "success",
+      "response_length": 3030,
+      "context_chars": 522
+    },
+    {
+      "trial": 45,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:28:00.181876",
+      "status": "success",
+      "response_length": 3841,
+      "context_chars": 50
+    },
+    {
+      "trial": 45,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:28:17.844747",
+      "status": "success",
+      "response_length": 3396,
+      "context_chars": 522
+    },
+    {
+      "trial": 46,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:28:33.332594",
+      "status": "success",
+      "response_length": 3521,
+      "context_chars": 515
+    },
+    {
+      "trial": 46,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:28:49.940543",
+      "status": "success",
+      "response_length": 4315,
+      "context_chars": 47
+    },
+    {
+      "trial": 46,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:29:07.401566",
+      "status": "success",
+      "response_length": 2499,
+      "context_chars": 515
+    },
+    {
+      "trial": 47,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:29:20.697107",
+      "status": "success",
+      "response_length": 1229,
+      "context_chars": 494
+    },
+    {
+      "trial": 47,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:29:32.786699",
+      "status": "success",
+      "response_length": 2427,
+      "context_chars": 43
+    },
+    {
+      "trial": 47,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:29:49.538848",
+      "status": "success",
+      "response_length": 1734,
+      "context_chars": 494
+    },
+    {
+      "trial": 48,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:30:04.170706",
+      "status": "success",
+      "response_length": 1739,
+      "context_chars": 496
+    },
+    {
+      "trial": 48,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:30:15.226064",
+      "status": "success",
+      "response_length": 2890,
+      "context_chars": 52
+    },
+    {
+      "trial": 48,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:30:30.275875",
+      "status": "success",
+      "response_length": 2016,
+      "context_chars": 496
+    },
+    {
+      "trial": 49,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:30:42.859652",
+      "status": "success",
+      "response_length": 1434,
+      "context_chars": 512
+    },
+    {
+      "trial": 49,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:30:54.478818",
+      "status": "success",
+      "response_length": 3295,
+      "context_chars": 63
+    },
+    {
+      "trial": 49,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:31:10.335792",
+      "status": "success",
+      "response_length": 1222,
+      "context_chars": 512
+    },
+    {
+      "trial": 50,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:31:21.793739",
+      "status": "success",
+      "response_length": 4254,
+      "context_chars": 540
+    },
+    {
+      "trial": 50,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:31:39.158045",
+      "status": "success",
+      "response_length": 5671,
+      "context_chars": 71
+    },
+    {
+      "trial": 50,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:32:00.175717",
+      "status": "success",
+      "response_length": 4320,
+      "context_chars": 540
+    },
+    {
+      "trial": 51,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:32:17.454021",
+      "status": "success",
+      "response_length": 3927,
+      "context_chars": 552
+    },
+    {
+      "trial": 51,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:32:30.448100",
+      "status": "success",
+      "response_length": 2796,
+      "context_chars": 64
+    },
+    {
+      "trial": 51,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:32:44.903166",
+      "status": "success",
+      "response_length": 3886,
+      "context_chars": 552
+    },
+    {
+      "trial": 52,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:32:59.280703",
+      "status": "success",
+      "response_length": 2062,
+      "context_chars": 552
+    },
+    {
+      "trial": 52,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:33:13.149601",
+      "status": "success",
+      "response_length": 1964,
+      "context_chars": 63
+    },
+    {
+      "trial": 52,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:33:28.650217",
+      "status": "success",
+      "response_length": 2528,
+      "context_chars": 552
+    },
+    {
+      "trial": 53,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:33:40.405153",
+      "status": "success",
+      "response_length": 2520,
+      "context_chars": 535
+    },
+    {
+      "trial": 53,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:33:54.197855",
+      "status": "success",
+      "response_length": 3273,
+      "context_chars": 54
+    },
+    {
+      "trial": 53,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:34:08.341746",
+      "status": "success",
+      "response_length": 2843,
+      "context_chars": 535
+    },
+    {
+      "trial": 54,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:34:25.405250",
+      "status": "success",
+      "response_length": 2304,
+      "context_chars": 524
+    },
+    {
+      "trial": 54,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:34:39.069700",
+      "status": "success",
+      "response_length": 3793,
+      "context_chars": 53
+    },
+    {
+      "trial": 54,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:34:54.545485",
+      "status": "success",
+      "response_length": 1983,
+      "context_chars": 524
+    },
+    {
+      "trial": 55,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:35:08.161242",
+      "status": "success",
+      "response_length": 2150,
+      "context_chars": 514
+    },
+    {
+      "trial": 55,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:35:21.291271",
+      "status": "success",
+      "response_length": 2551,
+      "context_chars": 53
+    },
+    {
+      "trial": 55,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:35:37.895301",
+      "status": "success",
+      "response_length": 126,
+      "context_chars": 514
+    },
+    {
+      "trial": 56,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:35:48.703636",
+      "status": "success",
+      "response_length": 214,
+      "context_chars": 518
+    },
+    {
+      "trial": 56,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:36:01.433690",
+      "status": "success",
+      "response_length": 4990,
+      "context_chars": 58
+    },
+    {
+      "trial": 56,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:36:19.893363",
+      "status": "success",
+      "response_length": 1564,
+      "context_chars": 518
+    },
+    {
+      "trial": 57,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:36:32.167622",
+      "status": "success",
+      "response_length": 2078,
+      "context_chars": 519
+    },
+    {
+      "trial": 57,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:36:47.429545",
+      "status": "success",
+      "response_length": 3106,
+      "context_chars": 54
+    },
+    {
+      "trial": 57,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:37:03.231783",
+      "status": "success",
+      "response_length": 132,
+      "context_chars": 519
+    },
+    {
+      "trial": 58,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:37:12.634785",
+      "status": "success",
+      "response_length": 2249,
+      "context_chars": 527
+    },
+    {
+      "trial": 58,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:37:25.675155",
+      "status": "success",
+      "response_length": 3464,
+      "context_chars": 61
+    },
+    {
+      "trial": 58,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:37:41.932558",
+      "status": "success",
+      "response_length": 2176,
+      "context_chars": 527
+    },
+    {
+      "trial": 59,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:37:56.097144",
+      "status": "success",
+      "response_length": 3130,
+      "context_chars": 540
+    },
+    {
+      "trial": 59,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:38:12.807476",
+      "status": "success",
+      "response_length": 3240,
+      "context_chars": 71
+    },
+    {
+      "trial": 59,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:38:30.163184",
+      "status": "success",
+      "response_length": 2862,
+      "context_chars": 540
+    },
+    {
+      "trial": 60,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:38:45.329725",
+      "status": "success",
+      "response_length": 122,
+      "context_chars": 523
+    },
+    {
+      "trial": 60,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:38:54.386897",
+      "status": "success",
+      "response_length": 138,
+      "context_chars": 37
+    },
+    {
+      "trial": 60,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:39:08.406749",
+      "status": "success",
+      "response_length": 104,
+      "context_chars": 523
+    },
+    {
+      "trial": 61,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:39:18.342597",
+      "status": "success",
+      "response_length": 350,
+      "context_chars": 539
+    },
+    {
+      "trial": 61,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:39:28.258628",
+      "status": "success",
+      "response_length": 5532,
+      "context_chars": 77
+    },
+    {
+      "trial": 61,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:39:48.902567",
+      "status": "success",
+      "response_length": 1919,
+      "context_chars": 539
+    },
+    {
+      "trial": 62,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:40:03.576588",
+      "status": "success",
+      "response_length": 1975,
+      "context_chars": 531
+    },
+    {
+      "trial": 62,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:40:18.948564",
+      "status": "success",
+      "response_length": 5064,
+      "context_chars": 63
+    },
+    {
+      "trial": 62,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:40:38.856495",
+      "status": "success",
+      "response_length": 2046,
+      "context_chars": 531
+    },
+    {
+      "trial": 63,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:40:54.412220",
+      "status": "success",
+      "response_length": 2918,
+      "context_chars": 553
+    },
+    {
+      "trial": 63,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:41:08.737183",
+      "status": "success",
+      "response_length": 3929,
+      "context_chars": 59
+    },
+    {
+      "trial": 63,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:41:29.642247",
+      "status": "success",
+      "response_length": 3814,
+      "context_chars": 553
+    },
+    {
+      "trial": 64,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:41:46.526751",
+      "status": "success",
+      "response_length": 3336,
+      "context_chars": 535
+    },
+    {
+      "trial": 64,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:42:06.080801",
+      "status": "success",
+      "response_length": 3822,
+      "context_chars": 59
+    },
+    {
+      "trial": 64,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:42:22.593913",
+      "status": "success",
+      "response_length": 3033,
+      "context_chars": 535
+    },
+    {
+      "trial": 65,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:42:39.694062",
+      "status": "success",
+      "response_length": 4188,
+      "context_chars": 520
+    },
+    {
+      "trial": 65,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:42:59.434559",
+      "status": "success",
+      "response_length": 7345,
+      "context_chars": 48
+    },
+    {
+      "trial": 65,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:43:22.525642",
+      "status": "success",
+      "response_length": 3839,
+      "context_chars": 520
+    },
+    {
+      "trial": 66,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:43:41.395742",
+      "status": "success",
+      "response_length": 3384,
+      "context_chars": 521
+    },
+    {
+      "trial": 66,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:43:58.755993",
+      "status": "success",
+      "response_length": 4604,
+      "context_chars": 60
+    },
+    {
+      "trial": 66,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:44:18.225033",
+      "status": "success",
+      "response_length": 4231,
+      "context_chars": 521
+    },
+    {
+      "trial": 67,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:44:35.902104",
+      "status": "success",
+      "response_length": 3907,
+      "context_chars": 528
+    },
+    {
+      "trial": 67,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:44:51.661123",
+      "status": "success",
+      "response_length": 3196,
+      "context_chars": 66
+    },
+    {
+      "trial": 67,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:45:06.972220",
+      "status": "success",
+      "response_length": 4770,
+      "context_chars": 528
+    },
+    {
+      "trial": 68,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:45:27.121334",
+      "status": "success",
+      "response_length": 1920,
+      "context_chars": 561
+    },
+    {
+      "trial": 68,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:45:39.797312",
+      "status": "success",
+      "response_length": 1441,
+      "context_chars": 81
+    },
+    {
+      "trial": 68,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:45:53.048754",
+      "status": "success",
+      "response_length": 2344,
+      "context_chars": 561
+    },
+    {
+      "trial": 69,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:46:05.827057",
+      "status": "success",
+      "response_length": 917,
+      "context_chars": 583
+    },
+    {
+      "trial": 69,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:46:16.808649",
+      "status": "success",
+      "response_length": 2435,
+      "context_chars": 82
+    },
+    {
+      "trial": 69,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:46:32.440743",
+      "status": "success",
+      "response_length": 887,
+      "context_chars": 583
+    },
+    {
+      "trial": 70,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:46:43.972251",
+      "status": "success",
+      "response_length": 2897,
+      "context_chars": 591
+    },
+    {
+      "trial": 70,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:46:58.637430",
+      "status": "success",
+      "response_length": 1264,
+      "context_chars": 74
+    },
+    {
+      "trial": 70,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:47:11.536633",
+      "status": "success",
+      "response_length": 745,
+      "context_chars": 591
+    },
+    {
+      "trial": 71,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:47:23.220538",
+      "status": "success",
+      "response_length": 3030,
+      "context_chars": 577
+    },
+    {
+      "trial": 71,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:47:38.587082",
+      "status": "success",
+      "response_length": 4553,
+      "context_chars": 67
+    },
+    {
+      "trial": 71,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:47:55.899870",
+      "status": "success",
+      "response_length": 3141,
+      "context_chars": 577
+    },
+    {
+      "trial": 72,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:48:11.653699",
+      "status": "success",
+      "response_length": 1408,
+      "context_chars": 550
+    },
+    {
+      "trial": 72,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:48:24.009159",
+      "status": "success",
+      "response_length": 1001,
+      "context_chars": 55
+    },
+    {
+      "trial": 72,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:48:36.012177",
+      "status": "success",
+      "response_length": 1494,
+      "context_chars": 550
+    },
+    {
+      "trial": 73,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:48:48.867589",
+      "status": "success",
+      "response_length": 3762,
+      "context_chars": 530
+    },
+    {
+      "trial": 73,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:49:05.316468",
+      "status": "success",
+      "response_length": 3479,
+      "context_chars": 54
+    },
+    {
+      "trial": 73,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:49:22.879205",
+      "status": "success",
+      "response_length": 3716,
+      "context_chars": 530
+    },
+    {
+      "trial": 74,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:49:40.755867",
+      "status": "success",
+      "response_length": 3394,
+      "context_chars": 527
+    },
+    {
+      "trial": 74,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:49:55.994579",
+      "status": "success",
+      "response_length": 4405,
+      "context_chars": 64
+    },
+    {
+      "trial": 74,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:50:14.384882",
+      "status": "success",
+      "response_length": 4562,
+      "context_chars": 527
+    },
+    {
+      "trial": 75,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:50:30.243227",
+      "status": "success",
+      "response_length": 4593,
+      "context_chars": 522
+    },
+    {
+      "trial": 75,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:50:48.223907",
+      "status": "success",
+      "response_length": 3462,
+      "context_chars": 50
+    },
+    {
+      "trial": 75,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:51:07.530421",
+      "status": "success",
+      "response_length": 4148,
+      "context_chars": 522
+    },
+    {
+      "trial": 76,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:51:25.659640",
+      "status": "success",
+      "response_length": 3758,
+      "context_chars": 515
+    },
+    {
+      "trial": 76,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:51:42.981374",
+      "status": "success",
+      "response_length": 4209,
+      "context_chars": 47
+    },
+    {
+      "trial": 76,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:51:59.996712",
+      "status": "success",
+      "response_length": 3748,
+      "context_chars": 515
+    },
+    {
+      "trial": 77,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:52:17.627119",
+      "status": "success",
+      "response_length": 2273,
+      "context_chars": 494
+    },
+    {
+      "trial": 77,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:52:32.836705",
+      "status": "success",
+      "response_length": 1873,
+      "context_chars": 43
+    },
+    {
+      "trial": 77,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:52:46.607293",
+      "status": "success",
+      "response_length": 1088,
+      "context_chars": 494
+    },
+    {
+      "trial": 78,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:52:58.650754",
+      "status": "success",
+      "response_length": 2304,
+      "context_chars": 496
+    },
+    {
+      "trial": 78,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:53:10.340592",
+      "status": "success",
+      "response_length": 1643,
+      "context_chars": 52
+    },
+    {
+      "trial": 78,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:53:22.794927",
+      "status": "success",
+      "response_length": 2042,
+      "context_chars": 496
+    },
+    {
+      "trial": 79,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:53:35.851286",
+      "status": "success",
+      "response_length": 1361,
+      "context_chars": 512
+    },
+    {
+      "trial": 79,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:53:47.679677",
+      "status": "success",
+      "response_length": 3767,
+      "context_chars": 63
+    },
+    {
+      "trial": 79,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:54:04.793469",
+      "status": "success",
+      "response_length": 1576,
+      "context_chars": 512
+    },
+    {
+      "trial": 80,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:54:16.650599",
+      "status": "success",
+      "response_length": 4524,
+      "context_chars": 540
+    },
+    {
+      "trial": 80,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:54:34.729109",
+      "status": "success",
+      "response_length": 7560,
+      "context_chars": 71
+    },
+    {
+      "trial": 80,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:54:54.371694",
+      "status": "success",
+      "response_length": 5544,
+      "context_chars": 540
+    },
+    {
+      "trial": 81,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:55:15.065106",
+      "status": "success",
+      "response_length": 3804,
+      "context_chars": 552
+    },
+    {
+      "trial": 81,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:55:32.266720",
+      "status": "success",
+      "response_length": 3850,
+      "context_chars": 64
+    },
+    {
+      "trial": 81,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:55:49.038063",
+      "status": "success",
+      "response_length": 4022,
+      "context_chars": 552
+    },
+    {
+      "trial": 82,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:56:09.088893",
+      "status": "success",
+      "response_length": 1823,
+      "context_chars": 552
+    },
+    {
+      "trial": 82,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:56:22.709833",
+      "status": "success",
+      "response_length": 1587,
+      "context_chars": 63
+    },
+    {
+      "trial": 82,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:56:36.710251",
+      "status": "success",
+      "response_length": 2438,
+      "context_chars": 552
+    },
+    {
+      "trial": 83,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:56:48.911235",
+      "status": "success",
+      "response_length": 2660,
+      "context_chars": 535
+    },
+    {
+      "trial": 83,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:57:05.026348",
+      "status": "success",
+      "response_length": 3654,
+      "context_chars": 54
+    },
+    {
+      "trial": 83,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:57:20.174182",
+      "status": "success",
+      "response_length": 2489,
+      "context_chars": 535
+    },
+    {
+      "trial": 84,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:57:33.508658",
+      "status": "success",
+      "response_length": 2563,
+      "context_chars": 524
+    },
+    {
+      "trial": 84,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:57:47.810567",
+      "status": "success",
+      "response_length": 3514,
+      "context_chars": 53
+    },
+    {
+      "trial": 84,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:58:04.588999",
+      "status": "success",
+      "response_length": 2634,
+      "context_chars": 524
+    },
+    {
+      "trial": 85,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:58:15.438453",
+      "status": "success",
+      "response_length": 138,
+      "context_chars": 514
+    },
+    {
+      "trial": 85,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:58:24.542612",
+      "status": "success",
+      "response_length": 1915,
+      "context_chars": 53
+    },
+    {
+      "trial": 85,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:58:39.997607",
+      "status": "success",
+      "response_length": 181,
+      "context_chars": 514
+    },
+    {
+      "trial": 86,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:58:50.363723",
+      "status": "success",
+      "response_length": 2698,
+      "context_chars": 518
+    },
+    {
+      "trial": 86,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:59:04.873908",
+      "status": "success",
+      "response_length": 4461,
+      "context_chars": 58
+    },
+    {
+      "trial": 86,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:59:22.448534",
+      "status": "success",
+      "response_length": 2472,
+      "context_chars": 518
+    },
+    {
+      "trial": 87,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:59:34.519699",
+      "status": "success",
+      "response_length": 2057,
+      "context_chars": 519
+    },
+    {
+      "trial": 87,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T00:59:50.123776",
+      "status": "success",
+      "response_length": 3818,
+      "context_chars": 54
+    },
+    {
+      "trial": 87,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:00:06.747515",
+      "status": "success",
+      "response_length": 1735,
+      "context_chars": 519
+    },
+    {
+      "trial": 88,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:00:19.622902",
+      "status": "success",
+      "response_length": 3586,
+      "context_chars": 527
+    },
+    {
+      "trial": 88,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:00:33.911854",
+      "status": "success",
+      "response_length": 2743,
+      "context_chars": 61
+    },
+    {
+      "trial": 88,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:00:48.788798",
+      "status": "success",
+      "response_length": 2577,
+      "context_chars": 527
+    },
+    {
+      "trial": 89,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:01:01.782449",
+      "status": "success",
+      "response_length": 3302,
+      "context_chars": 540
+    },
+    {
+      "trial": 89,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:01:18.514750",
+      "status": "success",
+      "response_length": 4478,
+      "context_chars": 71
+    },
+    {
+      "trial": 89,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:01:38.035623",
+      "status": "success",
+      "response_length": 3442,
+      "context_chars": 540
+    },
+    {
+      "trial": 90,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:01:52.786130",
+      "status": "success",
+      "response_length": 123,
+      "context_chars": 523
+    },
+    {
+      "trial": 90,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:02:03.049475",
+      "status": "success",
+      "response_length": 134,
+      "context_chars": 37
+    },
+    {
+      "trial": 90,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:02:14.518208",
+      "status": "success",
+      "response_length": 122,
+      "context_chars": 523
+    },
+    {
+      "trial": 91,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:02:22.565235",
+      "status": "success",
+      "response_length": 1572,
+      "context_chars": 539
+    },
+    {
+      "trial": 91,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:02:37.643561",
+      "status": "success",
+      "response_length": 4358,
+      "context_chars": 77
+    },
+    {
+      "trial": 91,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:02:55.634775",
+      "status": "success",
+      "response_length": 772,
+      "context_chars": 539
+    },
+    {
+      "trial": 92,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:03:07.836203",
+      "status": "success",
+      "response_length": 2881,
+      "context_chars": 531
+    },
+    {
+      "trial": 92,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:03:23.302180",
+      "status": "success",
+      "response_length": 5564,
+      "context_chars": 63
+    },
+    {
+      "trial": 92,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:03:42.091970",
+      "status": "success",
+      "response_length": 1309,
+      "context_chars": 531
+    },
+    {
+      "trial": 93,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:03:53.638238",
+      "status": "success",
+      "response_length": 2449,
+      "context_chars": 553
+    },
+    {
+      "trial": 93,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:04:09.370835",
+      "status": "success",
+      "response_length": 3153,
+      "context_chars": 59
+    },
+    {
+      "trial": 93,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:04:25.136726",
+      "status": "success",
+      "response_length": 2521,
+      "context_chars": 553
+    },
+    {
+      "trial": 94,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:04:40.921035",
+      "status": "success",
+      "response_length": 3061,
+      "context_chars": 535
+    },
+    {
+      "trial": 94,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:05:00.560563",
+      "status": "success",
+      "response_length": 3402,
+      "context_chars": 59
+    },
+    {
+      "trial": 94,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:05:18.605753",
+      "status": "success",
+      "response_length": 3098,
+      "context_chars": 535
+    },
+    {
+      "trial": 95,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:05:36.005930",
+      "status": "success",
+      "response_length": 4723,
+      "context_chars": 520
+    },
+    {
+      "trial": 95,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:05:53.690475",
+      "status": "success",
+      "response_length": 8008,
+      "context_chars": 48
+    },
+    {
+      "trial": 95,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:06:16.779178",
+      "status": "success",
+      "response_length": 4862,
+      "context_chars": 520
+    },
+    {
+      "trial": 96,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:06:37.863973",
+      "status": "success",
+      "response_length": 3367,
+      "context_chars": 521
+    },
+    {
+      "trial": 96,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:06:52.198676",
+      "status": "success",
+      "response_length": 3469,
+      "context_chars": 60
+    },
+    {
+      "trial": 96,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:07:09.816091",
+      "status": "success",
+      "response_length": 3258,
+      "context_chars": 521
+    },
+    {
+      "trial": 97,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:07:24.628170",
+      "status": "success",
+      "response_length": 3939,
+      "context_chars": 528
+    },
+    {
+      "trial": 97,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:07:42.684769",
+      "status": "success",
+      "response_length": 3149,
+      "context_chars": 66
+    },
+    {
+      "trial": 97,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:07:58.338933",
+      "status": "success",
+      "response_length": 3196,
+      "context_chars": 528
+    },
+    {
+      "trial": 98,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:08:14.386205",
+      "status": "success",
+      "response_length": 2336,
+      "context_chars": 561
+    },
+    {
+      "trial": 98,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:08:26.263250",
+      "status": "success",
+      "response_length": 1879,
+      "context_chars": 81
+    },
+    {
+      "trial": 98,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:08:41.286569",
+      "status": "success",
+      "response_length": 2371,
+      "context_chars": 561
+    },
+    {
+      "trial": 99,
+      "condition": "true",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:08:53.769178",
+      "status": "success",
+      "response_length": 909,
+      "context_chars": 583
+    },
+    {
+      "trial": 99,
+      "condition": "cold",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:09:04.859254",
+      "status": "success",
+      "response_length": 2875,
+      "context_chars": 82
+    },
+    {
+      "trial": 99,
+      "condition": "scrambled",
+      "attempt": 1,
+      "timestamp": "2026-01-11T01:09:20.382103",
+      "status": "success",
+      "response_length": 386,
+      "context_chars": 583
+    }
+  ]
+}

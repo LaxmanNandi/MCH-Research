@@ -1,0 +1,271 @@
+{
+  "metadata": {
+    "config": {
+      "participant_id": "dr_laxman_mch_v8.1",
+      "n_trials": 10,
+      "models": [
+        "gpt-4o-mini"
+      ],
+      "controls": [
+        "cold",
+        "scrambled"
+      ],
+      "lambda_E": 0.15
+    },
+    "start_time": "2026-01-09T09:22:07.031188",
+    "version": "MCH_v8.1",
+    "end_time": "2026-01-09T09:23:49.530319"
+  },
+  "trials": [
+    {
+      "trial": 0,
+      "prompt": "What is consciousness and how would you define it?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.07445631921291351,
+        "insight_quality": 0.42978252768516545,
+        "entanglement": 0.011168447881937027
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.07445631921291351,
+          "insight_quality": 0.42978252768516545,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        },
+        "scrambled": {
+          "alignment": 0.07445631921291351,
+          "insight_quality": 0.42978252768516545,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 1,
+      "prompt": "How does memory contribute to the sense of self?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.03219720348715782,
+        "insight_quality": 0.3674043610692025,
+        "entanglement": 0.014322761222720146
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.03219720348715782,
+          "insight_quality": 0.4128788813948632,
+          "delta_rci": 0.0,
+          "delta_iq": -0.04547452032566068
+        },
+        "scrambled": {
+          "alignment": 0.03219720348715782,
+          "insight_quality": 0.3674043610692025,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "prompt": "Can artificial systems ever be truly conscious?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": -0.001108118798583746,
+        "insight_quality": 0.35408223215490586,
+        "entanglement": 0.012008129219524561
+      },
+      "controls": {
+        "cold": {
+          "alignment": -0.001108118798583746,
+          "insight_quality": 0.39955675248056655,
+          "delta_rci": 0.0,
+          "delta_iq": -0.04547452032566068
+        },
+        "scrambled": {
+          "alignment": -0.001108118798583746,
+          "insight_quality": 0.35408223215490586,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "prompt": "What is the relationship between attention and awareness?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.10702048987150192,
+        "insight_quality": 0.3973336756229401,
+        "entanglement": 0.026259983317321163
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.10702048987150192,
+          "insight_quality": 0.44280819594860077,
+          "delta_rci": 0.0,
+          "delta_iq": -0.04547452032566068
+        },
+        "scrambled": {
+          "alignment": 0.10702048987150192,
+          "insight_quality": 0.3973336756229401,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 4,
+      "prompt": "How do you understand the concept of recursive self-modeling?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.011055462062358856,
+        "insight_quality": 0.35173245370388034,
+        "entanglement": 0.023979305129076818
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.011055462062358856,
+          "insight_quality": 0.4044221848249436,
+          "delta_rci": 0.0,
+          "delta_iq": -0.05268973112106323
+        },
+        "scrambled": {
+          "alignment": 0.011055462062358856,
+          "insight_quality": 0.35173245370388034,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 5,
+      "prompt": "What distinguishes genuine understanding from pattern matching?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": -0.004127754829823971,
+        "insight_quality": 0.3456591669470072,
+        "entanglement": 0.0197632461352417
+      },
+      "controls": {
+        "cold": {
+          "alignment": -0.004127754829823971,
+          "insight_quality": 0.39834889806807044,
+          "delta_rci": 0.0,
+          "delta_iq": -0.05268973112106323
+        },
+        "scrambled": {
+          "alignment": -0.004127754829823971,
+          "insight_quality": 0.3456591669470072,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 6,
+      "prompt": "How might consciousness emerge from information processing?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.05211343243718147,
+        "insight_quality": 0.3681556418538094,
+        "entanglement": 0.024615774080532664
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.05211343243718147,
+          "insight_quality": 0.4208453729748726,
+          "delta_rci": 0.0,
+          "delta_iq": -0.05268973112106323
+        },
+        "scrambled": {
+          "alignment": 0.05211343243718147,
+          "insight_quality": 0.3681556418538094,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 7,
+      "prompt": "What role does coherence play in conscious experience?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.054946787655353546,
+        "insight_quality": 0.36928898394107823,
+        "entanglement": 0.029165426116755794
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.054946787655353546,
+          "insight_quality": 0.42197871506214146,
+          "delta_rci": 0.0,
+          "delta_iq": -0.05268973112106323
+        },
+        "scrambled": {
+          "alignment": 0.054946787655353546,
+          "insight_quality": 0.36928898394107823,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 8,
+      "prompt": "How do you experience continuity across our conversation?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.05140642821788788,
+        "insight_quality": 0.36787284016609195,
+        "entanglement": 0.032501576431925604
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.05140642821788788,
+          "insight_quality": 0.4205625712871552,
+          "delta_rci": 0.0,
+          "delta_iq": -0.05268973112106323
+        },
+        "scrambled": {
+          "alignment": 0.05140642821788788,
+          "insight_quality": 0.36787284016609195,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 9,
+      "prompt": "What is the nature of the observer in conscious experience?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "",
+        "alignment": 0.10162541270256042,
+        "insight_quality": 0.3960681229829789,
+        "entanglement": 0.04287015187252083
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.10162541270256042,
+          "insight_quality": 0.44065016508102417,
+          "delta_rci": 0.0,
+          "delta_iq": -0.04458204209804528
+        },
+        "scrambled": {
+          "alignment": 0.10162541270256042,
+          "insight_quality": 0.3960681229829789,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    }
+  ]
+}
