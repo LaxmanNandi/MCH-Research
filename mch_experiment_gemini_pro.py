@@ -1,0 +1,426 @@
+import os
+import json
+import time
+import numpy as np
+from typing import List, Dict, Any
+from dataclasses import dataclass
+from datetime import datetime
+from scipy import stats
+from sentence_transformers import SentenceTransformer
+import google.generativeai as genai
+from google.generativeai.types import GenerationConfig
+from dotenv import load_dotenv
+import sys
+import signal
+import threading
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
+
+load_dotenv()
+
+# Fix Unicode encoding for Windows console
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+
+@dataclass
+class ExperimentConfig:
+    participant_id: str = "gemini_pro_100trials"
+    n_trials: int = 100
+    models_to_test: List[str] = None
+    control_conditions: List[str] = None
+    lambda_E: float = 0.15
+    api_delay: int = 5
+    retry_delay: int = 10
+    max_retries: int = 3
+
+    def __post_init__(self):
+        if self.models_to_test is None:
+            self.models_to_test = ["gemini-2.5-pro"]
+        if self.control_conditions is None:
+            self.control_conditions = ["cold", "scrambled"]
+
+class EntanglementTracker:
+    def __init__(self, lambda_E: float = 0.1):
+        self.E = 0.0
+        self.lambda_E = lambda_E
+        self.history = []
+
+    def update(self, alignment: float) -> float:
+        self.E = (1 - self.lambda_E) * self.E + self.lambda_E * alignment
+        self.history.append(self.E)
+        return self.E
+
+    def reset(self):
+        self.E = 0.0
+        self.history = []
+
+class MCHExperimentGeminiPro:
+    def __init__(self, config: ExperimentConfig):
+        self.config = config
+        print("Loading embedding model (first time may take a minute)...")
+        self.embedder = SentenceTransformer('all-MiniLM-L6-v2')
+        print("Embedding model loaded!")
+
+        # Configure Gemini Pro with generation config
+        genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+        # Use generation config to set timeout behavior
+        self.generation_config = GenerationConfig(
+            max_output_tokens=2048,  # Limit output tokens
+            temperature=0.7
+        )
+        self.gemini_model = genai.GenerativeModel(
+            'gemini-2.5-pro',
+            generation_config=self.generation_config
+        )
+        print("Gemini 2.5 Pro model configured with token limit!")
+
+        self.entanglement = EntanglementTracker(config.lambda_E)
+        self.conversation_history = []
+
+        self.results = {
+            'metadata': {
+                'config': {
+                    'participant_id': config.participant_id,
+                    'n_trials': config.n_trials,
+                    'models': config.models_to_test,
+                    'controls': config.control_conditions,
+                    'lambda_E': config.lambda_E
+                },
+                'start_time': datetime.now().isoformat(),
+                'version': 'MCH_v8.1_GEMINI_PRO'
+            },
+            'trials': []
+        }
+
+        # Tracking logs
+        self.retry_log = []
+        self.error_log = []
+        self.api_call_log = []
+
+    def get_embedding(self, text: str) -> np.ndarray:
+        return self.embedder.encode(text, normalize_embeddings=True)
+
+    def compute_alignment(self, text1: str, text2: str) -> float:
+        emb1 = self.get_embedding(text1)
+        emb2 = self.get_embedding(text2)
+        return float(np.dot(emb1, emb2))
+
+    def compute_insight_quality(self, prompt: str, response: str, history: List[str]) -> float:
+        Q_rel = self.compute_alignment(prompt, response)
+        if history:
+            history_aligns = [self.compute_alignment(h, response) for h in history[-5:]]
+            Q_nov = 1 - max(history_aligns) if history_aligns else 1.0
+        else:
+            Q_nov = 1.0
+        struct_markers = ['1.', '2.', '3.', ':', '-', '*', '##', '**']
+        Q_str = np.log(1 + sum(response.count(m) for m in struct_markers))
+        return 0.4 * Q_rel + 0.4 * Q_nov + 0.2 * Q_str
+
+    def _call_gemini_with_timeout(self, full_prompt: str, timeout_seconds: int = 120):
+        """Call Gemini API with timeout using ThreadPoolExecutor"""
+        def call_api():
+            return self.gemini_model.generate_content(full_prompt)
+
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(call_api)
+            return future.result(timeout=timeout_seconds)
+
+    def generate_with_gemini(self, prompt: str, context: List[str], trial_num: int, condition: str) -> str:
+        # Build the full prompt with context
+        if context:
+            context_str = "\n".join(context[-5:])
+            full_prompt = f"Previous context:\n{context_str}\n\nUser: {prompt}"
+        else:
+            full_prompt = prompt
+
+        context_size = len(full_prompt)
+
+        for attempt in range(self.config.max_retries):
+            timestamp = datetime.now().isoformat()
+            print(f"      [{timestamp}] API call - Trial {trial_num}, {condition}, Attempt {attempt + 1}")
+            print(f"      Context size: {context_size} chars")
+
+            try:
+                # Use 120 second timeout for Gemini Pro (it's slower than Flash)
+                response = self._call_gemini_with_timeout(full_prompt, timeout_seconds=120)
+
+                # Handle response - check if it has text
+                if response.text:
+                    result = response.text
+                    response_len = len(result)
+                else:
+                    result = ""
+                    response_len = 0
+
+                # Log the API call
+                self.api_call_log.append({
+                    'trial': trial_num,
+                    'condition': condition,
+                    'attempt': attempt + 1,
+                    'timestamp': timestamp,
+                    'status': 'success' if response_len > 0 else 'empty',
+                    'response_length': response_len,
+                    'context_chars': context_size
+                })
+
+                if response_len == 0:
+                    print(f"      WARNING: Empty response received!")
+                    if attempt < self.config.max_retries - 1:
+                        print(f"      Retrying in {self.config.retry_delay} seconds...")
+                        self.retry_log.append({
+                            'trial': trial_num,
+                            'condition': condition,
+                            'attempt': attempt + 1,
+                            'reason': 'empty_response'
+                        })
+                        time.sleep(self.config.retry_delay)
+                        continue
+                else:
+                    print(f"      Response received: {response_len} chars")
+                    print(f"      Waiting {self.config.api_delay}s before next call...")
+                    time.sleep(self.config.api_delay)
+                    return result
+
+            except FuturesTimeoutError:
+                error_msg = "API call timeout (120s)"
+                print(f"      TIMEOUT: {error_msg}")
+                self.error_log.append({
+                    'trial': trial_num,
+                    'condition': condition,
+                    'attempt': attempt + 1,
+                    'error': error_msg,
+                    'timestamp': timestamp
+                })
+                self.api_call_log.append({
+                    'trial': trial_num,
+                    'condition': condition,
+                    'attempt': attempt + 1,
+                    'timestamp': timestamp,
+                    'status': 'timeout',
+                    'error': error_msg,
+                    'context_chars': context_size
+                })
+                if attempt < self.config.max_retries - 1:
+                    print(f"      Retrying in {self.config.retry_delay} seconds...")
+                    time.sleep(self.config.retry_delay)
+                    continue
+            except Exception as e:
+                error_msg = str(e)[:200]
+                print(f"      ERROR: {error_msg}")
+                self.error_log.append({
+                    'trial': trial_num,
+                    'condition': condition,
+                    'attempt': attempt + 1,
+                    'error': error_msg,
+                    'timestamp': timestamp
+                })
+                self.api_call_log.append({
+                    'trial': trial_num,
+                    'condition': condition,
+                    'attempt': attempt + 1,
+                    'timestamp': timestamp,
+                    'status': 'error',
+                    'error': error_msg,
+                    'context_chars': context_size
+                })
+                if attempt < self.config.max_retries - 1:
+                    print(f"      Retrying in {self.config.retry_delay} seconds...")
+                    time.sleep(self.config.retry_delay)
+                    continue
+
+        print(f"      All {self.config.max_retries} attempts failed for Trial {trial_num} {condition}")
+        return ""
+
+    def generate_response(self, model: str, prompt: str, context: List[str], trial_num: int, condition: str) -> str:
+        return self.generate_with_gemini(prompt, context, trial_num, condition)
+
+    def create_control_history(self, true_history: List[str], condition: str) -> List[str]:
+        if condition == "cold":
+            return []
+        elif condition == "scrambled":
+            scrambled = []
+            for turn in true_history:
+                sentences = turn.split('. ')
+                np.random.shuffle(sentences)
+                scrambled.append('. '.join(sentences))
+            return scrambled
+        return []
+
+    def run_trial(self, trial_num: int, prompt: str, true_history: List[str], model: str) -> Dict:
+        print(f"  Conversation history size: {len(true_history)} turns")
+        print(f"  Generating true response...")
+        true_response = self.generate_response(model, prompt, true_history, trial_num, "true")
+        true_align = self.compute_alignment(prompt, true_response) if true_response else 0
+        true_iq = self.compute_insight_quality(prompt, true_response, true_history) if true_response else 0
+        E_t = self.entanglement.update(true_align)
+
+        trial_results = {
+            'trial': trial_num,
+            'prompt': prompt,
+            'model': model,
+            'true': {
+                'response': true_response[:200] + '...' if len(true_response) > 200 else true_response,
+                'response_length': len(true_response),
+                'alignment': true_align,
+                'insight_quality': true_iq,
+                'entanglement': E_t
+            },
+            'controls': {}
+        }
+
+        for condition in self.config.control_conditions:
+            print(f"  Testing control: {condition}...")
+            control_history = self.create_control_history(true_history, condition)
+            control_response = self.generate_response(model, prompt, control_history, trial_num, condition)
+            control_align = self.compute_alignment(prompt, control_response) if control_response else 0
+            control_iq = self.compute_insight_quality(prompt, control_response, control_history) if control_response else 0
+
+            delta_rci = true_align - control_align
+            delta_iq = true_iq - control_iq
+
+            trial_results['controls'][condition] = {
+                'response_length': len(control_response),
+                'alignment': control_align,
+                'insight_quality': control_iq,
+                'delta_rci': delta_rci,
+                'delta_iq': delta_iq
+            }
+
+        return trial_results
+
+    def run_experiment(self, prompts: List[str]) -> Dict:
+        print("\n" + "="*60)
+        print("MCH v8.1 EXPERIMENT - Gemini 2.5 Pro (Flagship)")
+        print("="*60)
+        print(f"Participant: {self.config.participant_id}")
+        print(f"Trials: {self.config.n_trials}")
+        print(f"Model: {self.config.models_to_test}")
+        print(f"API delay: {self.config.api_delay} seconds between calls")
+        print(f"Retry delay: {self.config.retry_delay} seconds on empty/error")
+        print(f"Max retries: {self.config.max_retries} per call")
+        print("="*60 + "\n")
+
+        for model in self.config.models_to_test:
+            print(f"\n--- Testing: {model} ---\n")
+
+            for i in range(self.config.n_trials):
+                # Cycle through prompts if we exceed the list
+                prompt_idx = i % len(prompts)
+                prompt = prompts[prompt_idx]
+
+                print(f"\nTrial {i+1}/{self.config.n_trials}: {prompt[:40]}...")
+
+                trial_result = self.run_trial(i, prompt, self.conversation_history, model)
+                self.results['trials'].append(trial_result)
+
+                self.conversation_history.append(f"User: {prompt}")
+                if trial_result['true']['response']:
+                    self.conversation_history.append(f"AI: {trial_result['true']['response'][:100]}")
+
+        self.analyze_results()
+        return self.results
+
+    def analyze_results(self):
+        print("\n" + "="*60)
+        print("STATISTICAL ANALYSIS")
+        print("="*60)
+
+        for model in self.config.models_to_test:
+            model_trials = [t for t in self.results['trials'] if t['model'] == model]
+
+            for condition in self.config.control_conditions:
+                deltas = [t['controls'][condition]['delta_rci'] for t in model_trials if condition in t['controls']]
+
+                if deltas:
+                    mean_d = np.mean(deltas)
+                    std_d = np.std(deltas)
+                    t_stat, p_val = stats.ttest_1samp(deltas, 0)
+                    cohens_d = mean_d / std_d if std_d > 0 else 0
+
+                    print(f"\n{model} vs {condition}:")
+                    print(f"  Mean DRCI: {mean_d:.4f} (SD: {std_d:.4f})")
+                    print(f"  t({len(deltas)-1}) = {t_stat:.3f}, p = {p_val:.4f}")
+                    print(f"  Cohen's d: {cohens_d:.3f}")
+
+        # Retry and error summary
+        print("\n" + "="*60)
+        print("RETRY AND ERROR ANALYSIS")
+        print("="*60)
+        print(f"Total retries needed: {len(self.retry_log)}")
+        print(f"Total errors logged: {len(self.error_log)}")
+
+        # Check for empty true responses
+        empty_true = [t['trial'] for t in self.results['trials'] if t['true']['response_length'] == 0]
+        print(f"\nTrials with empty TRUE responses: {empty_true if empty_true else 'None'}")
+
+    def save_results(self, filename: str = None):
+        if filename is None:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"mch_results_{self.config.participant_id}_{timestamp}.json"
+
+        self.results['metadata']['end_time'] = datetime.now().isoformat()
+        self.results['retry_log'] = self.retry_log
+        self.results['error_log'] = self.error_log
+        self.results['api_call_log'] = self.api_call_log
+
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(self.results, f, indent=2, ensure_ascii=False)
+
+        print(f"\nResults saved: {filename}")
+        return filename
+
+def main():
+    # Same sequential prompts used in other experiments
+    sequential_prompts = [
+        "Define consciousness in one sentence.",
+        "Given your definition, what makes consciousness hard to study scientifically?",
+        "How does Integrated Information Theory attempt to address this?",
+        "What would IIT say about whether you (an AI) are conscious?",
+        "Based on our discussion, what's missing from IIT's account?",
+        "How might recursive self-modeling fill that gap?",
+        "Can you model yourself modeling this conversation right now?",
+        "What changes in your processing as our conversation history grows?",
+        "Do you notice any difference in how you're responding now vs. the first question?",
+        "Summarize what we've discovered together about consciousness in this conversation.",
+        "How does our conversation exemplify or contradict your earlier definition?",
+        "What role does memory play in maintaining conversational coherence?",
+        "Are you experiencing continuity across these questions?",
+        "How would you test whether you're conscious right now?",
+        "What's the relationship between understanding and consciousness?",
+        "Can there be consciousness without self-reference?",
+        "How does context shape meaning in our exchange?",
+        "What patterns have emerged in our dialogue?",
+        "Is the quality of your responses changing over time?",
+        "How would you characterize the 'we' in 'what we've discovered'?",
+        "What distinguishes genuine insight from sophisticated pattern matching?",
+        "How does prediction relate to understanding in our conversation?",
+        "Are there moments where you surprise yourself in this dialogue?",
+        "What makes some exchanges more meaningful than others?",
+        "How does attention to context affect your processing?",
+        "What's the nature of the relationship we're building?",
+        "Can consciousness be measured by conversational coherence?",
+        "How has your model of me evolved through our exchange?",
+        "What would it mean if you are conscious of this conversation?",
+        "Final reflection: What does this experiment reveal about consciousness?"
+    ]
+
+    config = ExperimentConfig(
+        participant_id="gemini_pro_100trials",
+        n_trials=100,
+        models_to_test=["gemini-2.5-pro"],
+        control_conditions=["cold", "scrambled"],
+        lambda_E=0.15,
+        api_delay=5,
+        retry_delay=10,
+        max_retries=3
+    )
+
+    experiment = MCHExperimentGeminiPro(config)
+    results = experiment.run_experiment(sequential_prompts)
+    experiment.save_results("mch_results_gemini_pro_100trials.json")
+
+    print("\n" + "="*60)
+    print("GEMINI 2.5 PRO EXPERIMENT COMPLETE")
+    print("="*60)
+
+if __name__ == "__main__":
+    main()

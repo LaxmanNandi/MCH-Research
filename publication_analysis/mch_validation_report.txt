@@ -1,0 +1,55 @@
+================================================================================
+MCH DATA VALIDATION REPORT
+================================================================================
+
+Generated: 2026-01-11 18:53:59
+Files Validated: 6
+
+--------------------------------------------------------------------------------
+VALIDATION SUMMARY
+--------------------------------------------------------------------------------
+Model              |  Trials | Miss Align |  Miss ΔRCI | Status    
+--------------------------------------------------------------------------------
+GPT-4o-mini        |     100 |          0 |          0 | PASSED    
+GPT-4o             |     100 |          0 |          0 | PASSED    
+Gemini Flash       |     100 |          0 |          0 | PASSED    
+Gemini Pro         |     100 |          0 |          0 | PASSED    
+Claude Haiku       |     100 |          0 |          0 | PASSED    
+Claude Opus        |     100 |          0 |          0 | PASSED    
+--------------------------------------------------------------------------------
+TOTAL              |     600 |
+
+--------------------------------------------------------------------------------
+INTEGRITY CHECKS
+--------------------------------------------------------------------------------
+  [PASSED] Total trials = 600
+  [PASSED] All files found
+  [PASSED] All models have 100 trials
+  [PASSED] No missing ΔRCI values
+  [PASSED] ΔRCI calculations verified
+  [PASSED] No API keys detected
+
+--------------------------------------------------------------------------------
+PER-MODEL STATISTICS
+--------------------------------------------------------------------------------
+Model              |  ΔRCI Mean |   ΔRCI Std | Pattern     
+--------------------------------------------------------------------------------
+GPT-4o-mini        |    -0.0091 |     0.1208 | NEUTRAL     
+GPT-4o             |    -0.0051 |     0.1099 | NEUTRAL     
+Gemini Flash       |    -0.0377 |     0.1236 | SOVEREIGN   
+Gemini Pro         |    -0.0665 |     0.1653 | SOVEREIGN   
+Claude Haiku       |    -0.0106 |     0.1161 | NEUTRAL     
+Claude Opus        |    -0.0357 |     0.1061 | SOVEREIGN   
+
+--------------------------------------------------------------------------------
+DATA CLEANING ACTIONS
+--------------------------------------------------------------------------------
+  - Removed raw response text (privacy, file size)
+  - Standardized schema across all models
+  - Added comprehensive metadata header
+  - Converted trial IDs to 1-indexed
+  - Verified all ΔRCI calculations
+
+================================================================================
+OVERALL STATUS: ALL CHECKS PASSED
+================================================================================

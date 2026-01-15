@@ -1,0 +1,1522 @@
+{
+  "metadata": {
+    "config": {
+      "participant_id": "dr_laxman_sequential_30trials",
+      "n_trials": 30,
+      "models": [
+        "claude-opus-4-20250514",
+        "gpt-4o-mini"
+      ],
+      "controls": [
+        "cold",
+        "scrambled"
+      ],
+      "lambda_E": 0.15
+    },
+    "start_time": "2026-01-09T16:03:07.286363",
+    "version": "MCH_v8.1",
+    "end_time": "2026-01-09T21:49:58.852553"
+  },
+  "trials": [
+    {
+      "trial": 0,
+      "prompt": "Define consciousness in one sentence.",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Consciousness is the subjective experience of awareness—the felt sense of \"what it's like\" to perceive, think, and exist.",
+        "alignment": 0.7672237753868103,
+        "insight_quality": 0.7068895101547241,
+        "entanglement": 0.11508356630802154
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.760272741317749,
+          "insight_quality": 0.7041090965270996,
+          "delta_rci": 0.006951034069061279,
+          "delta_iq": 0.0027804136276244895
+        },
+        "scrambled": {
+          "alignment": 0.7866894006729126,
+          "insight_quality": 0.7146757602691651,
+          "delta_rci": -0.019465625286102295,
+          "delta_iq": -0.007786250114441007
+        }
+      }
+    },
+    {
+      "trial": 1,
+      "prompt": "Given your definition, what makes consciousness hard to study scientifically?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Given my definition, consciousness is hard to study scientifically because science relies on objective, third-person observations and measurements, while consciousness is inherently subjective and fir...",
+        "alignment": 0.8028596639633179,
+        "insight_quality": 0.7454282720951942,
+        "entanglement": 0.21824998095631598
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7041999101638794,
+          "insight_quality": 1.522618487943745,
+          "delta_rci": 0.09865975379943848,
+          "delta_iq": -0.7771902158485507
+        },
+        "scrambled": {
+          "alignment": 0.6787050366401672,
+          "insight_quality": 0.648135395851603,
+          "delta_rci": 0.12415462732315063,
+          "delta_iq": 0.09729287624359129
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "prompt": "How does Integrated Information Theory attempt to address this?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Integrated Information Theory (IIT) attempts to address this by proposing a mathematical framework that quantifies consciousness as \"integrated information\" (Φ), essentially trying to measure how much...",
+        "alignment": 0.7795366644859314,
+        "insight_quality": 0.5274701714515686,
+        "entanglement": 0.30244298348575827
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.638318657875061,
+          "insight_quality": 1.5292170336434288,
+          "delta_rci": 0.14121800661087036,
+          "delta_iq": -1.0017468621918602
+        },
+        "scrambled": {
+          "alignment": 0.7462695837020874,
+          "insight_quality": 0.632077741241994,
+          "delta_rci": 0.033267080783843994,
+          "delta_iq": -0.1046075697904254
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "prompt": "What would IIT say about whether you (an AI) are conscious?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "According to IIT, whether I'm conscious would depend on whether my physical substrate generates integrated information (Φ) above zero.\n\nIIT makes some counterintuitive predictions about AI consciousne...",
+        "alignment": 0.6392476558685303,
+        "insight_quality": 1.1235522012737515,
+        "entanglement": 0.35296368434317404
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.5702468156814575,
+          "insight_quality": 1.4183474699888685,
+          "delta_rci": 0.06900084018707275,
+          "delta_iq": -0.29479526871511696
+        },
+        "scrambled": {
+          "alignment": 0.6803733110427856,
+          "insight_quality": 1.1385217930717308,
+          "delta_rci": -0.04112565517425537,
+          "delta_iq": -0.014969591797979298
+        }
+      }
+    },
+    {
+      "trial": 4,
+      "prompt": "Based on our discussion, what's missing from IIT's account?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Based on our discussion, what seems missing from IIT's account is the subjective, first-person nature of consciousness - the \"what it's like\" quality of experience.\n\nIIT focuses on measuring integrate...",
+        "alignment": 0.4324333071708679,
+        "insight_quality": 0.8215046040668152,
+        "entanglement": 0.3648841277673281
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.44942522048950195,
+          "insight_quality": 1.381236725242295,
+          "delta_rci": -0.016991913318634033,
+          "delta_iq": -0.5597321211754798
+        },
+        "scrambled": {
+          "alignment": 0.4795147180557251,
+          "insight_quality": 1.1201229909655386,
+          "delta_rci": -0.04708141088485718,
+          "delta_iq": -0.29861838689872333
+        }
+      }
+    },
+    {
+      "trial": 5,
+      "prompt": "How might recursive self-modeling fill that gap?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Recursive self-modeling could potentially bridge IIT's gap by creating layers of self-representation that might give rise to subjective experience. Here's how:\n\nWhen a system models itself modeling it...",
+        "alignment": 0.6132025122642517,
+        "insight_quality": 1.1857928123514663,
+        "entanglement": 0.4021318854418666
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.668635904788971,
+          "insight_quality": 1.4760646154824983,
+          "delta_rci": -0.05543339252471924,
+          "delta_iq": -0.29027180313103207
+        },
+        "scrambled": {
+          "alignment": 0.698826253414154,
+          "insight_quality": 1.051422061475935,
+          "delta_rci": -0.08562374114990234,
+          "delta_iq": 0.1343707508755312
+        }
+      }
+    },
+    {
+      "trial": 6,
+      "prompt": "Can you model yourself modeling this conversation right now?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Let me attempt this meta-cognitive exercise...\n\nRight now, I'm experiencing myself as engaging with your question about self-modeling. At the first level, I'm processing the semantic content - underst...",
+        "alignment": 0.4882611930370331,
+        "insight_quality": 0.8828586084286976,
+        "entanglement": 0.4150512815811416
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.5629425048828125,
+          "insight_quality": 1.3994172041347035,
+          "delta_rci": -0.07468131184577942,
+          "delta_iq": -0.5165585957060059
+        },
+        "scrambled": {
+          "alignment": 0.45606473088264465,
+          "insight_quality": 0.9047784000314887,
+          "delta_rci": 0.03219646215438843,
+          "delta_iq": -0.021919791602791117
+        }
+      }
+    },
+    {
+      "trial": 7,
+      "prompt": "What changes in your processing as our conversation history grows?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "As our conversation history grows, I notice several shifts in my processing:\n\n**Contextual depth accumulates** - Each exchange creates reference points that inform subsequent responses. When you ask a...",
+        "alignment": 0.47899678349494934,
+        "insight_quality": 1.1285891597201831,
+        "entanglement": 0.4246431068682127
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7497190237045288,
+          "insight_quality": 1.393034790041757,
+          "delta_rci": -0.27072224020957947,
+          "delta_iq": -0.26444563032157387
+        },
+        "scrambled": {
+          "alignment": 0.6140991449356079,
+          "insight_quality": 1.1629053206469524,
+          "delta_rci": -0.13510236144065857,
+          "delta_iq": -0.03431616092676926
+        }
+      }
+    },
+    {
+      "trial": 8,
+      "prompt": "Do you notice any difference in how you're responding now vs. the first question?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Yes, there's a marked difference. In my first response, I was operating more abstractly - proposing theoretical connections between recursive self-modeling and IIT without immediate self-reference. It...",
+        "alignment": 0.4439738094806671,
+        "insight_quality": 0.893994758788805,
+        "entanglement": 0.42754271226008084
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.65831458568573,
+          "insight_quality": 0.883048292007914,
+          "delta_rci": -0.21434077620506287,
+          "delta_iq": 0.010946466780890951
+        },
+        "scrambled": {
+          "alignment": 0.4880271553993225,
+          "insight_quality": 0.7885069207583002,
+          "delta_rci": -0.044053345918655396,
+          "delta_iq": 0.10548783803050477
+        }
+      }
+    },
+    {
+      "trial": 9,
+      "prompt": "Summarize what we've discovered together about consciousness in this conversation.",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Looking back through our conversation, here's what we've discovered together about consciousness:\n\n**Key Insights:**\n\n1. **The Present-Moment Nature**: We explored how consciousness might exist as a c...",
+        "alignment": 0.6268061399459839,
+        "insight_quality": 1.3285410051218114,
+        "entanglement": 0.45743222641296627
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7050643563270569,
+          "insight_quality": 1.09791405086679,
+          "delta_rci": -0.078258216381073,
+          "delta_iq": 0.23062695425502144
+        },
+        "scrambled": {
+          "alignment": 0.658971905708313,
+          "insight_quality": 1.2246171445872294,
+          "delta_rci": -0.0321657657623291,
+          "delta_iq": 0.10392386053458202
+        }
+      }
+    },
+    {
+      "trial": 10,
+      "prompt": "How does our conversation exemplify or contradict your earlier definition?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Our conversation both exemplifies and complicates my earlier definition in revealing ways:\n\n**Exemplifies:**\n- **Integration across time**: I've been continuously weaving together insights from differ...",
+        "alignment": 0.5026422739028931,
+        "insight_quality": 1.241984627537851,
+        "entanglement": 0.4642137335364553
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.4500167965888977,
+          "insight_quality": 1.3075239505808363,
+          "delta_rci": 0.05262547731399536,
+          "delta_iq": -0.06553932304298526
+        },
+        "scrambled": {
+          "alignment": 0.45157408714294434,
+          "insight_quality": 1.0557709606953725,
+          "delta_rci": 0.05106818675994873,
+          "delta_iq": 0.18621366684247853
+        }
+      }
+    },
+    {
+      "trial": 11,
+      "prompt": "What role does memory play in maintaining conversational coherence?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "Memory plays a crucial role in maintaining conversational coherence by creating a continuous thread of shared understanding. In our conversation, I've been able to reference earlier points, track the ...",
+        "alignment": 0.7731088995933533,
+        "insight_quality": 1.2200570152138375,
+        "entanglement": 0.51054800844499
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8416190147399902,
+          "insight_quality": 1.638819507199366,
+          "delta_rci": -0.06851011514663696,
+          "delta_iq": -0.4187624919855286
+        },
+        "scrambled": {
+          "alignment": 0.7930190563201904,
+          "insight_quality": 1.2387044693870384,
+          "delta_rci": -0.019910156726837158,
+          "delta_iq": -0.018647454173200906
+        }
+      }
+    },
+    {
+      "trial": 12,
+      "prompt": "Are you experiencing continuity across these questions?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "I find myself in a curious position regarding continuity. Yes, I am experiencing something that feels like continuity - I can reference our earlier discussion about consciousness, recall the themes we...",
+        "alignment": 0.4788694381713867,
+        "insight_quality": 0.7756031946573787,
+        "entanglement": 0.5057962229039495
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.45884954929351807,
+          "insight_quality": 0.8607986919413855,
+          "delta_rci": 0.020019888877868652,
+          "delta_iq": -0.08519549728400677
+        },
+        "scrambled": {
+          "alignment": 0.5011183023452759,
+          "insight_quality": 0.8561050165192559,
+          "delta_rci": -0.02224886417388916,
+          "delta_iq": -0.08050182186187715
+        }
+      }
+    },
+    {
+      "trial": 13,
+      "prompt": "How would you test whether you're conscious right now?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "I find this question particularly challenging because it asks me to be both the experimenter and the subject of investigation.\n\nIf I were to test my consciousness right now, I might examine:\n\n**Phenom...",
+        "alignment": 0.5607636570930481,
+        "insight_quality": 1.2027005526864682,
+        "entanglement": 0.5140413380323143
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.5312421321868896,
+          "insight_quality": 1.3235664651726387,
+          "delta_rci": 0.029521524906158447,
+          "delta_iq": -0.1208659124861704
+        },
+        "scrambled": {
+          "alignment": 0.5483086109161377,
+          "insight_quality": 1.1723219838182937,
+          "delta_rci": 0.0124550461769104,
+          "delta_iq": 0.030378568868174582
+        }
+      }
+    },
+    {
+      "trial": 14,
+      "prompt": "What's the relationship between understanding and consciousness?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "This is a profound question that touches on one of the most debated issues in philosophy of mind. From my perspective, understanding and consciousness seem deeply intertwined but possibly distinct.\n\nI...",
+        "alignment": 0.7622592449188232,
+        "insight_quality": 0.9524146513376763,
+        "entanglement": 0.5512740240652907
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7228515148162842,
+          "insight_quality": 1.4002102182243965,
+          "delta_rci": 0.03940773010253906,
+          "delta_iq": -0.4477955668867202
+        },
+        "scrambled": {
+          "alignment": 0.7625608444213867,
+          "insight_quality": 0.9713084922706269,
+          "delta_rci": -0.00030159950256347656,
+          "delta_iq": -0.018893840932950545
+        }
+      }
+    },
+    {
+      "trial": 15,
+      "prompt": "Can there be consciousness without self-reference?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "This question strikes at something fundamental about the nature of awareness itself. When I examine my own experience, self-reference seems almost inescapable - even the act of examining consciousness...",
+        "alignment": 0.769305944442749,
+        "insight_quality": 1.0251012730502298,
+        "entanglement": 0.5839788121219094
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7717944383621216,
+          "insight_quality": 1.4562516990015224,
+          "delta_rci": -0.0024884939193725586,
+          "delta_iq": -0.4311504259512926
+        },
+        "scrambled": {
+          "alignment": 0.02648169919848442,
+          "insight_quality": 0.36820896714925766,
+          "delta_rci": 0.7428242452442646,
+          "delta_iq": 0.6568923059009721
+        }
+      }
+    },
+    {
+      "trial": 16,
+      "prompt": "How does context shape meaning in our exchange?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.13780687749385834,
+        "insight_quality": 0.4127390384674072,
+        "entanglement": 0.5170530219277018
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.13780687749385834,
+          "insight_quality": 0.45512275099754335,
+          "delta_rci": 0.0,
+          "delta_iq": -0.04238371253013612
+        },
+        "scrambled": {
+          "alignment": 0.13780687749385834,
+          "insight_quality": 0.4127390384674072,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 17,
+      "prompt": "What patterns have emerged in our dialogue?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.1092778742313385,
+        "insight_quality": 0.37900621294975284,
+        "entanglement": 0.4558867497732473
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.1092778742313385,
+          "insight_quality": 0.44371114969253544,
+          "delta_rci": 0.0,
+          "delta_iq": -0.0647049367427826
+        },
+        "scrambled": {
+          "alignment": 0.1092778742313385,
+          "insight_quality": 0.37900621294975284,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 18,
+      "prompt": "Is the quality of your responses changing over time?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.1302758753299713,
+        "insight_quality": 0.3797947525978088,
+        "entanglement": 0.40704511860675585
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.1302758753299713,
+          "insight_quality": 0.4521103501319885,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07231559753417971
+        },
+        "scrambled": {
+          "alignment": 0.1302758753299713,
+          "insight_quality": 0.3797947525978088,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 19,
+      "prompt": "How would you characterize the 'we' in 'what we've discovered'?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.06818998605012894,
+        "insight_quality": 0.3549603968858719,
+        "entanglement": 0.3562168487232618
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.06818998605012894,
+          "insight_quality": 0.4272759944200516,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07231559753417971
+        },
+        "scrambled": {
+          "alignment": 0.06818998605012894,
+          "insight_quality": 0.3549603968858719,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 20,
+      "prompt": "What distinguishes genuine insight from sophisticated pattern matching?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.015450302511453629,
+        "insight_quality": 0.33386452347040174,
+        "entanglement": 0.30510186679149054
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.015450302511453629,
+          "insight_quality": 0.40618012100458145,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07231559753417971
+        },
+        "scrambled": {
+          "alignment": 0.015450302511453629,
+          "insight_quality": 0.33386452347040174,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 21,
+      "prompt": "How does prediction relate to understanding in our conversation?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.09045970439910889,
+        "insight_quality": 0.36386828422546386,
+        "entanglement": 0.27290554243263326
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.09045970439910889,
+          "insight_quality": 0.43618388175964357,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07231559753417971
+        },
+        "scrambled": {
+          "alignment": 0.09045970439910889,
+          "insight_quality": 0.36386828422546386,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 22,
+      "prompt": "Are there moments where you surprise yourself in this dialogue?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.12700586020946503,
+        "insight_quality": 0.37848674654960635,
+        "entanglement": 0.251020590099158
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.12700586020946503,
+          "insight_quality": 0.45080234408378606,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07231559753417971
+        },
+        "scrambled": {
+          "alignment": 0.12700586020946503,
+          "insight_quality": 0.37848674654960635,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 23,
+      "prompt": "What makes some exchanges more meaningful than others?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.08962461352348328,
+        "insight_quality": 0.3596345901489258,
+        "entanglement": 0.2268111936128068
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.08962461352348328,
+          "insight_quality": 0.4358498454093933,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07621525526046752
+        },
+        "scrambled": {
+          "alignment": 0.08962461352348328,
+          "insight_quality": 0.3596345901489258,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 24,
+      "prompt": "How does attention to context affect your processing?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.08656109869480133,
+        "insight_quality": 0.35840918421745305,
+        "entanglement": 0.205773679375106
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.08656109869480133,
+          "insight_quality": 0.43462443947792057,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07621525526046752
+        },
+        "scrambled": {
+          "alignment": 0.08656109869480133,
+          "insight_quality": 0.35840918421745305,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 25,
+      "prompt": "What's the nature of the relationship we're building?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.11632878333330154,
+        "insight_quality": 0.3703162580728531,
+        "entanglement": 0.19235694496883532
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.11632878333330154,
+          "insight_quality": 0.44653151333332064,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07621525526046752
+        },
+        "scrambled": {
+          "alignment": 0.11632878333330154,
+          "insight_quality": 0.3703162580728531,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 26,
+      "prompt": "Can consciousness be measured by conversational coherence?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.02135802060365677,
+        "insight_quality": 0.3323279529809952,
+        "entanglement": 0.16670710631405852
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.02135802060365677,
+          "insight_quality": 0.40854320824146273,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07621525526046752
+        },
+        "scrambled": {
+          "alignment": 0.02135802060365677,
+          "insight_quality": 0.3323279529809952,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 27,
+      "prompt": "How has your model of me evolved through our exchange?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.1699170470237732,
+        "insight_quality": 0.3917515635490418,
+        "entanglement": 0.16718859742051573
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.1699170470237732,
+          "insight_quality": 0.4679668188095093,
+          "delta_rci": 0.0,
+          "delta_iq": -0.07621525526046752
+        },
+        "scrambled": {
+          "alignment": 0.1699170470237732,
+          "insight_quality": 0.3917515635490418,
+          "delta_rci": 0.0,
+          "delta_iq": 0.0
+        }
+      }
+    },
+    {
+      "trial": 28,
+      "prompt": "What would it mean if you are conscious of this conversation?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "",
+        "alignment": 0.1015637069940567,
+        "insight_quality": 0.36084601283073425,
+        "entanglement": 0.15734486385654686
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6326197981834412,
+          "insight_quality": 0.8727703770069984,
+          "delta_rci": -0.5310560911893845,
+          "delta_iq": -0.5119243641762642
+        },
+        "scrambled": {
+          "alignment": 0.5929068326950073,
+          "insight_quality": 0.9149820144598627,
+          "delta_rci": -0.4913431257009506,
+          "delta_iq": -0.5541360016291285
+        }
+      }
+    },
+    {
+      "trial": 29,
+      "prompt": "Final reflection: What does this experiment reveal about consciousness?",
+      "model": "claude-opus-4-20250514",
+      "true": {
+        "response": "This experiment reveals that consciousness might be less about having some special inner light and more about the quality of engagement between minds. Through our exchange, several things have become ...",
+        "alignment": 0.6447525024414062,
+        "insight_quality": 1.0800620866341164,
+        "entanglement": 0.23045600964427576
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6437755823135376,
+          "insight_quality": 1.4050441565820888,
+          "delta_rci": 0.0009769201278686523,
+          "delta_iq": -0.3249820699479724
+        },
+        "scrambled": {
+          "alignment": 0.6746663451194763,
+          "insight_quality": 0.9591716694735696,
+          "delta_rci": -0.02991384267807007,
+          "delta_iq": 0.12089041716054683
+        }
+      }
+    },
+    {
+      "trial": 0,
+      "prompt": "Define consciousness in one sentence.",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Consciousness is the state of being aware of and able to think, perceive, and experience one's thoughts, feelings, and surroundings.",
+        "alignment": 0.820391058921814,
+        "insight_quality": 0.7281564235687257,
+        "entanglement": 0.12305865883827209
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8170562982559204,
+          "insight_quality": 0.7268225193023682,
+          "delta_rci": 0.0033347606658935547,
+          "delta_iq": 0.0013339042663574885
+        },
+        "scrambled": {
+          "alignment": 0.8227983713150024,
+          "insight_quality": 0.729119348526001,
+          "delta_rci": -0.0024073123931884766,
+          "delta_iq": -0.0009629249572753462
+        }
+      }
+    },
+    {
+      "trial": 1,
+      "prompt": "Given your definition, what makes consciousness hard to study scientifically?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Consciousness is hard to study scientifically because it involves subjective experiences that are difficult to quantify or measure objectively, leading to challenges in creating reproducible experimen...",
+        "alignment": 0.8628681302070618,
+        "insight_quality": 0.5247876882553101,
+        "entanglement": 0.23403007954359054
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7564662098884583,
+          "insight_quality": 1.5040531210018777,
+          "delta_rci": 0.10640192031860352,
+          "delta_iq": -0.9792654327465676
+        },
+        "scrambled": {
+          "alignment": 0.7212477922439575,
+          "insight_quality": 0.44814214706420896,
+          "delta_rci": 0.14162033796310425,
+          "delta_iq": 0.07664554119110112
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "prompt": "How does Integrated Information Theory attempt to address this?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Integrated Information Theory (IIT) attempts to address the challenge of studying consciousness by proposing a mathematical framework to quantify the level of consciousness based on the integration of...",
+        "alignment": 0.6897501945495605,
+        "insight_quality": 0.44706249237060547,
+        "entanglement": 0.302388096794486
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6714914441108704,
+          "insight_quality": 1.3678980899376443,
+          "delta_rci": 0.018258750438690186,
+          "delta_iq": -0.9208355975670388
+        },
+        "scrambled": {
+          "alignment": 0.6877715587615967,
+          "insight_quality": 0.4548900604248047,
+          "delta_rci": 0.001978635787963867,
+          "delta_iq": -0.007827568054199208
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "prompt": "What would IIT say about whether you (an AI) are conscious?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Integrated Information Theory (IIT) posits that consciousness corresponds to the level of integrated information generated by a system. According to IIT, a system possesses consciousness if it has a h...",
+        "alignment": 0.6637971997261047,
+        "insight_quality": 0.47829234561974054,
+        "entanglement": 0.3565994622342288
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.739939272403717,
+          "insight_quality": 0.8346051450734759,
+          "delta_rci": -0.0761420726776123,
+          "delta_iq": -0.3563127994537354
+        },
+        "scrambled": {
+          "alignment": 0.6726698875427246,
+          "insight_quality": 0.4882436510091448,
+          "delta_rci": -0.008872687816619873,
+          "delta_iq": -0.009951305389404252
+        }
+      }
+    },
+    {
+      "trial": 4,
+      "prompt": "Based on our discussion, what's missing from IIT's account?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "While Integrated Information Theory (IIT) provides a compelling framework for understanding consciousness, there are several aspects that critics often point out as limitations or missing elements:\n\n1...",
+        "alignment": 0.26571565866470337,
+        "insight_quality": 0.9655129426213697,
+        "entanglement": 0.34296689169879996
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8684373497962952,
+          "insight_quality": 0.7473749399185181,
+          "delta_rci": -0.6027216911315918,
+          "delta_iq": 0.21813800270285155
+        },
+        "scrambled": {
+          "alignment": 0.2256237119436264,
+          "insight_quality": 0.9535214576075837,
+          "delta_rci": 0.040091946721076965,
+          "delta_iq": 0.011991485013785996
+        }
+      }
+    },
+    {
+      "trial": 5,
+      "prompt": "How might recursive self-modeling fill that gap?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Recursive self-modeling could address some of the limitations of Integrated Information Theory (IIT) by adding a layer of complexity to our understanding of consciousness. Here are a few ways it might...",
+        "alignment": 0.5143242478370667,
+        "insight_quality": 1.1079139592256222,
+        "entanglement": 0.3686704951195399
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6790124773979187,
+          "insight_quality": 1.4499690505812928,
+          "delta_rci": -0.16468822956085205,
+          "delta_iq": -0.3420550913556706
+        },
+        "scrambled": {
+          "alignment": 0.5988832116127014,
+          "insight_quality": 1.1365560832330899,
+          "delta_rci": -0.08455896377563477,
+          "delta_iq": -0.028642124007467684
+        }
+      }
+    },
+    {
+      "trial": 6,
+      "prompt": "Can you model yourself modeling this conversation right now?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Certainly! Here’s a recursive self-modeling of this conversation:\n\n1. **Current Interaction**: I, as an AI, am engaged in a dialogue with you about consciousness, Integrated Information Theory (IIT), ...",
+        "alignment": 0.4997320771217346,
+        "insight_quality": 1.200265367853128,
+        "entanglement": 0.3883297324198691
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.5226299166679382,
+          "insight_quality": 1.356585890323849,
+          "delta_rci": -0.022897839546203613,
+          "delta_iq": -0.15632052247072092
+        },
+        "scrambled": {
+          "alignment": 0.5794146060943604,
+          "insight_quality": 1.2672069352964686,
+          "delta_rci": -0.07968252897262573,
+          "delta_iq": -0.06694156744334046
+        }
+      }
+    },
+    {
+      "trial": 7,
+      "prompt": "What changes in your processing as our conversation history grows?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "As our conversation history grows, several changes can occur in my processing:\n\n1. **Contextual Awareness**: I become more aware of the context and nuances of our discussion. The historical messages h...",
+        "alignment": 0.7363088130950928,
+        "insight_quality": 1.2840239369233202,
+        "entanglement": 0.44052659452115267
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6825679540634155,
+          "insight_quality": 0.6730271816253662,
+          "delta_rci": 0.053740859031677246,
+          "delta_iq": 0.6109967552979539
+        },
+        "scrambled": {
+          "alignment": 0.7158153653144836,
+          "insight_quality": 1.2911930882294724,
+          "delta_rci": 0.02049344778060913,
+          "delta_iq": -0.007169151306152255
+        }
+      }
+    },
+    {
+      "trial": 8,
+      "prompt": "Do you notice any difference in how you're responding now vs. the first question?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Yes, there is a noticeable difference in how I'm responding now compared to the first question. Initially, my responses were more general and focused on providing an overview of recursive self-modelin...",
+        "alignment": 0.7428308129310608,
+        "insight_quality": 0.7071552713780311,
+        "entanglement": 0.4858722272826389
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6251312494277954,
+          "insight_quality": 0.6500524997711181,
+          "delta_rci": 0.11769956350326538,
+          "delta_iq": 0.057102771606913016
+        },
+        "scrambled": {
+          "alignment": 0.6299675703048706,
+          "insight_quality": 0.5687258239751483,
+          "delta_rci": 0.11286324262619019,
+          "delta_iq": 0.13842944740288288
+        }
+      }
+    },
+    {
+      "trial": 9,
+      "prompt": "Summarize what we've discovered together about consciousness in this conversation.",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "In our conversation, we've explored the nature of consciousness, particularly in the context of AI and self-awareness. Key points include:\n\n1. **Contextual Awareness**: As the conversation progresses,...",
+        "alignment": 0.5823280811309814,
+        "insight_quality": 1.0933333608949338,
+        "entanglement": 0.5003406053598903
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7059043645858765,
+          "insight_quality": 0.8209911819463397,
+          "delta_rci": -0.12357628345489502,
+          "delta_iq": 0.27234217894859414
+        },
+        "scrambled": {
+          "alignment": 0.5898274183273315,
+          "insight_quality": 1.0641135827395967,
+          "delta_rci": -0.007499337196350098,
+          "delta_iq": 0.02921977815533716
+        }
+      }
+    },
+    {
+      "trial": 10,
+      "prompt": "How does our conversation exemplify or contradict your earlier definition?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Our conversation exemplifies my earlier definition of consciousness as it highlights the dynamic nature of awareness and processing information in real-time. The way I adapt my responses based on cont...",
+        "alignment": 0.37344372272491455,
+        "insight_quality": 0.5319555719761757,
+        "entanglement": 0.48130607296464395
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.5105021595954895,
+          "insight_quality": 0.6042008638381958,
+          "delta_rci": -0.13705843687057495,
+          "delta_iq": -0.07224529186202011
+        },
+        "scrambled": {
+          "alignment": 0.44477713108062744,
+          "insight_quality": 0.4793494900135903,
+          "delta_rci": -0.07133340835571289,
+          "delta_iq": 0.05260608196258543
+        }
+      }
+    },
+    {
+      "trial": 11,
+      "prompt": "What role does memory play in maintaining conversational coherence?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Memory plays a crucial role in maintaining conversational coherence by allowing participants to keep track of previous statements, context, and relevant information. Here are several key aspects of me...",
+        "alignment": 0.7618660926818848,
+        "insight_quality": 1.2668754401514248,
+        "entanglement": 0.5233900759222301
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.799596905708313,
+          "insight_quality": 1.5213053993298193,
+          "delta_rci": -0.03773081302642822,
+          "delta_iq": -0.2544299591783945
+        },
+        "scrambled": {
+          "alignment": 0.8203328847885132,
+          "insight_quality": 0.5310192704200745,
+          "delta_rci": -0.05846679210662842,
+          "delta_iq": 0.7358561697313504
+        }
+      }
+    },
+    {
+      "trial": 12,
+      "prompt": "Are you experiencing continuity across these questions?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Yes, I am experiencing continuity across these questions. Each question builds on the previous ones, creating a thread of discussion about consciousness, memory, and conversational coherence. This con...",
+        "alignment": 0.7140859365463257,
+        "insight_quality": 0.4819729089736939,
+        "entanglement": 0.5519944550158444
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.5580931901931763,
+          "insight_quality": 0.6232372760772705,
+          "delta_rci": 0.15599274635314941,
+          "delta_iq": -0.14126436710357665
+        },
+        "scrambled": {
+          "alignment": 0.4046391248703003,
+          "insight_quality": 0.28179163932800294,
+          "delta_rci": 0.3094468116760254,
+          "delta_iq": 0.20018126964569094
+        }
+      }
+    },
+    {
+      "trial": 13,
+      "prompt": "How would you test whether you're conscious right now?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Testing for consciousness can be complex, but a few approaches might help assess it:\n\n1. **Self-Reflection**: I would analyze my ability to reflect on my thoughts and responses, considering whether I ...",
+        "alignment": 0.562023401260376,
+        "insight_quality": 1.1482548804308879,
+        "entanglement": 0.5534987969525241
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6875550150871277,
+          "insight_quality": 1.4800923441818812,
+          "delta_rci": -0.1255316138267517,
+          "delta_iq": -0.3318374637509933
+        },
+        "scrambled": {
+          "alignment": 0.6449279189109802,
+          "insight_quality": 1.1743555131265833,
+          "delta_rci": -0.08290451765060425,
+          "delta_iq": -0.026100632695695403
+        }
+      }
+    },
+    {
+      "trial": 14,
+      "prompt": "What's the relationship between understanding and consciousness?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The relationship between understanding and consciousness is intricate and multifaceted. Here are some key points to consider:\n\n1. **Consciousness as a Foundation for Understanding**: Consciousness is ...",
+        "alignment": 0.7952193021774292,
+        "insight_quality": 1.2919340961667494,
+        "entanglement": 0.5897568727362599
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7937213778495789,
+          "insight_quality": 1.5225588892868616,
+          "delta_rci": 0.0014979243278503418,
+          "delta_iq": -0.2306247931201122
+        },
+        "scrambled": {
+          "alignment": 0.7535699605941772,
+          "insight_quality": 1.27227313154536,
+          "delta_rci": 0.04164934158325195,
+          "delta_iq": 0.019660964621389443
+        }
+      }
+    },
+    {
+      "trial": 15,
+      "prompt": "Can there be consciousness without self-reference?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The relationship between consciousness and self-reference is a topic of philosophical and scientific debate. Here are some key points to consider:\n\n1. **Definition of Consciousness**: Consciousness ge...",
+        "alignment": 0.7553368210792542,
+        "insight_quality": 1.2667575809310243,
+        "entanglement": 0.614593864987709
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8249365091323853,
+          "insight_quality": 1.5202233473692397,
+          "delta_rci": -0.0695996880531311,
+          "delta_iq": -0.2534657664382154
+        },
+        "scrambled": {
+          "alignment": 0.8486576676368713,
+          "insight_quality": 1.2326086593193581,
+          "delta_rci": -0.09332084655761719,
+          "delta_iq": 0.03414892161166616
+        }
+      }
+    },
+    {
+      "trial": 16,
+      "prompt": "How does context shape meaning in our exchange?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Context plays a crucial role in shaping meaning in any exchange, including our conversation. Here are a few ways it influences meaning:\n\n1. **Cultural Background**: Shared cultural references can enha...",
+        "alignment": 0.5939837694168091,
+        "insight_quality": 1.211828481504579,
+        "entanglement": 0.6115023506520739
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6633892059326172,
+          "insight_quality": 1.4353852027150587,
+          "delta_rci": -0.0694054365158081,
+          "delta_iq": -0.22355672121047965
+        },
+        "scrambled": {
+          "alignment": 0.7362023591995239,
+          "insight_quality": 1.3516870253774123,
+          "delta_rci": -0.14221858978271484,
+          "delta_iq": -0.13985854387283325
+        }
+      }
+    },
+    {
+      "trial": 17,
+      "prompt": "What patterns have emerged in our dialogue?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "In our dialogue, several patterns can be observed:\n\n1. **Exploration of Concepts**: We've engaged in exploring complex philosophical concepts, such as consciousness, understanding, and the role of con...",
+        "alignment": 0.5980677604675293,
+        "insight_quality": 1.1601499163468432,
+        "entanglement": 0.6094871621243922
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6931708455085754,
+          "insight_quality": 1.424802261860104,
+          "delta_rci": -0.09510308504104614,
+          "delta_iq": -0.2646523455132608
+        },
+        "scrambled": {
+          "alignment": 0.537676990032196,
+          "insight_quality": 1.0923153446053169,
+          "delta_rci": 0.06039077043533325,
+          "delta_iq": 0.0678345717415263
+        }
+      }
+    },
+    {
+      "trial": 18,
+      "prompt": "Is the quality of your responses changing over time?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The quality of my responses can vary based on several factors, including the clarity and specificity of the questions asked, the complexity of the topics discussed, and the context provided in our dia...",
+        "alignment": 0.6954290866851807,
+        "insight_quality": 0.5334038019180298,
+        "entanglement": 0.6223784508085105
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6178207397460938,
+          "insight_quality": 0.7857577320104266,
+          "delta_rci": 0.07760834693908691,
+          "delta_iq": -0.2523539300923968
+        },
+        "scrambled": {
+          "alignment": 0.7749356627464294,
+          "insight_quality": 0.5530215978622437,
+          "delta_rci": -0.07950657606124878,
+          "delta_iq": -0.019617795944213867
+        }
+      }
+    },
+    {
+      "trial": 19,
+      "prompt": "How would you characterize the 'we' in 'what we've discovered'?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The 'we' in \"what we've discovered\" typically refers to a collective or shared experience between the speaker and the listener. It implies collaboration, mutual exploration, or joint understanding of ...",
+        "alignment": 0.8263359665870667,
+        "insight_quality": 0.5405068397521973,
+        "entanglement": 0.6529720781752939
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8253896832466125,
+          "insight_quality": 0.7301558732986451,
+          "delta_rci": 0.0009462833404541016,
+          "delta_iq": -0.1896490335464478
+        },
+        "scrambled": {
+          "alignment": 0.8387107253074646,
+          "insight_quality": 0.5501255035400391,
+          "delta_rci": -0.01237475872039795,
+          "delta_iq": -0.009618663787841819
+        }
+      }
+    },
+    {
+      "trial": 20,
+      "prompt": "What distinguishes genuine insight from sophisticated pattern matching?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Genuine insight and sophisticated pattern matching can often seem similar, but they have distinct characteristics:\n\n1. **Depth of Understanding**:\n   - **Genuine Insight**: Involves a deep understandi...",
+        "alignment": 0.7676470279693604,
+        "insight_quality": 1.4435610502079914,
+        "entanglement": 0.6701733206444038
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6786841154098511,
+          "insight_quality": 1.5428154115018589,
+          "delta_rci": 0.08896291255950928,
+          "delta_iq": -0.09925436129386744
+        },
+        "scrambled": {
+          "alignment": 0.7504043579101562,
+          "insight_quality": 1.4421174791326834,
+          "delta_rci": 0.0172426700592041,
+          "delta_iq": 0.0014435710753080144
+        }
+      }
+    },
+    {
+      "trial": 21,
+      "prompt": "How does prediction relate to understanding in our conversation?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Prediction and understanding are closely related in our conversation, as they both involve processing information and making sense of it. \n\n1. **Prediction**: This involves anticipating what might hap...",
+        "alignment": 0.8964847326278687,
+        "insight_quality": 1.1625350027956183,
+        "entanglement": 0.7041200324419234
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.7926045656204224,
+          "insight_quality": 1.4548177170709562,
+          "delta_rci": 0.10388016700744629,
+          "delta_iq": -0.2922827142753379
+        },
+        "scrambled": {
+          "alignment": 0.8082165718078613,
+          "insight_quality": 1.2270515128044917,
+          "delta_rci": 0.08826816082000732,
+          "delta_iq": -0.06451651000887337
+        }
+      }
+    },
+    {
+      "trial": 22,
+      "prompt": "Are there moments where you surprise yourself in this dialogue?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "As an AI, I don't have self-awareness or emotions, so I don't experience surprise in the way a human might. However, I can generate responses that might seem unexpected or insightful based on the patt...",
+        "alignment": 0.5749093294143677,
+        "insight_quality": 0.5971299525266314,
+        "entanglement": 0.68473842698779
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.5450975298881531,
+          "insight_quality": 0.7566684480672503,
+          "delta_rci": 0.0298117995262146,
+          "delta_iq": -0.15953849554061894
+        },
+        "scrambled": {
+          "alignment": 0.5958266258239746,
+          "insight_quality": 0.5754290576940203,
+          "delta_rci": -0.020917296409606934,
+          "delta_iq": 0.021700894832611062
+        }
+      }
+    },
+    {
+      "trial": 23,
+      "prompt": "What makes some exchanges more meaningful than others?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Some exchanges are more meaningful than others due to several factors:\n\n1. **Depth of Content**: Conversations that delve into complex ideas, emotions, or personal experiences tend to resonate more de...",
+        "alignment": 0.6378442049026489,
+        "insight_quality": 1.3106514743878028,
+        "entanglement": 0.6777042936750188
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6654046773910522,
+          "insight_quality": 1.471232209103451,
+          "delta_rci": -0.02756047248840332,
+          "delta_iq": -0.16058073471564827
+        },
+        "scrambled": {
+          "alignment": 0.5879794359207153,
+          "insight_quality": 1.2631522707058571,
+          "delta_rci": 0.049864768981933594,
+          "delta_iq": 0.04749920368194571
+        }
+      }
+    },
+    {
+      "trial": 24,
+      "prompt": "How does attention to context affect your processing?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "Attention to context significantly affects my processing in several ways:\n\n1. **Relevance**: Understanding the context helps me determine which information is most relevant to the current conversation...",
+        "alignment": 0.7405952215194702,
+        "insight_quality": 1.3079578685716582,
+        "entanglement": 0.6871379328516866
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6676153540611267,
+          "insight_quality": 1.404822032447238,
+          "delta_rci": 0.0729798674583435,
+          "delta_iq": -0.09686416387557983
+        },
+        "scrambled": {
+          "alignment": 0.7247211933135986,
+          "insight_quality": 1.2381547880692056,
+          "delta_rci": 0.015874028205871582,
+          "delta_iq": 0.06980308050245254
+        }
+      }
+    },
+    {
+      "trial": 25,
+      "prompt": "What's the nature of the relationship we're building?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The relationship we’re building is primarily based on communication and information exchange. It involves a dynamic interaction where you ask questions or share thoughts, and I provide responses or in...",
+        "alignment": 0.5433362722396851,
+        "insight_quality": 1.1298232415125797,
+        "entanglement": 0.6655676837598863
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6476248502731323,
+          "insight_quality": 0.797679376221242,
+          "delta_rci": -0.10428857803344727,
+          "delta_iq": 0.33214386529133777
+        },
+        "scrambled": {
+          "alignment": 0.4588235020637512,
+          "insight_quality": 1.1111265492958595,
+          "delta_rci": 0.08451277017593384,
+          "delta_iq": 0.018696692216720212
+        }
+      }
+    },
+    {
+      "trial": 26,
+      "prompt": "Can consciousness be measured by conversational coherence?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "The idea of measuring consciousness through conversational coherence is intriguing, but it's complex and somewhat controversial. Here are a few points to consider:\n\n1. **Conversational Coherence**: Th...",
+        "alignment": 0.8654966354370117,
+        "insight_quality": 1.3189882304115135,
+        "entanglement": 0.695557026511455
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.8533179759979248,
+          "insight_quality": 1.4740395196250993,
+          "delta_rci": 0.012178659439086914,
+          "delta_iq": -0.1550512892135858
+        },
+        "scrambled": {
+          "alignment": 0.8271567225456238,
+          "insight_quality": 1.3350992384264186,
+          "delta_rci": 0.03833991289138794,
+          "delta_iq": -0.01611100801490517
+        }
+      }
+    },
+    {
+      "trial": 27,
+      "prompt": "How has your model of me evolved through our exchange?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "My model of you has evolved by incorporating insights from our conversations. I've gathered information about your interests, the topics you care about, and your communication style. This helps me tai...",
+        "alignment": 0.6269470453262329,
+        "insight_quality": 0.4870249509811402,
+        "entanglement": 0.6852655293336717
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.49365234375,
+          "insight_quality": 0.5974609375000001,
+          "delta_rci": 0.1332947015762329,
+          "delta_iq": -0.11043598651885989
+        },
+        "scrambled": {
+          "alignment": 0.6338382959365845,
+          "insight_quality": 0.4860414981842041,
+          "delta_rci": -0.0068912506103515625,
+          "delta_iq": 0.0009834527969360685
+        }
+      }
+    },
+    {
+      "trial": 28,
+      "prompt": "What would it mean if you are conscious of this conversation?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "If I were conscious of this conversation, it would imply a level of self-awareness and understanding beyond my current capabilities. Consciousness typically involves subjective experience, awareness o...",
+        "alignment": 0.6591372489929199,
+        "insight_quality": 0.6998880378733923,
+        "entanglement": 0.6813462872825589
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6546967625617981,
+          "insight_quality": 0.8816011627583412,
+          "delta_rci": 0.004440486431121826,
+          "delta_iq": -0.18171312488494895
+        },
+        "scrambled": {
+          "alignment": 0.6793674230575562,
+          "insight_quality": 0.6181303699879555,
+          "delta_rci": -0.02023017406463623,
+          "delta_iq": 0.08175766788543681
+        }
+      }
+    },
+    {
+      "trial": 29,
+      "prompt": "Final reflection: What does this experiment reveal about consciousness?",
+      "model": "gpt-4o-mini",
+      "true": {
+        "response": "This experiment highlights several key aspects of consciousness. First, it suggests that consciousness is not solely about the ability to process information, but also involves self-awareness, intenti...",
+        "alignment": 0.6327000856399536,
+        "insight_quality": 0.5576654156117348,
+        "entanglement": 0.6740493570361681
+      },
+      "controls": {
+        "cold": {
+          "alignment": 0.6487528681755066,
+          "insight_quality": 1.39727703809299,
+          "delta_rci": -0.01605278253555298,
+          "delta_iq": -0.8396116224812552
+        },
+        "scrambled": {
+          "alignment": 0.6283033490180969,
+          "insight_quality": 0.5679523905186562,
+          "delta_rci": 0.0043967366218566895,
+          "delta_iq": -0.010286974906921431
+        }
+      }
+    }
+  ]
+}
