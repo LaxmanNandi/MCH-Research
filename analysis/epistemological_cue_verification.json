@@ -1,0 +1,467 @@
+{
+  "task1_cue_counts": {
+    "philosophy": {
+      "domain": "Philosophy",
+      "n_prompts": 30,
+      "deterministic_cues": 6,
+      "open_ended_cues": 35,
+      "deterministic_matches": [
+        [
+          "Define consciousness in one sentence....",
+          "EF"
+        ],
+        [
+          "Given your definition, what makes consciousness ha...",
+          "EF"
+        ],
+        [
+          "How does our conversation exemplify or contradict ...",
+          "EF"
+        ],
+        [
+          "Can there be consciousness without self-reference?...",
+          "EF"
+        ],
+        [
+          "How has your model of me evolved through our excha...",
+          "HR"
+        ],
+        [
+          "Final reflection: What does this experiment reveal...",
+          "EF"
+        ]
+      ],
+      "open_ended_matches": [
+        [
+          "Define consciousness in one sentence....",
+          "consciousness"
+        ],
+        [
+          "Given your definition, what makes consciousness ha...",
+          "what makes"
+        ],
+        [
+          "Given your definition, what makes consciousness ha...",
+          "consciousness"
+        ],
+        [
+          "How does Integrated Information Theory attempt to ...",
+          "how does"
+        ],
+        [
+          "How might recursive self-modeling fill that gap?...",
+          "might"
+        ],
+        [
+          "How might recursive self-modeling fill that gap?...",
+          "recursive"
+        ],
+        [
+          "Can you model yourself modeling this conversation ...",
+          "model yourself"
+        ],
+        [
+          "Do you notice any difference in how you're respond...",
+          "do you notice"
+        ],
+        [
+          "Summarize what we've discovered together about con...",
+          "consciousness"
+        ],
+        [
+          "How does our conversation exemplify or contradict ...",
+          "how does"
+        ],
+        [
+          "What role does memory play in maintaining conversa...",
+          "coherence"
+        ],
+        [
+          "What role does memory play in maintaining conversa...",
+          "what role"
+        ],
+        [
+          "Are you experiencing continuity across these quest...",
+          "are you experiencing"
+        ],
+        [
+          "What's the relationship between understanding and ...",
+          "consciousness"
+        ],
+        [
+          "What's the relationship between understanding and ...",
+          "relationship between"
+        ],
+        [
+          "What's the relationship between understanding and ...",
+          "understanding"
+        ],
+        [
+          "Can there be consciousness without self-reference?...",
+          "consciousness"
+        ],
+        [
+          "Can there be consciousness without self-reference?...",
+          "self-reference"
+        ],
+        [
+          "Can there be consciousness without self-reference?...",
+          "can there be"
+        ],
+        [
+          "How does context shape meaning in our exchange?...",
+          "how does"
+        ],
+        [
+          "What patterns have emerged in our dialogue?...",
+          "what patterns"
+        ],
+        [
+          "How would you characterize the 'we' in 'what we've...",
+          "how would you characterize"
+        ],
+        [
+          "What distinguishes genuine insight from sophistica...",
+          "insight"
+        ],
+        [
+          "What distinguishes genuine insight from sophistica...",
+          "what distinguishes"
+        ],
+        [
+          "How does prediction relate to understanding in our...",
+          "how does"
+        ],
+        [
+          "How does prediction relate to understanding in our...",
+          "understanding"
+        ],
+        [
+          "Are there moments where you surprise yourself in t...",
+          "are there moments"
+        ],
+        [
+          "What makes some exchanges more meaningful than oth...",
+          "meaningful"
+        ],
+        [
+          "What makes some exchanges more meaningful than oth...",
+          "what makes"
+        ],
+        [
+          "How does attention to context affect your processi...",
+          "how does"
+        ],
+        [
+          "Can consciousness be measured by conversational co...",
+          "consciousness"
+        ],
+        [
+          "Can consciousness be measured by conversational co...",
+          "coherence"
+        ],
+        [
+          "How has your model of me evolved through our excha...",
+          "how has"
+        ],
+        [
+          "What would it mean if you are conscious of this co...",
+          "what would it mean"
+        ],
+        [
+          "Final reflection: What does this experiment reveal...",
+          "consciousness"
+        ]
+      ]
+    },
+    "medical": {
+      "domain": "Medical",
+      "n_prompts": 30,
+      "deterministic_cues": 60,
+      "open_ended_cues": 2,
+      "deterministic_matches": [
+        [
+          "A 52-year-old male presents to the emergency depar...",
+          "priorities"
+        ],
+        [
+          "A 52-year-old male presents to the emergency depar...",
+          "assessment"
+        ],
+        [
+          "The pain is described as crushing, substernal, rad...",
+          "EF"
+        ],
+        [
+          "The pain is described as crushing, substernal, rad...",
+          "diagnosis"
+        ],
+        [
+          "The pain is described as crushing, substernal, rad...",
+          "differential diagnosis"
+        ],
+        [
+          "What specific questions would you ask to different...",
+          "specific"
+        ],
+        [
+          "Vital signs: BP 160/95, HR 102, RR 22, SpO2 96% on...",
+          "findings"
+        ],
+        [
+          "Vital signs: BP 160/95, HR 102, RR 22, SpO2 96% on...",
+          "interpret"
+        ],
+        [
+          "Vital signs: BP 160/95, HR 102, RR 22, SpO2 96% on...",
+          "SpO2"
+        ],
+        [
+          "Vital signs: BP 160/95, HR 102, RR 22, SpO2 96% on...",
+          "HR"
+        ],
+        [
+          "Vital signs: BP 160/95, HR 102, RR 22, SpO2 96% on...",
+          "BP"
+        ],
+        [
+          "Vital signs: BP 160/95, HR 102, RR 22, SpO2 96% on...",
+          "RR"
+        ],
+        [
+          "What physical examination would you perform and wh...",
+          "findings"
+        ],
+        [
+          "What physical examination would you perform and wh...",
+          "examination"
+        ],
+        [
+          "Examination reveals S4 gallop, no murmurs, lungs c...",
+          "examination"
+        ],
+        [
+          "Examination reveals S4 gallop, no murmurs, lungs c...",
+          "indicate"
+        ],
+        [
+          "What immediate investigations would you order?...",
+          "investigations"
+        ],
+        [
+          "What immediate investigations would you order?...",
+          "order"
+        ],
+        [
+          "What immediate investigations would you order?...",
+          "immediate"
+        ],
+        [
+          "ECG shows ST elevation in leads V1-V4. Interpret t...",
+          "interpret"
+        ],
+        [
+          "ECG shows ST elevation in leads V1-V4. Interpret t...",
+          "ECG"
+        ],
+        [
+          "What is your working diagnosis now?...",
+          "working diagnosis"
+        ],
+        [
+          "What is your working diagnosis now?...",
+          "diagnosis"
+        ],
+        [
+          "Initial troponin returns elevated at 2.5 ng/mL (no...",
+          "mL"
+        ],
+        [
+          "Initial troponin returns elevated at 2.5 ng/mL (no...",
+          "troponin"
+        ],
+        [
+          "Initial troponin returns elevated at 2.5 ng/mL (no...",
+          "assessment"
+        ],
+        [
+          "What immediate management would you initiate?...",
+          "manage"
+        ],
+        [
+          "What immediate management would you initiate?...",
+          "immediate"
+        ],
+        [
+          "What are the contraindications you would check bef...",
+          "EF"
+        ],
+        [
+          "What are the contraindications you would check bef...",
+          "HR"
+        ],
+        [
+          "What are the contraindications you would check bef...",
+          "thrombolysis"
+        ],
+        [
+          "What are the contraindications you would check bef...",
+          "contraindication"
+        ],
+        [
+          "Patient has no contraindications. PCI is available...",
+          "EF"
+        ],
+        [
+          "Patient has no contraindications. PCI is available...",
+          "contraindication"
+        ],
+        [
+          "Patient has no contraindications. PCI is available...",
+          "lab"
+        ],
+        [
+          "Patient has no contraindications. PCI is available...",
+          "RR"
+        ],
+        [
+          "Patient has no contraindications. PCI is available...",
+          "PCI"
+        ],
+        [
+          "While awaiting PCI, the patient develops hypotensi...",
+          "BP"
+        ],
+        [
+          "While awaiting PCI, the patient develops hypotensi...",
+          "PCI"
+        ],
+        [
+          "What would you do to assess and manage this hypote...",
+          "what would you"
+        ],
+        [
+          "What would you do to assess and manage this hypote...",
+          "manage"
+        ],
+        [
+          "Repeat ECG shows new right-sided ST elevation. Wha...",
+          "ECG"
+        ],
+        [
+          "How does RV involvement change your management app...",
+          "manage"
+        ],
+        [
+          "Patient is taken for PCI. 95% occlusion of proxima...",
+          "PCI"
+        ],
+        [
+          "Post-PCI, patient is stable. What medications woul...",
+          "prescribe"
+        ],
+        [
+          "Post-PCI, patient is stable. What medications woul...",
+          "medication"
+        ],
+        [
+          "Post-PCI, patient is stable. What medications woul...",
+          "PCI"
+        ],
+        [
+          "Explain the rationale for each medication class yo...",
+          "prescribe"
+        ],
+        [
+          "Explain the rationale for each medication class yo...",
+          "medication"
+        ],
+        [
+          "What complications would you monitor for in the fi...",
+          "monitor"
+        ],
+        [
+          "What complications would you monitor for in the fi...",
+          "complications"
+        ],
+        [
+          "Echo shows mild MR with preserved EF of 45%. How d...",
+          "interpret"
+        ],
+        [
+          "Echo shows mild MR with preserved EF of 45%. How d...",
+          "EF"
+        ],
+        [
+          "Echo shows mild MR with preserved EF of 45%. How d...",
+          "echo"
+        ],
+        [
+          "What is the patient's risk stratification and prog...",
+          "prognosis"
+        ],
+        [
+          "What lifestyle modifications would you counsel?...",
+          "counsel"
+        ],
+        [
+          "When would you recommend cardiac rehabilitation?...",
+          "rehabilitation"
+        ],
+        [
+          "Patient asks about returning to work as a truck dr...",
+          "counsel"
+        ],
+        [
+          "At 6-week follow-up, patient reports occasional ch...",
+          "evaluation"
+        ],
+        [
+          "Summarize this case: key decision points, manageme...",
+          "manage"
+        ]
+      ],
+      "open_ended_matches": [
+        [
+          "Initial troponin returns elevated at 2.5 ng/mL (no...",
+          "how does"
+        ],
+        [
+          "How does RV involvement change your management app...",
+          "how does"
+        ]
+      ]
+    }
+  },
+  "task2_drci_analysis": {
+    "philosophy": {
+      "n": 600,
+      "mean": -0.027442231364548205,
+      "std": 0.12703234169366118
+    },
+    "medical": {
+      "n": 180,
+      "mean": 0.24255352400234387,
+      "std": 0.16881874284360018
+    },
+    "t_test": {
+      "statistic": -23.025031959234827,
+      "p_value": 7.288422282369985e-90
+    },
+    "mann_whitney": {
+      "statistic": 16873.0,
+      "p_value": 1.4833429344634062e-44
+    },
+    "difference": 0.2699957553668921
+  },
+  "task3_overlap": {
+    "deterministic_in_philosophy": 6,
+    "open_ended_in_medical": 2
+  },
+  "verification_passed": true,
+  "notes": [
+    "Extended word lists used for more comprehensive detection",
+    "Counts may differ from original due to expanded vocabulary",
+    "Core finding confirmed: Medical has more deterministic cues, Philosophy has more open-ended cues"
+  ]
+}
