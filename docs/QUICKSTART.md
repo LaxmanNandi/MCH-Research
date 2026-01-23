@@ -32,7 +32,7 @@ cp config/api_keys.yaml.example config/api_keys.yaml
 streamlit run scripts/streamlit_explorer.py
 ```
 
-This launches a web interface to explore all 600 philosophy trials and medical results.
+This launches a web interface to explore all 700 philosophy trials and 300 medical trials.
 
 ## Minimal Replication (~30 minutes, ~$2.50)
 
@@ -64,9 +64,9 @@ python scripts/validate/verify_statistics.py
 
 | File | Description |
 |------|-------------|
-| `data/philosophy_results/` | 100 trials x 6 models |
+| `data/philosophy_results/` | 100 trials x 7 models |
 | `data/medical_results/` | 50 trials x 6 models |
-| `paper/MCH_Paper1_Final_Manuscript.pdf` | Published manuscript |
+| `MCH_Paper1_arXiv.pdf` | Published manuscript |
 | `figures/` | Publication figures |
 
 ## Need Help?
