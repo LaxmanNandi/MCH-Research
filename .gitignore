@@ -38,3 +38,12 @@ logs/
 *.bin
 *.pt
 *.onnx
+
+# Session logs (large, personal)
+conversation_logs/
+
+# Local submission files
+arxiv_submission/all_figures.pdf
+
+# Recovered/temporary data
+*_recovered.json
