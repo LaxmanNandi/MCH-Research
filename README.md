@@ -20,7 +20,7 @@ Paper 1 legacy summary (archived): `docs/Paper1_Archived_Summary.md`
 
 **Featured figure:** Medical P30 entanglement spike (Llama divergence).
 
-![Featured figure: Medical P30 entanglement spike](analysis/entanglement_theory_validation.png)
+![Featured figure: Medical P30 entanglement spike](docs/figures/legacy/analysis/entanglement_theory_validation.png)
 
 ---
 
