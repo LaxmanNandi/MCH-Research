@@ -1,0 +1,140 @@
+================================================================================
+INDEPENDENCE TEST: BASE CAPABILITY vs ENTANGLEMENT
+================================================================================
+
+Extracting data from 8 models...
+  GPT-4o-mini (Phil)...
+  GPT-4o (Phil)...
+  Claude Haiku (Phil)...
+  Gemini Flash (Phil)...
+  Gemini Flash (Med)...
+  DeepSeek V3.1 (Med)...
+  Llama 4 Maverick (Med)...
+  Llama 4 Scout (Med)...
+
+Total data points: 240
+  Philosophy: 120
+  Medical: 120
+
+================================================================================
+TEST 1: POOLED CORRELATION (N = 240)
+================================================================================
+
+Pearson correlation:
+  r = -1.0000
+  p = 0.0000e+00
+  N = 240
+
+  RESULT: Independence QUESTIONABLE (|r| = 1.000 >= 0.3)
+
+================================================================================
+TEST 2: PER-MODEL CORRELATION
+================================================================================
+
+Per-model correlations (FDR-corrected):
+  GPT-4o-mini (Phil)            : r=-1.000, p=0.0000 *
+  GPT-4o (Phil)                 : r=-1.000, p=0.0000 *
+  Claude Haiku (Phil)           : r=-1.000, p=0.0000 *
+  Gemini Flash (Phil)           : r=-1.000, p=0.0000 *
+  Gemini Flash (Med)            : r=-1.000, p=0.0000 *
+  DeepSeek V3.1 (Med)           : r=-1.000, p=0.0000 *
+  Llama 4 Maverick (Med)        : r=-1.000, p=0.0000 *
+  Llama 4 Scout (Med)           : r=-1.000, p=0.0000 *
+
+Summary statistics:
+  Median r = -1.0000
+  IQR = [-1.0000, -1.0000]
+  Significant correlations: 8/8
+
+================================================================================
+TEST 3: PER-DOMAIN CORRELATION
+================================================================================
+
+Philosophy:
+  r = -1.0000, p = 0.0000e+00, N = 120
+
+Medical:
+  r = -1.0000, p = 0.0000e+00, N = 120
+
+================================================================================
+TEST 4: REGRESSION ANALYSIS
+================================================================================
+
+Regression: dRCI ~ RCI_COLD + Domain + Position
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   drci   R-squared:                       1.000
+Model:                            OLS   Adj. R-squared:                  1.000
+Method:                 Least Squares   F-statistic:                 5.107e+29
+Date:                Sun, 08 Feb 2026   Prob (F-statistic):               0.00
+Time:                        16:46:52   Log-Likelihood:                 7766.5
+No. Observations:                 240   AIC:                        -1.552e+04
+Df Residuals:                     236   BIC:                        -1.551e+04
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             1.0000   6.76e-16   1.48e+15      0.000       1.000       1.000
+rci_cold         -1.0000   8.19e-16  -1.22e+15      0.000      -1.000      -1.000
+domain_binary -6.245e-17    2.8e-16     -0.223      0.824   -6.15e-16     4.9e-16
+position      -1.965e-16   1.62e-17    -12.147      0.000   -2.28e-16   -1.65e-16
+==============================================================================
+Omnibus:                      160.968   Durbin-Watson:                   0.199
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               15.569
+Skew:                           0.007   Prob(JB):                     0.000416
+Kurtosis:                       1.752   Cond. No.                         132.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Coefficient for RCI_COLD:
+  beta = -1.0000
+  SE = 0.0000
+  p = 0.0000e+00
+
+  RESULT: Independence QUESTIONABLE (p = 0.0000e+00 < 0.05)
+
+================================================================================
+TEST 5: PCA ORTHOGONALITY CHECK
+================================================================================
+
+PCA Results:
+  Explained variance: PC1=1.000, PC2=0.000
+
+Component loadings:
+             PC1      PC2
+  RCI_COLD:  -0.707   +0.707
+  dRCI:      +0.707   +0.707
+
+Loading orthogonality: 0.0000
+  RESULT: Orthogonal loading (suggests independence)
+
+================================================================================
+GENERATING PLOTS
+================================================================================
+[OK] Plot saved: independence_test_scatter.png
+[OK] Results saved: independence_test_results.csv
+[OK] Per-model results saved: independence_test_per_model.csv
+
+================================================================================
+INDEPENDENCE TEST - SUMMARY
+================================================================================
+
+Pooled correlation: r = -1.0000, p = 0.0000e+00
+Regression beta_RCI_COLD: -1.0000, p = 0.0000e+00
+PCA loading correlation: 0.0000
+
+================================================================================
+CONCLUSION: Independence NOT SUPPORTED
+  - Pooled |r| = 1.000
+  - Regression beta significant (p = 0.0000e+00)
+================================================================================
+Traceback (most recent call last):
+  File "C:\Users\barla\mch_experiments\scripts\validate\test_independence.py", line 415, in <module>
+    f.write("RCI_COLD (base capability) and \u0394RCI (entanglement) show ")
+  File "C:\Users\barla\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 31: character maps to <undefined>

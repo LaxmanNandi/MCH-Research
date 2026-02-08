@@ -4,7 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-**1,000 Trials | 90,000 API Calls | 7 Models | 2 Domains**
+**Expanded analyses (Paper 3/4): 22 model-domain runs, 99,000+ responses**
+Paper 1 legacy summary (archived): `docs/Paper1_Archived_Summary.md`
 
 *Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka, India*
 
@@ -12,54 +13,20 @@
 
 ## Key Findings
 
-### 1. Epistemological Relativity
-AI behavior "curves" based on knowledge structure. The same model exhibits different behavioral modes depending on domain:
+### 1. Epistemological Relativity v2.0
+Domain shapes *temporal dynamics* of context sensitivity:
 
-| Domain | Epistemology | Dominant Pattern |
-|--------|--------------|------------------|
-| Philosophy | Open-ended, uncertain | SOVEREIGN/NEUTRAL |
-| Medicine | Guideline-anchored, certain | CONVERGENT |
+| Domain | Temporal Pattern |
+|--------|------------------|
+| Philosophy | Inverted-U (positions 1-29) |
+| Medical | U-shaped (positions 1-29) + Type-2 spike at P30 |
 
-**Effect size: Cohen's d > 3.0** (massive domain modulation)
+Historical note: legacy Paper 1 claims and dataset summaries are archived in `docs/Paper1_Archived_Summary.md`.
 
-### 2. GPT-5.2: The Outlier
-**100% CONVERGENT in BOTH domains** (150 trials, only model to achieve this)
-- Philosophy: ΔRCI = +0.310 (σ=0.014)
-- Medical: ΔRCI = +0.379 (σ=0.021)
-
-### 3. Vendor Signatures
+### 2. Vendor Signatures
 Significant vendor-level differences in context utilization (F=6.52, p=0.0015)
 
 ![Effect Sizes](figures/fig2_effect_sizes_ci.png)
-
----
-
-## Results Summary
-
-### Philosophy Domain (700 trials: 7 models × 100 trials)
-
-| Model | Mean ΔRCI | Pattern | Conv% |
-|-------|-----------|---------|-------|
-| GPT-4o | -0.005 | NEUTRAL | 45% |
-| GPT-4o-mini | -0.009 | NEUTRAL | 50% |
-| **GPT-5.2** | **+0.310** | **CONVERGENT** | **100%** |
-| Claude Opus | -0.036 | SOVEREIGN | 36% |
-| Claude Haiku | -0.011 | NEUTRAL | 46% |
-| Gemini 2.5 Pro | -0.067 | SOVEREIGN | 31% |
-| Gemini 2.5 Flash | -0.038 | SOVEREIGN | 28% |
-
-### Medical Domain (300 trials: 6 models × 50 trials)
-
-| Model | Mean ΔRCI | Pattern | Conv% |
-|-------|-----------|---------|-------|
-| GPT-4o | +0.299 | CONVERGENT | 100% |
-| GPT-4o-mini | +0.319 | CONVERGENT | 100% |
-| **GPT-5.2** | **+0.379** | **CONVERGENT** | **100%** |
-| Claude Opus | +0.339 | CONVERGENT | 100% |
-| Claude Haiku | +0.340 | CONVERGENT | 100% |
-| Gemini 2.5 Flash | -0.133 | SOVEREIGN | 0% |
-
-*Note: Gemini 2.5 Pro blocked by safety filters for medical prompts*
 
 ---
 
@@ -86,12 +53,13 @@ streamlit run app.py
 MCH-Experiments/
 ├── MCH_Paper1_arXiv.tex       # Paper source (LaTeX)
 ├── MCH_Paper1_arXiv.pdf       # Compiled paper
+├── docs/Paper1_Archived_Summary.md  # Paper 1 legacy archive (historical)
 ├── figures/                   # Publication figures (7 figures)
 ├── app/
 │   ├── app.py                 # Interactive Streamlit explorer
-│   └── data/                  # All trial data (JSON)
-│       ├── philosophy/        # 700 trials (7 models × 100)
-│       └── medical/           # 300 trials (6 models × 50)
+│   └── data/                  # Paper 1 explorer dataset (JSON)
+│       ├── philosophy/        # 700 trials (7 models × 100) - Paper 1 dataset
+│       └── medical/           # 300 trials (6 models × 50) - Paper 1 dataset
 ├── data/
 │   ├── philosophy_results/    # Raw philosophy data
 │   └── medical_results/       # Raw medical data
@@ -110,7 +78,7 @@ MCH-Experiments/
 ΔRCI = RCI_TRUE - RCI_COLD
 ```
 
-Where RCI = cosine similarity between prompt and response embeddings.
+Where RCI = mean cosine similarity between a response and all other responses in the same condition.
 
 ### Three-Condition Protocol
 1. **TRUE**: Full coherent conversation history

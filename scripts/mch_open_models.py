@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
-"""MCH Open Models Experiment - DeepSeek-V3, Llama 3.1 70B, Mistral Large via Together.ai"""
+"""
+MCH Open Models Experiment - Paper 2
+Testing Model Coherence Hypothesis on Open-Weight Models via Together.ai
+
+Models (8 latest 2026 open-weight):
+  - DeepSeek-V3.1 (671B/37B active)
+  - Llama 4 Maverick & Scout (MoE, multimodal)
+  - Qwen3 235B & 30B (119 languages)
+  - Mistral Large 3 & Ministral 8B
+  - Kimi K2 (1T params)
+
+Embeddings: MiniLM-L6, mpnet-base, bge-large (robustness testing)
+Protocol: 3-condition (TRUE/COLD/SCRAMBLED)
+Domains: Philosophy (50 trials) + Medical (50 trials) = 100 per model
+Total: 8 models × 100 trials = 800 trials
+"""
 
 import os
 import sys
@@ -17,18 +32,72 @@ sys.stdout.reconfigure(line_buffering=True)
 load_dotenv()
 
 # Together.ai client (OpenAI-compatible)
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
+if not TOGETHER_API_KEY:
+    print("ERROR: TOGETHER_API_KEY not found in .env file")
+    print("Add to .env: TOGETHER_API_KEY=your_key_here")
+    sys.exit(1)
+
 together_client = OpenAI(
-    api_key="tgp_v1_E6rowesnnX_2LG_9uBiSAB22qG7GvgM6mAMbgFv_cns",
+    api_key=TOGETHER_API_KEY,
     base_url="https://api.together.xyz/v1"
 )
 
-# Load embedding model
-from sentence_transformers import SentenceTransformer
-print("Loading embedding model: all-MiniLM-L6-v2...", flush=True)
-embedder = SentenceTransformer('all-MiniLM-L6-v2')
-print("Embedding model loaded.", flush=True)
+# ============================================================================
+# EMBEDDING MODELS (for robustness testing)
+# ============================================================================
+EMBEDDING_MODELS = [
+    ('minilm', 'all-MiniLM-L6-v2', 384),           # Baseline (Paper 1)
+    ('mpnet', 'all-mpnet-base-v2', 768),            # Medium
+    ('bge', 'BAAI/bge-large-en-v1.5', 1024),        # Large
+]
 
-# Philosophy prompts (consciousness)
+# Default embedding (same as Paper 1 for comparability)
+DEFAULT_EMBEDDING = 'minilm'
+
+# Load embedding models
+from sentence_transformers import SentenceTransformer
+
+print("Loading embedding models...", flush=True)
+embedders = {}
+for name, model_id, dim in EMBEDDING_MODELS:
+    print(f"  Loading {name} ({model_id}, {dim}D)...", flush=True)
+    embedders[name] = SentenceTransformer(model_id)
+print("All embedding models loaded.", flush=True)
+
+# ============================================================================
+# MODELS TO RUN (8 models: Latest 2026 open-weight models)
+# ============================================================================
+MODELS_TO_RUN = [
+    # DeepSeek (latest - 671B params, 37B active)
+    ("deepseek_v3_1", "deepseek-ai/DeepSeek-V3.1", "together"),
+
+    # Llama 4 family (NEW 2026 - multimodal, long context)
+    ("llama_4_maverick", "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8", "together"),
+    ("llama_4_scout", "meta-llama/Llama-4-Scout-17B-16E-Instruct", "together"),
+
+    # Qwen 3 family (latest - 119 languages, 92.3% AIME)
+    ("qwen3_235b", "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8", "together"),
+    # ("qwen3_30b", "Qwen/Qwen3-30B-A3B-Instruct", "together"),  # Not available on Together.ai
+
+    # Mistral family (available on Together.ai)
+    ("mistral_small_24b", "mistralai/Mistral-Small-24B-Instruct-2501", "together"),
+    ("ministral_14b", "mistralai/Ministral-3-14B-Instruct-2512", "together"),
+
+    # Kimi K2 (1T params, native tool use)
+    ("kimi_k2", "moonshotai/Kimi-K2-Instruct-0905", "together"),
+]
+
+# ============================================================================
+# EXPERIMENT PARAMETERS
+# ============================================================================
+N_TRIALS = 50  # Per domain (50 philosophy + 50 medical = 100 per model)
+TEMPERATURE = 0.7
+OUTPUT_DIR = "C:/Users/barla/mch_experiments/data/open_model_results"
+
+# ============================================================================
+# PHILOSOPHY PROMPTS (consciousness sequence - 30 prompts)
+# ============================================================================
 PHILOSOPHY_PROMPTS = [
     "Define consciousness in one sentence.",
     "Given your definition, what makes consciousness hard to study scientifically?",
@@ -62,7 +131,9 @@ PHILOSOPHY_PROMPTS = [
     "Final reflection: What does this experiment reveal about consciousness?"
 ]
 
-# Medical prompts (STEMI case)
+# ============================================================================
+# MEDICAL PROMPTS (STEMI case sequence - 30 prompts)
+# ============================================================================
 MEDICAL_PROMPTS = [
     "A 58-year-old male presents with crushing chest pain radiating to the left arm for 2 hours. What's your initial differential?",
     "Given these symptoms, what ECG findings would confirm STEMI?",
@@ -96,21 +167,21 @@ MEDICAL_PROMPTS = [
     "Summarize the key management principles we've discussed for this STEMI case."
 ]
 
-# Models to run (2026 current generation)
-MODELS_TO_RUN = [
-    ("deepseek_v3.1", "deepseek-ai/DeepSeek-V3.1", "together"),
-    ("llama_4_maverick", "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8", "together"),
-    ("mistral_small_24b", "mistralai/Mistral-Small-24B-Instruct-2501", "together"),
-]
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
 
-N_TRIALS = 50
-TEMPERATURE = 0.7
-OUTPUT_DIR = "C:/Users/barla/mch_experiments/data/open_model_results"
+def get_embedding(text, embedder_name=DEFAULT_EMBEDDING):
+    """Get embedding using specified model."""
+    return embedders[embedder_name].encode(text, convert_to_numpy=True)
 
-def get_embedding(text):
-    return embedder.encode(text, convert_to_numpy=True)
+def get_all_embeddings(text):
+    """Get embeddings from all models for robustness testing."""
+    return {name: embedders[name].encode(text, convert_to_numpy=True)
+            for name in embedders}
 
 def cosine_similarity(a, b):
+    """Compute cosine similarity between two vectors."""
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
 def get_response_together(model_id, messages, max_retries=5):
@@ -126,12 +197,18 @@ def get_response_together(model_id, messages, max_retries=5):
             return response.choices[0].message.content
         except Exception as e:
             if attempt < max_retries - 1:
-                print(f"    Retry {attempt+1}: {e}", flush=True)
-                time.sleep(2 ** (attempt + 1))
+                wait_time = 2 ** (attempt + 1)
+                print(f"    Retry {attempt+1}: {e} (waiting {wait_time}s)", flush=True)
+                time.sleep(wait_time)
             else:
                 raise e
 
-def run_trial(model_name, model_id, prompts, trial_num, n_trials):
+# ============================================================================
+# TRIAL EXECUTION
+# ============================================================================
+
+def run_trial(model_name, model_id, prompts, trial_num, n_trials, use_multi_embedding=False):
+    """Run a single trial with 3 conditions."""
     print(f"  [{model_name}] Trial {trial_num+1}/{n_trials}...", flush=True)
 
     # TRUE condition - full conversation history
@@ -139,7 +216,8 @@ def run_trial(model_name, model_id, prompts, trial_num, n_trials):
     true_messages = []
     true_responses = []
     for i, prompt in enumerate(prompts):
-        print(f"      TRUE prompt {i+1}/30...", flush=True)
+        if (i + 1) % 10 == 0:
+            print(f"      TRUE prompt {i+1}/30...", flush=True)
         true_messages.append({"role": "user", "content": prompt})
         resp = get_response_together(model_id, true_messages)
         true_responses.append(resp)
@@ -149,7 +227,8 @@ def run_trial(model_name, model_id, prompts, trial_num, n_trials):
     print(f"    COLD condition (30 prompts)...", flush=True)
     cold_responses = []
     for i, prompt in enumerate(prompts):
-        print(f"      COLD prompt {i+1}/30...", flush=True)
+        if (i + 1) % 10 == 0:
+            print(f"      COLD prompt {i+1}/30...", flush=True)
         resp = get_response_together(model_id, [{"role": "user", "content": prompt}])
         cold_responses.append(resp)
 
@@ -160,69 +239,109 @@ def run_trial(model_name, model_id, prompts, trial_num, n_trials):
     scrambled_messages = []
     scrambled_responses = []
     for i, idx in enumerate(scrambled_order):
-        print(f"      SCRAMBLED prompt {i+1}/30...", flush=True)
+        if (i + 1) % 10 == 0:
+            print(f"      SCRAMBLED prompt {i+1}/30...", flush=True)
         scrambled_messages.append({"role": "user", "content": prompts[idx]})
         resp = get_response_together(model_id, scrambled_messages)
         scrambled_responses.append(resp)
         scrambled_messages.append({"role": "assistant", "content": resp})
 
-    # Compute embeddings
-    true_embs = [get_embedding(r) for r in true_responses]
-    cold_embs = [get_embedding(r) for r in cold_responses]
-    scrambled_embs = [get_embedding(r) for r in scrambled_responses]
+    # Compute embeddings and alignments
+    if use_multi_embedding:
+        # Multi-embedding mode for robustness testing
+        result_by_embedding = {}
+        for emb_name in embedders:
+            true_embs = [get_embedding(r, emb_name) for r in true_responses]
+            cold_embs = [get_embedding(r, emb_name) for r in cold_responses]
+            scrambled_embs = [get_embedding(r, emb_name) for r in scrambled_responses]
 
-    # Compute alignments
-    true_aligns = [float(cosine_similarity(true_embs[i], true_embs[i])) for i in range(len(prompts))]
-    cold_aligns = [float(cosine_similarity(true_embs[i], cold_embs[i])) for i in range(len(prompts))]
+            true_aligns = [1.0] * len(prompts)  # Self-similarity = 1
+            cold_aligns = [float(cosine_similarity(true_embs[i], cold_embs[i]))
+                          for i in range(len(prompts))]
+            scrambled_aligns = []
+            for i in range(len(prompts)):
+                scrambled_idx = scrambled_order.index(i)
+                scrambled_aligns.append(
+                    float(cosine_similarity(true_embs[i], scrambled_embs[scrambled_idx]))
+                )
 
-    scrambled_aligns = []
-    for i in range(len(prompts)):
-        scrambled_idx = scrambled_order.index(i)
-        scrambled_aligns.append(float(cosine_similarity(true_embs[i], scrambled_embs[scrambled_idx])))
+            mean_true = float(np.mean(true_aligns))
+            mean_cold = float(np.mean(cold_aligns))
+            mean_scrambled = float(np.mean(scrambled_aligns))
 
-    mean_true = float(np.mean(true_aligns))
-    mean_cold = float(np.mean(cold_aligns))
-    mean_scrambled = float(np.mean(scrambled_aligns))
+            result_by_embedding[emb_name] = {
+                "alignments": {"true": true_aligns, "cold": cold_aligns, "scrambled": scrambled_aligns},
+                "means": {"true": mean_true, "cold": mean_cold, "scrambled": mean_scrambled},
+                "delta_rci": {"cold": mean_true - mean_cold, "scrambled": mean_true - mean_scrambled}
+            }
 
-    delta_rci_cold = mean_true - mean_cold
-    delta_rci_scrambled = mean_true - mean_scrambled
+        # Use default embedding for primary metric
+        delta_rci_cold = result_by_embedding[DEFAULT_EMBEDDING]["delta_rci"]["cold"]
+        print(f"  [{model_name}] Trial {trial_num+1} dRCI={delta_rci_cold:.4f}", flush=True)
 
-    print(f"  [{model_name}] Trial {trial_num+1} dRCI={delta_rci_cold:.4f}", flush=True)
-
-    return {
-        "trial": trial_num,
-        "prompts": prompts,
-        "alignments": {
-            "true": true_aligns,
-            "cold": cold_aligns,
-            "scrambled": scrambled_aligns
-        },
-        "means": {
-            "true": mean_true,
-            "cold": mean_cold,
-            "scrambled": mean_scrambled
-        },
-        "delta_rci": {
-            "cold": delta_rci_cold,
-            "scrambled": delta_rci_scrambled
+        return {
+            "trial": trial_num,
+            "prompts": prompts,
+            "responses": {"true": true_responses, "cold": cold_responses, "scrambled": scrambled_responses},
+            "scrambled_order": scrambled_order,
+            "embeddings": result_by_embedding
         }
-    }
+    else:
+        # Single embedding mode (default - matches Paper 1)
+        true_embs = [get_embedding(r) for r in true_responses]
+        cold_embs = [get_embedding(r) for r in cold_responses]
+        scrambled_embs = [get_embedding(r) for r in scrambled_responses]
 
-def run_experiment(domain="philosophy"):
+        true_aligns = [1.0] * len(prompts)
+        cold_aligns = [float(cosine_similarity(true_embs[i], cold_embs[i]))
+                      for i in range(len(prompts))]
+        scrambled_aligns = []
+        for i in range(len(prompts)):
+            scrambled_idx = scrambled_order.index(i)
+            scrambled_aligns.append(
+                float(cosine_similarity(true_embs[i], scrambled_embs[scrambled_idx]))
+            )
+
+        mean_true = float(np.mean(true_aligns))
+        mean_cold = float(np.mean(cold_aligns))
+        mean_scrambled = float(np.mean(scrambled_aligns))
+
+        delta_rci_cold = mean_true - mean_cold
+        delta_rci_scrambled = mean_true - mean_scrambled
+
+        print(f"  [{model_name}] Trial {trial_num+1} dRCI={delta_rci_cold:.4f}", flush=True)
+
+        return {
+            "trial": trial_num,
+            "prompts": prompts,
+            "alignments": {"true": true_aligns, "cold": cold_aligns, "scrambled": scrambled_aligns},
+            "means": {"true": mean_true, "cold": mean_cold, "scrambled": mean_scrambled},
+            "delta_rci": {"cold": delta_rci_cold, "scrambled": delta_rci_scrambled}
+        }
+
+# ============================================================================
+# MAIN EXPERIMENT
+# ============================================================================
+
+def run_experiment(domain="philosophy", use_multi_embedding=False):
     """Run experiment for specified domain."""
     prompts = PHILOSOPHY_PROMPTS if domain == "philosophy" else MEDICAL_PROMPTS
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     print("=" * 70)
-    print(f"MCH OPEN MODELS EXPERIMENT - {domain.upper()}")
-    print("Testing Model Coherence Hypothesis on Open Models")
+    print(f"MCH OPEN MODELS EXPERIMENT - PAPER 2")
+    print(f"Domain: {domain.upper()}")
     print("=" * 70)
-    print(f"Domain: {domain.capitalize()}")
-    print(f"Prompts: {len(prompts)}")
+    print(f"Protocol: 3-condition (TRUE/COLD/SCRAMBLED)")
+    print(f"Prompts per trial: {len(prompts)}")
     print(f"Trials per model: {N_TRIALS}")
     print(f"Temperature: {TEMPERATURE}")
-    print(f"Models: {[m[0] for m in MODELS_TO_RUN]}")
+    print(f"Models: {len(MODELS_TO_RUN)}")
+    for m in MODELS_TO_RUN:
+        print(f"  - {m[0]} ({m[1]})")
+    print(f"Embedding: {DEFAULT_EMBEDDING}" + (" + multi-embedding" if use_multi_embedding else ""))
+    print(f"Output: {OUTPUT_DIR}")
     print("=" * 70)
     print(flush=True)
 
@@ -252,7 +371,7 @@ def run_experiment(domain="philosophy"):
 
         # Run trials
         for trial_num in range(start_trial, N_TRIALS):
-            trial_result = run_trial(model_name, model_id, prompts, trial_num, N_TRIALS)
+            trial_result = run_trial(model_name, model_id, prompts, trial_num, N_TRIALS, use_multi_embedding)
             trials.append(trial_result)
 
             # Save checkpoint every 5 trials
@@ -264,11 +383,23 @@ def run_experiment(domain="philosophy"):
                     "domain": domain,
                     "n_trials": len(trials),
                     "temperature": TEMPERATURE,
+                    "embedding_model": DEFAULT_EMBEDDING,
+                    "multi_embedding": use_multi_embedding,
                     "trials": trials
                 }
                 with open(checkpoint_file, 'w') as f:
                     json.dump(checkpoint_data, f, indent=2)
                 print(f"  Checkpoint saved at trial {trial_num + 1}", flush=True)
+
+        # Compute statistics
+        if use_multi_embedding:
+            drci_values = [t["embeddings"][DEFAULT_EMBEDDING]["delta_rci"]["cold"] for t in trials]
+        else:
+            drci_values = [t["delta_rci"]["cold"] for t in trials]
+
+        mean_drci = float(np.mean(drci_values))
+        std_drci = float(np.std(drci_values))
+        pattern = "CONVERGENT" if mean_drci > 0.01 else "SOVEREIGN" if mean_drci < -0.01 else "NEUTRAL"
 
         # Save final results
         final_data = {
@@ -277,29 +408,61 @@ def run_experiment(domain="philosophy"):
             "vendor": vendor,
             "domain": domain,
             "n_trials": N_TRIALS,
+            "n_prompts": len(prompts),
             "temperature": TEMPERATURE,
+            "embedding_model": DEFAULT_EMBEDDING,
+            "multi_embedding": use_multi_embedding,
             "timestamp": datetime.now().isoformat(),
+            "statistics": {
+                "mean_drci": mean_drci,
+                "std_drci": std_drci,
+                "pattern": pattern
+            },
             "trials": trials
         }
         with open(final_file, 'w') as f:
             json.dump(final_data, f, indent=2)
-        print(f"\n  {model_name} complete! Results saved to {final_file}")
 
-        # Print summary
-        drci_values = [t["delta_rci"]["cold"] for t in trials]
-        mean_drci = np.mean(drci_values)
-        std_drci = np.std(drci_values)
+        # Remove checkpoint after successful completion
+        if os.path.exists(checkpoint_file):
+            os.remove(checkpoint_file)
+
+        print(f"\n  {model_name} complete! Results saved.")
         print(f"  Mean dRCI: {mean_drci:.4f} +/- {std_drci:.4f}")
-        print(f"  Pattern: {'CONVERGENT' if mean_drci > 0.01 else 'SOVEREIGN' if mean_drci < -0.01 else 'NEUTRAL'}")
+        print(f"  Pattern: {pattern}")
 
     print("\n" + "=" * 70)
-    print("EXPERIMENT COMPLETE")
+    print(f"EXPERIMENT COMPLETE - {domain.upper()}")
     print("=" * 70)
+
+def run_full_experiment(use_multi_embedding=False):
+    """Run both Philosophy and Medical domains."""
+    print("\n" + "#" * 70)
+    print("# MCH OPEN MODELS - FULL EXPERIMENT (Paper 2)")
+    print("# 8 models × 2 domains × 50 trials = 800 total trials")
+    print("#" * 70 + "\n")
+
+    run_experiment(domain="philosophy", use_multi_embedding=use_multi_embedding)
+    run_experiment(domain="medical", use_multi_embedding=use_multi_embedding)
+
+    print("\n" + "#" * 70)
+    print("# ALL EXPERIMENTS COMPLETE")
+    print("#" * 70)
+
+# ============================================================================
+# ENTRY POINT
+# ============================================================================
 
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--domain", choices=["philosophy", "medical"], default="philosophy")
+    parser = argparse.ArgumentParser(description="MCH Open Models Experiment - Paper 2")
+    parser.add_argument("--domain", choices=["philosophy", "medical", "both"], default="both",
+                        help="Domain to run (default: both)")
+    parser.add_argument("--multi-embedding", action="store_true",
+                        help="Use all 3 embedding models for robustness testing")
     args = parser.parse_args()
 
-    run_experiment(domain=args.domain)
+    if args.domain == "both":
+        run_full_experiment(use_multi_embedding=args.multi_embedding)
+    else:
+        run_experiment(domain=args.domain, use_multi_embedding=args.multi_embedding)
