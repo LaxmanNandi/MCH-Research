@@ -11,6 +11,19 @@ Paper 1 legacy summary (archived): `docs/Paper1_Archived_Summary.md`
 
 ---
 
+## Start here
+
+- Paper 4 results: `docs/Paper4_Results_Discussion.md`
+- Paper 3 results: `docs/Paper3_Results_Discussion.md`
+- **Safety anomaly note (Llama P30):** `docs/Llama_Safety_Anomaly.md`
+- Data availability index: `docs/data_availability_index.md`
+
+**Featured figure:** Medical P30 entanglement spike (Llama divergence).
+
+![Featured figure: Medical P30 entanglement spike](analysis/entanglement_theory_validation.png)
+
+---
+
 ## Key Findings
 
 ### 1. Epistemological Relativity v2.0
