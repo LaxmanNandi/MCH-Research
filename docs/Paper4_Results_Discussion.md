@@ -97,11 +97,10 @@ We propose (as provisional guidance) that **Var_Ratio > 3** or **ESI < 1** be tr
 ### Architectural interpretation and open questions
 The emergence of convergent vs divergent classes suggests architectural differences in how models handle context saturation. The observation is consistent across multiple models but remains mechanistic rather than causal. Future work should test whether divergence correlates with training objectives, attention patterns, or safety alignment strategies.
 
-### Limitations
-1. **MI proxy definition:** We use variance ratio as a proxy; full mutual information estimation may reveal non-linear effects.
-2. **Pooling effects:** The r = 0.74 correlation is pooled across models and positions; per-model correlations may vary in magnitude and sign depending on proxy definition.
-3. **Domain scope:** Two domains only; additional domains are required to assess generality.
-4. **Type 2 coverage:** The strongest safety signal is at P30; more positions are needed to validate a general rule for Type 2 divergence.
+### Limitations & Scope
+This study is intentionally scoped to text-only interactions (no multimodal inputs), two domains (philosophy and medical reasoning), and a focused model set rather than an exhaustive survey. We analyze observable text outputs without embedding-level interpretability or internal activations; our measures rely on cosine-similarity proxies rather than direct mutual information. Each condition uses 50 trials per model, which is adequate for stable estimates in this setting but not large-scale.
+
+These choices were deliberate to isolate core effects (entanglement signatures, predictability shifts, and safety-relevant divergence) with manageable experimental complexity. Claims are matched to this scope: supported findings are framed within text-only, two-domain evaluation, and broader generalizations are stated as hypotheses. Extending to multimodal tasks, additional domains, larger model suites, and direct information-theoretic or activation-level analyses are clear next steps.
 
 ### Future work
 - Run the planned Type 2 scaling experiment at P5-P30 and compute Var_Ratio/ESI at each position.

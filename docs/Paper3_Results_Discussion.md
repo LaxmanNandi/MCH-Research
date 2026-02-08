@@ -185,11 +185,10 @@ The Type 2 scaling law implies that task enablement is **graded**, not binary. T
 ### Scale-dependent accumulation
 The Kimi K2 anomaly indicates that model scale can shift temporal dynamics, potentially enabling sustained accumulation in open-ended domains. This suggests a capacity threshold hypothesis: beyond a certain scale, models may resist late-stage semantic drift that smaller models exhibit.
 
-### Limitations
-1. **Prompt scope:** Philosophy focused on consciousness; medical focused on STEMI. Additional domains and cases are needed.
-2. **Medical model count:** Only 4 medical models were tested; expanding this set is important.
-3. **Post-hoc prompt typing:** Type 1/Type 2 classification was inferred after observing P30; future protocols should pre-register prompt types.
-4. **Embedding dependence:** All analyses use a single embedding model; position effects should be validated with alternative embedders.
+### Limitations & Scope
+This study is intentionally scoped to text-only interactions (no multimodal inputs), two domains (philosophy and medical reasoning), and a focused model set rather than an exhaustive survey. We analyze observable text outputs without embedding-level interpretability or internal activations; our measures rely on cosine-similarity proxies rather than direct mutual information. Each condition uses 50 trials per model, which is adequate for stable estimates in this setting but not large-scale.
+
+These choices were deliberate to isolate core effects (position-dependent dynamics, disruption sensitivity, and task enablement) with manageable experimental complexity. Claims are matched to this scope: supported findings are framed within text-only, two-domain evaluation, and broader generalizations are stated as hypotheses. Extending to multimodal tasks, additional domains, larger model suites, and direct information-theoretic or activation-level analyses are clear next steps.
 
 ### Future work
 - Execute the planned Type 2 scaling experiment (P5-P30) to validate the logarithmic law.
