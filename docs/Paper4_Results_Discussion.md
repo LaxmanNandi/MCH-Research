@@ -58,6 +58,8 @@ At medical position 30 (summarization), we observe extreme divergence in two Lla
 
 In contrast, convergent models at P30 show Var_Ratio < 1 and positive DRCI (e.g., Gemini Flash, DeepSeek V3.1). This identifies a **safety risk class**: models that diverge under Type 2 prompts produce highly unstable, unpredictable outputs precisely when task enablement is expected.
 
+For audit detail (ESI calculation and “intact capability + broken coherence” framing), see `docs/Llama_Safety_Anomaly.md`.
+
 **Figure 3.** Var_Ratio at medical P30 across models (convergent vs divergent classes).
 
 ---
