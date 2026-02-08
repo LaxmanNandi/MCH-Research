@@ -43,6 +43,9 @@ Significant vendor-level differences in context utilization (F=6.52, p=0.0015)
 
 ---
 
+## Acknowledgments
+See `CONTRIBUTORS.md` for DIA collaborators and roles.
+
 ## Quick Start
 
 ```bash
