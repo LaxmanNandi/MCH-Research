@@ -1,0 +1,9 @@
+model,var_ratio,domain
+Claude Haiku (Phil),1.0116702119999998,philosophy
+DeepSeek V3.1 (Med),1.071153376,medical
+GPT-4o (Phil),0.9498573086666667,philosophy
+GPT-4o-mini (Phil),0.9676605206666667,philosophy
+Gemini Flash (Med),1.2865553083333334,medical
+Gemini Flash (Phil),1.1195693753333333,philosophy
+Llama 4 Maverick (Med),1.213297597,medical
+Llama 4 Scout (Med),1.6100128329999999,medical
