@@ -18,9 +18,12 @@ Paper 1 legacy summary (archived): `docs/Paper1_Archived_Summary.md`
 - **Safety anomaly note (Llama P30):** `docs/Llama_Safety_Anomaly.md`
 - Data availability index: `docs/data_availability_index.md`
 
+**Why this matters:** Context effects in LLMs are not uniform; they change by position, domain, and task type. This repository provides reproducible evidence and a structured framework (taxonomy + dual-axis metrics) to distinguish when context improves reliability versus when it destabilizes it - critical for medical and safety-relevant use.
+
 **Featured figure:** Medical P30 entanglement spike (Llama divergence).
 
 ![Featured figure: Medical P30 entanglement spike](docs/figures/legacy/analysis/entanglement_theory_validation.png)
+Caption: P30 medical summarization produces outlier variance and divergence in specific models (see Paper 4).
 
 ---
 
@@ -125,8 +128,10 @@ Where RCI = mean cosine similarity between a response and all other responses in
 
 MIT License - see [LICENSE](LICENSE)
 
-## Contact
+## How to cite / contact
 
-- GitHub: [@LaxmanNandi](https://github.com/LaxmanNandi)
+- Cite: see the **Citation** section above
+- Name: Dr. Laxman M M
 - Email: barlax5377@gmail.com
-- ORCID: [0009-0009-0405-6531](https://orcid.org/0009-0009-0405-6531)
+- Institution: Government Duty Medical Officer, PHC Manchi, Karnataka, India
+- Upcoming: DNB General Medicine, KC General Hospital, Bangalore (2026)
