@@ -15,6 +15,7 @@
 | gpt_5_2 | medical_reasoning | data\medical_results\mch_results_gpt_5_2_medical_50trials.json |
 | llama_4_maverick | medical_reasoning | data\open_medical_rerun\mch_results_llama_4_maverick_medical_50trials.json |
 | llama_4_scout | medical_reasoning | data\open_medical_rerun\mch_results_llama_4_scout_medical_50trials.json |
+| mistral_small_24b | medical_reasoning | data\open_medical_rerun\mch_results_mistral_small_24b_medical_50trials.json |
 | qwen3_235b | medical_reasoning | data\open_medical_rerun\mch_results_qwen3_235b_medical_50trials.json |
 | claude_haiku | philosophy | data\closed_model_philosophy_rerun\mch_results_claude_haiku_philosophy_50trials.json |
 | deepseek_v3_1 | philosophy | data\open_model_results\mch_results_deepseek_v3_1_philosophy_50trials.json |
@@ -32,13 +33,12 @@
 
 | Model | Status | Notes |
 |-------|--------|-------|
-| DeepSeek V3.1 | 50/50 ✅ | Rerun complete |
-| Qwen3 235B | 50/50 ✅ | Rerun complete |
-| Llama 4 Maverick | 50/50 ✅ | Rerun complete |
-| Llama 4 Scout | 50/50 ✅ | Rerun complete |
-| Mistral Small 24B | 15/50 🔄 | Checkpoint; prompt mismatch; rerun pending |
-| Ministral 14B | 0/50 ⏳ | Queued |
-| Kimi K2 | 0/50 ⏳ | Queued |
+| DeepSeek V3.1 | 50/50 complete | Rerun complete |
+| Qwen3 235B | 50/50 complete | Rerun complete |
+| Llama 4 Maverick | 50/50 complete | Rerun complete |
+| Llama 4 Scout | 50/50 complete | Rerun complete |
+| Ministral 14B | 10/50 in progress | Checkpoint saved |
+| Kimi K2 | 0/50 queued | Pending |
 
 ## Excluded
 
@@ -51,3 +51,4 @@
 ## Note
 
 Open medical rerun ETA: 2-3 days (remaining queued runs)
+Mistral Small 24B medical rerun completed (50 trials, corrected prompts).
