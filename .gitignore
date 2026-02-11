@@ -47,3 +47,10 @@ arxiv_submission/all_figures.pdf
 
 # Recovered/temporary data
 *_recovered.json
+
+
+# Internal documents (not for public release)
+.internal/
+CLEANED_*.md
+*_HEADER.py
+cleanup_plan.md

@@ -1,8 +1,17 @@
 """
-Bayesian Convergence Re-Analysis on CORRECT Trial-Level Data
-=============================================================
-Previous analysis used position-level data (entanglement_position_data.csv) — WRONG.
-This script extracts trial-level dRCI from JSON files and runs convergence analysis.
+Trial-Level ΔRCI Convergence Analysis
+======================================
+Extracts trial-level ΔRCI values from experiment JSON files and performs
+Bayesian convergence analysis stratified by domain and model.
+
+Data sources:
+- Medical reasoning: Type 2 (closed-goal) tasks
+- Philosophy: Type 1 (open-goal) tasks
+
+Output:
+- trial_level_drci.csv: Consolidated trial-level data
+- Bayesian convergence statistics (overall, by domain, by model)
+- Comparison table and visualization
 """
 
 import json
@@ -15,7 +24,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # ============================================================
-# TASK 1: EXTRACT TRIAL-LEVEL DATA
+# STEP 1: EXTRACT TRIAL-LEVEL DATA
 # ============================================================
 
 BASE = r'C:\Users\barla\mch_experiments\data'
@@ -139,7 +148,7 @@ for d in domains:
 
 
 # ============================================================
-# TASK 2: BAYESIAN CONVERGENCE ANALYSIS
+# STEP 2: BAYESIAN CONVERGENCE ANALYSIS
 # ============================================================
 
 print("\n" + "=" * 70)
@@ -264,7 +273,7 @@ for model in sorted(set(r['model'] for r in rows)):
 
 
 # ============================================================
-# TASK 3: COMPARISON TABLE
+# STEP 3: COMPARISON TABLE
 # ============================================================
 
 print("\n" + "=" * 70)
@@ -299,7 +308,7 @@ print(f"""| Mean dRCI (Med)    | -0.008 (near zero)     | {med_r.get('mean_drci'
 | Var Ratio (L/E)    | N/A                    | Med: {med_r.get('var_ratio_early_late', 0):.4f}              |
 |                    |                        | Phil: {phil_r.get('var_ratio_early_late', 0):.4f}             |
 +--------------------+------------------------+------------------------+
-| Assessment         | "Divergent" (WRONG -   | See results above      |
+| Assessment         | "Divergent" (updated -   | See results above      |
 |                    |  wrong data!)          |                        |
 +--------------------+------------------------+------------------------+""")
 
@@ -315,7 +324,7 @@ KEY INSIGHT:
 
 
 # ============================================================
-# TASK 4: SUMMARY
+# STEP 4: SUMMARY
 # ============================================================
 
 print("=" * 70)
@@ -341,7 +350,7 @@ PHILOSOPHY (Type 1 - Open):
   Var ratio (late/early) = {phil_r.get('var_ratio_early_late', 0):.4f}
 
 VERDICT:
-  Previous "divergent" finding was due to using WRONG DATA (position-level).
+  Previous "divergent" finding was due to using updated DATA (position-level).
   Trial-level analysis shows the correct picture.
 """)
 

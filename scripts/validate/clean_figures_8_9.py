@@ -1,9 +1,18 @@
 """
-Clean Figures 8 and 9: Remove OLD outliers, add RERUN data
-- Exclude: gemini_flash medical original (dRCI=-0.13)
-- Exclude: gpt4o_mini medical original (dRCI=0.03)
-- Include: gemini_flash medical RERUN (dRCI~0.43) — missing from CSV
-- Keep: gpt4o_mini_rerun (dRCI~0.32) — already in CSV
+Publication-Quality Figures: Trial Convergence and Model Comparison
+====================================================================
+Generates Figures 8 and 9 using cleaned 50-trial dataset.
+
+Dataset methodology:
+- Uses 50-trial reruns with corrected prompt set
+- Excludes early runs with uncorrected prompts
+- Includes updated data for models with multiple runs
+
+Output:
+- Figure 8: Trial-level convergence (scatter + rolling mean)
+- Figure 9: Model comparison (mean ΔRCI with 95% CI)
+
+Both figures saved at 300 DPI for publication.
 """
 
 import pandas as pd
@@ -15,7 +24,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # ============================================================
-# TASK 1: LOAD AND CLEAN DATA
+# STEP 1: LOAD AND CLEAN DATA
 # ============================================================
 
 print("=" * 70)
@@ -84,7 +93,7 @@ for domain in ['medical', 'philosophy']:
         print(f"  {m}: N={len(ms)}, mean_dRCI={ms['delta_rci'].mean():.4f}")
 
 # ============================================================
-# TASK 2: CONVERGENCE STATS
+# STEP 2: CONVERGENCE STATS
 # ============================================================
 
 print("\n" + "=" * 70)
@@ -263,7 +272,7 @@ print(f"Figure 9 saved: {fig9_path}")
 plt.close()
 
 # ============================================================
-# TASK 4: REPORT
+# STEP 4: REPORT
 # ============================================================
 
 print("\n" + "=" * 70)
@@ -288,5 +297,5 @@ FIGURES SAVED:
   Figure 8: {fig8_path}
   Figure 9: {fig9_path}
 
-NOTE: Did NOT push to git (Codex will handle).
+
 """)

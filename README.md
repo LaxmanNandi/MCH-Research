@@ -4,50 +4,73 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-**Expanded analyses (Paper 3/4): 22 model-domain runs, 99,000+ responses**
-Paper 1 legacy summary (archived): `docs/Paper1_Archived_Summary.md`
+**Large-scale analysis: 22 model-domain configurations, 99,000+ responses**
 
 *Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka, India*
 
 ---
 
-## Start here
+## Start Here
 
-- Paper 4 results: `docs/Paper4_Results_Discussion.md`
-- Paper 3 results: `docs/Paper3_Results_Discussion.md`
-- **Safety anomaly note (Llama P30):** `docs/Llama_Safety_Anomaly.md`
-- Data availability index: `docs/data_availability_index.md`
+- **Temporal Dynamics Results:** `docs/Results_Temporal_Dynamics.md`
+- **Entanglement Analysis Results:** `docs/Results_Entanglement_Analysis.md`
+- **Safety Anomaly Note (Llama P30):** `docs/Llama_Safety_Anomaly.md`
+- **Data Availability Index:** `docs/data_availability_index.md`
 
-**Why this matters:** Context effects in LLMs are not uniform; they change by position, domain, and task type. This repository provides reproducible evidence and a structured framework (taxonomy + dual-axis metrics) to distinguish when context improves reliability versus when it destabilizes it - critical for medical and safety-relevant use.
+**Why this matters:** Context effects in LLMs are not uniform; they change by position, domain, and task type. This repository provides reproducible evidence and a structured framework (taxonomy + dual-axis metrics) to distinguish when context improves reliability versus when it destabilizes it—critical for medical and safety-relevant applications.
 
-**Featured figure:** Medical P30 entanglement spike (Llama divergence).
+**Featured Finding:** Position-dependent entanglement spike in medical summarization tasks reveals model-specific divergence patterns.
 
 ![Featured figure: Medical P30 entanglement spike](docs/figures/legacy/analysis/entanglement_theory_validation.png)
-Caption: P30 medical summarization produces outlier variance and divergence in specific models (see Paper 4).
+*Caption: P30 medical summarization produces outlier variance and divergence in specific models.*
 
 ---
 
 ## Key Findings
 
 ### 1. Epistemological Relativity v2.0
-Domain shapes *temporal dynamics* of context sensitivity:
+Domain shapes temporal dynamics of context sensitivity:
 
 | Domain | Temporal Pattern |
 |--------|------------------|
-| Philosophy | Inverted-U (positions 1-29) |
-| Medical | U-shaped (positions 1-29) + Type-2 spike at P30 |
-
-Historical note: legacy Paper 1 claims and dataset summaries are archived in `docs/Paper1_Archived_Summary.md`.
+| Philosophy (open-goal) | Inverted-U curve (positions 1-29) |
+| Medical (closed-goal) | U-shaped curve (positions 1-29) + Type-2 spike at P30 |
 
 ### 2. Vendor Signatures
-Significant vendor-level differences in context utilization (F=6.52, p=0.0015)
+Significant vendor-level differences in context utilization (F=6.52, p=0.0015).
 
 ![Effect Sizes](figures/fig2_effect_sizes_ci.png)
 
+### 3. Mutual Information Entanglement
+Strong correlation (r=0.74, p<10⁻⁴²) between ΔRCI and mutual information proxy across 240 position-level measurements, validating information-theoretic interpretation.
+
 ---
 
-## Acknowledgments
-See `CONTRIBUTORS.md` for DIA collaborators and roles.
+## Repository Structure
+
+```
+mch_experiments/
+├── data/                           # Experiment results (JSON format)
+│   ├── medical_results/            # Medical reasoning tasks
+│   ├── open_medical_rerun/         # Open model medical reruns
+│   ├── open_model_results/         # Open model philosophy tasks
+│   └── closed_model_philosophy_rerun/
+├── docs/                           # Documentation and results
+│   ├── Results_Temporal_Dynamics.md
+│   ├── Results_Entanglement_Analysis.md
+│   ├── Claims_Evidence_Entanglement.md
+│   ├── Methods_Entanglement.md
+│   └── figures/                    # Publication figures
+├── scripts/                        # Experiment runners
+│   ├── mch_open_models_medical_rerun.py
+│   ├── validate/                   # Analysis and validation scripts
+│   └── paper3_generate_figures.py
+└── analysis/                       # Generated analysis outputs
+    ├── trial_level_drci.csv
+    └── entanglement_position_data.csv
+```
+
+---
 
 ## Quick Start
 
@@ -59,64 +82,65 @@ cd MCH-Experiments
 # Install
 pip install -r requirements.txt
 
-# Run interactive explorer (no API keys needed)
-cd app
-streamlit run app.py
+# Run analysis
+python scripts/validate/extract_and_analyze_trial_level.py
+
+# Generate figures
+python scripts/paper3_generate_figures.py
 ```
 
 ---
 
-## Repository Structure
+## Methodology
+
+### Delta Relational Coherence Index (ΔRCI)
+
+ΔRCI measures how context affects response consistency:
 
 ```
-MCH-Experiments/
-├── MCH_Paper1_arXiv.tex       # Paper source (LaTeX)
-├── MCH_Paper1_arXiv.pdf       # Compiled paper
-├── docs/Paper1_Archived_Summary.md  # Paper 1 legacy archive (historical)
-├── figures/                   # Publication figures (7 figures)
-├── app/
-│   ├── app.py                 # Interactive Streamlit explorer
-│   └── data/                  # Paper 1 explorer dataset (JSON)
-│       ├── philosophy/        # 700 trials (7 models × 100) - Paper 1 dataset
-│       └── medical/           # 300 trials (6 models × 50) - Paper 1 dataset
-├── data/
-│   ├── philosophy_results/    # Raw philosophy data
-│   └── medical_results/       # Raw medical data
-├── scripts/
-│   └── verify_prompts.py      # Prompt uniformity verification
-└── analysis/                  # Statistical analysis scripts
+ΔRCI = mean(RCI_TRUE) - mean(RCI_COLD)
 ```
+
+Where:
+- **RCI_TRUE**: Self-similarity of responses within true context (≈1.0)
+- **RCI_COLD**: Cross-similarity between true and scrambled context responses
+
+**Interpretation:**
+- ΔRCI > 0: Context increases coherence (positive dependence)
+- ΔRCI ≈ 0: Context-independent generation
+- ΔRCI < 0: Context decreases coherence (rare; suggests instability)
+
+### Task Types
+
+- **Type 1 (Open-goal):** Philosophy prompts, no single correct answer
+- **Type 2 (Closed-goal):** Medical reasoning, diagnostic/therapeutic targets
+
+### Embedding Model
+All semantic similarity computed using `sentence-transformers/all-MiniLM-L6-v2` (384-dim).
 
 ---
 
-## The ΔRCI Metric
+## Models Tested
 
-**Delta Relational Coherence Index** measures context sensitivity:
+### Closed (API-based)
+- GPT-4o, GPT-4o-mini, GPT-5.2
+- Claude Opus, Claude Haiku
+- Gemini Flash, Gemini 2.5 Pro
 
-```
-ΔRCI = RCI_TRUE - RCI_COLD
-```
-
-Where RCI = mean cosine similarity between a response and all other responses in the same condition.
-
-### Three-Condition Protocol
-1. **TRUE**: Full coherent conversation history
-2. **COLD**: No history (fresh start each prompt)
-3. **SCRAMBLED**: History present but randomized
-
-### Pattern Classification
-- **CONVERGENT** (ΔRCI > 0): History helps
-- **NEUTRAL** (ΔRCI ≈ 0): History irrelevant
-- **SOVEREIGN** (ΔRCI < 0): History hurts
+### Open (Self-hosted)
+- DeepSeek V3.1, Qwen3 235B
+- Llama 4 Maverick, Llama 4 Scout
+- Mistral Small 24B, Ministral 14B
+- Kimi K2
 
 ---
 
 ## Citation
 
 ```bibtex
-@article{laxman2026context,
-  title={Context Curves Behavior: Measuring AI Relational Dynamics with {$\Delta$RCI}},
-  author={Laxman, M M},
+@article{nandi2026context,
+  title={Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI},
+  author={Nandi, Laxman M M},
   journal={arXiv preprint arXiv:2026.xxxxx},
   year={2026}
 }
@@ -124,14 +148,23 @@ Where RCI = mean cosine similarity between a response and all other responses in
 
 ---
 
+## Acknowledgments
+
+See `CONTRIBUTORS.md` for collaborator roles and contributions.
+
+Developed using Distributed Intelligence Architecture (DIA) with Claude Code and GPT-5.2 Codex assistance.
+
+---
+
 ## License
 
-MIT License - see [LICENSE](LICENSE)
+MIT License - see `LICENSE` for details.
 
-## How to cite / contact
+---
 
-- Cite: see the **Citation** section above
-- Name: Dr. Laxman M M
-- Email: barlax5377@gmail.com
-- Institution: Government Duty Medical Officer, PHC Manchi, Karnataka, India
-- Upcoming: DNB General Medicine, KC General Hospital, Bangalore (2026)
+## Contact
+
+**Dr. Laxman M M, MBBS**
+Primary Health Centre Manchi, Karnataka, India
+Email: barlax5377@gmail.com
+GitHub: [@LaxmanNandi](https://github.com/LaxmanNandi)
