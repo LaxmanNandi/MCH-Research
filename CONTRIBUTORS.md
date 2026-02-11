@@ -1,7 +1,7 @@
 # Contributors
 
 ## Human
-- **Dr. Laxman M M** — Principal investigator, research design, integration
+- **Dr. Laxman M M** ï¿½ Principal investigator, research design, integration
 
 ## AI Collaborators
 
@@ -14,9 +14,6 @@ a methodology where multiple AI systems collaborate under human oversight.
 | Codex | Execution, audit, code | OpenAI GPT-5.2 |
 | Gemini | Visualization, figures | Google |
 | DeepSeek | Theory validation, critique | DeepSeek |
-
-## Methodology
-See [DIA Methods Appendix](docs/DIA_Methods_Appendix.md) for details.
 
 ## Note
 All AI contributions are under human direction. Research decisions, 
