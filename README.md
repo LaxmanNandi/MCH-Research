@@ -43,7 +43,7 @@ Domain shapes temporal dynamics of context sensitivity:
 | Medical (closed-goal) | U-shaped curve (positions 1-29) + Type-2 spike at P30 |
 
 ### 2. Vendor Signatures
-Significant vendor-level differences in context utilization (F=6.52, p=0.0015).
+Significant vendor-level differences in context utilization (F=90.65, p<0.0001).
 
 ![Effect Sizes](figures/fig2_effect_sizes_ci.png)
 
