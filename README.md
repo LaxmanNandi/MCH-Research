@@ -18,16 +18,16 @@
 
 ## Start Here
 
-- **Temporal Dynamics Results:** `docs/Results_Temporal_Dynamics.md`
-- **Entanglement Analysis Results:** `docs/Results_Entanglement_Analysis.md`
-- **Safety Anomaly Note (Llama P30):** `docs/Llama_Safety_Anomaly.md`
+- **Temporal Dynamics Results:** `docs/papers/Paper3_Results.md`
+- **Entanglement Analysis Results:** `docs/papers/Paper4_Results.md`
+- **Safety Anomaly Note (Llama P30):** `docs/papers/Llama_Safety_Note.md`
 - **Data Availability Index:** `docs/data_availability_index.md`
 
 **Why this matters:** Context effects in LLMs are not uniform; they change by position, domain, and task type. This repository provides reproducible evidence and a structured framework (taxonomy + dual-axis metrics) to distinguish when context improves reliability versus when it destabilizes it—critical for medical and safety-relevant applications.
 
 **Featured Finding:** Position-dependent entanglement spike in medical summarization tasks reveals model-specific divergence patterns.
 
-![Featured figure: Medical P30 entanglement spike](docs/figures/legacy/analysis/entanglement_theory_validation.png)
+![Featured figure: Medical P30 entanglement spike](results/figures/entanglement_validation.png)
 *Caption: Complete 11-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Gemini show convergent entanglement (Var_Ratio<0.6). Analysis validates ΔRCI as mutual information proxy (r=0.76, p=1.5×10⁻⁶², N=330).*
 
 ---
@@ -56,24 +56,28 @@ Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and mutual informat
 
 ```
 mch_experiments/
-├── data/                           # Experiment results (JSON format)
-│   ├── medical_results/            # Medical reasoning tasks
-│   ├── open_medical_rerun/         # Open model medical reruns
-│   ├── open_model_results/         # Open model philosophy tasks
-│   └── closed_model_philosophy_rerun/
-├── docs/                           # Documentation and results
-│   ├── Results_Temporal_Dynamics.md
-│   ├── Results_Entanglement_Analysis.md
-│   ├── Claims_Evidence_Entanglement.md
-│   ├── Methods_Entanglement.md
-│   └── figures/                    # Publication figures
-├── scripts/                        # Experiment runners
-│   ├── mch_open_models_medical_rerun.py
-│   ├── validate/                   # Analysis and validation scripts
-│   └── paper3_generate_figures.py
-└── analysis/                       # Generated analysis outputs
-    ├── trial_level_drci.csv
-    └── entanglement_position_data.csv
+├── data/                    # Experiment data
+│   ├── medical/            # Medical domain (STEMI case)
+│   │   ├── closed_models/
+│   │   ├── open_models/
+│   │   └── gemini_flash/
+│   └── philosophy/         # Philosophy domain (consciousness)
+│       ├── closed_models/
+│       ├── open_models/
+│       └── original/
+├── results/                # Analysis outputs
+│   ├── figures/           # Publication figures
+│   ├── tables/            # Data tables (CSV)
+│   └── metrics/           # Computed metrics
+├── docs/                   # Documentation
+│   └── papers/            # Paper manuscripts
+├── scripts/                # Code
+│   ├── experiments/       # Run experiments
+│   └── analysis/          # Analyze data
+├── README.md
+├── LICENSE
+├── requirements.txt
+└── CONTRIBUTORS.md
 ```
 
 ---
@@ -89,10 +93,10 @@ cd MCH-Experiments
 pip install -r requirements.txt
 
 # Run analysis
-python scripts/validate/extract_and_analyze_trial_level.py
+python scripts/analysis/compute_trial_drci.py
 
 # Generate figures
-python scripts/paper3_generate_figures.py
+python scripts/analysis/generate_paper3_figures.py
 ```
 
 ---

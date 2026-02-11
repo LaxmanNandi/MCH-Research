@@ -1,9 +1,0 @@
-model,r,p_uncorrected,n,p_corrected,significant
-GPT-4o-mini (Phil),-0.9999999999999999,0.0,30,0.0,True
-GPT-4o (Phil),-1.0,0.0,30,0.0,True
-Claude Haiku (Phil),-1.0,0.0,30,0.0,True
-Gemini Flash (Phil),-1.0,0.0,30,0.0,True
-Gemini Flash (Med),-1.0,0.0,30,0.0,True
-DeepSeek V3.1 (Med),-1.0,0.0,30,0.0,True
-Llama 4 Maverick (Med),-1.0,0.0,30,0.0,True
-Llama 4 Scout (Med),-1.0,0.0,30,0.0,True

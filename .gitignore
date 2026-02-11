@@ -1,56 +1,33 @@
-# API Keys - NEVER COMMIT
-config/api_keys.yaml
-.env
-*.key
-secrets/
-
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
 venv/
-.pytest_cache/
-
-# Checkpoints (keep final results only)
-*_checkpoint.json
-
-# Data (large files)
-*.npy
-*.pkl
+env/
+ENV/
 
 # IDE
 .vscode/
 .idea/
 *.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Development
+.dev/
 
 # OS
 .DS_Store
 Thumbs.db
 
+# Results (generated)
+results/
+analysis/
+
 # Logs
 *.log
-logs/
-
-# Large model files
-*.bin
-*.pt
-*.onnx
-
-# Session logs (large, personal)
-conversation_logs/
-
-# Local submission files
-arxiv_submission/all_figures.pdf
-
-# Recovered/temporary data
-*_recovered.json
-
-
-# Internal documents (not for public release)
-.internal/
-CLEANED_*.md
-*_HEADER.py
-cleanup_plan.md
