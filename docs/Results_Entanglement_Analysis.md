@@ -26,10 +26,10 @@ Positive MI_Proxy indicates reduced variance (more predictability) with context.
 ---
 
 ### Finding 1: DRCI tracks an MI proxy (entanglement signal)
-Across 8 model-domain runs (4 philosophy, 4 medical) and 30 positions, DRCI correlated strongly with the MI proxy derived from variance ratios:
+Across 11 model-domain runs (4 philosophy, 7 medical) and 30 positions, DRCI correlated strongly with the MI proxy derived from variance ratios:
 
-- Pooled correlation: r = 0.74, p = 3.0e-42 (N = 240 model-position points)
-  - Data: 8 model-domain runs × 30 positions = 240 points
+- Pooled correlation: r = 0.76, p = 1.5e-62 (N = 330 model-position points)
+  - Data: 11 model-domain runs × 30 positions = 330 points
   - Each point aggregates 50 independent trials per condition (4,500 total responses per model)
 
 Interpretation: DRCI increases as context **reduces** response variance. This supports the entanglement view: context couples the response distribution to prior information, changing the predictability of outputs.

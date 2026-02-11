@@ -3,13 +3,13 @@
 ---
 
 ## A. Data sources and scope
-- Models: 8 model-domain runs (4 philosophy, 4 medical).
+- Models: 11 model-domain runs (4 philosophy, 7 medical).
 - Trials: 50 independent trials per model per condition.
 - Positions: 30 prompts per conversation.
 - Conditions: TRUE, COLD, SCRAMBLED.
 - Unit of analysis: model × position mean response embeddings (aggregated across 50 trials).
 
-Total pooled points for correlation analyses: N = 8 × 30 = 240 model-position points.
+Total pooled points for correlation analyses: N = 11 × 30 = 330 model-position points.
 Each point represents aggregate statistics (mean, variance) computed over 50 trials.
 
 ---
@@ -56,7 +56,7 @@ This is monotonic with the direction of predictability change: positive values i
 ---
 
 ## E. Correlation analysis
-We compute Pearson correlation between DRCI and MI_Proxy over pooled model-position points (N = 240). Reported statistics include r and p-value for the pooled test.
+We compute Pearson correlation between DRCI and MI_Proxy over pooled model-position points (N = 330). Reported statistics include r and p-value for the pooled test.
 
 We also compute per-model correlations to examine consistency and directionality. If MI_Proxy is defined as Var_Ratio instead of 1 - Var_Ratio, the correlation sign will invert; therefore we report sign conventions explicitly with the proxy definition.
 
