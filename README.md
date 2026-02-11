@@ -1,31 +1,44 @@
-# LLM Context Sensitivity Benchmark: 22 Models, 99K+ Responses
+# Cross-Domain AI Behavior: Medical vs Philosophical Reasoning
 
-## Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI
+## Standardized Measurement of Context Sensitivity Across 24 LLMs
 
 [![arXiv](https://img.shields.io/badge/arXiv-2026.xxxxx-b31b1b.svg)](https://arxiv.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-> **TL;DR:** Reproducible benchmark measuring how 22 major LLMs (GPT-4o, Claude Opus, Gemini 2.5 Pro, Llama 4, DeepSeek V3, Qwen3 235B, Mistral, Kimi K2) handle context across 99,000+ responses. Reveals position-dependent behavior patterns, domain-specific dynamics, and safety-critical divergence in medical reasoning tasks. Strong validation: ΔRCI correlates with mutual information (r=0.76, p=1.5×10⁻⁶²).
+> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 24 major LLMs across 99,000+ responses. Medical (closed-goal) reasoning shows U-shaped dynamics with task enablement spikes; philosophy (open-goal) shows inverted-U patterns. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with MI proxy, p<10⁻⁶²). Identifies safety-critical divergence in medical summarization tasks.
 
-**Large-scale analysis: 22 model-domain configurations, 99,000+ responses**
+**Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 24 models)** → Papers 3 & 4 (deep dives)
 
 *Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka, India*
 
-**Keywords:** LLM evaluation · Context sensitivity · GPT-4 benchmarking · Claude analysis · Llama 4 testing · Gemini evaluation · DeepSeek benchmark · AI safety · Medical reasoning · Sentence embeddings · Mutual information · Reproducible research · NLP evaluation
+**Keywords:** Cross-domain AI evaluation · Context sensitivity · Medical vs philosophical reasoning · GPT-4o · Claude · Gemini · Llama 4 · DeepSeek · Qwen · Mistral · AI safety · Domain-specific behavior · Reproducible research
 
 ---
 
-## Start Here
+## Paper Series
 
-- **Temporal Dynamics Results:** `docs/papers/Paper3_Results.md`
-- **Entanglement Analysis Results:** `docs/papers/Paper4_Results.md`
-- **Safety Anomaly Note (Llama P30):** `docs/papers/Llama_Safety_Note.md`
-- **Data Availability Index:** `docs/data_availability_index.md`
+### **Paper 1: Multi-turn Conversational Helpfulness (MCH)** [PUBLISHED - arXiv]
+**Role**: Legacy foundation - Introduced ΔRCI metric and MCH framework
+- Philosophy domain only (8 models, mixed methodology)
+- **Status**: [arXiv preprint](https://arxiv.org/) (January 2026)
 
-**Why this matters:** Context effects in LLMs are not uniform; they change by position, domain, and task type. This repository provides reproducible evidence and a structured framework (taxonomy + dual-axis metrics) to distinguish when context improves reliability versus when it destabilizes it—critical for medical and safety-relevant applications.
+### **Paper 2: Cross-Domain AI Behavior Framework** [IN PREPARATION]
+**Role**: Core study - Standardized methodology, cross-domain validation
+- 24 models × 2 domains × 50 trials = **99,000+ responses**
+- Medical (13 models) + Philosophy (11 models)
+- **Documents**: `docs/RESEARCH_OUTLINE.md`, `docs/PAPER_COMPARISON.md`
 
-**Featured Finding:** Position-dependent entanglement spike in medical summarization tasks reveals model-specific divergence patterns.
+### **Papers 3 & 4: Extensions** [DRAFTS COMPLETE]
+**Role**: Deep dives using Paper 2's standardized dataset
+- **Paper 3**: Temporal dynamics analysis → `docs/papers/Paper3_Results.md`
+- **Paper 4**: Entanglement mechanism → `docs/papers/Paper4_Results.md`
+
+**Complete Research Outline**: See `docs/RESEARCH_OUTLINE.md`
+
+**Why this matters:** Domain structure fundamentally shapes how LLMs use context. Medical (closed-goal) tasks show diagnostic independence troughs and task enablement spikes; philosophical (open-goal) tasks show recursive accumulation. This repository provides the first **standardized cross-domain framework** to measure these effects across 24 models with unified methodology—critical for understanding deployment risks in medical and safety-relevant applications.
+
+**Featured Finding:** Medical P30 task enablement reveals safety-critical divergence classes. While convergent models (DeepSeek, Gemini) stabilize under context (Var_Ratio < 0.6), Llama models show extreme variance explosion (Var_Ratio up to 7.5), producing unpredictable outputs precisely when task completion requires context integration.
 
 ![Featured figure: Medical P30 entanglement spike](docs/figures/publication/entanglement_validation.png)
 *Caption: Complete 11-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Gemini show convergent entanglement (Var_Ratio<0.6). Analysis validates ΔRCI as mutual information proxy (r=0.76, p=1.5×10⁻⁶², N=330).*
