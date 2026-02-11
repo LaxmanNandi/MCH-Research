@@ -40,6 +40,8 @@ Interpretation: DRCI increases as context **reduces** response variance. This su
 
 **Figure 1.** DRCI vs MI_Proxy (pooled model-position points).
 
+![Figure 1: Entanglement validation](../../results/figures/entanglement_validation.png)
+
 ---
 
 ### Finding 2: Bidirectional entanglement (convergent vs divergent)
@@ -50,7 +52,9 @@ The variance ratio reveals two regimes:
 
 This bidirectional framing resolves the SOVEREIGN category: **SOVEREIGN = divergent entanglement** (context destabilizes predictability).
 
-**Figure 2.** Regime map of DRCI vs Var_Ratio.
+**Figure 2.** Multi-panel entanglement analysis (regime map, position patterns, domain comparison).
+
+![Figure 2: Entanglement multi-panel](../../results/figures/fig4_entanglement_multipanel.png)
 
 ---
 
@@ -62,9 +66,11 @@ At medical position 30 (summarization), we observe extreme divergence in two Lla
 
 In contrast, convergent models at P30 show Var_Ratio < 1 and positive DRCI (e.g., Gemini Flash, DeepSeek V3.1). This identifies a **safety risk class**: models that diverge under Type 2 prompts produce highly unstable, unpredictable outputs precisely when task enablement is expected.
 
-For audit detail (ESI calculation and “intact capability + broken coherence” framing), see `docs/Llama_Safety_Anomaly.md`.
+For audit detail (ESI calculation and "intact capability + broken coherence" framing), see `docs/Llama_Safety_Anomaly.md`.
 
-**Figure 3.** Var_Ratio at medical P30 across models (convergent vs divergent classes).
+**Figure 3.** Llama safety anomaly at medical P30 (divergent variance signatures).
+
+![Figure 3: Llama safety anomaly](../../results/figures/fig7_llama_safety_anomaly.png)
 
 ---
 
@@ -72,11 +78,13 @@ For audit detail (ESI calculation and “intact capability + broken coherence”
 Mean variance ratios differ by domain:
 
 - Philosophy: Var_Ratio ~ 1.01 (variance-neutral)
-- Medical: Var_Ratio ~ 1.30 (variance-increasing)
+- Medical: Var_Ratio ~ 1.23 (variance-increasing)
 
 This suggests domain-specific architecture effects: medical prompts tend to **destabilize** response distributions under context, while philosophy is largely variance-neutral on average.
 
-**Figure 4.** Domain-level Var_Ratio comparison.
+**Figure 4.** Independence test: RCI vs Variance Ratio.
+
+![Figure 4: Independence test](../../results/figures/fig5_independence_rci_var.png)
 
 ---
 
@@ -115,10 +123,10 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 ---
 
 ## FIGURE LIST (Paper 4)
-1. DRCI vs MI_Proxy (pooled model-position points).
-2. Regime map: convergent vs divergent entanglement (DRCI vs Var_Ratio).
-3. Llama safety anomaly at medical P30 (Var_Ratio by model).
-4. Domain architecture comparison (Var_Ratio by domain).
+1. **Figure 1:** DRCI vs MI_Proxy entanglement validation (r=0.76, 11 models, 330 points).
+2. **Figure 2:** Multi-panel entanglement analysis (regime map, position patterns, domain comparison).
+3. **Figure 3:** Llama safety anomaly at medical P30 (divergent variance signatures).
+4. **Figure 4:** Independence test: RCI vs Variance Ratio correlation.
 
 ---
 
