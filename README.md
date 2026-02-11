@@ -45,8 +45,6 @@ Domain shapes temporal dynamics of context sensitivity:
 ### 2. Vendor Signatures
 Significant vendor-level differences in context utilization (F=90.65, p<0.0001).
 
-![Effect Sizes](figures/fig2_effect_sizes_ci.png?v=2)
-
 ### 3. Mutual Information Entanglement
 Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and mutual information proxy across 330 position-level measurements (11 model-domain runs), validating information-theoretic interpretation.
 
