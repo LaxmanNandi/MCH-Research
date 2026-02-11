@@ -1,12 +1,18 @@
-# Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI
+# LLM Context Sensitivity Benchmark: 22 Models, 99K+ Responses
+
+## Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI
 
 [![arXiv](https://img.shields.io/badge/arXiv-2026.xxxxx-b31b1b.svg)](https://arxiv.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
+> **TL;DR:** Reproducible benchmark measuring how 22 major LLMs (GPT-4o, Claude Opus, Gemini 2.5 Pro, Llama 4, DeepSeek V3, Qwen3 235B, Mistral, Kimi K2) handle context across 99,000+ responses. Reveals position-dependent behavior patterns, domain-specific dynamics, and safety-critical divergence in medical reasoning tasks. Strong validation: ΔRCI correlates with mutual information (r=0.74, p=3.0×10⁻⁴²).
+
 **Large-scale analysis: 22 model-domain configurations, 99,000+ responses**
 
 *Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka, India*
+
+**Keywords:** LLM evaluation · Context sensitivity · GPT-4 benchmarking · Claude analysis · Llama 4 testing · Gemini evaluation · DeepSeek benchmark · AI safety · Medical reasoning · Sentence embeddings · Mutual information · Reproducible research · NLP evaluation
 
 ---
 
