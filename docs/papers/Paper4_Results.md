@@ -34,7 +34,7 @@ Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI
   - Medical models: DeepSeek V3.1, Llama 4 Maverick/Scout, Mistral Small 24B, Ministral 14B, Qwen3 235B, **Gemini Flash**
   - Philosophy models: GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash
 
-*Note: This analysis uses all models with metrics data. Paper 3's cross-domain study uses a 10-model subset (6 medical, 4 philosophy) with complete response text preservation for qualitative validation. Gemini Flash Medical has metrics but no saved response text.*
+*Note: Entanglement analysis requires actual response text to compute embedding variances (Var_TRUE and Var_COLD). Only 11 of the 24 available models have complete response text saved, limiting this analysis to 330 data points. Paper 3's cross-domain study uses a 10-model subset (6 medical open, 4 philosophy closed) with response text for qualitative validation. Gemini Flash Medical (the 11th model here) has response text processed separately. Expansion to additional models would require rerunning experiments with response text preservation enabled.*
 
 Interpretation: DRCI increases as context **reduces** response variance. This supports the entanglement view: context couples the response distribution to prior information, changing the predictability of outputs.
 
