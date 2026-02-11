@@ -147,13 +147,13 @@ Distribution analysis confirming that DRCI values approximate Gaussian distribut
 
 ### Figure S2: Trial Convergence Analysis
 
-Bayesian posterior updates showing convergence of DRCI estimates across 50 trials. Demonstrates that 50 trials provide stable estimates with narrow credible intervals.
+Trial-level DRCI stability across 50 trials. Scatter plots with 5-trial rolling means show convergent, stable estimates across both medical and philosophy domains. Overall trend lines demonstrate negligible drift (slopes ~0, p > 0.05).
 
 ![Figure S2: Trial convergence](../../results/figures/paper4/figure8_trial_convergence.png)
 
-### Figure S3: Model-Level Variance Comparison
+### Figure S3: Model-Level DRCI Comparison
 
-Per-model breakdown of variance ratios comparing philosophy vs medical domains, showing consistent patterns within domains despite architectural differences.
+Mean DRCI values by model (trial-level analysis). Bar chart with 95% confidence intervals comparing 14 models across medical and philosophy domains, showing domain-specific patterns and individual model variability.
 
 ![Figure S3: Model comparison](../../results/figures/paper4/figure9_model_comparison.png)
 
