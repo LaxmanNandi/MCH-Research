@@ -123,10 +123,39 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 ---
 
 ## FIGURE LIST (Paper 4)
+
+### Main Figures
 1. **Figure 1:** DRCI vs MI_Proxy entanglement validation (r=0.76, 11 models, 330 points).
 2. **Figure 2:** Multi-panel entanglement analysis (regime map, position patterns, domain comparison).
 3. **Figure 3:** Llama safety anomaly at medical P30 (divergent variance signatures).
 4. **Figure 4:** Independence test: RCI vs Variance Ratio correlation.
+
+### Supplementary Figures
+- **Figure S1:** Gaussian assumption verification for DRCI distributions.
+- **Figure S2:** Trial-level convergence analysis (Bayesian posterior updates).
+- **Figure S3:** Model-level variance ratio comparison across domains.
+
+---
+
+## SUPPLEMENTARY FIGURES
+
+### Figure S1: Gaussian Assumption Verification
+
+Distribution analysis confirming that DRCI values approximate Gaussian distributions across models and positions, validating parametric statistical tests used in the main analysis.
+
+![Figure S1: Gaussian verification](../../results/figures/paper4/figure6_gaussian_verification.png)
+
+### Figure S2: Trial Convergence Analysis
+
+Bayesian posterior updates showing convergence of DRCI estimates across 50 trials. Demonstrates that 50 trials provide stable estimates with narrow credible intervals.
+
+![Figure S2: Trial convergence](../../results/figures/paper4/figure8_trial_convergence.png)
+
+### Figure S3: Model-Level Variance Comparison
+
+Per-model breakdown of variance ratios comparing philosophy vs medical domains, showing consistent patterns within domains despite architectural differences.
+
+![Figure S3: Model comparison](../../results/figures/paper4/figure9_model_comparison.png)
 
 ---
 
