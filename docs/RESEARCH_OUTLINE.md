@@ -9,19 +9,27 @@ This research program investigates how domain structure shapes AI context sensit
 
 ---
 
-## Paper Trilogy Structure
+## Paper Series Structure
 
-### **Paper 1: Multi-turn Conversational Helpfulness (MCH)** [PUBLISHED]
+### **Paper 1 (Legacy): Multi-turn Conversational Helpfulness** [PUBLISHED]
 **Status**: arXiv preprint (January 2026)
-**Scope**: Initial exploratory study establishing MCH framework
-- Models: 8 (philosophy domain, 30-100 trials)
-- Finding: Context effects vary by position and model architecture
-- Contribution: Introduced ΔRCI metric and alignment categories
-- **Role**: Foundation paper that motivated cross-domain investigation
+**Role**: Foundation - Exploratory study that introduced the problem
+
+**Methodology**: Mixed (partial standard, partial flawed)
+- Philosophy: 8 models, closed only
+  - GPT-5.2: 100 trials, standard script ✓
+  - Other 7 models: Flawed trial definition ✗
+- Medical data: Collected with standard script but not analyzed
+
+**Contribution**:
+- Introduced ΔRCI metric and MCH framework
+- Demonstrated context effects exist and vary by model
+- **Limitation**: Inconsistent methodology, single domain, exploratory
 
 ---
 
-### **Paper 2: Cross-Domain AI Behavior - Standardized Framework** [IN PREPARATION]
+### **Paper 2 (Standardized): Cross-Domain AI Behavior Framework** [IN PREPARATION]
+**Role**: Core Study - Unified methodology, cross-domain validation
 **Title**: *Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning*
 
 **Design**: Controlled cross-domain experimental study
@@ -44,14 +52,14 @@ This research program investigates how domain structure shapes AI context sensit
 
 **Data Status**: 23/24 complete (Kimi K2 medical finishing now)
 
----
+**Extensions & Deep Dives** (build on Paper 2 standardized data):
 
-### **Paper 3: Temporal Dynamics Across Domains** [DRAFT COMPLETE]
+#### **Paper 3: Temporal Dynamics Analysis** [DRAFT COMPLETE]
 **Title**: *How Philosophical vs Medical Reasoning Shapes Context Sensitivity Dynamics in Large Language Models*
 
-**Scope**: Position-level analysis of domain-specific patterns
-- **Models**: 10 with complete response text (6 medical open + 4 philosophy closed)
-- **Focus**: Temporal evolution across 30 conversational positions
+**Role**: Extension of Paper 2 - Position-level temporal analysis
+- **Dataset**: Paper 2 subset (10 models with response text)
+- **Focus**: Domain-specific temporal evolution patterns
 
 **Key Findings**:
 1. **Domain-specific temporal patterns**:
@@ -63,13 +71,11 @@ This research program investigates how domain structure shapes AI context sensit
 
 **Status**: Figures complete, ready for submission
 
----
-
-### **Paper 4: Entanglement as Predictability Modulation** [DRAFT COMPLETE]
+#### **Paper 4: Entanglement Mechanism** [DRAFT COMPLETE]
 **Title**: *Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling*
 
-**Scope**: Information-theoretic analysis of context effects
-- **Models**: 11 with response text (7 medical + 4 philosophy)
+**Role**: Extension of Paper 2 - Information-theoretic mechanism
+- **Dataset**: Paper 2 subset (11 models with response text)
 - **Innovation**: Variance-based entanglement measure
 
 **Key Findings**:

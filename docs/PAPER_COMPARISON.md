@@ -209,19 +209,34 @@ Total: ~99,000 responses (24 models)
 
 ---
 
-### **11. Papers 3 & 4 Build on Paper 2**
-
-**Paper 1** → **Paper 2** → **Papers 3 & 4**
+### **11. Paper Lineage: Legacy → Standardized → Extensions**
 
 ```
-Paper 1: "Context matters, here's ΔRCI"
-   ↓
-Paper 2: "Domain structure shapes context dynamics systematically"
-   ↓
-Paper 3: "Temporal evolution differs by domain (U-shape vs inverted-U)"
-   ↓
-Paper 4: "Entanglement explains ΔRCI via variance modulation"
+Paper 1 (Legacy):
+"Context matters, here's ΔRCI"
+├─ Exploratory, mixed methodology
+├─ Philosophy only (8 models)
+└─ Foundation for cross-domain work
+
+         ↓
+
+Paper 2 (Standardized):
+"Domain structure shapes context dynamics"
+├─ Unified methodology (all 24 models, 50 trials)
+├─ Cross-domain validation (medical + philosophy)
+├─ Open + closed models
+└─ Core empirical contribution
+
+         ↓ (extends Paper 2 data)
+
+Papers 3 & 4 (Deep Dives):
+├─ Paper 3: "Temporal dynamics differ by domain"
+│   └─ Uses Paper 2 subset (10 models with text)
+└─ Paper 4: "Entanglement as predictability modulation"
+    └─ Uses Paper 2 subset (11 models with text)
 ```
+
+**Structure**: Paper 1 motivated the problem → Paper 2 standardized the methodology → Papers 3 & 4 provide mechanistic insights from Paper 2's data
 
 ---
 
