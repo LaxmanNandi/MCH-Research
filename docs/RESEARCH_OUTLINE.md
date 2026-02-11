@@ -1,0 +1,148 @@
+# Cross-Domain AI Behavior Research Program
+**From MCH Experiments to Behavioral Science**
+
+---
+
+## Overview
+
+This research program investigates how domain structure shapes AI context sensitivity through controlled cross-domain experiments comparing medical (closed-goal) vs philosophy (open-goal) reasoning.
+
+---
+
+## Paper Trilogy Structure
+
+### **Paper 1: Multi-turn Conversational Helpfulness (MCH)** [PUBLISHED]
+**Status**: arXiv preprint (January 2026)
+**Scope**: Initial exploratory study establishing MCH framework
+- Models: 8 (philosophy domain, 30-100 trials)
+- Finding: Context effects vary by position and model architecture
+- Contribution: Introduced ΔRCI metric and alignment categories
+- **Role**: Foundation paper that motivated cross-domain investigation
+
+---
+
+### **Paper 2: Cross-Domain AI Behavior - Standardized Framework** [IN PREPARATION]
+**Title**: *Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning*
+
+**Design**: Controlled cross-domain experimental study
+- **Models**: 24 (balanced across domains and model types)
+  - Medical: 13 models (7 closed + 6 open)
+  - Philosophy: 11 models (4 closed + 7 open)
+- **Trials**: 50 per model (standardized methodology)
+- **Data points**: 2,400 model-domain runs × 30 positions = 72,000 measurements
+
+**Research Questions**:
+1. How does domain structure (closed-goal vs open-goal) affect context sensitivity?
+2. Do temporal dynamics differ systematically between domains?
+3. Are architectural differences (open vs closed models) domain-specific?
+
+**Key Contributions**:
+- Establishes standardized 50-trial measurement framework
+- Demonstrates domain-specific behavioral signatures
+- Validates ΔRCI as robust cross-domain metric
+- Provides baseline data for 24 state-of-the-art models
+
+**Data Status**: 23/24 complete (Kimi K2 medical finishing now)
+
+---
+
+### **Paper 3: Temporal Dynamics Across Domains** [DRAFT COMPLETE]
+**Title**: *How Philosophical vs Medical Reasoning Shapes Context Sensitivity Dynamics in Large Language Models*
+
+**Scope**: Position-level analysis of domain-specific patterns
+- **Models**: 10 with complete response text (6 medical open + 4 philosophy closed)
+- **Focus**: Temporal evolution across 30 conversational positions
+
+**Key Findings**:
+1. **Domain-specific temporal patterns**:
+   - Philosophy: Inverted-U (mid-conversation peak)
+   - Medical: U-shaped (diagnostic independence trough)
+2. **Task enablement at P30**: Medical spike (Z > +3.5), philosophy stable
+3. **Disruption sensitivity**: Presence > order (context structure matters)
+4. **Type 2 scaling law**: ΔRCI ∝ log(context_volume)
+
+**Status**: Figures complete, ready for submission
+
+---
+
+### **Paper 4: Entanglement as Predictability Modulation** [DRAFT COMPLETE]
+**Title**: *Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling*
+
+**Scope**: Information-theoretic analysis of context effects
+- **Models**: 11 with response text (7 medical + 4 philosophy)
+- **Innovation**: Variance-based entanglement measure
+
+**Key Findings**:
+1. **Entanglement validation**: ΔRCI ~ MI_proxy (r=0.76, p<10⁻⁶²)
+2. **Bidirectional regimes**:
+   - Convergent: Var_Ratio < 1 (context reduces variance)
+   - Divergent: Var_Ratio > 1 (context increases variance)
+3. **Llama safety anomaly**: Extreme divergence at P30 (Var_Ratio > 7)
+4. **Domain architecture**: Medical variance-increasing (1.23), Philosophy neutral (1.01)
+5. **Variance sufficiency**: Simple surrogate works (no k-NN needed)
+
+**Status**: Figures complete, ready for submission
+
+---
+
+## Data Organization
+
+### Complete Datasets (50 trials each)
+
+**Medical Domain** (13 models):
+- Open (6): DeepSeek V3.1, Llama 4 Maverick/Scout, Qwen3 235B, Mistral Small 24B, Ministral 14B
+- Closed (7): GPT-4o, GPT-4o-mini, GPT-5.2, Claude Haiku/Opus, Gemini Flash
+- *In progress*: Kimi K2 (30/50 trials)
+
+**Philosophy Domain** (11 models):
+- Open (7): DeepSeek V3.1, Kimi K2, Llama 4 Maverick/Scout, Ministral 14B, Mistral Small 24B, Qwen3 235B
+- Closed (4): GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash
+
+### Response Text Availability
+- **With text** (11 models): 4 phil closed + 7 medical (6 open + Gemini)
+- **Metrics only** (13 models): 7 phil open + 6 medical closed
+- **Use case**: Papers 3 & 4 require response text; Paper 2 uses all 24
+
+---
+
+## Repository Structure
+
+```
+mch_experiments/
+├── data/
+│   ├── medical/
+│   │   ├── open_models/      (6 complete, 1 in progress)
+│   │   └── closed_models/    (7 complete)
+│   └── philosophy/
+│       ├── open_models/      (7 complete)
+│       └── closed_models/    (4 complete)
+├── docs/
+│   ├── papers/
+│   │   ├── Paper3_Results.md  (Cross-domain temporal dynamics)
+│   │   └── Paper4_Results.md  (Entanglement analysis)
+│   └── figures/
+│       ├── publication/       (Main figures)
+│       ├── paper3/           (Domain-specific figures)
+│       └── paper4/           (Supplementary figures)
+├── results/
+│   └── tables/               (CSV metrics for all 24 models)
+├── scripts/
+│   ├── experiments/          (Data collection)
+│   └── analysis/            (Figure generation)
+└── archive/                 (Historical materials)
+```
+
+---
+
+## Next Steps
+
+1. **Complete Kimi K2 medical** (in progress, ~30 min)
+2. **Generate Paper 2 figures** (cross-domain comparison, all 24 models)
+3. **Write Paper 2 draft** (standardized framework)
+4. **Update README** with cross-domain framing
+5. **Prepare submission packages** (Papers 2, 3, 4)
+
+---
+
+**Last Updated**: February 12, 2026
+**Status**: 23/24 models complete, Paper 2 outline ready
