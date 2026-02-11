@@ -18,23 +18,26 @@
 
 ## Paper Series
 
-### **Paper 1: Multi-turn Conversational Helpfulness (MCH)** [PUBLISHED - arXiv]
+All papers organized in `/papers/` directory by lineage:
+
+### **Paper 1: Multi-turn Conversational Helpfulness** [PUBLISHED - arXiv]
 **Role**: Legacy foundation - Introduced ΔRCI metric and MCH framework
 - Philosophy domain only (8 models, mixed methodology)
+- **Location**: `papers/paper1_legacy/`
 - **Status**: [arXiv preprint](https://arxiv.org/) (January 2026)
 
 ### **Paper 2: Cross-Domain AI Behavior Framework** [IN PREPARATION]
 **Role**: Core study - Standardized methodology, cross-domain validation
 - 24 models × 2 domains × 50 trials = **99,000+ responses**
 - Medical (13 models) + Philosophy (11 models)
-- **Documents**: `docs/RESEARCH_OUTLINE.md`, `docs/PAPER_COMPARISON.md`
+- **Location**: `papers/paper2_standardized/`
 
 ### **Papers 3 & 4: Extensions** [DRAFTS COMPLETE]
 **Role**: Deep dives using Paper 2's standardized dataset
-- **Paper 3**: Temporal dynamics analysis → `docs/papers/Paper3_Results.md`
-- **Paper 4**: Entanglement mechanism → `docs/papers/Paper4_Results.md`
+- **Paper 3**: Temporal dynamics → `papers/paper3_cross_domain/Paper3_Results.md`
+- **Paper 4**: Entanglement mechanism → `papers/paper4_entanglement/Paper4_Results.md`
 
-**Complete Research Outline**: See `docs/RESEARCH_OUTLINE.md`
+**Complete Structure**: See `papers/README.md`
 
 **Why this matters:** Domain structure fundamentally shapes how LLMs use context. Medical (closed-goal) tasks show diagnostic independence troughs and task enablement spikes; philosophical (open-goal) tasks show recursive accumulation. This repository provides the first **standardized cross-domain framework** to measure these effects across 24 models with unified methodology—critical for understanding deployment risks in medical and safety-relevant applications.
 
@@ -65,31 +68,35 @@ Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and mutual informat
 
 ## Repository Structure
 
+**Organized by paper lineage** (not file type):
+
 ```
 mch_experiments/
-├── data/                    # Experiment data
-│   ├── medical/            # Medical domain (STEMI case)
-│   │   ├── closed_models/
-│   │   ├── open_models/
-│   │   └── gemini_flash/
-│   └── philosophy/         # Philosophy domain (consciousness)
-│       ├── closed_models/
-│       ├── open_models/
-│       └── original/
-├── results/                # Analysis outputs
-│   ├── figures/           # Publication figures
-│   ├── tables/            # Data tables (CSV)
-│   └── metrics/           # Computed metrics
-├── docs/                   # Documentation
-│   └── papers/            # Paper manuscripts
-├── scripts/                # Code
-│   ├── experiments/       # Run experiments
-│   └── analysis/          # Analyze data
-├── README.md
-├── LICENSE
-├── requirements.txt
-└── CONTRIBUTORS.md
+├── papers/                 # Research outputs organized by paper
+│   ├── paper1_legacy/     # Paper 1 (arXiv, mixed methodology)
+│   ├── paper2_standardized/  # Paper 2 (IN PREP, core study)
+│   ├── paper3_cross_domain/  # Paper 3 (temporal dynamics)
+│   └── paper4_entanglement/  # Paper 4 (information theory)
+├── data/                   # Experiment data (single source of truth)
+│   ├── medical/           # Medical domain (STEMI case)
+│   │   ├── closed_models/ # 7 models (GPT, Claude, Gemini)
+│   │   └── open_models/   # 6 models (DeepSeek, Llama, Mistral, Qwen)
+│   └── philosophy/        # Philosophy domain (consciousness)
+│       ├── closed_models/ # 4 models (GPT, Claude, Gemini)
+│       └── open_models/   # 7 models (DeepSeek, Kimi, Llama, Mistral, Qwen)
+├── results/               # Analysis outputs
+│   └── tables/           # Data tables (CSV)
+├── scripts/               # Code
+│   ├── experiments/      # Run experiments
+│   └── analysis/         # Analyze data
+├── docs/                  # Documentation
+│   ├── RESEARCH_OUTLINE.md
+│   └── PAPER_COMPARISON.md
+└── archive/              # Historical materials
 ```
+
+**Key principle**: Data stored once in `/data/`, papers organized by lineage in `/papers/`.
+
 
 ---
 
