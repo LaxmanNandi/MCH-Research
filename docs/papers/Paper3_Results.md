@@ -24,7 +24,7 @@ Negative DS indicates that scrambled context is closer to TRUE than no context (
 
 Figure 1. Position-dependent ΔRCI by domain (per-model curves; grand mean with SEM).
 
-![Figure 1: Position-dependent ΔRCI by domain](figures/legacy/paper3/fig1_position_drci_domains.png)
+![Figure 1: Position-dependent ΔRCI by domain](../figures/legacy/paper3/fig1_position_drci_domains.png)
 
 ---
 
@@ -35,7 +35,7 @@ Figure 1. Position-dependent ΔRCI by domain (per-model curves; grand mean with 
 
 Figure 2. Domain comparison of grand mean ΔRCI curves (positions 1-30).
 
-![Figure 2: Domain grand mean comparison](figures/legacy/paper3/fig2_domain_grand_mean.png)
+![Figure 2: Domain grand mean comparison](../figures/legacy/paper3/fig2_domain_grand_mean.png)
 
 ---
 
@@ -55,7 +55,7 @@ All 4 medical models showed P30 as an extreme outlier (mean Z = +3.27, SD = 0.85
 
 Figure 3. Position 30 Z-scores by domain (medical vs philosophy).
 
-![Figure 3: Position 30 outlier Z-scores](figures/legacy/paper3/fig3_position30_zscores.png)
+![Figure 3: Position 30 outlier Z-scores](../figures/legacy/paper3/fig3_position30_zscores.png)
 
 ---
 
@@ -84,7 +84,7 @@ For medical positions 1-29, mean ΔRCI followed a U-shape:
 
 Figure 4. Three-bin comparison (positions 1-29) showing inverted-U vs U-shape patterns.
 
-![Figure 4: Three-bin comparison, positions 1-29](figures/legacy/paper3/fig4_three_bin_pos1_29.png)
+![Figure 4: Three-bin comparison, positions 1-29](../figures/legacy/paper3/fig4_three_bin_pos1_29.png)
 
 ---
 
@@ -99,11 +99,11 @@ Per-position analysis showed task-specific structure in medical prompts: DS was 
 
 Figure 5A. Disruption Sensitivity by model.
 
-![Figure 5A: Disruption Sensitivity by model](figures/legacy/paper3/fig5a_disruption_sensitivity.png)
+![Figure 5A: Disruption Sensitivity by model](../figures/legacy/paper3/fig5a_disruption_sensitivity.png)
 
 Figure 5B. Per-position Disruption Sensitivity.
 
-![Figure 5B: Per-position Disruption Sensitivity](figures/legacy/paper3/fig5b_position_disruption.png)
+![Figure 5B: Per-position Disruption Sensitivity](../figures/legacy/paper3/fig5b_position_disruption.png)
 
 ---
 
@@ -118,7 +118,7 @@ Where P is the prompt position, alpha is model-dependent, and P-1 is the number 
 
 Figure 6. Type 2 scaling (illustrative log fit anchored at P10 and P30).
 
-![Figure 6: Type 2 scaling](figures/legacy/paper3/fig6_type2_scaling.png)
+![Figure 6: Type 2 scaling](../figures/legacy/paper3/fig6_type2_scaling.png)
 
 ---
 
@@ -133,7 +133,7 @@ This suggests a capacity threshold at which long-range coherence can be maintain
 
 Figure 7. Kimi K2 vs other philosophy models (slope vs disruption sensitivity).
 
-![Figure 7: Kimi K2 scale effect](figures/legacy/paper3/fig7_kimi_k2_scale.png)
+![Figure 7: Kimi K2 scale effect](../figures/legacy/paper3/fig7_kimi_k2_scale.png)
 
 ---
 
