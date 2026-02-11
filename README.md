@@ -28,7 +28,7 @@
 **Featured Finding:** Position-dependent entanglement spike in medical summarization tasks reveals model-specific divergence patterns.
 
 ![Featured figure: Medical P30 entanglement spike](docs/figures/legacy/analysis/entanglement_theory_validation.png)
-*Caption: P30 medical summarization produces outlier variance and divergence in specific models.*
+*Caption: Complete 11-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Gemini show convergent entanglement (Var_Ratio<0.6). Analysis validates ΔRCI as mutual information proxy (r=0.76, p=1.5×10⁻⁶², N=330).*
 
 ---
 
