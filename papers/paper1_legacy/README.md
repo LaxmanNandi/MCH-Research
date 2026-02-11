@@ -1,7 +1,8 @@
 # Paper 1 (Legacy): Multi-turn Conversational Helpfulness
 
-**Status**: Published - arXiv preprint (January 2026)
-**Git Tag**: `paper1-arxiv`
+**Status**: Published - Preprints.org (February 2, 2026, corrected version)
+**DOI**: 10.20944/preprints202601.1881.v2
+**Git Tag**: `paper1-arxiv` (note: tag name retained for historical consistency)
 
 ## Overview
 Exploratory study introducing the ΔRCI metric and MCH framework. Demonstrated that context effects exist and vary by model architecture.
@@ -36,4 +37,6 @@ See **Paper 2** for standardized cross-domain analysis using corrected methodolo
 
 ---
 
-**Citation**: arXiv:2026.xxxxx (January 2026)
+**Citation**: DOI:10.20944/preprints202601.1881.v2 (February 2, 2026, corrected version)
+**URL**: https://www.preprints.org/manuscript/202601.1881/v2
+**Original version** (v1): DOI:10.20944/preprints202601.1881.v1 (January 26, 2026)

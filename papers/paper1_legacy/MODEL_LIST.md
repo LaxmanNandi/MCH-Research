@@ -1,6 +1,7 @@
 # Paper 1 (Legacy): Models and Methodology
 
-**Status**: Published - arXiv preprint (January 2026)
+**Status**: Published - Preprints.org (February 2, 2026, corrected version)
+**DOI**: 10.20944/preprints202601.1881.v2
 **Git Tag**: `paper1-arxiv`
 
 ## Models (8 total - Philosophy only, Closed models)

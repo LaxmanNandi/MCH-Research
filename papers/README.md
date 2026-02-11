@@ -6,7 +6,7 @@ This directory organizes research outputs by **paper lineage** rather than file 
 
 ```
 papers/
-├── paper1_legacy/           Paper 1 (arXiv, Jan 2026)
+├── paper1_legacy/           Paper 1 (Preprints.org, Feb 2026)
 ├── paper2_standardized/     Paper 2 (IN PREP, core study)
 ├── paper3_cross_domain/     Paper 3 (COMPLETE, extension)
 └── paper4_entanglement/     Paper 4 (COMPLETE, extension)
@@ -19,7 +19,8 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions)
 ```
 
 ### Paper 1 (Legacy): Multi-turn Conversational Helpfulness
-- **Status**: Published (arXiv preprint, January 2026)
+- **Status**: Published (Preprints.org, February 2, 2026, corrected version)
+- **DOI**: 10.20944/preprints202601.1881.v2
 - **Role**: Foundation - Introduced ΔRCI metric
 - **Models**: 8 philosophy models (mixed methodology)
 - **Location**: `paper1_legacy/`
@@ -79,7 +80,7 @@ Papers 3 and 4 use subsets of Paper 2's data - **NO data duplication**.
 
 ## Git Tags
 
-- `paper1-arxiv` - Marks Paper 1 (arXiv) publication
+- `paper1-arxiv` - Marks Paper 1 publication (Preprints.org, tag name retained for historical consistency)
 
 ---
 

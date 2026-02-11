@@ -2,7 +2,7 @@
 
 ## Standardized Measurement of Context Sensitivity Across 24 LLMs
 
-[![arXiv](https://img.shields.io/badge/arXiv-2026.xxxxx-b31b1b.svg)](https://arxiv.org/)
+[![Preprints.org](https://img.shields.io/badge/Preprints.org-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
@@ -20,11 +20,11 @@
 
 All papers organized in `/papers/` directory by lineage:
 
-### **Paper 1: Multi-turn Conversational Helpfulness** [PUBLISHED - arXiv]
+### **Paper 1: Multi-turn Conversational Helpfulness** [PUBLISHED - Preprints.org]
 **Role**: Legacy foundation - Introduced ΔRCI metric and MCH framework
 - Philosophy domain only (8 models, mixed methodology)
 - **Location**: `papers/paper1_legacy/`
-- **Status**: [arXiv preprint](https://arxiv.org/) (January 2026)
+- **Status**: [Preprints.org](https://www.preprints.org/manuscript/202601.1881/v2) - DOI:10.20944/preprints202601.1881.v2 (February 2, 2026, corrected version)
 
 ### **Paper 2: Cross-Domain AI Behavior Framework** [IN PREPARATION]
 **Role**: Core study - Standardized methodology, cross-domain validation
@@ -169,8 +169,10 @@ All semantic similarity computed using `sentence-transformers/all-MiniLM-L6-v2` 
 @article{nandi2026context,
   title={Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI},
   author={Nandi, Laxman M M},
-  journal={arXiv preprint arXiv:2026.xxxxx},
-  year={2026}
+  journal={Preprints.org},
+  doi={10.20944/preprints202601.1881.v2},
+  year={2026},
+  note={Corrected version, published February 2, 2026}
 }
 ```
 

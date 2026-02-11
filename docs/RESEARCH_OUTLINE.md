@@ -12,7 +12,8 @@ This research program investigates how domain structure shapes AI context sensit
 ## Paper Series Structure
 
 ### **Paper 1 (Legacy): Multi-turn Conversational Helpfulness** [PUBLISHED]
-**Status**: arXiv preprint (January 2026)
+**Status**: Preprints.org (February 2, 2026, corrected version)
+**DOI**: 10.20944/preprints202601.1881.v2
 **Role**: Foundation - Exploratory study that introduced the problem
 
 **Methodology**: Mixed (partial standard, partial flawed)

@@ -1,8 +1,10 @@
-# Evolution: Paper 1 (arXiv) vs Paper 2 (Standardized Framework)
+# Evolution: Paper 1 (Preprints.org) vs Paper 2 (Standardized Framework)
+
+**Paper 1**: DOI:10.20944/preprints202601.1881.v2 (corrected version, Feb 2, 2026)
 
 ## Side-by-Side Comparison
 
-| Aspect | **Paper 1 (arXiv v1)** | **Paper 2 (Standardized)** | Improvement |
+| Aspect | **Paper 1 (Preprints.org v2)** | **Paper 2 (Standardized)** | Improvement |
 |--------|----------------------|------------------------|-------------|
 | **Framing** | "Multi-turn Conversational Helpfulness" | "Cross-Domain AI Behavior Measurement" | ✓ Theoretical upgrade |
 | **Scope** | Exploratory, single domain | Controlled cross-domain experiment | ✓ Scientific rigor |
