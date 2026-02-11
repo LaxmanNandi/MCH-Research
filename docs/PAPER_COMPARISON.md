@@ -67,7 +67,7 @@
 - Inconsistent methodology across models reduced comparability
 
 **Paper 2 Solution**:
-- **Unified standard**: Each trial = independent TRUE + COLD + SWAP run (3 conditions)
+- **Unified standard**: Each trial = independent TRUE + COLD + SCRAMBLED run (3 conditions)
 - **Standardized 50 trials**: ALL 24 models (medical + philosophy, open + closed)
 - **Full methodological consistency**: Same correct methodology across all models
 

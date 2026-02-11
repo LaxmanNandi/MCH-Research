@@ -52,10 +52,10 @@
 ## Data Scale
 - **Total runs**: 2,400 (24 models × 2 domains × 50 trials)
 - **Total measurements**: ~72,000 (2,400 runs × 30 positions)
-- **Total responses**: ~99,000 (TRUE + COLD + SWAP conditions)
+- **Total responses**: ~99,000 (TRUE + COLD + SCRAMBLED conditions)
 
 ## Methodology Upgrade from Paper 1
-- **Unified standard**: Each trial = independent TRUE + COLD + SWAP run
+- **Unified standard**: Each trial = independent TRUE + COLD + SCRAMBLED run
 - **Fixed trial definition**: Corrected measurement errors from Paper 1
 - **Cross-domain**: Medical (closed-goal) + Philosophy (open-goal)
 - **Architectural balance**: Open + closed models in both domains
