@@ -7,13 +7,13 @@ All figures use **50-trial datasets** unless noted otherwise.
 ### Paper 3: Temporal Dynamics
 - `fig1_position_drci_publication.png` - Position-level ΔRCI curves (50 trials)
 - `fig3_zscores_pub.png` - Z-score analysis (50 trials)
-- `fig6_type2_scaling_final.png` - Type 2 scaling validation (50 trials)
+- `fig6_type2_scaling.png` - Type 2 scaling validation (50 trials)
 
 ### Paper 4: Entanglement Analysis
 - `entanglement_validation.png` - **FEATURED FIGURE**: 11-model P30 analysis (50 trials, generated Feb 11 2026)
-- `fig4_entanglement_multipanel_final_v2.png` - Multi-panel entanglement view (50 trials)
+- `fig4_entanglement_multipanel.png` - Multi-panel entanglement view (50 trials)
 - `fig5_independence_rci_var.png` - Independence test RCI vs Var (50 trials)
-- `fig7_llama_safety_anomaly_final.png` - Llama P30 divergence (50 trials)
+- `fig7_llama_safety_anomaly.png` - Llama P30 divergence (50 trials)
 - `trial_level_drci_convergence.png` - Trial convergence analysis (50 trials)
 
 ### Paper 4 Supplementary

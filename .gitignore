@@ -25,8 +25,10 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Results (generated)
-results/
+# Results (generated - but track README files)
+results/**/*.csv
+results/**/*.png
+results/**/*.json
 analysis/
 
 # Logs

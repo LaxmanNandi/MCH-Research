@@ -9,10 +9,10 @@
 | entanglement_validation.png | 50 | 11 | Feb 11 2026 | ✓ CURRENT (Featured) |
 | fig1_position_drci_publication.png | 50 | 22 | Feb 8 2026 | ✓ CURRENT |
 | fig3_zscores_pub.png | 50 | 22 | Feb 8 2026 | ✓ CURRENT |
-| fig4_entanglement_multipanel_final_v2.png | 50 | 11 | Feb 9 2026 | ✓ CURRENT |
+| fig4_entanglement_multipanel.png | 50 | 11 | Feb 9 2026 | ✓ CURRENT |
 | fig5_independence_rci_var.png | 50 | 22 | Feb 9 2026 | ✓ CURRENT |
-| fig6_type2_scaling_final.png | 50 | 22 | Feb 8 2026 | ✓ CURRENT |
-| fig7_llama_safety_anomaly_final.png | 50 | 2 | Feb 9 2026 | ✓ CURRENT |
+| fig6_type2_scaling.png | 50 | 22 | Feb 8 2026 | ✓ CURRENT |
+| fig7_llama_safety_anomaly.png | 50 | 2 | Feb 9 2026 | ✓ CURRENT |
 | trial_level_drci_convergence.png | 50 | 14 | Feb 9 2026 | ✓ CURRENT |
 | paper4/figure6_gaussian_verification.png | 50 | 2 | Feb 9 2026 | ✓ CURRENT |
 | paper4/figure8_trial_convergence.png | 50 | 14 | Feb 10 2026 | ✓ CURRENT |
