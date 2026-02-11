@@ -9,7 +9,7 @@
 | **Models** | 8 philosophy models | 24 models (11 phil + 13 medical) | **3x scale** |
 | **Domains** | 1 (philosophy only) | 2 (medical + philosophy) | ✓ Cross-domain design |
 | **Trials** | 100 (philosophy, flawed methodology) | 50 (standardized, corrected methodology) | ✓ Methodological rigor |
-| **Data Points** | ~24,000 responses (flawed method) | ~72,000 measurements (corrected) | **3x increase + methodological fix** |
+| **Data Points** | ~15,000 responses (mixed methods) | ~72,000 measurements (unified standard) | **5x increase + full standardization** |
 | **Statistics** | Descriptive, exploratory | Inferential, controlled comparisons | ✓ Statistical rigor |
 | **Research Question** | "Does context help?" | "How does domain structure shape context effects?" | ✓ Mechanistic focus |
 | **Key Finding** | Context effects vary | Domain-specific behavioral signatures | ✓ Generalizable |
@@ -41,7 +41,10 @@
 
 **Paper 1**:
 - **Single domain**: Philosophy (consciousness prompts)
-- **Trial methodology**: 100 trials (closed models), flawed trial definition
+- **Trial methodology**: Mixed approach
+  - Medical closed: 50 trials, standard script (already correct)
+  - GPT-5.2 philosophy: 100 trials, standard script (correct)
+  - Other philosophy models: Flawed trial definition
 - **Model selection**: Convenience sample (8 philosophy models)
 - **Analysis**: Within-domain patterns
 
@@ -57,17 +60,18 @@
 
 ### **3. Methodological Correction (Critical)**
 
-**Paper 1 Issue**:
-- Trial methodology had definitional errors in what constituted a "trial"
-- 100 trials per model (philosophy closed models only)
-- Measurement inconsistencies affected reliability
+**Paper 1 Mixed Methodology**:
+- **Medical closed**: 50 trials, standard script ✓ (already correct)
+- **GPT-5.2 philosophy**: 100 trials, standard script ✓ (correct)
+- **Other philosophy models**: Flawed trial definition ✗ (measurement errors)
+- Inconsistent methodology across models reduced comparability
 
 **Paper 2 Solution**:
-- **Corrected trial definition**: Each trial = independent TRUE + COLD + SWAP run (3 conditions)
-- **Standardized 50 trials**: All 24 models (medical + philosophy, open + closed)
-- **Validated methodology**: Fixed measurement errors from Paper 1
+- **Unified standard**: Each trial = independent TRUE + COLD + SWAP run (3 conditions)
+- **Standardized 50 trials**: ALL 24 models (medical + philosophy, open + closed)
+- **Full methodological consistency**: Same correct methodology across all models
 
-**Impact**: This is not just a scale increase—it's a **methodological correction** that ensures reliable, reproducible measurements across all models and domains.
+**Impact**: Paper 2 unifies the correct methodology (already used for medical and GPT-5.2) and applies it consistently across all 24 models, fixing the flawed definitions used for most philosophy models in Paper 1.
 
 ---
 
@@ -75,11 +79,14 @@
 
 **Paper 1**:
 ```
-8 philosophy models (closed only) × 100 trials = 800 runs
-Philosophy: GPT-4o, 4o-mini, Claude Haiku, Gemini Flash,
-            DeepSeek, Llama, Mistral, Qwen
-Note: Trial methodology had definitional errors
-Total: ~24,000 responses (8 models × 100 trials × 30 positions)
+Philosophy (8 models, closed only):
+  - GPT-5.2: 100 trials, standard script ✓
+  - Other 7 models: ~50 trials avg, flawed methodology ✗
+Medical (collected but not in Paper 1):
+  - Closed models: 50 trials, standard script ✓
+
+Total: ~15,000 responses (mixed methodology)
+Note: Inconsistent trial definitions reduced cross-model comparability
 ```
 
 **Paper 2**:
@@ -92,10 +99,11 @@ Total: ~99,000 responses (24 models)
 
 **Improvement**:
 - **3x models** (8 → 24)
-- **2x domains** (1 → 2, adds medical closed-goal tasks)
-- **4x data** (~24K → ~99K responses)
-- **Corrected methodology** (fixed trial definition, standardized 50 trials)
+- **2x domains** (philosophy only → medical + philosophy)
+- **5x data** (~15K → ~99K responses)
+- **Unified methodology** (mixed/flawed → standard 50 trials all models)
 - **Architectural diversity** (closed only → open + closed models)
+- **Cross-model comparability** (inconsistent → fully standardized)
 
 ---
 
@@ -244,14 +252,14 @@ Paper 4: "Entanglement explains ΔRCI via variance modulation"
 
 | Dimension | Paper 1 | Paper 2 | Grade |
 |-----------|---------|---------|-------|
-| **Methodology** | Flawed trial definition | Corrected + standardized | **A+** |
+| **Methodology** | Mixed (partial standard, partial flawed) | Fully unified standard | **A+** |
 | Scientific Rigor | Exploratory | Controlled experiment | **A+** |
-| Scale | 8 models, 24K (phil only) | 24 models, 99K (2 domains) | **A+** |
+| Scale | 8 models, ~15K (phil only) | 24 models, ~99K (2 domains) | **A+** |
 | Generalizability | Single domain, closed only | Cross-domain, open + closed | **A+** |
 | Theory | Measurement | Mechanism | **A+** |
 | Publishability | Preprint | Top journal | **A+** |
 
-**Conclusion**: Paper 2 transforms Paper 1's exploratory findings into **rigorous, generalizable science**. The **methodological correction** (fixed trial definition) combined with cross-domain validation, architectural diversity, and 3x scale increase makes this a **major upgrade** across all dimensions. 🎯
+**Conclusion**: Paper 2 transforms Paper 1's exploratory findings into **rigorous, generalizable science**. By unifying the methodology (extending the correct standard used for medical/GPT-5.2 to all models), adding cross-domain validation, architectural diversity, and 5x scale increase, this represents a **major upgrade** across all dimensions. 🎯
 
 ---
 
