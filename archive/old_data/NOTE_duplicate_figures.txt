@@ -1,0 +1,3 @@
+NOTE: Supplementary figures were originally in results/figures/paper4/
+They have been copied to docs/figures/paper4/ for consistency with main figures.
+The originals in results/figures/paper4/ are kept for backward compatibility.

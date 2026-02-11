@@ -1,0 +1,18 @@
+test,statistic,value,p_value,effect_size,notes
+one-sample t-test (Kimi K2),t,138.6455,3.05e-65,d=19.6074,df=49
+one-sample t-test (DeepSeek V3.1),t,158.0713,5.01e-68,d=22.3547,df=49
+one-sample t-test (Llama 4 Maverick),t,156.7881,7.47e-68,d=22.1732,df=49
+one-sample t-test (Qwen3 235B),t,252.3054,5.78e-78,d=35.6814,df=49
+one-sample t-test (Llama 4 Scout),t,188.4572,9.22e-72,d=26.6519,df=49
+one-sample t-test (Mistral Small 24B),t,214.7941,1.53e-74,d=30.3765,df=49
+one-sample t-test (Ministral 14B),t,181.5987,5.65e-71,d=25.6819,df=49
+one-way ANOVA (between models),F,858.1675,3.62e-203,eta-sq=0.9375,"df=(6, 343)"
+Kruskal-Wallis,H,314.0659,7.91e-65,,df=6
+Pearson (Total Params vs dRCI),r,0.5152,0.2366,,
+Pearson (Active Params vs dRCI),r,0.2293,0.6208,,
+Spearman (Total Params vs dRCI),rho,0.1786,0.7017,,
+Pearson (log10 Params vs dRCI),r,0.1567,0.7373,,
+Open vs Closed (trial-level),t,2.6825,7.58e-03,d=0.3708,"n_open=350, n_closed=700"
+Open vs Closed (model-level),t,5.6938,0.0001,d=3.0434,"n_open=7, n_closed=7"
+Mann-Whitney U (trial-level),U,17214,8.03e-01,,
+MoE vs Dense,t,-0.4302,6.67e-01,d=-0.0527,"n_moe=250, n_dense=100"
