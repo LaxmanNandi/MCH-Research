@@ -40,7 +40,7 @@ Interpretation: DRCI increases as context **reduces** response variance. This su
 
 **Figure 1.** DRCI vs MI_Proxy (pooled model-position points).
 
-![Figure 1: Entanglement validation](../../results/figures/entanglement_validation.png)
+![Figure 1: Entanglement validation](../figures/publication/entanglement_validation.png)
 
 ---
 
@@ -54,7 +54,7 @@ This bidirectional framing resolves the SOVEREIGN category: **SOVEREIGN = diverg
 
 **Figure 2.** Multi-panel entanglement analysis (regime map, position patterns, domain comparison).
 
-![Figure 2: Entanglement multi-panel](../../results/figures/fig4_entanglement_multipanel.png)
+![Figure 2: Entanglement multi-panel](../figures/publication/fig4_entanglement_multipanel.png)
 
 ---
 
@@ -70,7 +70,7 @@ For audit detail (ESI calculation and "intact capability + broken coherence" fra
 
 **Figure 3.** Llama safety anomaly at medical P30 (divergent variance signatures).
 
-![Figure 3: Llama safety anomaly](../../results/figures/fig7_llama_safety_anomaly.png)
+![Figure 3: Llama safety anomaly](../figures/publication/fig7_llama_safety_anomaly.png)
 
 ---
 
@@ -84,7 +84,7 @@ This suggests domain-specific architecture effects: medical prompts tend to **de
 
 **Figure 4.** Independence test: RCI vs Variance Ratio.
 
-![Figure 4: Independence test](../../results/figures/fig5_independence_rci_var.png)
+![Figure 4: Independence test](../figures/publication/fig5_independence_rci_var.png)
 
 ---
 
