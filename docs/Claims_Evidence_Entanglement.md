@@ -2,7 +2,7 @@
 
 | Claim | Evidence | Strength | Limits / Confounds | Next Validation |
 |------|----------|----------|--------------------|-----------------|
-| DRCI tracks an MI proxy (entanglement signal) | Pooled correlation r = 0.74, p = 3.0e-42 over N = 240 model-position points (8 model-domain runs × 30 positions) | Strong | Proxy relies on variance ratio; may miss non-linear MI effects | Recompute with alternative MI estimators or embedding models |
+| DRCI tracks an MI proxy (entanglement signal) | Pooled correlation r = 0.76, p = 1.5e-62 over N = 330 model-position points (11 model-domain runs × 30 positions) | Strong | Proxy relies on variance ratio; may miss non-linear MI effects | Recompute with alternative MI estimators or embedding models |
 | Entanglement is bidirectional (convergent vs divergent) | Observed Var_Ratio < 1 with positive DRCI (convergent) and Var_Ratio > 1 with negative DRCI (divergent) | Strong | Requires explicit sign convention; thresholds may be dataset-specific | Test across additional domains and models |
 | SOVEREIGN corresponds to divergent entanglement | Negative DRCI co-occurs with Var_Ratio > 1 in multiple model-domain runs | Moderate | Needs prevalence statistics across all 22 model-domain runs | Expand to full model set; report prevalence by domain |
 | Llama safety anomaly at medical P30 | Var_Ratio = 2.64 (Maverick) and 7.46 (Scout) with negative DRCI at summarization | Strong (within current dataset) | Based on a single task position (P30) and single domain | Evaluate P5-P30 Type 2 prompts and other medical cases |

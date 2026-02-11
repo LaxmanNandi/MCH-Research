@@ -42,6 +42,10 @@ models = {
     'DeepSeek V3.1 (Med)': 'c:/Users/barla/mch_experiments/data/open_medical_rerun/mch_results_deepseek_v3_1_medical_50trials.json',
     'Llama 4 Maverick (Med)': 'c:/Users/barla/mch_experiments/data/open_medical_rerun/mch_results_llama_4_maverick_medical_50trials.json',
     'Llama 4 Scout (Med)': 'c:/Users/barla/mch_experiments/data/open_medical_rerun/mch_results_llama_4_scout_medical_50trials.json',
+    # NEW: Added Feb 2026 - Open Medical Rerun Complete
+    'Qwen3 235B (Med)': 'c:/Users/barla/mch_experiments/data/open_medical_rerun/mch_results_qwen3_235b_medical_50trials.json',
+    'Mistral Small 24B (Med)': 'c:/Users/barla/mch_experiments/data/open_medical_rerun/mch_results_mistral_small_24b_medical_50trials.json',
+    'Ministral 14B (Med)': 'c:/Users/barla/mch_experiments/data/open_medical_rerun/mch_results_ministral_14b_medical_50trials.json',
 }
 
 def compute_entanglement_metrics(file_path, model_name, n_positions=30):

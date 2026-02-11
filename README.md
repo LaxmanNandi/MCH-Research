@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-> **TL;DR:** Reproducible benchmark measuring how 22 major LLMs (GPT-4o, Claude Opus, Gemini 2.5 Pro, Llama 4, DeepSeek V3, Qwen3 235B, Mistral, Kimi K2) handle context across 99,000+ responses. Reveals position-dependent behavior patterns, domain-specific dynamics, and safety-critical divergence in medical reasoning tasks. Strong validation: ΔRCI correlates with mutual information (r=0.74, p=3.0×10⁻⁴²).
+> **TL;DR:** Reproducible benchmark measuring how 22 major LLMs (GPT-4o, Claude Opus, Gemini 2.5 Pro, Llama 4, DeepSeek V3, Qwen3 235B, Mistral, Kimi K2) handle context across 99,000+ responses. Reveals position-dependent behavior patterns, domain-specific dynamics, and safety-critical divergence in medical reasoning tasks. Strong validation: ΔRCI correlates with mutual information (r=0.76, p=1.5×10⁻⁶²).
 
 **Large-scale analysis: 22 model-domain configurations, 99,000+ responses**
 
@@ -48,7 +48,7 @@ Significant vendor-level differences in context utilization (F=90.65, p<0.0001).
 ![Effect Sizes](figures/fig2_effect_sizes_ci.png?v=2)
 
 ### 3. Mutual Information Entanglement
-Strong correlation (r=0.74, p<10⁻⁴²) between ΔRCI and mutual information proxy across 240 position-level measurements, validating information-theoretic interpretation.
+Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and mutual information proxy across 330 position-level measurements (11 model-domain runs), validating information-theoretic interpretation.
 
 ---
 
