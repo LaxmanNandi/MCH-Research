@@ -108,7 +108,7 @@ PROMPTS = [
 # ============================================================================
 N_TRIALS = 50
 TEMPERATURE = 0.7
-OUTPUT_DIR = "C:/Users/barla/mch_experiments/data/open_medical_rerun"
+OUTPUT_DIR = "C:/Users/barla/mch_experiments/data/medical/open_models"
 
 # ============================================================================
 # HELPER FUNCTIONS

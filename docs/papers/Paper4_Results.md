@@ -64,7 +64,7 @@ At medical position 30 (summarization), we observe extreme divergence in two Lla
 - Llama 4 Maverick: Var_Ratio = 2.64, DRCI = -0.15
 - Llama 4 Scout: Var_Ratio = 7.46, DRCI = -0.22
 
-In contrast, convergent models at P30 show Var_Ratio < 1 and positive DRCI (e.g., Gemini Flash, DeepSeek V3.1). This identifies a **safety risk class**: models that diverge under Type 2 prompts produce highly unstable, unpredictable outputs precisely when task enablement is expected.
+While other open medical models (Qwen3 235B, Mistral Small 24B) show mild divergence (Var_Ratio 1.02-1.45), only the Llama models exhibit extreme instability warranting safety concern. In contrast, convergent models at P30 show Var_Ratio < 1 and positive DRCI (Ministral 14B, DeepSeek V3.1, Gemini Flash). This identifies a **safety risk class**: models that diverge under Type 2 prompts produce highly unstable, unpredictable outputs precisely when task enablement is expected.
 
 For audit detail (ESI calculation and "intact capability + broken coherence" framing), see `docs/Llama_Safety_Anomaly.md`.
 
@@ -143,19 +143,19 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 
 Distribution analysis confirming that DRCI values approximate Gaussian distributions across models and positions, validating parametric statistical tests used in the main analysis.
 
-![Figure S1: Gaussian verification](../../results/figures/paper4/figure6_gaussian_verification.png)
+![Figure S1: Gaussian verification](../figures/paper4/figure6_gaussian_verification.png)
 
 ### Figure S2: Trial Convergence Analysis
 
 Trial-level DRCI stability across 50 trials. Scatter plots with 5-trial rolling means show convergent, stable estimates across both medical and philosophy domains. Overall trend lines demonstrate negligible drift (slopes ~0, p > 0.05).
 
-![Figure S2: Trial convergence](../../results/figures/paper4/figure8_trial_convergence.png)
+![Figure S2: Trial convergence](../figures/paper4/figure8_trial_convergence.png)
 
 ### Figure S3: Model-Level DRCI Comparison
 
 Mean DRCI values by model (trial-level analysis). Bar chart with 95% confidence intervals comparing 14 models across medical and philosophy domains, showing domain-specific patterns and individual model variability.
 
-![Figure S3: Model comparison](../../results/figures/paper4/figure9_model_comparison.png)
+![Figure S3: Model comparison](../figures/paper4/figure9_model_comparison.png)
 
 ---
 
