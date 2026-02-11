@@ -55,7 +55,7 @@ All 6 medical models showed P30 as a strong outlier (Z > 2.7), while no philosop
 
 Figure 3. Position 30 Z-scores by domain (medical vs philosophy).
 
-![Figure 3: Position 30 outlier Z-scores](../figures/paper3/fig3_position30_zscores.png)
+![Figure 3: Position 30 outlier Z-scores](../figures/paper3/fig3_zscores.png)
 
 ---
 
@@ -73,7 +73,7 @@ Both closed-source APIs (GPT-4o, Claude Haiku, Gemini Flash) and open-source mod
 
 Figure 4. Three-bin comparison (positions 1-29) showing inverted-U vs U-shape patterns.
 
-![Figure 4: Three-bin comparison, positions 1-29](../figures/paper3/fig4_three_bin_pos1_29.png)
+![Figure 4: Three-bin comparison, positions 1-29](../figures/paper3/fig4_three_bin_analysis.png)
 
 ---
 
@@ -122,7 +122,7 @@ This suggests a capacity threshold at which long-range coherence can be maintain
 
 Figure 7. Kimi K2 vs other philosophy models (slope vs disruption sensitivity).
 
-![Figure 7: Kimi K2 scale effect](../figures/paper3/fig7_kimi_k2_scale.png)
+![Figure 7: Model scaling patterns](../figures/paper3/fig7_model_scaling.png)
 
 ---
 
