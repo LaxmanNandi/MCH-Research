@@ -1,39 +1,53 @@
-# Paper 1 (Legacy): Multi-turn Conversational Helpfulness
+# Paper 1 (Legacy): Context Curves Behavior
 
+**Title**: *Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI*
 **Status**: Published - Preprints.org (February 2, 2026, corrected version)
 **DOI**: 10.20944/preprints202601.1881.v2
 **Git Tag**: `paper1-arxiv` (note: tag name retained for historical consistency)
 
 ## Overview
-Exploratory study introducing the ΔRCI metric and MCH framework. Demonstrated that context effects exist and vary by model architecture.
+Introduced ΔRCI (Delta Relational Coherence Index), a cosine-similarity-based metric measuring context sensitivity through a three-condition protocol (TRUE/COLD/SCRAMBLED). Demonstrated that domain fundamentally alters context utilization across 7 models.
 
-## Key Contribution
-- Introduced Delta Relational Coherence Index (ΔRCI)
-- Demonstrated context effects vary by position
-- Categorized models as ALIGNED, RESISTANT, SOVEREIGN
+## Key Contributions
+- Introduced ΔRCI metric and three-condition protocol
+- Discovered **Epistemological Relativity**: AI behavior curves based on knowledge structure
+- **Domain flip**: 5/6 models switch from SOVEREIGN/NEUTRAL in philosophy to CONVERGENT in medicine (Cohen's d > 2.7)
+- **GPT-5.2 anomaly**: Unique 100% CONVERGENT in both domains (150 trials, σ=0.014-0.021)
+- **Vendor signatures**: Systematic differences in context utilization (F=6.52, p=0.0015)
+- Categorized models as **CONVERGENT, NEUTRAL, SOVEREIGN**
 
 ## Methodology
-- **Domain**: Philosophy only (consciousness prompts)
-- **Models**: 8 closed models
-- **Trials**: Mixed (GPT-5.2: 100 standard, others: ~50 flawed)
-- **Total responses**: ~15,000
+- **Domains**: 2 (Philosophy + Medical)
+- **Models**: 7 closed models (3 vendors: OpenAI, Anthropic, Google)
+- **Trials**: 1,000 total = 90,000 API calls
+  - Philosophy: 7 models × 100 trials = 700 trials
+  - Medical: 6 models × 50 trials = 300 trials (Gemini 2.5 Pro blocked by safety filters)
+- **Embedding**: all-MiniLM-L6-v2 (384D)
+- **Temperature**: 0.7
 
-## Limitations (Fixed in Paper 2)
-1. **Flawed trial methodology**: Only GPT-5.2 used correct script
-2. **Single domain**: Cannot generalize beyond philosophy
-3. **Closed models only**: No architectural diversity
-4. **Inconsistent trials**: Reduced cross-model comparability
+## Key Results
+| Domain | Pattern | Notable |
+|--------|---------|---------|
+| Philosophy | Mostly NEUTRAL/SOVEREIGN | GPT-5.2 sole CONVERGENT (+0.310) |
+| Medical | Mostly CONVERGENT (+0.30 to +0.38) | Gemini Flash sole SOVEREIGN (-0.133) |
+| Cross-domain | Cohen's d > 2.7 for 5/6 models | Domain determines behavioral mode |
+
+## Limitations (Addressed in Paper 2)
+1. **Data collection evolved**: Philosophy trials captured additional metrics not systematically collected in medical
+2. **Closed models only**: No open-source/self-hosted models
+3. **Aggregate ΔRCI**: No position-level temporal analysis
+4. **Single embedding model**: No robustness check
 
 ## Contents
 - `figures/`: Legacy figures from Paper 1 analysis
-- `MODEL_LIST.md`: Complete model list with methodology notes
+- `MODEL_LIST.md`: Complete model list with results
 
 ## Data Location
-Data for Paper 1 models is in `/data/philosophy/closed_models/`
-**Note**: Only use data with correct methodology (see Paper 2)
+- Philosophy data: `/data/philosophy/closed_models/`
+- Medical data: `/data/medical/closed_models/`
 
 ## Next Steps
-See **Paper 2** for standardized cross-domain analysis using corrected methodology.
+See **Paper 2** for standardized cross-domain analysis with 24 models, position-level dynamics, and corrected methodology.
 
 ---
 

@@ -18,11 +18,12 @@ papers/
 Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions)
 ```
 
-### Paper 1 (Legacy): Multi-turn Conversational Helpfulness
+### Paper 1 (Legacy): Context Curves Behavior
 - **Status**: Published (Preprints.org, February 2, 2026, corrected version)
 - **DOI**: 10.20944/preprints202601.1881.v2
-- **Role**: Foundation - Introduced ΔRCI metric
-- **Models**: 8 philosophy models (mixed methodology)
+- **Role**: Foundation - Introduced ΔRCI metric and Epistemological Relativity
+- **Models**: 7 closed models (GPT-4o/mini/5.2, Claude Opus/Haiku, Gemini Flash/Pro)
+- **Domains**: 2 (Philosophy: 700 trials + Medical: 300 trials = 1,000 total)
 - **Location**: `paper1_legacy/`
 
 ### Paper 2 (Standardized): Cross-Domain AI Behavior Framework

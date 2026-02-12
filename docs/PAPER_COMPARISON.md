@@ -8,10 +8,10 @@
 |--------|----------------------|------------------------|-------------|
 | **Framing** | "Multi-turn Conversational Helpfulness" | "Cross-Domain AI Behavior Measurement" | ✓ Theoretical upgrade |
 | **Scope** | Exploratory, single domain | Controlled cross-domain experiment | ✓ Scientific rigor |
-| **Models** | 8 philosophy models | 24 models (11 phil + 13 medical) | **3x scale** |
-| **Domains** | 1 (philosophy only) | 2 (medical + philosophy) | ✓ Cross-domain design |
-| **Trials** | 100 (philosophy, flawed methodology) | 50 (standardized, corrected methodology) | ✓ Methodological rigor |
-| **Data Points** | ~15,000 responses (mixed methods) | ~72,000 measurements (unified standard) | **5x increase + full standardization** |
+| **Models** | 7 closed models (3 vendors) | 24 models (11 phil + 13 medical, open + closed) | **3x+ scale + architectural diversity** |
+| **Domains** | 2 (philosophy + medical) | 2 (medical + philosophy) | ✓ Both cross-domain |
+| **Trials** | 1,000 (700 phil + 300 medical) | 50 per model (standardized) | ✓ Standardized methodology |
+| **Data Points** | 90,000 API calls (aggregate ΔRCI only) | ~72,000 position-level measurements | ✓ Position-level granularity |
 | **Statistics** | Descriptive, exploratory | Inferential, controlled comparisons | ✓ Statistical rigor |
 | **Research Question** | "Does context help?" | "How does domain structure shape context effects?" | ✓ Mechanistic focus |
 | **Key Finding** | Context effects vary | Domain-specific behavioral signatures | ✓ Generalizable |

@@ -20,9 +20,9 @@
 
 All papers organized in `/papers/` directory by lineage:
 
-### **Paper 1: Multi-turn Conversational Helpfulness** [PUBLISHED - Preprints.org]
-**Role**: Legacy foundation - Introduced ΔRCI metric and MCH framework
-- Philosophy domain only (8 models, mixed methodology)
+### **Paper 1: Context Curves Behavior** [PUBLISHED - Preprints.org]
+**Role**: Legacy foundation - Introduced ΔRCI metric and Epistemological Relativity
+- 7 closed models, 2 domains (philosophy + medical), 1,000 trials (90,000 API calls)
 - **Location**: `papers/paper1_legacy/`
 - **Status**: [Preprints.org](https://www.preprints.org/manuscript/202601.1881/v2) - DOI:10.20944/preprints202601.1881.v2 (February 2, 2026, corrected version)
 

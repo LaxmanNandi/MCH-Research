@@ -11,21 +11,23 @@ This research program investigates how domain structure shapes AI context sensit
 
 ## Paper Series Structure
 
-### **Paper 1 (Legacy): Multi-turn Conversational Helpfulness** [PUBLISHED]
+### **Paper 1 (Legacy): Context Curves Behavior** [PUBLISHED]
 **Status**: Preprints.org (February 2, 2026, corrected version)
 **DOI**: 10.20944/preprints202601.1881.v2
-**Role**: Foundation - Exploratory study that introduced the problem
+**Role**: Foundation - Introduced ΔRCI metric and Epistemological Relativity
 
-**Methodology**: Mixed (partial standard, partial flawed)
-- Philosophy: 8 models, closed only
-  - GPT-5.2: 100 trials, standard script ✓
-  - Other 7 models: Flawed trial definition ✗
-- Medical data: Collected with standard script but not analyzed
+**Methodology**:
+- 7 closed models (GPT-4o/mini/5.2, Claude Opus/Haiku, Gemini Flash/Pro)
+- 2 domains: Philosophy (700 trials) + Medical (300 trials) = 1,000 trials, 90,000 API calls
+- Medical: 6 models (Gemini Pro blocked by safety filters)
+- Categories: CONVERGENT, NEUTRAL, SOVEREIGN
 
 **Contribution**:
-- Introduced ΔRCI metric and MCH framework
-- Demonstrated context effects exist and vary by model
-- **Limitation**: Inconsistent methodology, single domain, exploratory
+- Introduced ΔRCI metric and three-condition protocol (TRUE/COLD/SCRAMBLED)
+- Domain flip: 5/6 models switch behavioral mode between domains (Cohen's d > 2.7)
+- GPT-5.2 anomaly: 100% CONVERGENT in both domains
+- Vendor signatures: F(2,697)=6.52, p=0.0015
+- **Limitation**: Aggregate ΔRCI only (no position-level analysis), closed models only
 
 ---
 
