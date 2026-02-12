@@ -249,7 +249,7 @@ The near-universal inversion of the expected SCRAMBLED > COLD hierarchy (23/24 r
 1. **Single scenario per domain**: One medical case (STEMI) and one philosophical topic (consciousness)
 2. **Embedding model ceiling**: all-MiniLM-L6-v2 may not capture all semantic distinctions
 3. **Temperature fixed at 0.7**: Other settings may yield different patterns
-4. **Claude Opus**: Only 43 trials in medical, absent from philosophy
+4. **Claude Opus**: Medical only (absent from philosophy); recovered data lacks response text
 5. **Position-level noise**: 50 trials provide limited statistical power for 30-position analysis (addressed in Paper 3 with focused subset)
 
 ---
@@ -314,7 +314,7 @@ https://github.com/LaxmanNandi/MCH-Experiments
 | GPT-4o-mini | Medical | Closed | 50 | 0.319 | — | — |
 | GPT-5.2 | Medical | Closed | 50 | 0.379 | — | — |
 | Claude Haiku | Medical | Closed | 50 | 0.340 | — | — |
-| Claude Opus | Medical | Closed | 43 | 0.338 | — | — |
+| Claude Opus | Medical | Closed | 50 | 0.339 | — | — |
 | Gemini Flash | Medical | Closed | 50 | −0.133 | — | — |
 | DeepSeek V3.1 | Medical | Open | 50 | 0.320 | — | — |
 | Kimi K2 | Medical | Open | 50 | 0.417 | — | — |

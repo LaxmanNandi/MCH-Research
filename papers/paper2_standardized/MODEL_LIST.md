@@ -14,7 +14,7 @@
 | GPT-4o-mini | OpenAI | 50 | Complete |
 | GPT-5.2 | OpenAI | 50 | Complete |
 | Claude Haiku | Anthropic | 50 | Complete |
-| Claude Opus | Anthropic | 43 | Complete (recovered) |
+| Claude Opus | Anthropic | 50 | Complete (43 recovered + 7 re-run, metrics only) |
 | Gemini Flash | Google | 50 | Complete |
 
 **Open (7)**:

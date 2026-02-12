@@ -103,7 +103,7 @@ def load_model_data(domain, model_type, file_key):
     """Load a model's JSON data file."""
     subdir = DATA_DIR / domain / f"{model_type}_models"
     for f in subdir.iterdir():
-        if f.suffix == '.json' and file_key in f.name and 'checkpoint' not in f.name:
+        if f.suffix == '.json' and file_key in f.name and 'checkpoint' not in f.name and 'recovered' not in f.name:
             if file_key == 'gpt4o' and 'mini' in f.name:
                 continue
             if file_key == 'gpt4o' and 'rerun' in f.name:
