@@ -47,7 +47,7 @@
 \end{center}
 
 \begin{abstract}
-\noindent We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index ($\Delta$RCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean $\Delta$RCI: philosophy=0.317, medical=0.308), with no significant domain-level difference (U=51, p=0.149); (2) medical domain exhibits substantially higher inter-model variance (SD=0.131 vs 0.045), driven by a Gemini Flash safety-filter anomaly ($\Delta$RCI=-0.133); (3) vendor signatures show marginal differentiation (F(7,17)=2.31, p=0.075), with Moonshot (Kimi K2) showing highest context sensitivity and Google lowest; (4) the expected information hierarchy ($\Delta$RCI\_COLD $>$ $\Delta$RCI\_SCRAMBLED) holds in 24/25 model-domain runs, validating that even scrambled context retains partial information; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
+\noindent We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index ($\Delta$RCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean $\Delta$RCI: philosophy=0.317, medical=0.308), with no significant domain-level difference (U=51, p=0.149); (2) medical domain exhibits substantially higher inter-model variance (SD=0.131 vs 0.045), driven by a Gemini Flash safety-filter anomaly ($\Delta$RCI=-0.133); (3) vendor signatures show differentiation approaching significance (F(7,17)=2.31, p=0.075), with Moonshot (Kimi K2) showing highest context sensitivity and Google lowest; (4) the expected information hierarchy ($\Delta$RCI\_COLD $>$ $\Delta$RCI\_SCRAMBLED) holds in 24/25 model-domain runs, validating that even scrambled context retains partial information; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
 
 \vspace{0.5em}
 \noindent\textbf{Keywords:} Context sensitivity, $\Delta$RCI, cross-domain AI evaluation, medical reasoning, philosophical reasoning, LLM benchmarking
@@ -218,21 +218,21 @@ One-way ANOVA across 8 vendors: F(7,17) = 2.31, p = 0.075 (marginal significance
 
 \begin{table}[H]
 \centering
-\begin{tabular}{clc}
+\begin{tabular}{clcc}
 \toprule
-\textbf{Rank} & \textbf{Vendor} & \textbf{Mean $\Delta$RCI} \\
+\textbf{Rank} & \textbf{Vendor} & \textbf{n (models)} & \textbf{Mean $\Delta$RCI} \\
 \midrule
-1 & Moonshot & 0.423 \\
-2 & Mistral & 0.352 \\
-3 & Anthropic & 0.336 \\
-4 & Alibaba & 0.325 \\
-5 & DeepSeek & 0.312 \\
-6 & OpenAI & 0.310 \\
-7 & Meta & 0.301 \\
-8 & Google & 0.103 \\
+1 & Moonshot & 2 & 0.423 \\
+2 & Mistral & 4 & 0.352 \\
+3 & Anthropic & 3 & 0.336 \\
+4 & Alibaba & 2 & 0.325 \\
+5 & DeepSeek & 2 & 0.312 \\
+6 & OpenAI & 6 & 0.310 \\
+7 & Meta & 4 & 0.301 \\
+8 & Google & 2 & 0.103 \\
 \bottomrule
 \end{tabular}
-\caption{Vendor rankings by mean $\Delta$RCI. Google's low ranking is driven entirely by the Gemini Flash medical anomaly.}
+\caption{Vendor rankings by mean $\Delta$RCI. Google's low ranking is driven entirely by the Gemini Flash medical anomaly. Note: n reflects model-domain runs, not unique models.}
 \end{table}
 
 \subsection{Position-Level Patterns}
@@ -327,6 +327,17 @@ The near-universal confirmation of the expected hierarchy ($\Delta$RCI\_COLD $>$
     \item \textbf{Claude Opus:} Medical only (absent from philosophy); recovered data lacks response text
     \item \textbf{Position-level noise:} 50 trials provide limited statistical power for 30-position analysis
 \end{enumerate}
+
+\subsection{Future Directions}
+
+Several extensions would strengthen cross-domain comparisons:
+
+\begin{itemize}
+    \item \textbf{Token limit variation:} Testing whether max\_tokens (currently 1024) affects context sensitivity differently across domains
+    \item \textbf{Multilingual prompts:} Extending $\Delta$RCI measurement to non-English conversations to assess language-specific effects
+    \item \textbf{Quantifying openness:} Since philosophy is open-goal, measuring response entropy could provide a continuous ``openness'' metric for domain characterization, enabling more precise comparisons than the binary closed/open classification
+    \item \textbf{Temperature sweeps:} Systematic variation of temperature (0.0--1.0) to map the context sensitivity--randomness tradeoff
+\end{itemize}
 
 \section{Conclusion}
 
