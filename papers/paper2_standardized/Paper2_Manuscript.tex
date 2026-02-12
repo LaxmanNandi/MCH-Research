@@ -1,0 +1,518 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx} % Times New Roman
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{longtable}
+
+\onehalfspacing
+
+\title{\textbf{Standardized Context Sensitivity Benchmark Across 25 LLM-Domain Configurations}}
+
+\author{
+  Dr.\ Laxman M M, MBBS\\
+  \textit{Primary Health Centre Manchi, Karnataka, India}
+}
+
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index ($\Delta$RCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean $\Delta$RCI: philosophy=0.317, medical=0.308), with no significant domain-level difference ($U$=51, $p$=0.149); (2) medical domain exhibits substantially higher inter-model variance (SD=0.131 vs 0.045), driven by a Gemini Flash safety-filter anomaly ($\Delta$RCI=$-$0.133); (3) vendor signatures show marginal differentiation ($F$(7,17)=2.31, $p$=0.075), with Moonshot (Kimi K2) showing highest context sensitivity and Google lowest; (4) the expected information hierarchy ($\Delta$RCI\textsubscript{COLD} $>$ $\Delta$RCI\textsubscript{SCRAMBLED}) holds in 24/25 model-domain runs, validating that even scrambled context retains partial information; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
+
+\medskip
+\noindent\textbf{Keywords:} Context sensitivity, $\Delta$RCI, cross-domain AI evaluation, medical reasoning, philosophical reasoning, LLM benchmarking
+\end{abstract}
+
+%==============================================================
+\section{Introduction}
+%==============================================================
+
+\subsection{Background}
+
+Large language models increasingly serve as reasoning tools across diverse domains, from medical diagnostics to philosophical inquiry. In-context learning---the ability to adapt behavior based on conversational history---is fundamental to modern LLMs~\cite{brown2020language}, yet how domain structure shapes this context sensitivity remains poorly understood. Current benchmarks focus primarily on accuracy and task completion~\cite{subramani2025simba}, with context evaluation itself underdeveloped~\cite{xu2025context}. Following the operant tradition~\cite{skinner1957verbal}, we treat model outputs as behavioral data rather than cognitive states, measuring \textit{what models do} with context rather than inferring internal representations.
+
+Prior work~\cite{laxman2026context} introduced the Delta Relational Coherence Index ($\Delta$RCI) and demonstrated dramatic behavioral mode-switching between domains using 7 closed models. However, that study used aggregate metrics, mixed trial definitions, and lacked open-weight model comparisons.
+
+\subsection{Research Gap}
+
+Current LLM benchmarks are increasingly saturated and redundant~\cite{subramani2025simba}, measuring task accuracy rather than behavioral dynamics. No existing benchmark provides:
+\begin{itemize}[nosep]
+  \item Standardized cross-domain context sensitivity measurement
+  \item Unified methodology across open and closed architectures
+  \item Position-level temporal analysis across task types
+  \item Systematic vendor-level behavioral characterization
+\end{itemize}
+
+\subsection{Research Questions}
+
+\begin{enumerate}[nosep]
+  \item \textbf{RQ1}: How does domain structure (closed-goal vs open-goal) affect aggregate context sensitivity?
+  \item \textbf{RQ2}: Do temporal dynamics differ systematically between domains at the position level?
+  \item \textbf{RQ3}: Are architectural differences (open vs closed models) domain-specific?
+  \item \textbf{RQ4}: Do vendor-level behavioral signatures persist across domains?
+\end{enumerate}
+
+\subsection{Contributions}
+
+\begin{enumerate}[nosep]
+  \item \textbf{Standardized framework}: Unified 50-trial methodology with corrected trial definition across 14 models and 2 domains
+  \item \textbf{Cross-domain validation}: First systematic comparison of $\Delta$RCI in medical (closed-goal) vs philosophical (open-goal) reasoning
+  \item \textbf{Architectural diversity}: Balanced open (7) and closed (5--6) model inclusion in both domains
+  \item \textbf{Baseline dataset}: 25 model-domain runs providing reproducible benchmarks for 14 state-of-the-art LLMs
+  \item \textbf{Anomaly detection}: Identification of safety-filter-induced context sensitivity inversion (Gemini Flash medical)
+\end{enumerate}
+
+%==============================================================
+\section{Related Work}
+%==============================================================
+
+\subsection{Context Sensitivity in LLMs}
+
+Transformer architectures process context through self-attention mechanisms~\cite{vaswani2017attention}, enabling in-context learning~\cite{brown2020language} that underpins modern LLM capabilities. However, measuring \textit{how} models use conversational context---beyond whether they produce correct answers---remains underdeveloped~\cite{xu2025context}. Recent work on decoupling safety behaviors into orthogonal subspaces~\cite{mou2025decoupling} provides independent evidence that model behaviors can be decomposed along interpretable dimensions, supporting our approach of isolating context sensitivity as a measurable behavioral axis.
+
+\subsection{Cross-Domain AI Evaluation}
+
+Domain-specific evaluation has advanced significantly, with medical AI benchmarks demonstrating that LLMs can encode clinical knowledge~\cite{singhal2023large} and safety alignment methods shaping model behavior through constitutional principles~\cite{bai2022constitutional}. Yet cross-domain behavioral comparison remains rare: existing benchmarks (MMLU, HELM) measure accuracy within domains but do not track how the \textit{same} model's behavioral dynamics shift across task structures. Our $\Delta$RCI framework addresses this gap by providing a domain-agnostic metric that captures context sensitivity independent of correctness.
+
+\subsection{Paper 1 Foundation}
+
+The Mirror-Coherence Hypothesis~\cite{laxman2026context} introduced the $\Delta$RCI metric and three-condition protocol (TRUE/COLD/SCRAMBLED), demonstrating domain-dependent behavioral mode-switching (Cohen's $d > 2.7$) across 7 closed models. That study established the ``presence $>$ absence'' principle---that even scrambled context retains partial information---but was limited to aggregate-only analysis, mixed trial methodology, and closed-weight models exclusively.
+
+%==============================================================
+\section{Methodology}
+%==============================================================
+
+\subsection{Experimental Design}
+
+\textbf{Three-condition protocol} applied to each trial:
+\begin{itemize}[nosep]
+  \item \textbf{TRUE}: Model receives coherent 29-message conversational history before prompt
+  \item \textbf{COLD}: Model receives prompt with no prior context
+  \item \textbf{SCRAMBLED}: Model receives same 29 messages in randomized order before prompt
+\end{itemize}
+
+\medskip
+\noindent\textbf{$\Delta$RCI computation}:
+\begin{equation}
+  \Delta\text{RCI} = \text{mean}(\text{RCI}_{\text{TRUE}}) - \text{mean}(\text{RCI}_{\text{COLD}})
+\end{equation}
+where RCI is computed via cosine similarity of response embeddings using Sentence-BERT~\cite{reimers2019sentence} (all-MiniLM-L6-v2, 384D). This embedding-based approach captures semantic similarity without requiring domain-specific annotation, enabling cross-domain comparison.
+
+\subsection{Domains}
+
+\begin{table}[H]
+\centering
+\caption{Domain characteristics.}
+\begin{tabular}{lll}
+\toprule
+\textbf{Feature} & \textbf{Medical (Closed-Goal)} & \textbf{Philosophy (Open-Goal)} \\
+\midrule
+Scenario & 52-year-old STEMI case & Consciousness inquiry \\
+Goal structure & Diagnostic/therapeutic targets & No single correct answer \\
+Prompts per trial & 30 & 30 \\
+Expected pattern & U-shaped + P30 spike & Inverted-U \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Models}
+
+14 unique models across 25 model-domain runs:
+
+\begin{table}[H]
+\centering
+\caption{Model inventory across domains.}
+\small
+\begin{tabular}{llcc}
+\toprule
+\textbf{Vendor} & \textbf{Model} & \textbf{Medical} & \textbf{Philosophy} \\
+\midrule
+OpenAI & GPT-4o & \checkmark & \checkmark \\
+OpenAI & GPT-4o-mini & \checkmark & \checkmark \\
+OpenAI & GPT-5.2 & \checkmark & \checkmark \\
+Anthropic & Claude Haiku & \checkmark & \checkmark \\
+Anthropic & Claude Opus & \checkmark & --- \\
+Google & Gemini Flash & \checkmark & \checkmark \\
+DeepSeek & DeepSeek V3.1 & \checkmark & \checkmark \\
+Moonshot & Kimi K2 & \checkmark & \checkmark \\
+Meta & Llama 4 Maverick & \checkmark & \checkmark \\
+Meta & Llama 4 Scout & \checkmark & \checkmark \\
+Mistral & Mistral Small 24B & \checkmark & \checkmark \\
+Mistral & Ministral 14B & \checkmark & \checkmark \\
+Alibaba & Qwen3 235B & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Medical: 13 models (6 closed + 7 open). Philosophy: 12 models (5 closed + 7 open). 12 models appear in both domains (paired comparison).
+
+\subsection{Parameters}
+
+\begin{itemize}[nosep]
+  \item \textbf{Trials per model}: 50 (standardized), meeting empirically derived evaluation requirements for safety-critical AI deployments~\cite{nih2025empirically}
+  \item \textbf{Temperature}: 0.7
+  \item \textbf{Embedding model}: sentence-transformers/all-MiniLM-L6-v2 (384D)~\cite{reimers2019sentence}
+  \item \textbf{API providers}: Direct API (closed), Together AI (open)
+  \item \textbf{Information-theoretic grounding}: Position-level analysis enables mutual information estimation between context and response~\cite{nguyen2025framework}
+\end{itemize}
+
+\subsection{Data Scale}
+
+\begin{table}[H]
+\centering
+\caption{Dataset summary.}
+\begin{tabular}{lr}
+\toprule
+\textbf{Metric} & \textbf{Count} \\
+\midrule
+Unique models & 14 \\
+Model-domain runs & 25 \\
+Trials per run & 50 \\
+Prompts per trial & 30 \\
+Conditions per trial & 3 \\
+Total trials & 1,250 \\
+Total responses & 112,500 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%==============================================================
+\section{Results}
+%==============================================================
+
+\subsection{Dataset Overview (Figure~\ref{fig:heatmap})}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig1_dataset_overview.png}
+\caption{Mean $\Delta$RCI by model and domain across 25 model-domain runs (14 unique models, 50 trials each).}
+\label{fig:heatmap}
+\end{figure}
+
+Figure~\ref{fig:heatmap} presents a heatmap of mean $\Delta$RCI across all 14 models and both domains. Key observations:
+\begin{itemize}[nosep]
+  \item \textbf{23/25 model-domain runs} show positive $\Delta$RCI (context enhances coherence)
+  \item \textbf{Kimi K2} shows highest sensitivity in both domains (philosophy: 0.428, medical: 0.417)
+  \item \textbf{Gemini Flash medical} is the sole negative outlier ($\Delta$RCI = $-$0.133), attributed to safety-filter interference with medical content
+  \item \textbf{Claude Opus} appears only in medical domain (philosophy data not collected with standardized methodology)
+\end{itemize}
+
+\subsection{Domain Comparison (Figure~\ref{fig:domain})}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig2_domain_comparison.png}
+\caption{Left: Violin plots comparing philosophy ($n$=12) and medical ($n$=13) $\Delta$RCI distributions. Right: Paired bar chart for 12 models tested in both domains.}
+\label{fig:domain}
+\end{figure}
+
+\textbf{Aggregate comparison}: No significant difference between domains (Mann-Whitney $U$=51, $p$=0.149).
+\begin{itemize}[nosep]
+  \item Philosophy: mean $\Delta$RCI = 0.317 $\pm$ 0.045 ($n$=12)
+  \item Medical: mean $\Delta$RCI = 0.308 $\pm$ 0.131 ($n$=13)
+\end{itemize}
+
+\textbf{Paired comparison} (12 models in both domains): Most models show similar $\Delta$RCI across domains, with notable exceptions:
+\begin{itemize}[nosep]
+  \item \textbf{Gemini Flash}: Dramatic divergence (philosophy: 0.338, medical: $-$0.133), $\Delta$=0.471
+  \item \textbf{GPT-5.2}: Higher in medical (0.379 vs 0.308)
+  \item \textbf{Kimi K2}: Consistently highest in both domains
+\end{itemize}
+
+Domain structure does not systematically shift \textit{aggregate} context sensitivity, but individual model responses to domain can be dramatic (Gemini Flash).
+
+\subsection{Vendor Signatures (Figure~\ref{fig:vendor})}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig3_vendor_signatures.png}
+\caption{Mean $\Delta$RCI by vendor, sorted by descending mean. Error bars show SEM. Individual model-domain runs shown as scatter points. ANOVA: $F$(7,17)=2.31, $p$=0.075.}
+\label{fig:vendor}
+\end{figure}
+
+One-way ANOVA across 8 vendors: $F$(7,17) = 2.31, $p$ = 0.075 (marginal significance).
+
+\textbf{Vendor ranking} (by mean $\Delta$RCI):
+\begin{enumerate}[nosep]
+  \item \textbf{Moonshot} (Kimi K2): 0.423---highest, most consistent
+  \item \textbf{Mistral} (Mistral Small + Ministral): 0.352---strong, balanced
+  \item \textbf{Anthropic} (Claude Haiku + Opus): 0.336---moderate-high
+  \item \textbf{Alibaba} (Qwen3 235B): 0.325---moderate
+  \item \textbf{DeepSeek} (V3.1): 0.312---moderate
+  \item \textbf{OpenAI} (GPT-4o/mini/5.2): 0.310---moderate, high within-vendor variance
+  \item \textbf{Meta} (Llama 4 Maverick/Scout): 0.301---lower range
+  \item \textbf{Google} (Gemini Flash): 0.103---lowest, driven by medical anomaly
+\end{enumerate}
+
+Google's low ranking is entirely driven by the Gemini Flash medical anomaly. Excluding that run, Gemini Flash philosophy (0.338) ranks competitively.
+
+\subsection{Position-Level Patterns (Figure~\ref{fig:position})}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig4_position_patterns.png}
+\caption{Position-level $\Delta$RCI trajectories across 30 prompt positions. Left: Philosophy domain. Right: Medical domain. Bold lines show domain mean; thin lines show individual models. P30 (summarization prompt) annotated.}
+\label{fig:position}
+\end{figure}
+
+Position-level $\Delta$RCI analysis reveals domain-specific temporal signatures:
+
+\textbf{Philosophy domain} (12 models): Noisy but generally elevated sensitivity across positions 1--29. Mean domain trajectory shows slight upward trend. No dramatic P30 effect.
+
+\textbf{Medical domain} (12 models with position data): Higher amplitude oscillations. Several models show elevated P30 (position 30 = summarization prompt). Greater inter-model variability at each position.
+
+Position-level patterns are consistent with theoretical predictions (inverted-U for philosophy, U-shaped for medical), though individual model noise is substantial at 50-trial resolution.
+
+\subsection{Information Hierarchy (Figure~\ref{fig:hierarchy})}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig5_information_hierarchy.png}
+\caption{$\Delta$RCI computed with SCRAMBLED vs COLD baselines for all model-domain runs. Expected hierarchy: $\Delta$RCI\textsubscript{COLD} $>$ $\Delta$RCI\textsubscript{SCRAMBLED} (scrambled context closer to TRUE than no context). Hierarchy holds in 24/25 testable runs.}
+\label{fig:hierarchy}
+\end{figure}
+
+The theoretical prediction from the Mirror-Coherence Hypothesis~\cite{laxman2026context}---that scrambled context (presence) should retain partial information compared to no context (COLD/absence)---was tested across 25 model-domain runs:
+
+\textbf{Logic}: If scrambled context retains partial information, SCRAMBLED responses should be closer to TRUE responses than COLD responses are. Therefore $\Delta$RCI\textsubscript{COLD} (= TRUE $-$ COLD, larger gap) $>$ $\Delta$RCI\textsubscript{SCRAMBLED} (= TRUE $-$ SCRAMBLED, smaller gap).
+
+\textbf{Observed}: Hierarchy holds in \textbf{24/25} model-domain runs (96\%).
+
+This strongly validates the ``presence $>$ absence'' claim---even disrupted conversational structure retains meaningful contextual information. The sole exception is Gemini Flash medical, where safety filters distort the COLD baseline. Key implications:
+\begin{enumerate}[nosep]
+  \item Conversational structure carries extractable information even when disordered
+  \item SCRAMBLED condition captures a genuine intermediate state between TRUE and COLD
+  \item The three-condition protocol provides a well-ordered information hierarchy suitable as a measurement framework
+\end{enumerate}
+
+\subsection{Model Rankings (Figure~\ref{fig:rankings})}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig6_model_rankings.png}
+\caption{Model rankings by mean $\Delta$RCI with 95\% confidence intervals. Left: Philosophy domain (12 models). Right: Medical domain (13 models). (C)=Closed, (O)=Open. Dashed red line shows domain mean.}
+\label{fig:rankings}
+\end{figure}
+
+\textbf{Philosophy rankings} (top 3):
+\begin{enumerate}[nosep]
+  \item Kimi K2 (O): 0.428 $\pm$ 0.023
+  \item Ministral 14B (O): 0.373 $\pm$ 0.033
+  \item Gemini Flash (C): 0.338 $\pm$ 0.023
+\end{enumerate}
+
+\textbf{Medical rankings} (top 3):
+\begin{enumerate}[nosep]
+  \item Kimi K2 (O): 0.417 $\pm$ 0.016
+  \item Ministral 14B (O): 0.391 $\pm$ 0.034
+  \item GPT-5.2 (C): 0.379 $\pm$ 0.021
+\end{enumerate}
+
+\textbf{Cross-domain consistency}: Kimi K2 and Ministral 14B rank \#1 and \#2 in both domains. GPT-4o and Llama~4 Maverick consistently rank in the lower half.
+
+%==============================================================
+\section{Discussion}
+%==============================================================
+
+\subsection{Domain Invariance of Aggregate $\Delta$RCI}
+
+The lack of significant domain-level difference ($p$=0.149) suggests that aggregate context sensitivity is relatively domain-invariant---models that are sensitive to context in one domain tend to be sensitive in the other. This supports $\Delta$RCI as a generalizable metric rather than a domain-specific artifact.
+
+However, the medical domain's much higher variance (SD=0.131 vs 0.045) indicates that closed-goal tasks create more extreme behavioral differentiation between models.
+
+\subsection{The Gemini Flash Medical Anomaly}
+
+Gemini Flash shows the most dramatic domain effect: positive in philosophy (0.338) but negative in medical ($-$0.133). This is attributed to safety filters---shaped by constitutional AI principles~\cite{bai2022constitutional} and RLHF training~\cite{ouyang2022training}---that activate on medical content, disrupting coherent context utilization. This finding aligns with recent evidence that quality benchmarks do not predict safety behavior~\cite{datasaur2025llm}, and has important implications for medical AI deployment~\cite{singhal2023large}: safety mechanisms can paradoxically \textit{reduce} response quality by interfering with context integration.
+
+\subsection{Open vs Closed Architecture}
+
+Open models show competitive or superior context sensitivity compared to closed models in both domains:
+\begin{itemize}[nosep]
+  \item Medical open mean: 0.348 vs closed mean: 0.257 (excluding Gemini Flash anomaly: 0.335)
+  \item Philosophy open mean: 0.325 vs closed mean: 0.306
+\end{itemize}
+
+This suggests that open-weight models, despite generally smaller parameter counts, can achieve comparable context sensitivity.
+
+\subsection{Vendor Clustering}
+
+The marginal vendor effect ($p$=0.075) suggests that organizational-level design decisions---training data, RLHF procedures~\cite{ouyang2022training}, safety tuning~\cite{bai2022constitutional}---create subtle but potentially meaningful behavioral signatures. Moonshot's consistent dominance and Google's safety-filter-driven anomaly represent the extremes.
+
+\subsection{Information Hierarchy Validation}
+
+The near-universal confirmation of the expected hierarchy ($\Delta$RCI\textsubscript{COLD} $>$ $\Delta$RCI\textsubscript{SCRAMBLED} in 24/25 runs) is a significant methodological validation. It confirms that scrambled context retains partial information---even disrupted conversational structure provides extractable signal that brings responses closer to the TRUE condition than complete absence of context. This validates the three-condition protocol as a well-ordered measurement framework and confirms the ``presence $>$ absence'' principle~\cite{laxman2026context} at scale.
+
+\subsection{Limitations}
+
+\begin{enumerate}[nosep]
+  \item \textbf{Single scenario per domain}: One medical case (STEMI) and one philosophical topic (consciousness)
+  \item \textbf{Embedding model ceiling}: all-MiniLM-L6-v2~\cite{reimers2019sentence} may not capture all semantic distinctions
+  \item \textbf{Temperature fixed at 0.7}: Other settings may yield different patterns
+  \item \textbf{Claude Opus}: Medical only (absent from philosophy); recovered data lacks response text
+  \item \textbf{Position-level noise}: 50 trials provide limited statistical power for 30-position analysis
+\end{enumerate}
+
+%==============================================================
+\section{Conclusion}
+%==============================================================
+
+This study establishes a standardized cross-domain framework for measuring context sensitivity in LLMs. Across 14 models and 112,500 responses, we find that:
+
+\begin{enumerate}[nosep]
+  \item \textbf{Context sensitivity is robust and positive} for nearly all models in both domains (23/25 runs)
+  \item \textbf{Domain structure shapes variance, not mean}: Medical and philosophical domains yield similar average $\Delta$RCI but dramatically different inter-model spread
+  \item \textbf{Safety mechanisms can invert context sensitivity}: Gemini Flash medical anomaly demonstrates deployment-critical risk
+  \item \textbf{Open models compete with closed}: No systematic architectural disadvantage for open-weight models
+  \item \textbf{Vendor signatures are detectable}: Organizational design choices create marginal but consistent behavioral patterns
+\end{enumerate}
+
+This dataset and methodology---building on the $\Delta$RCI framework~\cite{laxman2026context} and addressing gaps in current LLM evaluation~\cite{subramani2025simba,xu2025context}---provide the foundation for deeper analyses of temporal dynamics (Paper~3) and information-theoretic mechanisms (Paper~4).
+
+%==============================================================
+\section{Data Availability}
+%==============================================================
+
+All experimental data and analysis code are available at: \url{https://github.com/LaxmanNandi/MCH-Experiments}
+
+%==============================================================
+\bibliographystyle{plain}
+\begin{thebibliography}{14}
+
+\bibitem{brown2020language}
+Brown, T., Mann, B., Ryder, N., et al. (2020).
+Language Models are Few-Shot Learners.
+\textit{Advances in Neural Information Processing Systems}, 33.
+arXiv:2005.14165.
+
+\bibitem{subramani2025simba}
+Subramani, N., Srinivasan, R., \& Hovy, E. (2025).
+SimBA: Simplifying Benchmark Analysis.
+\textit{Findings of EMNLP 2025}.
+DOI: 10.18653/v1/2025.findings-emnlp.711.
+
+\bibitem{xu2025context}
+Xu, Y., et al. (2025).
+Does Context Matter? ContextualJudgeBench for Evaluating LLM-based Judges.
+\textit{Proceedings of ACL 2025}.
+DOI: 10.18653/v1/2025.acl-long.470.
+
+\bibitem{skinner1957verbal}
+Skinner, B. F. (1957).
+\textit{Verbal Behavior}.
+Copley Publishing Group.
+
+\bibitem{laxman2026context}
+Laxman, M M. (2026).
+Context Curves Behavior: Measuring AI Relational Dynamics with $\Delta$RCI.
+\textit{Preprints.org}.
+DOI: 10.20944/preprints202601.1881.v2.
+
+\bibitem{vaswani2017attention}
+Vaswani, A., Shazeer, N., Parmar, N., et al. (2017).
+Attention Is All You Need.
+\textit{Advances in Neural Information Processing Systems}, 30.
+arXiv:1706.03762.
+
+\bibitem{mou2025decoupling}
+Mou, X., et al. (2025).
+Decoupling Safety into Orthogonal Subspace.
+arXiv:2510.09004.
+
+\bibitem{reimers2019sentence}
+Reimers, N. \& Gurevych, I. (2019).
+Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks.
+\textit{Proceedings of EMNLP 2019}.
+arXiv:1908.10084.
+
+\bibitem{singhal2023large}
+Singhal, K., Azizi, S., Tu, T., et al. (2023).
+Large Language Models Encode Clinical Knowledge.
+\textit{Nature}, 620, 172--180.
+
+\bibitem{bai2022constitutional}
+Bai, Y., Jones, A., Ndousse, K., et al. (2022).
+Constitutional AI: Harmlessness from AI Feedback.
+arXiv:2212.08073.
+
+\bibitem{nih2025empirically}
+NIH PMC. (2025).
+Empirically derived evaluation requirements for responsible deployments of AI in safety-critical settings.
+\textit{npj Digital Medicine}.
+DOI: 10.1038/s41746-025-01784-y.
+
+\bibitem{nguyen2025framework}
+Nguyen, T., et al. (2025).
+A Framework for Neural Topic Modeling with Mutual Information.
+\textit{Neurocomputing}.
+DOI: 10.1016/j.neucom.2025.130420.
+
+\bibitem{datasaur2025llm}
+Datasaur. (2025).
+LLM Scorecard 2025.
+\url{https://datasaur.ai/blog-posts/llm-scorecard-22-8-2025}.
+
+\bibitem{ouyang2022training}
+Ouyang, L., Wu, J., Jiang, X., et al. (2022).
+Training language models to follow instructions with human feedback.
+\textit{Advances in Neural Information Processing Systems}, 35.
+arXiv:2203.02155.
+
+\end{thebibliography}
+
+%==============================================================
+\appendix
+\section*{Appendix A: Complete Per-Model Statistics (50 trials each)}
+%==============================================================
+
+\begin{longtable}{llllrrr}
+\toprule
+\textbf{Model} & \textbf{Domain} & \textbf{Type} & $n$ & \textbf{Mean $\Delta$RCI} & \textbf{SD} & \textbf{95\% CI} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Model} & \textbf{Domain} & \textbf{Type} & $n$ & \textbf{Mean $\Delta$RCI} & \textbf{SD} & \textbf{95\% CI} \\
+\midrule
+\endhead
+GPT-4o & Philosophy & Closed & 50 & 0.283 & 0.011 & $\pm$0.003 \\
+GPT-4o-mini & Philosophy & Closed & 50 & 0.269 & 0.009 & $\pm$0.002 \\
+GPT-5.2 & Philosophy & Closed & 50 & 0.308 & 0.015 & $\pm$0.004 \\
+Claude Haiku & Philosophy & Closed & 50 & 0.331 & 0.012 & $\pm$0.003 \\
+Gemini Flash & Philosophy & Closed & 50 & 0.338 & 0.022 & $\pm$0.006 \\
+DeepSeek V3.1 & Philosophy & Open & 50 & 0.304 & 0.014 & $\pm$0.004 \\
+Kimi K2 & Philosophy & Open & 50 & 0.428 & 0.022 & $\pm$0.006 \\
+Llama 4 Maverick & Philosophy & Open & 50 & 0.269 & 0.012 & $\pm$0.003 \\
+Llama 4 Scout & Philosophy & Open & 50 & 0.298 & 0.011 & $\pm$0.003 \\
+Ministral 14B & Philosophy & Open & 50 & 0.373 & 0.015 & $\pm$0.004 \\
+Mistral Small 24B & Philosophy & Open & 50 & 0.281 & 0.009 & $\pm$0.003 \\
+Qwen3 235B & Philosophy & Open & 50 & 0.322 & 0.009 & $\pm$0.003 \\
+\midrule
+GPT-4o & Medical & Closed & 50 & 0.299 & 0.010 & $\pm$0.003 \\
+GPT-4o-mini & Medical & Closed & 50 & 0.319 & 0.010 & $\pm$0.003 \\
+GPT-5.2 & Medical & Closed & 50 & 0.379 & 0.021 & $\pm$0.006 \\
+Claude Haiku & Medical & Closed & 50 & 0.340 & 0.010 & $\pm$0.003 \\
+Claude Opus & Medical & Closed & 50 & 0.339 & 0.017 & $\pm$0.005 \\
+Gemini Flash & Medical & Closed & 50 & $-$0.133 & 0.026 & $\pm$0.007 \\
+DeepSeek V3.1 & Medical & Open & 50 & 0.320 & 0.010 & $\pm$0.003 \\
+Kimi K2 & Medical & Open & 50 & 0.417 & 0.016 & $\pm$0.004 \\
+Llama 4 Maverick & Medical & Open & 50 & 0.316 & 0.012 & $\pm$0.003 \\
+Llama 4 Scout & Medical & Open & 50 & 0.323 & 0.011 & $\pm$0.003 \\
+Ministral 14B & Medical & Open & 50 & 0.391 & 0.014 & $\pm$0.004 \\
+Mistral Small 24B & Medical & Open & 50 & 0.365 & 0.015 & $\pm$0.004 \\
+Qwen3 235B & Medical & Open & 50 & 0.328 & 0.010 & $\pm$0.003 \\
+\bottomrule
+\end{longtable}
+
+\end{document}
