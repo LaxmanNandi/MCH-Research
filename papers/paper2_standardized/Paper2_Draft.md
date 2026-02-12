@@ -137,6 +137,9 @@ Where RCI is computed via cosine similarity of response embeddings (all-MiniLM-L
 
 ### 4.1 Dataset Overview (Figure 1)
 
+![Figure 1: Dataset Overview Heatmap](figures/fig1_dataset_overview.png)
+*Figure 1. Mean ΔRCI by model and domain across 25 model-domain runs (14 unique models, 50 trials each).*
+
 Figure 1 presents a heatmap of mean ΔRCI across all 14 models and both domains. Key observations:
 - **23/25 model-domain runs** show positive ΔRCI (context enhances coherence)
 - **Kimi K2** shows highest sensitivity in both domains (philosophy: 0.428, medical: 0.417)
@@ -144,6 +147,9 @@ Figure 1 presents a heatmap of mean ΔRCI across all 14 models and both domains.
 - **Claude Opus** appears only in medical domain (philosophy data not collected with standardized methodology)
 
 ### 4.2 Domain Comparison (Figure 2)
+
+![Figure 2: Domain Comparison](figures/fig2_domain_comparison.png)
+*Figure 2. Left: Violin plots comparing philosophy (n=12) and medical (n=13) ΔRCI distributions. Right: Paired bar chart for 12 models tested in both domains.*
 
 **Aggregate comparison**: No significant difference between domains (Mann-Whitney U=51, p=0.149).
 - Philosophy: mean ΔRCI = 0.317 ± 0.045 (n=12)
@@ -157,6 +163,9 @@ Figure 1 presents a heatmap of mean ΔRCI across all 14 models and both domains.
 **Interpretation**: Domain structure does not systematically shift *aggregate* context sensitivity, but individual model responses to domain can be dramatic (Gemini Flash).
 
 ### 4.3 Vendor Signatures (Figure 3)
+
+![Figure 3: Vendor Signatures](figures/fig3_vendor_signatures.png)
+*Figure 3. Mean ΔRCI by vendor (model provider), sorted by descending mean. Error bars show SEM. Individual model-domain runs shown as scatter points. ANOVA: F(7,17)=2.31, p=0.075.*
 
 One-way ANOVA across 8 vendors: F(7,17) = 2.31, p = 0.075 (marginal significance).
 
@@ -174,6 +183,9 @@ One-way ANOVA across 8 vendors: F(7,17) = 2.31, p = 0.075 (marginal significance
 
 ### 4.4 Position-Level Patterns (Figure 4)
 
+![Figure 4: Position-Level Patterns](figures/fig4_position_patterns.png)
+*Figure 4. Position-level ΔRCI trajectories across 30 prompt positions. Left: Philosophy domain. Right: Medical domain. Bold lines show domain mean; thin lines show individual models. P30 (summarization prompt) annotated.*
+
 Position-level ΔRCI analysis reveals domain-specific temporal signatures:
 
 **Philosophy domain** (12 models):
@@ -190,6 +202,9 @@ Position-level ΔRCI analysis reveals domain-specific temporal signatures:
 
 ### 4.5 Information Hierarchy (Figure 5)
 
+![Figure 5: Information Hierarchy](figures/fig5_information_hierarchy.png)
+*Figure 5. ΔRCI computed with SCRAMBLED vs COLD baselines for all 24 model-domain runs (excluding Claude Opus, metrics-only). Expected hierarchy: SCRAMBLED > COLD. Observed: inverted in 23/24 runs.*
+
 The theoretical prediction that SCRAMBLED context should provide more information than COLD (no context) was tested:
 
 **Expected**: ΔRCI_SCRAMBLED > ΔRCI_COLD (scrambled context retains some useful information)
@@ -201,6 +216,9 @@ This unexpected finding suggests that:
 3. The ΔRCI metric may not be sensitive to partial information in scrambled sequences
 
 ### 4.6 Model Rankings (Figure 6)
+
+![Figure 6: Model Rankings](figures/fig6_model_rankings.png)
+*Figure 6. Model rankings by mean ΔRCI with 95% confidence intervals. Left: Philosophy domain (12 models). Right: Medical domain (13 models). (C)=Closed, (O)=Open. Dashed red line shows domain mean.*
 
 **Philosophy rankings** (top 3):
 1. Kimi K2 (O): 0.428 ± 0.023
