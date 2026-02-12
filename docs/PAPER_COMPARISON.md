@@ -8,7 +8,7 @@
 |--------|----------------------|------------------------|-------------|
 | **Framing** | "Multi-turn Conversational Helpfulness" | "Cross-Domain AI Behavior Measurement" | ✓ Theoretical upgrade |
 | **Scope** | Exploratory, single domain | Controlled cross-domain experiment | ✓ Scientific rigor |
-| **Models** | 7 closed models (3 vendors) | 24 models (11 phil + 13 medical, open + closed) | **3x+ scale + architectural diversity** |
+| **Models** | 7 closed models (3 vendors) | 14 unique models (12 phil + 13 medical, open + closed) | **2x scale + architectural diversity** |
 | **Domains** | 2 (philosophy + medical) | 2 (medical + philosophy) | ✓ Both cross-domain |
 | **Trials** | 1,000 (700 phil + 300 medical) | 50 per model (standardized) | ✓ Standardized methodology |
 | **Data Points** | 90,000 API calls (aggregate ΔRCI only) | ~72,000 position-level measurements | ✓ Position-level granularity |
@@ -70,10 +70,10 @@
 
 **Paper 2 Solution**:
 - **Unified standard**: Each trial = independent TRUE + COLD + SCRAMBLED run (3 conditions)
-- **Standardized 50 trials**: ALL 24 models (medical + philosophy, open + closed)
+- **Standardized 50 trials**: ALL 14 models (medical + philosophy, open + closed)
 - **Full methodological consistency**: Same correct methodology across all models
 
-**Impact**: Paper 2 unifies the correct methodology (already used for medical and GPT-5.2) and applies it consistently across all 24 models, fixing the flawed definitions used for most philosophy models in Paper 1.
+**Impact**: Paper 2 unifies the correct methodology (already used for medical and GPT-5.2) and applies it consistently across all 14 models, fixing the flawed definitions used for most philosophy models in Paper 1.
 
 ---
 
@@ -93,16 +93,16 @@ Note: Inconsistent trial definitions reduced cross-model comparability
 
 **Paper 2**:
 ```
-24 models × 2 domains × 50 trials = 2,400 runs
-Medical (13):   7 closed + 6 open
-Philosophy (11): 4 closed + 7 open
-Total: ~99,000 responses (24 models)
+25 model-domain runs × 50 trials × 30 prompts × 3 conditions = 112,500 responses
+Medical (13):   6 closed + 7 open
+Philosophy (12): 5 closed + 7 open
+Total: 112,500 responses (14 unique models)
 ```
 
 **Improvement**:
-- **3x models** (8 → 24)
+- **2x models** (7 → 14)
 - **2x domains** (philosophy only → medical + philosophy)
-- **5x data** (~15K → ~99K responses)
+- **7x data** (~15K → 112,500 responses)
 - **Unified methodology** (mixed/flawed → standard 50 trials all models)
 - **Architectural diversity** (closed only → open + closed models)
 - **Cross-model comparability** (inconsistent → fully standardized)
@@ -187,7 +187,7 @@ Total: ~99,000 responses (24 models)
 **Paper 2** (Journal-quality):
 - ✓ Controlled experimental design
 - ✓ Cross-domain validation
-- ✓ Large-scale (24 models, 99K responses)
+- ✓ Large-scale (14 models, 112,500 responses)
 - ✓ Generalizable findings
 - ✓ Methodological standardization
 - Target: **Nature Machine Intelligence, Science Advances, PNAS**
@@ -207,7 +207,7 @@ Total: ~99,000 responses (24 models)
 | Closed models only → Limited architecture coverage | ✓ Open + closed models (architectural diversity) |
 | No control condition comparison | ✓ Formal domain × model analysis |
 | Exploratory categories (ALIGNED/SOVEREIGN) | ✓ Quantitative behavioral signatures |
-| Small N (8 models, philosophy only) | ✓ Large N (24 models, 2 domains) |
+| Small N (8 models, philosophy only) | ✓ Large N (14 models, 2 domains) |
 
 ---
 
@@ -224,7 +224,7 @@ Paper 1 (Legacy):
 
 Paper 2 (Standardized):
 "Domain structure shapes context dynamics"
-├─ Unified methodology (all 24 models, 50 trials)
+├─ Unified methodology (all 14 models, 50 trials)
 ├─ Cross-domain validation (medical + philosophy)
 ├─ Open + closed models
 └─ Core empirical contribution
@@ -271,7 +271,7 @@ Papers 3 & 4 (Deep Dives):
 |-----------|---------|---------|-------|
 | **Methodology** | Mixed (partial standard, partial flawed) | Fully unified standard | **A+** |
 | Scientific Rigor | Exploratory | Controlled experiment | **A+** |
-| Scale | 8 models, ~15K (phil only) | 24 models, ~99K (2 domains) | **A+** |
+| Scale | 8 models, ~15K (phil only) | 14 models, 112,500 (2 domains) | **A+** |
 | Generalizability | Single domain, closed only | Cross-domain, open + closed | **A+** |
 | Theory | Measurement | Mechanism | **A+** |
 | Publishability | Preprint | Top journal | **A+** |

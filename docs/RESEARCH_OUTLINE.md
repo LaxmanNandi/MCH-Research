@@ -133,7 +133,7 @@ mch_experiments/
 │       ├── paper3/           (Domain-specific figures)
 │       └── paper4/           (Supplementary figures)
 ├── results/
-│   └── tables/               (CSV metrics for all 24 models)
+│   └── tables/               (CSV metrics for all 14 models)
 ├── scripts/
 │   ├── experiments/          (Data collection)
 │   └── analysis/            (Figure generation)

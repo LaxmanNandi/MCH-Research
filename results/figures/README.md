@@ -25,7 +25,7 @@ All figures use **50-trial datasets** unless noted otherwise.
 All figures generated from:
 - Medical: 7 models × 50 trials × 30 positions = 10,500 responses per model
 - Philosophy: 11 models × 50 trials × 30 positions = 16,500 responses per model
-- Total: ~99,000+ responses
+- Total: 112,500 responses (14 unique models, 25 model-domain runs)
 
 ## Last Updated
 - Entanglement figures: February 11, 2026

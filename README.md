@@ -1,14 +1,14 @@
 # Cross-Domain AI Behavior: Medical vs Philosophical Reasoning
 
-## Standardized Measurement of Context Sensitivity Across 24 LLMs
+## Standardized Measurement of Context Sensitivity Across 14 LLMs
 
 [![Preprints.org](https://img.shields.io/badge/Preprints.org-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 24 major LLMs across 99,000+ responses. Medical (closed-goal) reasoning shows U-shaped dynamics with task enablement spikes; philosophy (open-goal) shows inverted-U patterns. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with MI proxy, p<10⁻⁶²). Identifies safety-critical divergence in medical summarization tasks.
+> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 14 LLMs across 112,500 responses. Medical (closed-goal) reasoning shows U-shaped dynamics with task enablement spikes; philosophy (open-goal) shows inverted-U patterns. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with MI proxy, p<10⁻⁶²). Identifies safety-critical divergence in medical summarization tasks.
 
-**Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 24 models)** → Papers 3 & 4 (deep dives)
+**Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 14 models)** → Papers 3 & 4 (deep dives)
 
 *Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka, India*
 
@@ -39,7 +39,7 @@ All papers organized in `/papers/` directory by lineage:
 
 **Complete Structure**: See `papers/README.md`
 
-**Why this matters:** Domain structure fundamentally shapes how LLMs use context. Medical (closed-goal) tasks show diagnostic independence troughs and task enablement spikes; philosophical (open-goal) tasks show recursive accumulation. This repository provides the first **standardized cross-domain framework** to measure these effects across 24 models with unified methodology—critical for understanding deployment risks in medical and safety-relevant applications.
+**Why this matters:** Domain structure fundamentally shapes how LLMs use context. Medical (closed-goal) tasks show diagnostic independence troughs and task enablement spikes; philosophical (open-goal) tasks show recursive accumulation. This repository provides the first **standardized cross-domain framework** to measure these effects across 14 models (25 model-domain runs) with unified methodology—critical for understanding deployment risks in medical and safety-relevant applications.
 
 **Featured Finding:** Medical P30 task enablement reveals safety-critical divergence classes. While convergent models (DeepSeek, Gemini) stabilize under context (Var_Ratio < 0.6), Llama models show extreme variance explosion (Var_Ratio up to 7.5), producing unpredictable outputs precisely when task completion requires context integration.
 
@@ -153,7 +153,7 @@ All semantic similarity computed using `sentence-transformers/all-MiniLM-L6-v2` 
 ### Closed (API-based)
 - GPT-4o, GPT-4o-mini, GPT-5.2
 - Claude Opus, Claude Haiku
-- Gemini Flash, Gemini 2.5 Pro
+- Gemini Flash
 
 ### Open (Self-hosted)
 - DeepSeek V3.1, Qwen3 235B

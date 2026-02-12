@@ -47,7 +47,7 @@ Introduced ΔRCI (Delta Relational Coherence Index), a cosine-similarity-based m
 - Medical data: `/data/medical/closed_models/`
 
 ## Next Steps
-See **Paper 2** for standardized cross-domain analysis with 24 models, position-level dynamics, and corrected methodology.
+See **Paper 2** for standardized cross-domain analysis with 14 models (25 model-domain runs, 112,500 responses), position-level dynamics, and corrected methodology.
 
 ---
 

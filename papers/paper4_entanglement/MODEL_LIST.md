@@ -43,7 +43,7 @@ Response text is required for:
 - Mutual information proxy (1 - Var_Ratio)
 - Entanglement validation (ΔRCI ~ MI_proxy)
 
-Only 11 of Paper 2's 24 models have complete response text preserved.
+Only 11 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
 
 ## Data Points
 - **Total**: 330 model-position points (11 models × 30 positions)

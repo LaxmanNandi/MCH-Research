@@ -234,9 +234,9 @@ disruption_sensitivity = [
 
 ### Data Volume
 - **Complete:** 18 model-domain runs × 4,500 responses = 81,000 responses
-- **Final (when complete):** 22 × 4,500 = 99,000 responses
-- **Embedding vectors:** 99,000 × 384 dimensions (all-MiniLM-L6-v2)
-- **Position measurements:** 22 models × 30 positions = 660 position-ΔRCI values
+- **Final:** 25 model-domain runs × 50 trials × 30 prompts × 3 conditions = 112,500 responses
+- **Embedding vectors:** 112,500 × 384 dimensions (all-MiniLM-L6-v2)
+- **Position measurements:** 25 model-domain runs × 30 positions = 750 position-ΔRCI values
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Paper 3: Temporal Dynamics of Context Sensitivity
 - `Paper3_Results.md` - Main results document
-- **Data**: 50-trial datasets (22 model-domain configurations)
+- **Data**: 50-trial datasets (25 model-domain configurations, 14 unique models)
 - **Key Finding**: Domain-dependent temporal patterns (inverted-U for philosophy, U-shaped for medical)
 
 ## Paper 4: Engagement as Entanglement

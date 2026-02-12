@@ -36,7 +36,7 @@ Response text is required for:
 - Position-level temporal analysis
 - Domain-specific behavioral signatures
 
-Only 10 of Paper 2's 24 models have complete response text preserved.
+Only 10 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
 
 ## Key Findings
 1. **Domain-specific temporal patterns**:

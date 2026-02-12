@@ -21,7 +21,7 @@
 ### Data Sources
 - **Medical**: 7 models × 50 trials × 30 positions = 10,500 responses per model
 - **Philosophy**: 11 models × 50 trials × 30 positions = 16,500 responses per model
-- **Total responses**: ~99,000+
+- **Total responses**: 112,500
 
 ### Embedding Model
 All figures use consistent embedding:
