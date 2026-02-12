@@ -31,5 +31,8 @@ results/**/*.png
 results/**/*.json
 analysis/
 
+# Prompts (local working notes)
+prompts/
+
 # Logs
 *.log

@@ -8,7 +8,7 @@
 
 ## Abstract
 
-We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index (ΔRCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean ΔRCI: philosophy=0.317, medical=0.308), with no significant domain-level difference (U=51, p=0.149); (2) medical domain exhibits substantially higher inter-model variance (SD=0.131 vs 0.045), driven by a Gemini Flash safety-filter anomaly (ΔRCI=−0.133); (3) vendor signatures show marginal differentiation (F(7,17)=2.31, p=0.075), with Moonshot (Kimi K2) showing highest context sensitivity and Google lowest; (4) the expected information hierarchy (SCRAMBLED > COLD) is inverted in 23/24 model-domain runs, suggesting that COLD baselines may capture residual context effects; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
+We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index (ΔRCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean ΔRCI: philosophy=0.317, medical=0.308), with no significant domain-level difference (U=51, p=0.149); (2) medical domain exhibits substantially higher inter-model variance (SD=0.131 vs 0.045), driven by a Gemini Flash safety-filter anomaly (ΔRCI=−0.133); (3) vendor signatures show marginal differentiation (F(7,17)=2.31, p=0.075), with Moonshot (Kimi K2) showing highest context sensitivity and Google lowest; (4) the expected information hierarchy (ΔRCI_COLD > ΔRCI_SCRAMBLED) holds in 24/25 model-domain runs, validating that even scrambled context retains partial information; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
 
 **Keywords**: Context sensitivity, ΔRCI, cross-domain AI evaluation, medical reasoning, philosophical reasoning, LLM benchmarking
 
@@ -18,11 +18,13 @@ We present a standardized cross-domain framework for measuring context sensitivi
 
 ### 1.1 Background
 
-Large language models increasingly serve as reasoning tools across diverse domains, from medical diagnostics to philosophical inquiry. How domain structure shapes model behavior—particularly sensitivity to conversational context—remains poorly understood. Prior work (Laxman, 2026; Paper 1) introduced the Delta Relational Coherence Index (ΔRCI) and demonstrated dramatic behavioral mode-switching between domains using 7 closed models. However, that study used aggregate metrics, mixed trial definitions, and lacked open-weight model comparisons.
+Large language models increasingly serve as reasoning tools across diverse domains, from medical diagnostics to philosophical inquiry. In-context learning — the ability to adapt behavior based on conversational history — is fundamental to modern LLMs [1], yet how domain structure shapes this context sensitivity remains poorly understood. Current benchmarks focus primarily on accuracy and task completion [2], with context evaluation itself underdeveloped [3]. Following the operant tradition [4], we treat model outputs as behavioral data rather than cognitive states, measuring *what models do* with context rather than inferring internal representations.
+
+Prior work [5] introduced the Delta Relational Coherence Index (ΔRCI) and demonstrated dramatic behavioral mode-switching between domains using 7 closed models. However, that study used aggregate metrics, mixed trial definitions, and lacked open-weight model comparisons.
 
 ### 1.2 Research Gap
 
-No existing benchmark provides:
+Current LLM benchmarks are increasingly saturated and redundant [2], measuring task accuracy rather than behavioral dynamics. No existing benchmark provides:
 - Standardized cross-domain context sensitivity measurement
 - Unified methodology across open and closed architectures
 - Position-level temporal analysis across task types
@@ -48,19 +50,16 @@ No existing benchmark provides:
 ## 2. Related Work
 
 ### 2.1 Context Sensitivity in LLMs
-- Multi-turn coherence studies
-- Prompt sensitivity and instruction following
-- Conversational grounding in dialogue systems
+
+Transformer architectures process context through self-attention mechanisms [6], enabling in-context learning [1] that underpins modern LLM capabilities. However, measuring *how* models use conversational context — beyond whether they produce correct answers — remains underdeveloped [3]. Recent work on decoupling safety behaviors into orthogonal subspaces [7] provides independent evidence that model behaviors can be decomposed along interpretable dimensions, supporting our approach of isolating context sensitivity as a measurable behavioral axis.
 
 ### 2.2 Cross-Domain AI Evaluation
-- MMLU, HELM, and general-purpose benchmarks
-- Domain-specific evaluation (medical: MedQA, philosophical reasoning tasks)
-- Gap: No cross-domain *behavioral* metric (as opposed to accuracy)
+
+Domain-specific evaluation has advanced significantly, with medical AI benchmarks demonstrating that LLMs can encode clinical knowledge [9] and safety alignment methods shaping model behavior through constitutional principles [10]. Yet cross-domain behavioral comparison remains rare: existing benchmarks (MMLU, HELM) measure accuracy within domains but do not track how the *same* model's behavioral dynamics shift across task structures. Our ΔRCI framework addresses this gap by providing a domain-agnostic metric that captures context sensitivity independent of correctness.
 
 ### 2.3 Paper 1 Foundation
-- Introduced ΔRCI and three-condition protocol
-- Demonstrated domain flip effect (Cohen's d > 2.7)
-- Limitations: aggregate-only, mixed methodology, closed models only
+
+The Mirror-Coherence Hypothesis [5] introduced the ΔRCI metric and three-condition protocol (TRUE/COLD/SCRAMBLED), demonstrating domain-dependent behavioral mode-switching (Cohen's d > 2.7) across 7 closed models. That study established the "presence > absence" principle — that even scrambled context retains partial information — but was limited to aggregate-only analysis, mixed trial methodology, and closed-weight models exclusively.
 
 ---
 
@@ -77,7 +76,7 @@ No existing benchmark provides:
 ```
 ΔRCI = mean(RCI_TRUE) − mean(RCI_COLD)
 ```
-Where RCI is computed via cosine similarity of response embeddings (all-MiniLM-L6-v2, 384D).
+Where RCI is computed via cosine similarity of response embeddings using Sentence-BERT [8] (all-MiniLM-L6-v2, 384D). This embedding-based approach captures semantic similarity without requiring domain-specific annotation, enabling cross-domain comparison.
 
 ### 3.2 Domains
 
@@ -86,7 +85,7 @@ Where RCI is computed via cosine similarity of response embeddings (all-MiniLM-L
 | Scenario | 52-year-old STEMI case | Consciousness inquiry |
 | Goal structure | Diagnostic/therapeutic targets | No single correct answer |
 | Prompt count | 30 per trial | 30 per trial |
-| Expected pattern | U-shaped + P30 spike | Inverted-U |
+| Expected pattern | U-shaped + P30 spike [5] | Inverted-U [5] |
 
 ### 3.3 Models
 
@@ -114,10 +113,11 @@ Where RCI is computed via cosine similarity of response embeddings (all-MiniLM-L
 
 ### 3.4 Parameters
 
-- **Trials per model**: 50 (standardized)
+- **Trials per model**: 50 (standardized), meeting empirically derived evaluation requirements for safety-critical AI deployments [11]
 - **Temperature**: 0.7
-- **Embedding model**: sentence-transformers/all-MiniLM-L6-v2 (384D)
+- **Embedding model**: sentence-transformers/all-MiniLM-L6-v2 (384D) [8]
 - **API providers**: Direct API (closed), Together AI (open)
+- **Information-theoretic grounding**: Position-level analysis enables mutual information estimation between context and response [12]
 
 ### 3.5 Data Scale
 
@@ -205,7 +205,7 @@ Position-level ΔRCI analysis reveals domain-specific temporal signatures:
 ![Figure 5: Information Hierarchy](figures/fig5_information_hierarchy.png)
 *Figure 5. ΔRCI computed with SCRAMBLED vs COLD baselines for all model-domain runs. Expected hierarchy: ΔRCI_COLD > ΔRCI_SCRAMBLED (scrambled context closer to TRUE than no context). Hierarchy holds in 24/25 testable runs.*
 
-The theoretical prediction from Paper 1 — that scrambled context (presence) should retain partial information compared to no context (COLD/absence) — was tested across 25 model-domain runs:
+The theoretical prediction from the Mirror-Coherence Hypothesis [5] — that scrambled context (presence) should retain partial information compared to no context (COLD/absence) — was tested across 25 model-domain runs:
 
 **Logic**: If scrambled context retains partial information, SCRAMBLED responses should be closer to TRUE responses than COLD responses are. Therefore ΔRCI_COLD (= TRUE − COLD, larger gap) > ΔRCI_SCRAMBLED (= TRUE − SCRAMBLED, smaller gap).
 
@@ -245,7 +245,7 @@ However, the medical domain's much higher variance (SD=0.131 vs 0.045) indicates
 
 ### 5.2 The Gemini Flash Medical Anomaly
 
-Gemini Flash shows the most dramatic domain effect: positive in philosophy (0.338) but negative in medical (−0.133). This is attributed to safety filters that activate on medical content, disrupting coherent context utilization. This has important implications for medical AI deployment—safety mechanisms can paradoxically *reduce* response quality by interfering with context integration.
+Gemini Flash shows the most dramatic domain effect: positive in philosophy (0.338) but negative in medical (−0.133). This is attributed to safety filters — shaped by constitutional AI principles [10] and RLHF training [14] — that activate on medical content, disrupting coherent context utilization. This finding aligns with recent evidence that quality benchmarks do not predict safety behavior [13], and has important implications for medical AI deployment [9]: safety mechanisms can paradoxically *reduce* response quality by interfering with context integration.
 
 ### 5.3 Open vs Closed Architecture
 
@@ -257,16 +257,16 @@ This suggests that open-weight models, despite generally smaller parameter count
 
 ### 5.4 Vendor Clustering
 
-The marginal vendor effect (p=0.075) suggests that organizational-level design decisions (training data, RLHF procedures, safety tuning) create subtle but potentially meaningful behavioral signatures. Moonshot's consistent dominance and Google's safety-filter-driven anomaly represent the extremes.
+The marginal vendor effect (p=0.075) suggests that organizational-level design decisions — training data, RLHF procedures [14], safety tuning [10] — create subtle but potentially meaningful behavioral signatures. Moonshot's consistent dominance and Google's safety-filter-driven anomaly represent the extremes.
 
 ### 5.5 Information Hierarchy Validation
 
-The near-universal confirmation of the expected hierarchy (ΔRCI_COLD > ΔRCI_SCRAMBLED in 24/25 runs) is a significant methodological validation. It confirms that scrambled context retains partial information — even disrupted conversational structure provides extractable signal that brings responses closer to the TRUE condition than complete absence of context. This validates the three-condition protocol as a well-ordered measurement framework and confirms Paper 1's "presence > absence" principle at scale.
+The near-universal confirmation of the expected hierarchy (ΔRCI_COLD > ΔRCI_SCRAMBLED in 24/25 runs) is a significant methodological validation. It confirms that scrambled context retains partial information — even disrupted conversational structure provides extractable signal that brings responses closer to the TRUE condition than complete absence of context. This validates the three-condition protocol as a well-ordered measurement framework and confirms the "presence > absence" principle [5] at scale.
 
 ### 5.6 Limitations
 
 1. **Single scenario per domain**: One medical case (STEMI) and one philosophical topic (consciousness)
-2. **Embedding model ceiling**: all-MiniLM-L6-v2 may not capture all semantic distinctions
+2. **Embedding model ceiling**: all-MiniLM-L6-v2 [8] may not capture all semantic distinctions
 3. **Temperature fixed at 0.7**: Other settings may yield different patterns
 4. **Claude Opus**: Medical only (absent from philosophy); recovered data lacks response text
 5. **Position-level noise**: 50 trials provide limited statistical power for 30-position analysis (addressed in Paper 3 with focused subset)
@@ -283,7 +283,7 @@ This study establishes a standardized cross-domain framework for measuring conte
 4. **Open models compete with closed**: No systematic architectural disadvantage for open-weight models
 5. **Vendor signatures are detectable**: Organizational design choices create marginal but consistent behavioral patterns
 
-This dataset and methodology provide the foundation for deeper analyses of temporal dynamics (Paper 3) and information-theoretic mechanisms (Paper 4).
+This dataset and methodology — building on the ΔRCI framework [5] and addressing gaps in current LLM evaluation [2, 3] — provide the foundation for deeper analyses of temporal dynamics (Paper 3) and information-theoretic mechanisms (Paper 4).
 
 ---
 
@@ -309,7 +309,33 @@ https://github.com/LaxmanNandi/MCH-Experiments
 
 ## References
 
-1. Laxman, M M (Nandi). (2026). Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI. *Preprints.org*. DOI: 10.20944/preprints202601.1881.v2
+[1] Brown, T., Mann, B., Ryder, N., et al. (2020). Language Models are Few-Shot Learners. *Advances in Neural Information Processing Systems*, 33. arXiv:2005.14165.
+
+[2] Subramani, N., Srinivasan, R., & Hovy, E. (2025). SimBA: Simplifying Benchmark Analysis. *Findings of EMNLP 2025*. DOI: 10.18653/v1/2025.findings-emnlp.711.
+
+[3] Xu, Y., et al. (2025). Does Context Matter? ContextualJudgeBench for Evaluating LLM-based Judges. *Proceedings of ACL 2025*. DOI: 10.18653/v1/2025.acl-long.470.
+
+[4] Skinner, B. F. (1957). *Verbal Behavior*. Copley Publishing Group.
+
+[5] Laxman, M M (Nandi). (2026). Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI. *Preprints.org*. DOI: 10.20944/preprints202601.1881.v2.
+
+[6] Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). Attention Is All You Need. *Advances in Neural Information Processing Systems*, 30. arXiv:1706.03762.
+
+[7] Mou, X., et al. (2025). Decoupling Safety into Orthogonal Subspace. arXiv:2510.09004.
+
+[8] Reimers, N. & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. *Proceedings of EMNLP 2019*. arXiv:1908.10084.
+
+[9] Singhal, K., Azizi, S., Tu, T., et al. (2023). Large Language Models Encode Clinical Knowledge. *Nature*, 620, 172–180.
+
+[10] Bai, Y., Jones, A., Ndousse, K., et al. (2022). Constitutional AI: Harmlessness from AI Feedback. arXiv:2212.08073.
+
+[11] NIH PMC. (2025). Empirically derived evaluation requirements for responsible deployments of AI in safety-critical settings. *npj Digital Medicine*. DOI: 10.1038/s41746-025-01784-y.
+
+[12] Nguyen, T., et al. (2025). A Framework for Neural Topic Modeling with Mutual Information. *Neurocomputing*. DOI: 10.1016/j.neucom.2025.130420.
+
+[13] Datasaur. (2025). LLM Scorecard 2025. https://datasaur.ai/blog-posts/llm-scorecard-22-8-2025.
+
+[14] Ouyang, L., Wu, J., Jiang, X., et al. (2022). Training language models to follow instructions with human feedback. *Advances in Neural Information Processing Systems*, 35. arXiv:2203.02155.
 
 ---
 
