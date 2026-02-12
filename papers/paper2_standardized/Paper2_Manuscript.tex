@@ -125,6 +125,13 @@ Three-condition protocol applied to each trial:
 
 Where RCI is computed via cosine similarity of response embeddings using Sentence-BERT \citep{reimers2019sentence} (all-MiniLM-L6-v2, 384D). This embedding-based approach captures semantic similarity without requiring domain-specific annotation, enabling cross-domain comparison.
 
+\textbf{Metric variants:} We compute three related metrics:
+\begin{itemize}
+    \item $\Delta$RCI$_{\text{TRUE-COLD}}$ (primary): Context sensitivity relative to no-context baseline
+    \item $\Delta$RCI$_{\text{TRUE-SCR}}$: Context sensitivity relative to scrambled baseline
+    \item \textbf{Hierarchy test}: Validates that $\Delta$RCI$_{\text{TRUE-COLD}}$ $>$ $\Delta$RCI$_{\text{TRUE-SCR}}$, confirming scrambled context retains partial information
+\end{itemize}
+
 \subsection{Domains}
 
 \textbf{Medical (closed-goal):} 52-year-old STEMI case with diagnostic/therapeutic targets.
@@ -200,7 +207,7 @@ Philosophy & 0.317 & 0.045 & 12 \\
 Medical & 0.308 & 0.131 & 13 \\
 \bottomrule
 \end{tabular}
-\caption{Domain comparison summary. Notable: Medical shows 3$\times$ higher variance.}
+\caption{Domain comparison summary. Mann-Whitney U=51, p=0.149; rank-biserial r=0.28 (small effect). \textbf{Unit of analysis:} Each model-domain run treated as one independent observation. Medical shows 3$\times$ higher variance than philosophy.}
 \end{table}
 
 Notable exceptions: Gemini Flash (divergence of 0.471), GPT-5.2 (higher in medical), Kimi K2 (consistently highest in both).
@@ -234,6 +241,8 @@ One-way ANOVA across 8 vendors: F(7,17) = 2.31, p = 0.075 (marginal significance
 \end{tabular}
 \caption{Vendor rankings by mean $\Delta$RCI. Google's low ranking is driven entirely by the Gemini Flash medical anomaly. Note: n reflects model-domain runs, not unique models.}
 \end{table}
+
+\textbf{Robustness check:} Excluding the Gemini Flash medical anomaly ($\Delta$RCI = -0.133), vendor differences become non-significant (F(7,16)=1.89, p=0.14), confirming that apparent vendor effects are driven primarily by this single outlier rather than systematic vendor-level patterns.
 
 \subsection{Position-Level Patterns}
 
