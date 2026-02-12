@@ -232,7 +232,12 @@ def fig1_dataset_overview(results):
         for j in range(2):
             val = matrix[i, j]
             if np.isnan(val):
-                ax.text(j, i, '—', ha='center', va='center', fontsize=9, color='gray')
+                # Draw a gray hatched rectangle for missing data
+                rect = plt.Rectangle((j - 0.5, i - 0.5), 1, 1,
+                                     facecolor='#e0e0e0', edgecolor='white', linewidth=1)
+                ax.add_patch(rect)
+                ax.text(j, i, 'N/A', ha='center', va='center', fontsize=9,
+                       color='#888888', fontstyle='italic')
             else:
                 color = 'white' if val < 0 else 'black'
                 ax.text(j, i, f'{val:.3f}', ha='center', va='center', fontsize=9, color=color)
