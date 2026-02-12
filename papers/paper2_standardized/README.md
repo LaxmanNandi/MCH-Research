@@ -10,7 +10,7 @@ Core standardized study with unified methodology across 14 unique models and 2 d
 1. **Unified methodology**: Corrected trial definition, 50 trials all models
 2. **Cross-domain validation**: Medical (closed-goal) vs Philosophy (open-goal)
 3. **Architectural diversity**: Open + closed models in both domains
-4. **Domain-specific patterns**: U-shaped (medical) vs inverted-U (philosophy)
+4. **Domain-specific patterns**: Diagnostic trough (medical) vs mid-peak + late decline (philosophy) in 3-bin temporal aggregation
 5. **Large-scale baseline**: 14 models, 25 model-domain runs, 112,500 responses
 
 ## Research Questions

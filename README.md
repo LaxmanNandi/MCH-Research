@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 14 LLMs across 112,500 responses. Medical (closed-goal) reasoning shows U-shaped dynamics with task enablement spikes; philosophy (open-goal) shows inverted-U patterns. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with VRI, p<10⁻⁶²). Identifies safety-critical divergence in medical summarization tasks.
+> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 14 LLMs across 112,500 responses. Medical (closed-goal) reasoning shows diagnostic independence troughs and task enablement spikes; philosophy (open-goal) shows mid-conversation peaks with late decline. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with VRI, p<10⁻⁶²). Significant vendor signatures persist even excluding outliers (p=0.017). Identifies safety-critical divergence in medical summarization tasks.
 
 **Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 14 models)** → Papers 3 & 4 (deep dives)
 
@@ -44,7 +44,7 @@ All papers organized in `/papers/` directory by lineage:
 **Featured Finding:** Medical P30 task enablement reveals safety-critical divergence classes. While convergent models (DeepSeek, Gemini) stabilize under context (Var_Ratio < 0.6), Llama models show extreme variance explosion (Var_Ratio up to 7.5), producing unpredictable outputs precisely when task completion requires context integration.
 
 ![Featured figure: Medical P30 entanglement spike](docs/figures/publication/entanglement_validation.png)
-*Caption: Complete 11-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Gemini show convergent entanglement (Var_Ratio<0.6). Analysis validates ΔRCI as mutual information proxy (r=0.76, p=1.5×10⁻⁶², N=330).*
+*Caption: Complete 11-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Gemini show convergent entanglement (Var_Ratio<0.6). Analysis validates ΔRCI as VRI surrogate (r=0.76, p=1.5×10⁻⁶², N=330).*
 
 ---
 
@@ -53,16 +53,16 @@ All papers organized in `/papers/` directory by lineage:
 ### 1. Epistemological Relativity v2.0
 Domain shapes temporal dynamics of context sensitivity:
 
-| Domain | Temporal Pattern |
+| Domain | Temporal Pattern (3-bin aggregation) |
 |--------|------------------|
-| Philosophy (open-goal) | Inverted-U curve (positions 1-29) |
-| Medical (closed-goal) | U-shaped curve (positions 1-29) + Type-2 spike at P30 |
+| Philosophy (open-goal) | Mid-conversation peak, late decline (inverted-U in Early/Mid/Late bins) |
+| Medical (closed-goal) | Diagnostic independence trough, integration rise (U-shape in bins) + Type-2 spike at P30 |
 
 ### 2. Vendor Signatures
 Significant vendor-level differences in context utilization (F=90.65, p<0.0001).
 
-### 3. Mutual Information Entanglement
-Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and mutual information proxy across 330 position-level measurements (11 model-domain runs), validating information-theoretic interpretation.
+### 3. Variance Reduction Entanglement
+Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and VRI (Variance Reduction Index) across 330 position-level measurements (11 model-domain runs), validating information-theoretic interpretation.
 
 ---
 

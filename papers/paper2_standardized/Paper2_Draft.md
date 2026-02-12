@@ -85,7 +85,7 @@ Where RCI is computed via cosine similarity of response embeddings using Sentenc
 | Scenario | 52-year-old STEMI case | Consciousness inquiry |
 | Goal structure | Diagnostic/therapeutic targets | No single correct answer |
 | Prompt count | 30 per trial | 30 per trial |
-| Expected pattern | U-shaped + P30 spike [5] | Inverted-U [5] |
+| Expected pattern | Diagnostic trough + P30 spike [5] | Mid-peak + late decline [5] |
 
 ### 3.3 Models
 
@@ -198,7 +198,7 @@ Position-level ΔRCI analysis reveals domain-specific temporal signatures:
 - Several models show elevated P30 (position 30 = summarization prompt)
 - Greater inter-model variability at each position
 
-**Interpretation**: Position-level patterns are consistent with theoretical predictions from Paper 3 (inverted-U for philosophy, U-shaped for medical), though individual model noise is substantial at 50-trial resolution.
+**Interpretation**: Position-level patterns show domain differentiation consistent with Paper 3's 3-bin analysis (mid-peak for philosophy, diagnostic trough for medical), though raw 30-position curves are oscillatory with substantial inter-model variability at 50-trial resolution.
 
 ### 4.5 Information Hierarchy (Figure 5)
 

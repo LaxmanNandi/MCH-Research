@@ -135,7 +135,7 @@ Total: 112,500 responses (14 unique models)
 - ✓ Introduced ALIGNED/RESISTANT/SOVEREIGN categories
 
 **Paper 2** (Builds on Paper 1):
-- ✓ **Domain-specific patterns**: Medical U-shaped, Philosophy inverted-U
+- ✓ **Domain-specific patterns**: Medical diagnostic trough + integration rise, Philosophy mid-peak + late decline (3-bin aggregation)
 - ✓ **Task enablement**: Medical P30 spike (Z > +3.5), Philosophy stable
 - ✓ **Disruption sensitivity**: Context presence > order
 - ✓ **Cross-domain validation**: ΔRCI generalizes

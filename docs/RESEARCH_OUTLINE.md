@@ -65,9 +65,9 @@ This research program investigates how domain structure shapes AI context sensit
 - **Focus**: Domain-specific temporal evolution patterns
 
 **Key Findings**:
-1. **Domain-specific temporal patterns**:
-   - Philosophy: Inverted-U (mid-conversation peak)
-   - Medical: U-shaped (diagnostic independence trough)
+1. **Domain-specific temporal patterns** (3-bin aggregation):
+   - Philosophy: Mid-conversation peak, late decline (inverted-U in Early/Mid/Late bins)
+   - Medical: Diagnostic independence trough, integration rise (U-shape in bins)
 2. **Task enablement at P30**: Medical spike (Z > +3.5), philosophy stable
 3. **Disruption sensitivity**: Presence > order (context structure matters)
 4. **Type 2 scaling law**: ΔRCI ∝ log(context_volume)

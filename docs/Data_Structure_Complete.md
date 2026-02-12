@@ -242,9 +242,9 @@ disruption_sensitivity = [
 
 ## Key Findings Across All Models
 
-### Finding 1: Domain-Specific Patterns
-- **Philosophy:** 82% show inverted-U (peak at mid conversation)
-- **Medical:** 75% show U-shaped (trough during diagnosis)
+### Finding 1: Domain-Specific Patterns (3-bin aggregation)
+- **Philosophy:** 82% show mid-conversation peak with late decline (inverted-U in Early/Mid/Late bins)
+- **Medical:** 75% show diagnostic trough with integration rise (U-shape in bins)
 
 ### Finding 2: Position 30 Outlier (Medical Only)
 - **100% of medical models** show Position 30 as extreme outlier (Z > +2.0)
