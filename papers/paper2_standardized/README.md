@@ -4,14 +4,14 @@
 **Title**: *Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning*
 
 ## Overview
-Core standardized study with unified methodology across 24 models and 2 domains. Demonstrates domain-specific behavioral signatures and validates ΔRCI as robust cross-domain metric.
+Core standardized study with unified methodology across 14 unique models and 2 domains (25 model-domain runs). Demonstrates domain-specific behavioral signatures and validates ΔRCI as robust cross-domain metric.
 
 ## Key Contributions
 1. **Unified methodology**: Corrected trial definition, 50 trials all models
 2. **Cross-domain validation**: Medical (closed-goal) vs Philosophy (open-goal)
 3. **Architectural diversity**: Open + closed models in both domains
 4. **Domain-specific patterns**: U-shaped (medical) vs inverted-U (philosophy)
-5. **Large-scale baseline**: 24 state-of-the-art models, 99K responses
+5. **Large-scale baseline**: 14 models, 25 model-domain runs, 112,500 responses
 
 ## Research Questions
 1. How does domain structure (closed vs open goal) affect context sensitivity?
@@ -21,19 +21,18 @@ Core standardized study with unified methodology across 24 models and 2 domains.
 
 ## Methodology
 - **Domains**: Medical (STEMI diagnosis) + Philosophy (consciousness)
-- **Models**: 24 total (13 medical, 11 philosophy)
+- **Models**: 14 unique (13 medical + 12 philosophy = 25 model-domain runs)
 - **Trials**: 50 per model (standardized)
-- **Total responses**: ~99,000
-- **Data points**: ~72,000 measurements
+- **Total responses**: 112,500
+- **Conditions**: 3 per trial (TRUE, COLD, SCRAMBLED)
 
 ## Progress
-- **Complete**: 23/24 models
-- **In Progress**: Kimi K2 medical (32/50 trials)
+- **Complete**: ALL 25/25 model-domain runs
 
 ## Contents
-- `figures/`: Cross-domain comparison figures (to be generated)
+- `figures/`: 6 cross-domain comparison figures
 - `MODEL_LIST.md`: Complete model inventory with status
-- `Paper2_Draft.md`: Main manuscript (in progress)
+- `Paper2_Draft.md`: Main manuscript draft
 
 ## Data Location
 All data in `/data/` directory (single source of truth):
