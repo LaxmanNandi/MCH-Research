@@ -203,17 +203,18 @@ Position-level ΔRCI analysis reveals domain-specific temporal signatures:
 ### 4.5 Information Hierarchy (Figure 5)
 
 ![Figure 5: Information Hierarchy](figures/fig5_information_hierarchy.png)
-*Figure 5. ΔRCI computed with SCRAMBLED vs COLD baselines for all 24 model-domain runs (excluding Claude Opus, metrics-only). Expected hierarchy: SCRAMBLED > COLD. Observed: inverted in 23/24 runs.*
+*Figure 5. ΔRCI computed with SCRAMBLED vs COLD baselines for all model-domain runs. Expected hierarchy: ΔRCI_COLD > ΔRCI_SCRAMBLED (scrambled context closer to TRUE than no context). Hierarchy holds in 24/25 testable runs.*
 
-The theoretical prediction that SCRAMBLED context should provide more information than COLD (no context) was tested:
+The theoretical prediction from Paper 1 — that scrambled context (presence) should retain partial information compared to no context (COLD/absence) — was tested across 25 model-domain runs:
 
-**Expected**: ΔRCI_SCRAMBLED > ΔRCI_COLD (scrambled context retains some useful information)
-**Observed**: Hierarchy holds in only **1/24** model-domain runs
+**Logic**: If scrambled context retains partial information, SCRAMBLED responses should be closer to TRUE responses than COLD responses are. Therefore ΔRCI_COLD (= TRUE − COLD, larger gap) > ΔRCI_SCRAMBLED (= TRUE − SCRAMBLED, smaller gap).
 
-This unexpected finding suggests that:
-1. COLD baselines may capture residual effects not present in scrambled conditions
-2. Scrambled context may actively interfere with coherent generation
-3. The ΔRCI metric may not be sensitive to partial information in scrambled sequences
+**Observed**: Hierarchy holds in **24/25** model-domain runs.
+
+This strongly validates the Paper 1 claim that **presence > absence** — even disrupted conversational structure retains meaningful contextual information. The sole exception is Gemini Flash medical, where safety filters distort the COLD baseline. Key implications:
+1. Conversational structure carries extractable information even when disordered
+2. SCRAMBLED condition captures a genuine intermediate state between TRUE and COLD
+3. The three-condition protocol (TRUE/COLD/SCRAMBLED) provides a well-ordered information hierarchy suitable as a measurement framework
 
 ### 4.6 Model Rankings (Figure 6)
 
@@ -258,9 +259,9 @@ This suggests that open-weight models, despite generally smaller parameter count
 
 The marginal vendor effect (p=0.075) suggests that organizational-level design decisions (training data, RLHF procedures, safety tuning) create subtle but potentially meaningful behavioral signatures. Moonshot's consistent dominance and Google's safety-filter-driven anomaly represent the extremes.
 
-### 5.5 Information Hierarchy Inversion
+### 5.5 Information Hierarchy Validation
 
-The near-universal inversion of the expected SCRAMBLED > COLD hierarchy (23/24 runs) is a significant methodological finding. It suggests that scrambled context may be actively harmful rather than partially informative—disrupted conversational structure may confuse models more than absence of context.
+The near-universal confirmation of the expected hierarchy (ΔRCI_COLD > ΔRCI_SCRAMBLED in 24/25 runs) is a significant methodological validation. It confirms that scrambled context retains partial information — even disrupted conversational structure provides extractable signal that brings responses closer to the TRUE condition than complete absence of context. This validates the three-condition protocol as a well-ordered measurement framework and confirms Paper 1's "presence > absence" principle at scale.
 
 ### 5.6 Limitations
 

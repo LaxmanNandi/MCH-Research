@@ -490,7 +490,7 @@ def fig5_information_hierarchy(results):
                 'scrambled': np.mean(scram_vals),
                 'domain': r['domain'],
                 'vendor': r['vendor'],
-                'hierarchy_holds': np.mean(scram_vals) > np.mean(cold_vals),
+                'hierarchy_holds': np.mean(cold_vals) > np.mean(scram_vals),
             })
 
     # Sort by cold dRCI
