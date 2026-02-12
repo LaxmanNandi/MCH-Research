@@ -28,8 +28,8 @@ All papers organized in `/papers/` directory by lineage:
 
 ### **Paper 2: Cross-Domain AI Behavior Framework** [IN PREPARATION]
 **Role**: Core study - Standardized methodology, cross-domain validation
-- 24 models × 2 domains × 50 trials = **99,000+ responses**
-- Medical (13 models) + Philosophy (11 models)
+- 25 model-domain runs × 50 trials = **112,500 responses** (14 unique models)
+- Medical (13 models: 6 closed + 7 open) + Philosophy (12 models: 5 closed + 7 open)
 - **Location**: `papers/paper2_standardized/`
 
 ### **Papers 3 & 4: Extensions** [DRAFTS COMPLETE]
@@ -80,9 +80,9 @@ mch_experiments/
 ├── data/                   # Experiment data (single source of truth)
 │   ├── medical/           # Medical domain (STEMI case)
 │   │   ├── closed_models/ # 7 models (GPT, Claude, Gemini)
-│   │   └── open_models/   # 6 models (DeepSeek, Llama, Mistral, Qwen)
+│   │   └── open_models/   # 7 models (DeepSeek, Kimi, Llama, Mistral, Qwen)
 │   └── philosophy/        # Philosophy domain (consciousness)
-│       ├── closed_models/ # 4 models (GPT, Claude, Gemini)
+│       ├── closed_models/ # 5 models (GPT, Claude, Gemini)
 │       └── open_models/   # 7 models (DeepSeek, Kimi, Llama, Mistral, Qwen)
 ├── results/               # Analysis outputs
 │   └── tables/           # Data tables (CSV)

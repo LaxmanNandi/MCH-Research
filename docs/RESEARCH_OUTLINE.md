@@ -36,11 +36,11 @@ This research program investigates how domain structure shapes AI context sensit
 **Title**: *Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning*
 
 **Design**: Controlled cross-domain experimental study
-- **Models**: 24 (balanced across domains and model types)
-  - Medical: 13 models (7 closed + 6 open)
-  - Philosophy: 11 models (4 closed + 7 open)
+- **Models**: 14 unique models, 25 model-domain runs
+  - Medical: 13 models (6 closed + 7 open)
+  - Philosophy: 12 models (5 closed + 7 open)
 - **Trials**: 50 per model (standardized methodology)
-- **Data points**: 2,400 model-domain runs × 30 positions = 72,000 measurements
+- **Data points**: 25 model-domain runs × 50 trials × 90 prompts = 112,500 responses
 
 **Research Questions**:
 1. How does domain structure (closed-goal vs open-goal) affect context sensitivity?
@@ -51,9 +51,9 @@ This research program investigates how domain structure shapes AI context sensit
 - Establishes standardized 50-trial measurement framework
 - Demonstrates domain-specific behavioral signatures
 - Validates ΔRCI as robust cross-domain metric
-- Provides baseline data for 24 state-of-the-art models
+- Provides baseline data for 14 state-of-the-art models across 25 model-domain runs
 
-**Data Status**: 23/24 complete (Kimi K2 medical finishing now)
+**Data Status**: ALL COMPLETE (25/25 model-domain runs)
 
 **Extensions & Deep Dives** (build on Paper 2 standardized data):
 
@@ -99,18 +99,17 @@ This research program investigates how domain structure shapes AI context sensit
 ### Complete Datasets (50 trials each)
 
 **Medical Domain** (13 models):
-- Open (6): DeepSeek V3.1, Llama 4 Maverick/Scout, Qwen3 235B, Mistral Small 24B, Ministral 14B
-- Closed (7): GPT-4o, GPT-4o-mini, GPT-5.2, Claude Haiku/Opus, Gemini Flash
-- *In progress*: Kimi K2 (30/50 trials)
+- Open (7): DeepSeek V3.1, Kimi K2, Llama 4 Maverick/Scout, Qwen3 235B, Mistral Small 24B, Ministral 14B
+- Closed (6): GPT-4o, GPT-4o-mini, GPT-5.2, Claude Haiku, Claude Opus, Gemini Flash
 
-**Philosophy Domain** (11 models):
+**Philosophy Domain** (12 models):
 - Open (7): DeepSeek V3.1, Kimi K2, Llama 4 Maverick/Scout, Ministral 14B, Mistral Small 24B, Qwen3 235B
-- Closed (4): GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash
+- Closed (5): GPT-4o, GPT-4o-mini, GPT-5.2, Claude Haiku, Gemini Flash
 
 ### Response Text Availability
-- **With text** (11 models): 4 phil closed + 7 medical (6 open + Gemini)
-- **Metrics only** (13 models): 7 phil open + 6 medical closed
-- **Use case**: Papers 3 & 4 require response text; Paper 2 uses all 24
+- **With text** (18 runs): 4 phil closed + 7 med open + 5 med closed (excl. Claude Opus) + Gemini Flash separate
+- **Metrics only** (8 runs): 7 phil open + 1 med closed (Claude Opus, recovered)
+- **Use case**: Papers 3 & 4 require response text; Paper 2 uses all 25 runs
 
 ---
 
@@ -145,13 +144,12 @@ mch_experiments/
 
 ## Next Steps
 
-1. **Complete Kimi K2 medical** (in progress, ~30 min)
-2. **Generate Paper 2 figures** (cross-domain comparison, all 24 models)
+1. ~~Complete Kimi K2 medical~~ **DONE** (50/50 trials, dRCI=0.417)
+2. **Generate Paper 2 figures** (cross-domain comparison, all 25 model-domain runs)
 3. **Write Paper 2 draft** (standardized framework)
-4. **Update README** with cross-domain framing
-5. **Prepare submission packages** (Papers 2, 3, 4)
+4. **Prepare submission packages** (Papers 2, 3, 4)
 
 ---
 
 **Last Updated**: February 12, 2026
-**Status**: 23/24 models complete, Paper 2 outline ready
+**Status**: ALL COMPLETE (25/25 model-domain runs), Paper 2 outline ready

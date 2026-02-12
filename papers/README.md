@@ -29,7 +29,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions)
 ### Paper 2 (Standardized): Cross-Domain AI Behavior Framework
 - **Status**: IN PREPARATION
 - **Role**: Core study - Unified methodology, cross-domain validation
-- **Models**: 24 models (13 medical, 11 philosophy)
+- **Models**: 14 unique models, 25 model-domain runs (13 medical + 12 philosophy)
 - **Methodology**: Standardized 50 trials, corrected trial definition
 - **Location**: `paper2_standardized/`
 
@@ -61,11 +61,11 @@ Papers 3 and 4 use subsets of Paper 2's data - **NO data duplication**.
 ```
 /data/
 ├── medical/
-│   ├── open_models/      6 models (DeepSeek, Llama 4 2x, Mistral 2x, Qwen)
-│   └── closed_models/    7 models (GPT 3x, Claude 2x, Gemini 2x)
+│   ├── open_models/      7 models (DeepSeek, Kimi, Llama 4 2x, Mistral 2x, Qwen)
+│   └── closed_models/    6 models (GPT 3x, Claude 2x, Gemini)
 └── philosophy/
     ├── open_models/      7 models (DeepSeek, Kimi, Llama 4 2x, Mistral 2x, Qwen)
-    └── closed_models/    4 models (GPT 2x, Claude, Gemini)
+    └── closed_models/    5 models (GPT 3x, Claude, Gemini)
 ```
 
 ## Quick Navigation
@@ -86,4 +86,4 @@ Papers 3 and 4 use subsets of Paper 2's data - **NO data duplication**.
 ---
 
 **Last Updated**: February 12, 2026
-**Data Status**: 23/24 models complete (Kimi K2 medical in progress)
+**Data Status**: ALL COMPLETE (25/25 model-domain runs)
