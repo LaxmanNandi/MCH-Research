@@ -40,8 +40,8 @@ All data comes from Paper 2's standardized dataset.
 Response text is required for:
 - Computing embedding variances (Var_TRUE, Var_COLD)
 - Variance ratio analysis (Var_TRUE / Var_COLD)
-- Mutual information proxy (1 - Var_Ratio)
-- Entanglement validation (ΔRCI ~ MI_proxy)
+- Variance Reduction Index (1 - Var_Ratio)
+- Entanglement validation (ΔRCI ~ VRI)
 
 Only 11 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
 
@@ -50,7 +50,7 @@ Only 11 of Paper 2's 25 model-domain runs (14 unique models) have complete respo
 - **Correlation**: r = 0.76, p = 1.5×10⁻⁶²
 
 ## Key Findings
-1. **Entanglement validation**: ΔRCI ~ MI_proxy (r=0.76)
+1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76)
 2. **Bidirectional regimes**:
    - Convergent: Var_Ratio < 1 (context reduces variance)
    - Divergent: Var_Ratio > 1 (context increases variance)

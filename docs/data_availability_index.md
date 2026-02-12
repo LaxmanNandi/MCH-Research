@@ -37,10 +37,10 @@ This index summarizes the current data and analysis assets for Paper 3/4 submiss
 
 ## 2. IN-PROGRESS model runs (expected paths + status)
 
-- `data/open_medical_rerun/mch_results_qwen3_235b_medical_50trials.json` — **in progress** (47/50 trials)
-- `data/open_medical_rerun/mch_results_mistral_small_24b_medical_50trials.json` — **queued next**
-- `data/open_medical_rerun/mch_results_ministral_14b_medical_50trials.json` — **pending**
-- `data/open_medical_rerun/mch_results_kimi_k2_medical_50trials.json` — **pending**
+- `data/open_medical_rerun/mch_results_qwen3_235b_medical_50trials.json` ï¿½ **in progress** (47/50 trials)
+- `data/open_medical_rerun/mch_results_mistral_small_24b_medical_50trials.json` ï¿½ **queued next**
+- `data/open_medical_rerun/mch_results_ministral_14b_medical_50trials.json` ï¿½ **pending**
+- `data/open_medical_rerun/mch_results_kimi_k2_medical_50trials.json` ï¿½ **pending**
 
 ---
 
@@ -69,15 +69,15 @@ This index summarizes the current data and analysis assets for Paper 3/4 submiss
 
 ## 4. Key scripts (analysis + validation)
 
-- `scripts/mch_position_analysis.py` — position-dependent ?RCI and DS extraction
-- `scripts/position_analysis_position30_excluded.py` — P30 exclusion and slope changes
-- `scripts/paper3_generate_figures.py` — Paper 3 figures
-- `scripts/validate/test_entanglement_theory.py` — variance/MI proxy entanglement test
-- `scripts/validate/test_independence.py` — ?RCI vs RCI_COLD (invalid) check
-- `scripts/validate/test_independence_var_ratio.py` — RCI_COLD vs Var_Ratio independence
-- `scripts/validate_type2_scaling.py` — Type 2 scaling check
-- `scripts/validate/test_deepseek_simple.py` — DeepSeek V3.1 spot checks
-- `scripts/validate/test_deepseek_theory.py` — DeepSeek V3.1 theory validation
+- `scripts/mch_position_analysis.py` ï¿½ position-dependent ?RCI and DS extraction
+- `scripts/position_analysis_position30_excluded.py` ï¿½ P30 exclusion and slope changes
+- `scripts/paper3_generate_figures.py` ï¿½ Paper 3 figures
+- `scripts/validate/test_entanglement_theory.py` ï¿½ variance/VRI entanglement test
+- `scripts/validate/test_independence.py` ï¿½ ?RCI vs RCI_COLD (invalid) check
+- `scripts/validate/test_independence_var_ratio.py` ï¿½ RCI_COLD vs Var_Ratio independence
+- `scripts/validate_type2_scaling.py` ï¿½ Type 2 scaling check
+- `scripts/validate/test_deepseek_simple.py` ï¿½ DeepSeek V3.1 spot checks
+- `scripts/validate/test_deepseek_theory.py` ï¿½ DeepSeek V3.1 theory validation
 
 ---
 

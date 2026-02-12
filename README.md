@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 14 LLMs across 112,500 responses. Medical (closed-goal) reasoning shows U-shaped dynamics with task enablement spikes; philosophy (open-goal) shows inverted-U patterns. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with MI proxy, p<10⁻⁶²). Identifies safety-critical divergence in medical summarization tasks.
+> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 14 LLMs across 112,500 responses. Medical (closed-goal) reasoning shows U-shaped dynamics with task enablement spikes; philosophy (open-goal) shows inverted-U patterns. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with VRI, p<10⁻⁶²). Identifies safety-critical divergence in medical summarization tasks.
 
 **Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 14 models)** → Papers 3 & 4 (deep dives)
 

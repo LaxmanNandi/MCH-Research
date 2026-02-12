@@ -44,11 +44,11 @@ For each trial and position, we compute the mean cosine similarity between each 
 
 ---
 
-## D. MI proxy definition
-We define an MI proxy derived from variance ratio:
+## D. Variance Reduction Index (VRI) definition
+We define VRI derived from variance ratio:
 
 ```
-MI_Proxy = 1 - Var_Ratio
+VRI = 1 - Var_Ratio
 ```
 
 This is monotonic with the direction of predictability change: positive values indicate reduced variance (more predictability) under context; negative values indicate increased variance (less predictability).
@@ -56,9 +56,9 @@ This is monotonic with the direction of predictability change: positive values i
 ---
 
 ## E. Correlation analysis
-We compute Pearson correlation between DRCI and MI_Proxy over pooled model-position points (N = 330). Reported statistics include r and p-value for the pooled test.
+We compute Pearson correlation between DRCI and VRI over pooled model-position points (N = 330). Reported statistics include r and p-value for the pooled test.
 
-We also compute per-model correlations to examine consistency and directionality. If MI_Proxy is defined as Var_Ratio instead of 1 - Var_Ratio, the correlation sign will invert; therefore we report sign conventions explicitly with the proxy definition.
+We also compute per-model correlations to examine consistency and directionality. If VRI is defined as Var_Ratio instead of 1 - Var_Ratio, the correlation sign will invert; therefore we report sign conventions explicitly with the VRI definition.
 
 ---
 

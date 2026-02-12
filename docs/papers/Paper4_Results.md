@@ -6,14 +6,14 @@
 ## RESULTS
 
 ### Study overview and notation
-We quantify entanglement using the Delta Relational Coherence Index (DRCI), computed from within-condition response coherence (TRUE vs COLD). DRCI is interpreted here as **context-induced predictability change**. We operationalize predictability with a variance ratio measured over response embeddings, and relate DRCI to a mutual-information (MI) proxy.
+We quantify entanglement using the Delta Relational Coherence Index (DRCI), computed from within-condition response coherence (TRUE vs COLD). DRCI is interpreted here as **context-induced predictability change**. We operationalize predictability with a variance ratio measured over response embeddings, and derive a Variance Reduction Index (VRI) as a practical surrogate for information-theoretic coupling.
 
 Key quantities:
 
 ```
 DRCI = mean(RCI_TRUE) - mean(RCI_COLD)
 Var_Ratio = Var_TRUE / Var_COLD
-MI_Proxy = 1 - Var_Ratio
+VRI = 1 - Var_Ratio
 ```
 
 Where:
@@ -21,12 +21,12 @@ Where:
 - RCI_COLD = mean self-similarity of each response to all other responses in COLD condition
 - Var_TRUE and Var_COLD are the variances of response embeddings under TRUE and COLD conditions
 
-Positive MI_Proxy indicates reduced variance (more predictability) with context.
+Positive VRI indicates reduced variance (more predictability) with context.
 
 ---
 
-### Finding 1: DRCI tracks an MI proxy (entanglement signal)
-Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI correlated strongly with the MI proxy derived from variance ratios:
+### Finding 1: DRCI tracks VRI (entanglement signal)
+Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI correlated strongly with VRI derived from variance ratios:
 
 - Pooled correlation: r = 0.76, p = 1.5e-62 (N = 330 model-position points)
   - Data: 11 model-domain runs × 30 positions = 330 points
@@ -38,7 +38,7 @@ Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI
 
 Interpretation: DRCI increases as context **reduces** response variance. This supports the entanglement view: context couples the response distribution to prior information, changing the predictability of outputs.
 
-**Figure 1.** DRCI vs MI_Proxy (pooled model-position points).
+**Figure 1.** DRCI vs VRI (pooled model-position points).
 
 ![Figure 1: Entanglement validation](../figures/publication/entanglement_validation.png)
 
@@ -89,7 +89,7 @@ This suggests domain-specific architecture effects: medical prompts tend to **de
 ---
 
 ### Finding 5: Variance sufficiency (simple surrogate works)
-The variance ratio provides a practical, low-cost surrogate for entanglement. DRCI tracks MI_Proxy without requiring k-NN entropy estimation or full mutual information computation. This makes entanglement measurement accessible at scale.
+The variance ratio provides a practical, low-cost surrogate for entanglement. DRCI tracks VRI without requiring k-NN entropy estimation or full mutual information computation. This makes entanglement measurement accessible at scale.
 
 ---
 
@@ -125,7 +125,7 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 ## FIGURE LIST (Paper 4)
 
 ### Main Figures
-1. **Figure 1:** DRCI vs MI_Proxy entanglement validation (r=0.76, 11 models, 330 points).
+1. **Figure 1:** DRCI vs VRI entanglement validation (r=0.76, 11 models, 330 points).
 2. **Figure 2:** Multi-panel entanglement analysis (regime map, position patterns, domain comparison).
 3. **Figure 3:** Llama safety anomaly at medical P30 (divergent variance signatures).
 4. **Figure 4:** Independence test: RCI vs Variance Ratio correlation.

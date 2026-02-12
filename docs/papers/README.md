@@ -10,7 +10,7 @@
 - `Paper4_Methods.md` - Detailed methodology
 - `Paper4_Claims.md` - Claims and evidence table
 - **Data**: 11 model-domain runs × 30 positions = 330 points
-- **Key Finding**: ΔRCI correlates with MI proxy (r=0.76, p=1.5e-62)
+- **Key Finding**: ΔRCI correlates with VRI (r=0.76, p=1.5e-62)
 
 ## Safety Note
 - `Llama_Safety_Note.md` - Llama models P30 divergence analysis

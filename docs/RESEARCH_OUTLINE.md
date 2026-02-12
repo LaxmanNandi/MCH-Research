@@ -82,7 +82,7 @@ This research program investigates how domain structure shapes AI context sensit
 - **Innovation**: Variance-based entanglement measure
 
 **Key Findings**:
-1. **Entanglement validation**: ΔRCI ~ MI_proxy (r=0.76, p<10⁻⁶²)
+1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76, p<10⁻⁶²)
 2. **Bidirectional regimes**:
    - Convergent: Var_Ratio < 1 (context reduces variance)
    - Divergent: Var_Ratio > 1 (context increases variance)

@@ -4,10 +4,10 @@
 **Title**: *Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling*
 
 ## Overview
-Extension of Paper 2 providing information-theoretic interpretation of ΔRCI. Demonstrates that context effects represent predictability modulation via variance ratio, validating ΔRCI as mutual information proxy.
+Extension of Paper 2 providing information-theoretic interpretation of ΔRCI. Demonstrates that context effects represent predictability modulation via variance ratio, validating ΔRCI as a Variance Reduction Index (VRI).
 
 ## Key Findings
-1. **Entanglement validation**: ΔRCI ~ MI_proxy (r=0.76, p=1.5×10⁻⁶², N=330)
+1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76, p=1.5×10⁻⁶², N=330)
 2. **Bidirectional entanglement**:
    - Convergent: Var_Ratio < 1, ΔRCI > 0 (context reduces variance)
    - Divergent: Var_Ratio > 1, ΔRCI < 0 (context increases variance)
@@ -37,7 +37,7 @@ Extension of Paper 2 providing information-theoretic interpretation of ΔRCI. De
 - `Paper4_Results.md`: Complete results and discussion
 
 ## Main Figures
-1. ΔRCI vs MI_Proxy entanglement validation (r=0.76)
+1. ΔRCI vs VRI entanglement validation (r=0.76)
 2. Multi-panel entanglement analysis (regime map, position patterns, domain comparison)
 3. Llama safety anomaly at medical P30 (divergent variance signatures)
 4. Independence test: RCI vs Variance Ratio
