@@ -179,10 +179,10 @@ Total: ~99,000 responses (24 models)
 
 ### **9. Publishability**
 
-**Paper 1** (arXiv preprint):
+**Paper 1** (Preprints.org):
 - ✓ Good: Novel metric, interesting patterns
 - ⚠ Limited: Single domain, exploratory
-- Target: arXiv, workshops, conferences
+- Target: Preprints.org, workshops, conferences
 
 **Paper 2** (Journal-quality):
 - ✓ Controlled experimental design

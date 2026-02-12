@@ -66,7 +66,7 @@ python scripts/validate/verify_statistics.py
 |------|-------------|
 | `data/philosophy_results/` | 100 trials x 7 models |
 | `data/medical_results/` | 50 trials x 6 models |
-| `MCH_Paper1_arXiv.pdf` | Published manuscript |
+| `MCH_Paper1_arXiv.pdf` | Published manuscript (Preprints.org) |
 | `figures/` | Publication figures |
 
 ## Need Help?

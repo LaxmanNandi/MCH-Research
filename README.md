@@ -73,7 +73,7 @@ Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and mutual informat
 ```
 mch_experiments/
 ├── papers/                 # Research outputs organized by paper
-│   ├── paper1_legacy/     # Paper 1 (arXiv, mixed methodology)
+│   ├── paper1_legacy/     # Paper 1 (Preprints.org, mixed methodology)
 │   ├── paper2_standardized/  # Paper 2 (IN PREP, core study)
 │   ├── paper3_cross_domain/  # Paper 3 (temporal dynamics)
 │   └── paper4_entanglement/  # Paper 4 (information theory)
