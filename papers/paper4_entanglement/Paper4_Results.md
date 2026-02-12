@@ -6,27 +6,29 @@
 ## RESULTS
 
 ### Study overview and notation
-We quantify entanglement using the Delta Relational Coherence Index (DRCI), computed from within-condition response coherence (TRUE vs COLD). DRCI is interpreted here as **context-induced predictability change**. We operationalize predictability with a variance ratio measured over response embeddings, and relate DRCI to a mutual-information (MI) proxy.
+We quantify entanglement using the Delta Relational Coherence Index (DRCI), computed from within-condition response coherence (TRUE vs COLD). DRCI is interpreted here as **context-induced predictability change**. We operationalize predictability with a variance ratio measured over response embeddings, and derive a Variance Reduction Index (VRI) as a practical surrogate for information-theoretic coupling.
+
+Note on RCI_COLD: RCI_COLD reflects responses to prompts delivered with no conversational history (the COLD condition), not cross-condition similarity. Each RCI value is computed within its own condition.
 
 Key quantities:
 
 ```
 DRCI = mean(RCI_TRUE) - mean(RCI_COLD)
 Var_Ratio = Var_TRUE / Var_COLD
-MI_Proxy = 1 - Var_Ratio
+VRI = 1 - Var_Ratio
 ```
 
 Where:
 - RCI_TRUE = mean self-similarity of each response to all other responses in TRUE condition
 - RCI_COLD = mean self-similarity of each response to all other responses in COLD condition
-- Var_TRUE and Var_COLD are the variances of response embeddings under TRUE and COLD conditions
+- Var_TRUE and Var_COLD = variance of per-trial mean RCI values across 50 independent trials at each prompt position p. For a model-domain run with 50 trials and 30 positions, this yields 30 Var_Ratio measurements.
 
-Positive MI_Proxy indicates reduced variance (more predictability) with context.
+Positive VRI indicates reduced variance (more predictability) with context. We term this a Variance Reduction Index rather than a mutual information proxy: while variance reduction tracks conditional entropy reduction under Gaussian assumptions (MI = -0.5 * log(det(Σ_joint) / det(Σ_X)det(Σ_Y))), our embedding distributions are only approximately Gaussian. The strong empirical correlation (r = 0.76) between DRCI and VRI validates the surrogate without requiring the Gaussian assumption to hold exactly.
 
 ---
 
-### Finding 1: DRCI tracks an MI proxy (entanglement signal)
-Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI correlated strongly with the MI proxy derived from variance ratios:
+### Finding 1: DRCI tracks VRI (entanglement signal)
+Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI correlated strongly with VRI derived from variance ratios:
 
 - Pooled correlation: r = 0.76, p = 1.5e-62 (N = 330 model-position points)
   - Data: 11 model-domain runs × 30 positions = 330 points
@@ -38,7 +40,7 @@ Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI
 
 Interpretation: DRCI increases as context **reduces** response variance. This supports the entanglement view: context couples the response distribution to prior information, changing the predictability of outputs.
 
-**Figure 1.** DRCI vs MI_Proxy (pooled model-position points).
+**Figure 1.** DRCI vs VRI (pooled model-position points).
 
 ![Figure 1: Entanglement validation](figures/entanglement_validation.png)
 
@@ -89,7 +91,7 @@ This suggests domain-specific architecture effects: medical prompts tend to **de
 ---
 
 ### Finding 5: Variance sufficiency (simple surrogate works)
-The variance ratio provides a practical, low-cost surrogate for entanglement. DRCI tracks MI_Proxy without requiring k-NN entropy estimation or full mutual information computation. This makes entanglement measurement accessible at scale.
+The variance ratio provides a practical, low-cost surrogate for entanglement. DRCI tracks VRI without requiring k-NN entropy estimation or full mutual information computation. This makes entanglement measurement accessible at scale.
 
 ---
 
@@ -112,24 +114,9 @@ The emergence of convergent vs divergent classes suggests architectural differen
 ### Limitations & Scope
 This study is intentionally scoped to text-only interactions (no multimodal inputs), two domains (philosophy and medical reasoning), and a focused model set rather than an exhaustive survey. We analyze observable text outputs without embedding-level interpretability or internal activations; our measures rely on cosine-similarity proxies rather than direct mutual information. Each condition uses 50 trials per model, which is adequate for stable estimates in this setting but not large-scale.
 
-These choices were deliberate to isolate core effects (entanglement signatures, predictability shifts, and safety-relevant divergence) with manageable experimental complexity. Claims are matched to this scope: supported findings are framed within text-only, two-domain evaluation, and broader generalizations are stated as hypotheses. Extending to multimodal tasks, additional domains, larger model suites, and direct information-theoretic or activation-level analyses are clear next steps.
+Additionally, cross-model Var_Ratio comparisons should be interpreted with care: models with higher baseline RCI variance (Var_COLD) will naturally produce different Var_Ratio magnitudes. We report raw Var_Ratio rather than z-score normalized values because absolute predictability change is the deployment-relevant quantity—a Var_Ratio of 7.46 represents a concrete safety concern regardless of baseline variance. However, normalized comparisons would be appropriate for ranking models on relative sensitivity, and this remains a direction for future work.
 
-### Reviewer prep: known issues to address in manuscript
-
-1. **MI Proxy naming:** `MI_Proxy = 1 - Var_Ratio` is a variance reduction index, not actual mutual information. For the manuscript, either:
-   - Rename to "Variance Reduction Index (VRI)" and cite the MI connection as motivation, or
-   - Add a Gaussian justification: under multivariate Gaussian assumptions, MI = -0.5 * log(det(Σ_joint)/det(Σ_X)det(Σ_Y)), and variance ratio tracks conditional entropy reduction. The r=0.76 correlation validates the proxy empirically even if the Gaussian assumption is approximate.
-
-2. **Var_Ratio precision:** Current definition (`Var_TRUE / Var_COLD`) should specify in the manuscript: "Variance of per-trial mean RCI values across 50 independent trials at each prompt position p. For a model-domain run with 50 trials and 30 positions, this yields 30 Var_Ratio measurements."
-
-3. **Cross-model normalization:** Models with higher baseline RCI variance will naturally produce different Var_Ratios. The manuscript should either:
-   - Acknowledge this as a limitation, or
-   - Add z-score normalization analysis showing results are robust, or
-   - Argue that raw Var_Ratio is the correct metric because it captures absolute predictability change (which matters for deployment)
-
-4. **Causality language:** "Context shapes predictability" is observational. The manuscript should avoid causal claims unless we can rule out confounds (prompt structure, instruction length, domain-specific vocabulary). Current framing in Paper 2 ("shapes" not "causes") is appropriate — maintain this in Paper 4.
-
-5. **ΔRCI consistency:** Definition is consistent across all papers (verified Feb 2026). For clarity, the manuscript should include a one-line note: "RCI_COLD reflects responses to prompts delivered with no conversational history, not cross-condition similarity."
+These choices were deliberate to isolate core effects (entanglement signatures, predictability shifts, and safety-relevant divergence) with manageable experimental complexity. Claims are matched to this scope: supported findings are framed within text-only, two-domain evaluation, and broader generalizations are stated as hypotheses. Extending to multimodal tasks, additional domains, larger model suites, direct information-theoretic or activation-level analyses, and cross-model normalization studies are clear next steps.
 
 ### Future work
 - Run the planned Type 2 scaling experiment at P5-P30 and compute Var_Ratio/ESI at each position.
@@ -142,7 +129,7 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 ## FIGURE LIST (Paper 4)
 
 ### Main Figures
-1. **Figure 1:** DRCI vs MI_Proxy entanglement validation (r=0.76, 11 models, 330 points).
+1. **Figure 1:** DRCI vs VRI entanglement validation (r=0.76, 11 models, 330 points).
 2. **Figure 2:** Multi-panel entanglement analysis (regime map, position patterns, domain comparison).
 3. **Figure 3:** Llama safety anomaly at medical P30 (divergent variance signatures).
 4. **Figure 4:** Independence test: RCI vs Variance Ratio correlation.
