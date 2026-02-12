@@ -1,6 +1,6 @@
 # Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning
 
-**Authors**: Dr. Laxman M M (Nandi), MBBS
+**Authors**: Dr. Laxman M M, MBBS
 **Affiliation**: Primary Health Centre Manchi, Karnataka, India
 **Status**: DRAFT — February 2026
 
@@ -317,7 +317,7 @@ https://github.com/LaxmanNandi/MCH-Experiments
 
 [4] Skinner, B. F. (1957). *Verbal Behavior*. Copley Publishing Group.
 
-[5] Laxman, M M (Nandi). (2026). Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI. *Preprints.org*. DOI: 10.20944/preprints202601.1881.v2.
+[5] Laxman, M M. (2026). Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI. *Preprints.org*. DOI: 10.20944/preprints202601.1881.v2.
 
 [6] Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). Attention Is All You Need. *Advances in Neural Information Processing Systems*, 30. arXiv:1706.03762.
 

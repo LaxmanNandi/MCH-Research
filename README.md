@@ -168,7 +168,7 @@ All semantic similarity computed using `sentence-transformers/all-MiniLM-L6-v2` 
 ```bibtex
 @article{laxman2026context,
   title={Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI},
-  author={Laxman, M M (Nandi)},
+  author={Laxman, M M},
   journal={Preprints.org},
   doi={10.20944/preprints202601.1881.v2},
   year={2026},
