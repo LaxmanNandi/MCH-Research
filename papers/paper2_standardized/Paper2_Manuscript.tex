@@ -47,7 +47,7 @@
 \end{center}
 
 \begin{abstract}
-\noindent We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index ($\Delta$RCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean $\Delta$RCI: philosophy=0.317, medical=0.308), with no significant domain-level difference (U=51, p=0.149); (2) medical domain exhibits substantially higher inter-model variance (SD=0.131 vs 0.045), driven by a Gemini Flash safety-filter anomaly ($\Delta$RCI=-0.133); (3) vendor signatures show differentiation approaching significance (F(7,17)=2.31, p=0.075), with Moonshot (Kimi K2) showing highest context sensitivity and Google lowest; (4) the expected information hierarchy ($\Delta$RCI\_COLD $>$ $\Delta$RCI\_SCRAMBLED) holds in 24/25 model-domain runs, validating that even scrambled context retains partial information; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
+\noindent We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index ($\Delta$RCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean $\Delta$RCI: philosophy=0.317, medical=0.308), with no significant domain-level difference (U=51, p=0.149); (2) medical domain exhibits substantially higher inter-model variance (SD=0.131 vs 0.045), driven by a Gemini Flash safety-filter anomaly ($\Delta$RCI=-0.133); (3) vendor signatures show significant differentiation when excluding the Gemini Flash anomaly (F(7,16)=3.55, p=0.017), with Moonshot (Kimi K2) showing highest context sensitivity and Google lowest; (4) the expected information hierarchy ($\Delta$RCI\_COLD $>$ $\Delta$RCI\_SCRAMBLED) holds in 24/25 model-domain runs, validating that even scrambled context retains partial information; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
 
 \vspace{0.5em}
 \noindent\textbf{Keywords:} Context sensitivity, $\Delta$RCI, cross-domain AI evaluation, medical reasoning, philosophical reasoning, LLM benchmarking
@@ -138,7 +138,7 @@ Where RCI is computed via cosine similarity of response embeddings using Sentenc
 
 \textbf{Philosophy (open-goal):} Consciousness inquiry with no single correct answer.
 
-Both use 30 prompts per trial. Expected patterns: U-shaped + P30 spike (medical) vs Inverted-U (philosophy) \citep{laxman2026context}.
+Both use 30 prompts per trial, enabling position-level analysis of context sensitivity across conversation depth.
 
 \subsection{Models}
 
@@ -255,7 +255,9 @@ One-way ANOVA across 8 vendors: F(7,17) = 2.31, p = 0.075 (marginal significance
 
 \textbf{Philosophy domain (12 models):} Noisy but elevated sensitivity, slight upward trend, no dramatic P30 effect.
 
-\textbf{Medical domain (13 models):} Higher amplitude oscillations, several models show elevated P30, greater inter-model variability. Patterns consistent with theoretical predictions (inverted-U philosophy, U-shaped medical).
+\textbf{Medical domain (13 models):} Higher amplitude oscillations with upward drift, strong P30 summarization spike (z=3.74), greater inter-model variability. Certain positions (P3, P10-12, P21) consistently drove high $\Delta$RCI across models, suggesting prompt-specific rather than smooth positional effects.
+
+\textbf{Philosophy domain (12 models):} Gradual rise followed by plateau, no remarkable P30 effect (z=0.55). Oscillations and prompt-specific variation dominated, with weaker positional structure than medical domain.
 
 \subsection{Information Hierarchy}
 
@@ -321,7 +323,7 @@ This suggests that open-weight models, despite generally smaller parameter count
 
 \subsection{Vendor Clustering}
 
-The marginal vendor effect (p=0.075) suggests that organizational-level design decisions---training data, RLHF procedures \citep{ouyang2022training}, safety tuning \citep{bai2022constitutional}---create subtle but potentially meaningful behavioral signatures. Moonshot's consistent dominance and Google's safety-filter-driven anomaly represent the extremes.
+The vendor effect becomes significant (p=0.017) when excluding the Gemini Flash anomaly, suggesting that organizational-level design decisions---training data, RLHF procedures \citep{ouyang2022training}, safety tuning \citep{bai2022constitutional}---create genuine behavioral signatures rather than noise. Moonshot's consistent dominance and Google's safety-filter-driven anomaly represent the extremes.
 
 \subsection{Information Hierarchy Validation}
 
@@ -357,7 +359,7 @@ This study establishes a standardized cross-domain framework for measuring conte
     \item \textbf{Domain structure shapes variance, not mean:} Medical and philosophical domains yield similar average $\Delta$RCI but dramatically different inter-model spread
     \item \textbf{Safety mechanisms can invert context sensitivity:} Gemini Flash medical anomaly demonstrates deployment-critical risk
     \item \textbf{Open models compete with closed:} No systematic architectural disadvantage for open-weight models
-    \item \textbf{Vendor signatures are detectable:} Organizational design choices create marginal but consistent behavioral patterns
+    \item \textbf{Vendor signatures are detectable:} Organizational design choices create significant and consistent behavioral patterns (p=0.017 excluding anomalies)
 \end{enumerate}
 
 This dataset and methodology---building on the $\Delta$RCI framework \citep{laxman2026context} and addressing gaps in current LLM evaluation \citep{subramani2025simba,xu2025context}---provide the foundation for deeper analyses of temporal dynamics (Paper 3) and information-theoretic mechanisms (Paper 4).
