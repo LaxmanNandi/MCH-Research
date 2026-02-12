@@ -317,28 +317,28 @@ https://github.com/LaxmanNandi/MCH-Experiments
 
 | Model | Domain | Type | n | Mean ΔRCI | SD | 95% CI |
 |-------|--------|------|---|-----------|-----|--------|
-| GPT-4o | Philosophy | Closed | 50 | 0.283 | — | — |
-| GPT-4o-mini | Philosophy | Closed | 50 | 0.269 | — | — |
-| GPT-5.2 | Philosophy | Closed | 50 | 0.308 | — | — |
-| Claude Haiku | Philosophy | Closed | 50 | 0.331 | — | — |
-| Gemini Flash | Philosophy | Closed | 50 | 0.338 | — | — |
-| DeepSeek V3.1 | Philosophy | Open | 50 | 0.304 | — | — |
-| Kimi K2 | Philosophy | Open | 50 | 0.428 | — | — |
-| Llama 4 Maverick | Philosophy | Open | 50 | 0.269 | — | — |
-| Llama 4 Scout | Philosophy | Open | 50 | 0.298 | — | — |
-| Ministral 14B | Philosophy | Open | 50 | 0.373 | — | — |
-| Mistral Small 24B | Philosophy | Open | 50 | 0.281 | — | — |
-| Qwen3 235B | Philosophy | Open | 50 | 0.322 | — | — |
-| GPT-4o | Medical | Closed | 50 | 0.299 | — | — |
-| GPT-4o-mini | Medical | Closed | 50 | 0.319 | — | — |
-| GPT-5.2 | Medical | Closed | 50 | 0.379 | — | — |
-| Claude Haiku | Medical | Closed | 50 | 0.340 | — | — |
-| Claude Opus | Medical | Closed | 50 | 0.339 | — | — |
-| Gemini Flash | Medical | Closed | 50 | −0.133 | — | — |
-| DeepSeek V3.1 | Medical | Open | 50 | 0.320 | — | — |
-| Kimi K2 | Medical | Open | 50 | 0.417 | — | — |
-| Llama 4 Maverick | Medical | Open | 50 | 0.317 | — | — |
-| Llama 4 Scout | Medical | Open | 50 | 0.323 | — | — |
-| Ministral 14B | Medical | Open | 50 | 0.391 | — | — |
-| Mistral Small 24B | Medical | Open | 50 | 0.365 | — | — |
-| Qwen3 235B | Medical | Open | 50 | 0.328 | — | — |
+| GPT-4o | Philosophy | Closed | 50 | 0.283 | 0.011 | ±0.003 |
+| GPT-4o-mini | Philosophy | Closed | 50 | 0.269 | 0.009 | ±0.002 |
+| GPT-5.2 | Philosophy | Closed | 50 | 0.308 | 0.015 | ±0.004 |
+| Claude Haiku | Philosophy | Closed | 50 | 0.331 | 0.012 | ±0.003 |
+| Gemini Flash | Philosophy | Closed | 50 | 0.338 | 0.022 | ±0.006 |
+| DeepSeek V3.1 | Philosophy | Open | 50 | 0.304 | 0.014 | ±0.004 |
+| Kimi K2 | Philosophy | Open | 50 | 0.428 | 0.022 | ±0.006 |
+| Llama 4 Maverick | Philosophy | Open | 50 | 0.269 | 0.012 | ±0.003 |
+| Llama 4 Scout | Philosophy | Open | 50 | 0.298 | 0.011 | ±0.003 |
+| Ministral 14B | Philosophy | Open | 50 | 0.373 | 0.015 | ±0.004 |
+| Mistral Small 24B | Philosophy | Open | 50 | 0.281 | 0.009 | ±0.003 |
+| Qwen3 235B | Philosophy | Open | 50 | 0.322 | 0.009 | ±0.003 |
+| GPT-4o | Medical | Closed | 50 | 0.299 | 0.010 | ±0.003 |
+| GPT-4o-mini | Medical | Closed | 50 | 0.319 | 0.010 | ±0.003 |
+| GPT-5.2 | Medical | Closed | 50 | 0.379 | 0.021 | ±0.006 |
+| Claude Haiku | Medical | Closed | 50 | 0.340 | 0.010 | ±0.003 |
+| Claude Opus | Medical | Closed | 50 | 0.339 | 0.017 | ±0.005 |
+| Gemini Flash | Medical | Closed | 50 | −0.133 | 0.026 | ±0.007 |
+| DeepSeek V3.1 | Medical | Open | 50 | 0.320 | 0.010 | ±0.003 |
+| Kimi K2 | Medical | Open | 50 | 0.417 | 0.016 | ±0.004 |
+| Llama 4 Maverick | Medical | Open | 50 | 0.316 | 0.012 | ±0.003 |
+| Llama 4 Scout | Medical | Open | 50 | 0.323 | 0.011 | ±0.003 |
+| Ministral 14B | Medical | Open | 50 | 0.391 | 0.014 | ±0.004 |
+| Mistral Small 24B | Medical | Open | 50 | 0.365 | 0.015 | ±0.004 |
+| Qwen3 235B | Medical | Open | 50 | 0.328 | 0.010 | ±0.003 |
