@@ -114,6 +114,23 @@ This study is intentionally scoped to text-only interactions (no multimodal inpu
 
 These choices were deliberate to isolate core effects (entanglement signatures, predictability shifts, and safety-relevant divergence) with manageable experimental complexity. Claims are matched to this scope: supported findings are framed within text-only, two-domain evaluation, and broader generalizations are stated as hypotheses. Extending to multimodal tasks, additional domains, larger model suites, and direct information-theoretic or activation-level analyses are clear next steps.
 
+### Reviewer prep: known issues to address in manuscript
+
+1. **MI Proxy naming:** `MI_Proxy = 1 - Var_Ratio` is a variance reduction index, not actual mutual information. For the manuscript, either:
+   - Rename to "Variance Reduction Index (VRI)" and cite the MI connection as motivation, or
+   - Add a Gaussian justification: under multivariate Gaussian assumptions, MI = -0.5 * log(det(Σ_joint)/det(Σ_X)det(Σ_Y)), and variance ratio tracks conditional entropy reduction. The r=0.76 correlation validates the proxy empirically even if the Gaussian assumption is approximate.
+
+2. **Var_Ratio precision:** Current definition (`Var_TRUE / Var_COLD`) should specify in the manuscript: "Variance of per-trial mean RCI values across 50 independent trials at each prompt position p. For a model-domain run with 50 trials and 30 positions, this yields 30 Var_Ratio measurements."
+
+3. **Cross-model normalization:** Models with higher baseline RCI variance will naturally produce different Var_Ratios. The manuscript should either:
+   - Acknowledge this as a limitation, or
+   - Add z-score normalization analysis showing results are robust, or
+   - Argue that raw Var_Ratio is the correct metric because it captures absolute predictability change (which matters for deployment)
+
+4. **Causality language:** "Context shapes predictability" is observational. The manuscript should avoid causal claims unless we can rule out confounds (prompt structure, instruction length, domain-specific vocabulary). Current framing in Paper 2 ("shapes" not "causes") is appropriate — maintain this in Paper 4.
+
+5. **ΔRCI consistency:** Definition is consistent across all papers (verified Feb 2026). For clarity, the manuscript should include a one-line note: "RCI_COLD reflects responses to prompts delivered with no conversational history, not cross-condition similarity."
+
 ### Future work
 - Run the planned Type 2 scaling experiment at P5-P30 and compute Var_Ratio/ESI at each position.
 - Expand to third domains (legal, technical, creative) to test domain architecture claims.
