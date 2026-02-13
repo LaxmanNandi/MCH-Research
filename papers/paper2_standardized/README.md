@@ -1,7 +1,7 @@
-# Paper 2 (Standardized): Cross-Domain AI Behavior Framework
+# Paper 2 (Standardized): Scaling Context Sensitivity
 
-**Status**: IN PREPARATION
-**Title**: *Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning*
+**Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026)
+**Title**: *Scaling Context Sensitivity: A Standardized Benchmark of ΔRCI Across 25 Model-Domain Runs*
 
 ## Overview
 Core standardized study with unified methodology across 14 unique models and 2 domains (25 model-domain runs). Demonstrates domain-specific behavioral signatures and validates ΔRCI as robust cross-domain metric.

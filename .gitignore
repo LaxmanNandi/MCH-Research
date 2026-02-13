@@ -34,5 +34,8 @@ analysis/
 # Prompts (local working notes)
 prompts/
 
+# Claude Code project context (local only)
+CLAUDE.md
+
 # Logs
 *.log

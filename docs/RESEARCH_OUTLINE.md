@@ -31,9 +31,10 @@ This research program investigates how domain structure shapes AI context sensit
 
 ---
 
-### **Paper 2 (Standardized): Cross-Domain AI Behavior Framework** [IN PREPARATION]
+### **Paper 2 (Standardized): Scaling Context Sensitivity** [ACCEPTED - Preprints.org]
 **Role**: Core Study - Unified methodology, cross-domain validation
-**Title**: *Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning*
+**Title**: *Scaling Context Sensitivity: A Standardized Benchmark of ΔRCI Across 25 Model-Domain Runs*
+**Status**: Preprints.org (ID: 198770, accepted February 12, 2026)
 
 **Design**: Controlled cross-domain experimental study
 - **Models**: 14 unique models, 25 model-domain runs

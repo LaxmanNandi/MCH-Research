@@ -26,8 +26,8 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions)
 - **Domains**: 2 (Philosophy: 700 trials + Medical: 300 trials = 1,000 total)
 - **Location**: `paper1_legacy/`
 
-### Paper 2 (Standardized): Cross-Domain AI Behavior Framework
-- **Status**: IN PREPARATION
+### Paper 2 (Standardized): Scaling Context Sensitivity
+- **Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026)
 - **Role**: Core study - Unified methodology, cross-domain validation
 - **Models**: 14 unique models, 25 model-domain runs (13 medical + 12 philosophy)
 - **Methodology**: Standardized 50 trials, corrected trial definition

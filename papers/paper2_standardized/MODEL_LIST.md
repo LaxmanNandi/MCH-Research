@@ -1,6 +1,6 @@
 # Paper 2 (Standardized): Models and Methodology
 
-**Status**: IN PREPARATION
+**Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026)
 **Methodology**: Unified standard - 50 trials per model, corrected trial definition
 
 ## All Models (14 unique, 25 model-domain runs)

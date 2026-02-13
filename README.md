@@ -26,11 +26,13 @@ All papers organized in `/papers/` directory by lineage:
 - **Location**: `papers/paper1_legacy/`
 - **Status**: [Preprints.org](https://www.preprints.org/manuscript/202601.1881/v2) - DOI:10.20944/preprints202601.1881.v2 (February 2, 2026, corrected version)
 
-### **Paper 2: Cross-Domain AI Behavior Framework** [IN PREPARATION]
+### **Paper 2: Scaling Context Sensitivity** [ACCEPTED - Preprints.org]
+**Title**: *Scaling Context Sensitivity: A Standardized Benchmark of ΔRCI Across 25 Model-Domain Runs*
 **Role**: Core study - Standardized methodology, cross-domain validation
 - 25 model-domain runs × 50 trials = **112,500 responses** (14 unique models)
 - Medical (13 models: 6 closed + 7 open) + Philosophy (12 models: 5 closed + 7 open)
 - **Location**: `papers/paper2_standardized/`
+- **Status**: Preprints.org (ID: 198770, accepted February 12, 2026)
 
 ### **Papers 3 & 4: Extensions** [DRAFTS COMPLETE]
 **Role**: Deep dives using Paper 2's standardized dataset
