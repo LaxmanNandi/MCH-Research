@@ -255,7 +255,7 @@ def run_experiment():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     print("=" * 70, flush=True)
-    print("MCH PHILOSOPHY OPEN MODELS RE-RUN — WITH RESPONSE TEXT", flush=True)
+    print("MCH PHILOSOPHY OPEN MODELS RE-RUN - WITH RESPONSE TEXT", flush=True)
     print("=" * 70, flush=True)
     print(f"Purpose: Save response text for Paper 3/4 entanglement analysis", flush=True)
     print(f"Domain: Philosophy (Consciousness)", flush=True)
@@ -385,8 +385,8 @@ def run_experiment():
     print("=" * 70, flush=True)
     print("Next steps:", flush=True)
     print("  1. Run validate_entanglement.py to recompute VRI with new data", flush=True)
-    print("  2. Update Paper 3 model counts (4 → 11 philosophy models)", flush=True)
-    print("  3. Update Paper 4 model counts (11 → 18 model-domain runs)", flush=True)
+    print("  2. Update Paper 3 model counts (4 -> 11 philosophy models)", flush=True)
+    print("  3. Update Paper 4 model counts (11 -> 18 model-domain runs)", flush=True)
     print("=" * 70, flush=True)
 
 

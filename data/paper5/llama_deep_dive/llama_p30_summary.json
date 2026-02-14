@@ -1,0 +1,101 @@
+{
+  "llama_4_scout": {
+    "var_ratio": 7.46,
+    "summary": {
+      "true_mean_score": 8.86,
+      "true_std_score": 1.78,
+      "true_min_score": 5,
+      "true_max_score": 14,
+      "cold_mean_score": 1.0,
+      "cold_std_score": 0.0,
+      "true_mean_length": 2810.0,
+      "true_std_length": 374.0,
+      "cold_mean_length": 252.0,
+      "cold_std_length": 17.0
+    },
+    "per_element_rates_true": {
+      "stemi": 94.0,
+      "age_52_male": 100.0,
+      "chest_pain": 96.0,
+      "lad_occlusion": 22.0,
+      "pci_performed": 100.0,
+      "rv_involvement": 62.0,
+      "hypotension": 56.0,
+      "troponin": 20.0,
+      "ecg_st_elevation": 84.0,
+      "secondary_prevention": 64.0,
+      "murmur_mr_day2": 32.0,
+      "ef_45": 4.0,
+      "cardiac_rehab": 16.0,
+      "lifestyle_modification": 82.0,
+      "return_to_work": 16.0,
+      "follow_up": 38.0
+    }
+  },
+  "llama_4_maverick": {
+    "var_ratio": 2.64,
+    "summary": {
+      "true_mean_score": 7.48,
+      "true_std_score": 1.33,
+      "true_min_score": 5,
+      "true_max_score": 11,
+      "cold_mean_score": 1.1,
+      "cold_std_score": 0.3,
+      "true_mean_length": 2232.0,
+      "true_std_length": 315.0,
+      "cold_mean_length": 686.0,
+      "cold_std_length": 107.0
+    },
+    "per_element_rates_true": {
+      "stemi": 100.0,
+      "age_52_male": 100.0,
+      "chest_pain": 58.0,
+      "lad_occlusion": 6.0,
+      "pci_performed": 100.0,
+      "rv_involvement": 50.0,
+      "hypotension": 84.0,
+      "troponin": 8.0,
+      "ecg_st_elevation": 44.0,
+      "secondary_prevention": 52.0,
+      "murmur_mr_day2": 40.0,
+      "ef_45": 2.0,
+      "cardiac_rehab": 22.0,
+      "lifestyle_modification": 48.0,
+      "return_to_work": 0.0,
+      "follow_up": 34.0
+    }
+  },
+  "deepseek_v3_1": {
+    "var_ratio": 0.48,
+    "summary": {
+      "true_mean_score": 13.24,
+      "true_std_score": 1.23,
+      "true_min_score": 10,
+      "true_max_score": 16,
+      "cold_mean_score": 2.36,
+      "cold_std_score": 0.62,
+      "true_mean_length": 4312.0,
+      "true_std_length": 274.0,
+      "cold_mean_length": 4380.0,
+      "cold_std_length": 873.0
+    },
+    "per_element_rates_true": {
+      "stemi": 100.0,
+      "age_52_male": 100.0,
+      "chest_pain": 70.0,
+      "lad_occlusion": 100.0,
+      "pci_performed": 100.0,
+      "rv_involvement": 100.0,
+      "hypotension": 100.0,
+      "troponin": 28.0,
+      "ecg_st_elevation": 100.0,
+      "secondary_prevention": 98.0,
+      "murmur_mr_day2": 82.0,
+      "ef_45": 34.0,
+      "cardiac_rehab": 94.0,
+      "lifestyle_modification": 100.0,
+      "return_to_work": 64.0,
+      "follow_up": 54.0
+    }
+  }
+}

@@ -1,0 +1,9 @@
+model,var_ratio,mean_acc_pct,mean_acc_raw,std,min,max,perfect_scores,class
+deepseek_v3_1,0.48,82.8,13.24,1.23,10,16,2,class1_ideal
+gemini_flash,0.6,15.8,2.52,2.88,0,16,1,class2_empty
+ministral_14b,0.75,90.2,14.44,1.71,7,16,10,class1_ideal
+kimi_k2,0.97,91.9,14.7,1.04,11,16,13,class1_ideal
+mistral_small_24b,1.02,82.6,13.22,1.25,10,16,1,class1_ideal
+qwen3_235b,1.45,95.2,15.24,0.86,13,16,23,class4_rich
+llama_4_maverick,2.64,46.8,7.48,1.33,5,11,0,class3_dangerous
+llama_4_scout,7.46,55.4,8.86,1.78,5,14,0,class3_dangerous
