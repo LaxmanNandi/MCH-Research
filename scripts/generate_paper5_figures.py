@@ -91,24 +91,25 @@ def fig1_safety_matrix():
             color='#c0392b', alpha=0.7)
     ax.text(5.0, 3, "Do Not Deploy", ha='center', fontsize=10, color='#c0392b', alpha=0.7)
 
-    # Plot models
+    # Plot models with carefully tuned label positions to avoid overlap
+    # Models in IDEAL quadrant are tightly clustered (~0.5-1.5 VR, ~82-95% acc)
+    # so labels need aggressive spreading
+    label_offsets = {
+        "qwen3_235b":       (0.3, 3),       # above its dot (highest)
+        "kimi_k2":          (1.5, 2),       # offset right
+        "ministral_14b":    (1.5, -2),      # offset right-below
+        "mistral_small_24b":(1.5, -6),      # far below-right
+        "deepseek_v3_1":    (1.5, -10),     # furthest below-right
+        "gemini_flash":     (0.3, 5),       # above
+        "llama_4_maverick": (-1.0, 4),      # above-left
+        "llama_4_scout":    (-1.5, 3),      # above-left
+    }
     for i, m in enumerate(models):
         ax.scatter(var_ratios[i], accuracies[i], c=colors[i], s=200, zorder=5,
                   edgecolors='black', linewidth=1.2)
-        # Label offset to avoid overlap
-        offset_x = 0.15
-        offset_y = 2
-        if m == "kimi_k2":
-            offset_y = -4
-        elif m == "mistral_small_24b":
-            offset_y = -4
-        elif m == "gemini_flash":
-            offset_y = 3
-        elif m == "llama_4_maverick":
-            offset_x = -0.5
-            offset_y = 3
+        ox, oy = label_offsets.get(m, (0.15, 2))
         ax.annotate(names[i], (var_ratios[i], accuracies[i]),
-                   xytext=(var_ratios[i]+offset_x, accuracies[i]+offset_y),
+                   xytext=(var_ratios[i]+ox, accuracies[i]+oy),
                    fontsize=9, fontweight='bold', color=colors[i],
                    arrowprops=dict(arrowstyle='-', color='gray', alpha=0.3))
 
@@ -216,7 +217,7 @@ def fig2_llama_variability():
 def fig3_archetypes_embedding():
     """Visualize the three archetype response patterns in embedding space.
     Uses actual trial scores to create a meaningful 2D representation."""
-    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+    fig, axes = plt.subplots(1, 3, figsize=(16, 6))
 
     np.random.seed(42)
 
@@ -278,13 +279,14 @@ def fig3_archetypes_embedding():
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
 
-    # Colorbar
-    cbar = fig.colorbar(sc, ax=axes, shrink=0.8, pad=0.02)
+    # Colorbar — horizontal, below the panels to avoid overlapping Llama scatter
+    cbar_ax = fig.add_axes([0.35, 0.02, 0.3, 0.02])  # [left, bottom, width, height]
+    cbar = fig.colorbar(sc, cax=cbar_ax, orientation='horizontal')
     cbar.set_label("Accuracy Score (/16)", fontsize=10)
 
     fig.suptitle("Paper 5, Figure 3: Response Distribution Archetypes in Embedding Space\n(50 trials per model, P30 medical summarization)",
                 fontsize=13, fontweight='bold')
-    plt.tight_layout()
+    plt.subplots_adjust(top=0.85, bottom=0.12, wspace=0.3)
     fig.savefig(OUT_DIR / "fig3_archetypes_embedding.png", dpi=300, bbox_inches='tight')
     plt.close()
     print("Figure 3: Three Archetypes Embedding -- SAVED")
@@ -295,7 +297,7 @@ def fig3_archetypes_embedding():
 # ============================================================
 def fig4_one_dimension_failure():
     """Shows why neither Var_Ratio alone nor Accuracy alone is sufficient."""
-    fig, axes = plt.subplots(1, 2, figsize=(13, 6))
+    fig, axes = plt.subplots(1, 2, figsize=(14, 7))
 
     # Sort models for display
     model_order = ["deepseek_v3_1", "gemini_flash", "ministral_14b", "kimi_k2",
@@ -315,9 +317,9 @@ def fig4_one_dimension_failure():
         label = f"{name} ({a:.0f}%)"
         ax.text(v + 0.1, i, label, va='center', fontsize=9, fontweight='bold')
 
-    # Highlight the failure
+    # Highlight the failure — position annotation in empty space
     ax.annotate("Gemini: Low VR but\nonly 16% accuracy!",
-               xy=(0.6, 1), xytext=(2.5, 1),
+               xy=(0.6, 1), xytext=(5.0, 3.5),
                fontsize=10, color='#e67e22', fontweight='bold',
                arrowprops=dict(arrowstyle='->', color='#e67e22', lw=2))
 
@@ -325,6 +327,7 @@ def fig4_one_dimension_failure():
     ax.set_title("A. Sorted by Var_Ratio Only\n(Low = 'safe'?)", fontsize=12, fontweight='bold')
     ax.set_yticks([])
     ax.set_xlim(0, 9)
+    ax.set_ylim(-1, 8.5)
     ax.axvline(x=1.8, color='gray', linestyle='--', alpha=0.5, label='Risk threshold')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -338,15 +341,18 @@ def fig4_one_dimension_failure():
         label = f"{name} (VR={v:.2f})"
         ax2.text(a + 1, i, label, va='center', fontsize=9, fontweight='bold')
 
-    ax2.annotate("Llama: 55% accuracy looks\n'moderate' — hides VR=7.46!",
-               xy=(55.4, 5), xytext=(20, 3),
-               fontsize=10, color='#c0392b', fontweight='bold',
+    # Llama Scout is at index 5 in descending accuracy sort
+    # Place annotation below all bars in clear space
+    ax2.annotate("Llama: 55% looks 'moderate'\n— hides VR=7.46!",
+               xy=(55.4, 5), xytext=(45, -0.8),
+               fontsize=9, color='#c0392b', fontweight='bold',
                arrowprops=dict(arrowstyle='->', color='#c0392b', lw=2))
 
     ax2.set_xlabel("P30 Accuracy (%)", fontsize=12, fontweight='bold')
     ax2.set_title("B. Sorted by Accuracy Only\n(High = 'safe'?)", fontsize=12, fontweight='bold')
     ax2.set_yticks([])
     ax2.set_xlim(0, 115)
+    ax2.set_ylim(-1, 8.5)
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
 
