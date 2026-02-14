@@ -84,9 +84,13 @@ Paper 4 identified the Llama anomaly (Var_Ratio = 7.46 at P30 Medical). This pap
 
 **Finding:** No significant linear correlation. The relationship is categorical, not continuous.
 
+![Figure 4: Why Neither Dimension Alone Is Sufficient](figures/fig4_one_dimension_failure.png)
+
 ---
 
 ## 4. The 2x2 Deployment Matrix
+
+![Figure 1: 2x2 Deployment Safety Matrix](figures/fig1_safety_matrix.png)
 
 ```
                         ACCURACY
@@ -145,6 +149,8 @@ Paper 4 identified the Llama anomaly (Var_Ratio = 7.46 at P30 Medical). This pap
 
 ## 6. Var_Ratio Continuous Scale and Entanglement Safety Index
 
+![Figure 5: Position-Level Variance Ratio Across Three Archetypes](figures/fig5_position_var_ratio.png)
+
 ### Var_Ratio Thresholds
 
 | Range | Classification | Interpretation |
@@ -187,6 +193,8 @@ ESI confirms the four-class taxonomy: Class 3 (DANGEROUS) models have ESI < 1, w
 
 ## 7. The Llama Anomaly: Detailed Analysis
 
+![Figure 2: Trial-Level Variability and Clinical Element Analysis](figures/fig2_llama_variability.png)
+
 ### Accuracy Breakdown
 
 **Consistently Present (Core Facts):**
@@ -217,6 +225,8 @@ ESI confirms the four-class taxonomy: Class 3 (DANGEROUS) models have ESI < 1, w
 
 > "Llama produces summaries that are factually sound but randomly incomplete—critical case details are included or omitted stochastically across trials."
 
+![Figure 3: Response Distribution Archetypes in Embedding Space](figures/fig3_archetypes_embedding.png)
+
 ---
 
 ## 8. Methodological Considerations
@@ -239,6 +249,8 @@ Var_Ratio is computed from 384-dimensional sentence embeddings capturing semanti
 3. **2x2 deployment matrix:** Visual framework for safety assessment
 4. **Unique detection capability:** Only VRI identifies Class 3 (Dangerous) models
 5. **Continuous scale:** Var_Ratio thresholds for risk stratification
+
+![Figure 6: Clinical AI Deployment Decision Framework](figures/fig6_deployment_flowchart.png)
 
 ---
 
