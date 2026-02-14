@@ -62,14 +62,14 @@ This research program investigates how domain structure shapes AI context sensit
 **Title**: *How Philosophical vs Medical Reasoning Shapes Context Sensitivity Dynamics in Large Language Models*
 
 **Role**: Extension of Paper 2 - Position-level temporal analysis
-- **Dataset**: Paper 2 subset (11 models with response text)
+- **Dataset**: Paper 2 subset (12 models with response text)
 - **Focus**: Domain-specific temporal evolution patterns
 
 **Key Findings**:
 1. **Domain-specific temporal patterns** (3-bin aggregation):
    - Philosophy: Mid-conversation peak, late decline (inverted-U in Early/Mid/Late bins)
    - Medical: Diagnostic independence trough, integration rise (U-shape in bins)
-2. **Task enablement at P30**: Medical spike (Z > +3.5), philosophy stable
+2. **Task enablement at P30**: Medical spike (Z > +2.7), philosophy stable
 3. **Disruption sensitivity**: Presence > order (context structure matters)
 4. **Type 2 scaling law**: ΔRCI ∝ log(context_volume)
 

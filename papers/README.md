@@ -37,7 +37,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 ### Paper 3: Cross-Domain Temporal Dynamics
 - **Status**: DRAFT COMPLETE
 - **Role**: Extension of Paper 2 - Position-level analysis
-- **Dataset**: Paper 2 subset (11 models with response text)
+- **Dataset**: Paper 2 subset (12 models with response text)
 - **Location**: `paper3_cross_domain/`
 
 ### Paper 4: Entanglement Mechanism

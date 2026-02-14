@@ -4,8 +4,8 @@ Paper 3: Cross-Domain AI Behavior Analysis
 Philosophy vs Medical domains with complete response text data.
 
 Philosophy (4 CLOSED models): GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash
-Medical (6 OPEN models): DeepSeek V3.1, Llama 4 Maverick/Scout, Mistral Small, Ministral, Qwen3
-Total: 10 models, ~45,000 responses with full text
+Medical (8 models): DeepSeek V3.1, Kimi K2, Llama 4 Maverick/Scout, Mistral Small, Ministral, Qwen3, Gemini Flash
+Total: 12 models, ~54,000 responses with full text
 """
 
 import json
@@ -40,6 +40,7 @@ MEDICAL_MODELS = {
     "Ministral 14B": BASE_DIR / "data/medical/open_models/mch_results_ministral_14b_medical_50trials.json",
     "Qwen3 235B": BASE_DIR / "data/medical/open_models/mch_results_qwen3_235b_medical_50trials.json",
     "Kimi K2": BASE_DIR / "data/medical/open_models/mch_results_kimi_k2_medical_50trials.json",
+    "Gemini Flash": BASE_DIR / "data/medical/gemini_flash/mch_results_gemini_flash_medical_50trials.json",
 }
 
 # ============================================================================

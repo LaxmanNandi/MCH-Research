@@ -2,9 +2,9 @@
 
 **Status**: DRAFT COMPLETE
 **Role**: Extension of Paper 2 - Position-level temporal analysis
-**Dataset**: Paper 2 subset (11 models with response text)
+**Dataset**: Paper 2 subset (12 models with response text)
 
-## Models (11 total - Cross-domain subset)
+## Models (12 total - Cross-domain subset)
 
 ### Philosophy Domain (4 models - Closed only)
 
@@ -15,8 +15,9 @@
 | Claude Haiku | Philosophy | 50 | ✓ Saved | Complete |
 | Gemini Flash | Philosophy | 50 | ✓ Saved | Complete |
 
-### Medical Domain (7 models - Open only)
+### Medical Domain (8 models - Mixed)
 
+**Open (7)**:
 | Model | Domain | Trials | Response Text | Status |
 |-------|--------|--------|---------------|--------|
 | DeepSeek V3.1 | Medical | 50 | ✓ Saved | Complete |
@@ -26,6 +27,11 @@
 | Mistral Small 24B | Medical | 50 | ✓ Saved | Complete |
 | Ministral 14B | Medical | 50 | ✓ Saved | Complete |
 | Qwen3 235B | Medical | 50 | ✓ Saved | Complete |
+
+**Closed (1)**:
+| Model | Domain | Trials | Response Text | Status |
+|-------|--------|--------|---------------|--------|
+| Gemini Flash | Medical | 50 | ✓ Saved | Complete |
 
 ## Data Source
 All data comes from Paper 2's standardized dataset.
@@ -37,14 +43,14 @@ Response text is required for:
 - Position-level temporal analysis
 - Domain-specific behavioral signatures
 
-Only 11 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
+Only 12 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
 
 ## Key Findings
 1. **Domain-specific temporal patterns**:
    - Philosophy (closed): Inverted-U curve (mid-conversation peak)
    - Medical (open): U-shaped curve + P30 task enablement spike
 
-2. **Position 30 anomaly**: Medical models show Z > +3.5 spike at summarization prompt
+2. **Position 30 anomaly**: Medical models show Z > +2.7 spike at summarization prompt
 
 ## Figures
 All Paper 3 figures stored in `papers/paper3_cross_domain/figures/`
