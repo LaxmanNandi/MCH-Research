@@ -46,12 +46,6 @@
 }}
 \end{center}
 
-\vspace{0.5em}
-\begin{center}
-\small\textit{v2 Correction (February 2026): Methodological standardization applied. Gemini Flash Medical recomputed with response-response alignment consistent with all other 24 runs. Result: 25/25 positive $\Delta$RCI (previously 24/25), domain effect now significant (p=0.041; previously p=0.149), vendor effect now significant (p=0.014; previously p=0.075). Core findings strengthened.}
-\end{center}
-\vspace{0.5em}
-
 \begin{abstract}
 \noindent We present a standardized cross-domain framework for measuring context sensitivity in large language models (LLMs) using the Delta Relational Coherence Index ($\Delta$RCI). Across 25 model-domain runs (14 unique models, 50 trials each, 112,500 total responses), we compare medical (closed-goal) and philosophical (open-goal) reasoning domains using a three-condition protocol (TRUE/COLD/SCRAMBLED). We find that: (1) both domains elicit robust positive context sensitivity (mean $\Delta$RCI: philosophy=0.317, medical=0.351), with medical showing significantly higher sensitivity (U=40, p=0.041); (2) inter-model variance is comparable across domains (SD: philosophy=0.047, medical=0.041), indicating that context sensitivity is a stable trait within each domain; (3) vendor signatures show significant differentiation (F(7,17)=3.63, p=0.014), with Moonshot (Kimi K2) showing highest context sensitivity; (4) the expected information hierarchy ($\Delta$RCI\_COLD $>$ $\Delta$RCI\_SCRAMBLED) holds in 25/25 model-domain runs (100\%), validating that even scrambled context retains partial information; and (5) position-level analysis reveals domain-specific temporal signatures consistent with theoretical predictions. All 25 model-domain runs show positive $\Delta$RCI, confirming universal context sensitivity across architectures and domains. This dataset provides the first standardized benchmark for cross-domain context sensitivity measurement in state-of-the-art LLMs.
 
@@ -259,9 +253,11 @@ Vendor differences are significant (F(7,17)=3.63, p=0.014), confirming that vend
 \label{fig:position}
 \end{figure}
 
-\textbf{Philosophy domain (12 models):} Gradual rise followed by plateau, no remarkable P30 effect (z=0.55). Oscillations and prompt-specific variation dominated, with weaker positional structure than medical domain.
+\textbf{Philosophy domain (12 models):} Noisy but elevated sensitivity, slight upward trend, no dramatic P30 effect.
 
 \textbf{Medical domain (13 models):} Higher amplitude oscillations with upward drift, strong P30 summarization spike (z=3.74), greater inter-model variability. Certain positions (P3, P10-12, P21) consistently drove high $\Delta$RCI across models, suggesting prompt-specific rather than smooth positional effects.
+
+\textbf{Philosophy domain (12 models):} Gradual rise followed by plateau, no remarkable P30 effect (z=0.55). Oscillations and prompt-specific variation dominated, with weaker positional structure than medical domain.
 
 \subsection{Information Hierarchy}
 
