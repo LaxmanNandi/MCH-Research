@@ -1,6 +1,6 @@
 # Paper 2 (Standardized): Scaling Context Sensitivity
 
-**Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026)
+**Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026; v2 correction submitted February 2026)
 **Title**: *Scaling Context Sensitivity: A Standardized Benchmark of ΔRCI Across 25 Model-Domain Runs*
 
 ## Overview
@@ -29,10 +29,17 @@ Core standardized study with unified methodology across 14 unique models and 2 d
 ## Progress
 - **Complete**: ALL 25/25 model-domain runs
 
+## v2 Correction (February 2026)
+Gemini Flash Medical ΔRCI corrected from -0.133 to +0.427 (response-response alignment fix).
+Key impacts: 25/25 positive ΔRCI (was 24/25), domain effect p=0.041 (was 0.149), vendor effect p=0.014 (was 0.075).
+
 ## Contents
-- `figures/`: 6 cross-domain comparison figures
+- `Paper2_Manuscript.tex`: Authoritative manuscript source (v2, corrected)
+- `figures/`: 6 cross-domain comparison figures (v2)
+- `v1_submission/`: Archived v1 submission files
+- `v2_submission/`: Corrected v2 submission files (final .tex, .pdf, figures)
 - `MODEL_LIST.md`: Complete model inventory with status
-- `Paper2_Draft.md`: Main manuscript draft
+- `Paper2_Draft.md`: ~~Main manuscript draft~~ DEPRECATED (superseded by .tex v2)
 
 ## Data Location
 All data in `/data/` directory (single source of truth):

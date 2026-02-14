@@ -1,8 +1,14 @@
+> **⚠ DEPRECATED (February 2026):** This markdown draft contains v1 values that are NO LONGER CORRECT.
+> The Gemini Flash Medical ΔRCI was corrected from -0.133 to +0.427 in v2 (response-response alignment fix).
+> **Authoritative document:** `Paper2_Manuscript.tex` (v2) and `v2_submission/Paper2_v2_Final.tex`
+> All v1-specific values below (p=0.149, SD=0.131, 23/25, p=0.075, Google vendor rank=8th, etc.) are superseded.
+> See v2 correction note in the .tex for full details.
+
 # Cross-Domain Measurement of Context Sensitivity in Large Language Models: Medical vs Philosophical Reasoning
 
 **Authors**: Dr. Laxman M M, MBBS
 **Affiliation**: Primary Health Centre Manchi, Karnataka, India
-**Status**: DRAFT — February 2026
+**Status**: ~~DRAFT~~ SUPERSEDED BY Paper2_Manuscript.tex (v2) — February 2026
 
 ---
 

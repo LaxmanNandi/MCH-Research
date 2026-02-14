@@ -28,7 +28,8 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Location**: `paper1_legacy/`
 
 ### Paper 2 (Standardized): Scaling Context Sensitivity
-- **Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026)
+- **Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026; v2 correction submitted)
+- **v2 Correction**: Gemini Flash Medical ΔRCI corrected -0.133 → +0.427 (alignment method fix)
 - **Role**: Core study - Unified methodology, cross-domain validation
 - **Models**: 14 unique models, 25 model-domain runs (13 medical + 12 philosophy)
 - **Methodology**: Standardized 50 trials, corrected trial definition
@@ -83,7 +84,7 @@ Papers 3 and 4 use subsets of Paper 2's data - **NO data duplication**.
 | Research outline | `/docs/RESEARCH_OUTLINE.md` |
 | Paper 1 vs 2 comparison | `/docs/PAPER_COMPARISON.md` |
 | Paper 1 figures | `paper1_legacy/figures/` |
-| Paper 2 draft | `paper2_standardized/Paper2_Draft.md` (TBD) |
+| Paper 2 manuscript | `paper2_standardized/Paper2_Manuscript.tex` (v2) |
 | Paper 3 results | `paper3_cross_domain/Paper3_Results.md` |
 | Paper 4 results | `paper4_entanglement/Paper4_Results.md` |
 | Paper 5 definition | `paper5_safety/Paper5_Definition.md` |

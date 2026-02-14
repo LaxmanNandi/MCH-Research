@@ -342,7 +342,7 @@ Paper 5: Application (deployment safety framework)
 ## References
 
 - Paper 1: Context Curves Behavior (DOI: 10.20944/preprints202601.1881.v2)
-- Paper 2: Scaling Context Sensitivity (DOI: 10.20944/preprints202602.1114.v1)
+- Paper 2: Scaling Context Sensitivity (DOI: 10.20944/preprints202602.1114.v2)
 - Paper 3: Cognitive Architectures (in preparation)
 - Paper 4: Entanglement Theory (in preparation)
 

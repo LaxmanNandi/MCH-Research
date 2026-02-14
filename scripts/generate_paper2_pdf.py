@@ -1,6 +1,11 @@
 """
 Generate Paper 2 PDF using fpdf2 (pure Python, no external dependencies).
 Academic formatting with Times New Roman, figures, and appendix table.
+
+DEPRECATED (February 2026): This script contains hardcoded v1 values that are
+NO LONGER CORRECT. Gemini Flash Medical ΔRCI was corrected from -0.133 to +0.427
+in v2. The authoritative Paper 2 document is now Paper2_Manuscript.tex (v2),
+compiled via LaTeX. Do not use this script for generating submission PDFs.
 """
 from pathlib import Path
 from fpdf import FPDF
