@@ -234,6 +234,33 @@ Var_Ratio is computed from 384-dimensional embeddings capturing semantic content
 
 ---
 
+## 10a. Supplementary Analysis: Continuous vs Categorical
+
+We tested whether Var_Ratio exhibits a U-shaped (or inverted-U) relationship with perfect scores, as proposed by the hypothesis that mild divergence (Var_Ratio 1.2-2.0) is optimal for summarization tasks.
+
+### Results
+
+| Analysis | Quadratic R² | F-test p | Significant? |
+|----------|-------------|----------|--------------|
+| Full dataset (N=8) | 0.11 | 0.72 | No |
+| Excluding Gemini (N=7) | 0.14 | 0.89 | No |
+
+The quadratic model is not significantly better than the linear model in either case. The apparent peak (Qwen3 at VR=1.45, 23/50 perfect) is driven by a single data point; within-zone variance is large (e.g., Kimi K2: 13 vs Mistral Small: 1 at nearly identical Var_Ratios).
+
+### Best Predictor of Perfect Scores
+
+| Metric | Spearman rho | p-value |
+|--------|-------------|---------|
+| Mean accuracy | 0.89-0.99 | < 0.003 |
+| Score std | -0.70-0.76 | 0.049-0.054 |
+| Var_Ratio | -0.39-0.49 | n.s. |
+
+### Conclusion
+
+The four-class behavioral taxonomy captures the structure in the data better than any continuous model. The relationship between Var_Ratio and task performance is **categorical, not continuous**: models cluster into distinct behavioral classes rather than following a smooth function. This validates the 2x2 deployment matrix as the appropriate framework.
+
+---
+
 ## 11. Title Options
 
 **Option A (Comprehensive):**
