@@ -2,9 +2,9 @@
 
 **Status**: DRAFT COMPLETE
 **Role**: Extension of Paper 2 - Position-level temporal analysis
-**Dataset**: Paper 2 subset (10 models with response text)
+**Dataset**: Paper 2 subset (11 models with response text)
 
-## Models (10 total - Cross-domain subset)
+## Models (11 total - Cross-domain subset)
 
 ### Philosophy Domain (4 models - Closed only)
 
@@ -15,11 +15,12 @@
 | Claude Haiku | Philosophy | 50 | ✓ Saved | Complete |
 | Gemini Flash | Philosophy | 50 | ✓ Saved | Complete |
 
-### Medical Domain (6 models - Open only)
+### Medical Domain (7 models - Open only)
 
 | Model | Domain | Trials | Response Text | Status |
 |-------|--------|--------|---------------|--------|
 | DeepSeek V3.1 | Medical | 50 | ✓ Saved | Complete |
+| Kimi K2 | Medical | 50 | ✓ Saved | Complete |
 | Llama 4 Maverick | Medical | 50 | ✓ Saved | Complete |
 | Llama 4 Scout | Medical | 50 | ✓ Saved | Complete |
 | Mistral Small 24B | Medical | 50 | ✓ Saved | Complete |
@@ -36,7 +37,7 @@ Response text is required for:
 - Position-level temporal analysis
 - Domain-specific behavioral signatures
 
-Only 10 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
+Only 11 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
 
 ## Key Findings
 1. **Domain-specific temporal patterns**:

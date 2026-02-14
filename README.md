@@ -53,7 +53,7 @@ All papers organized in `/papers/` directory by lineage:
 **Featured Finding:** Medical P30 task enablement reveals safety-critical divergence classes. While convergent models (DeepSeek, Gemini) stabilize under context (Var_Ratio < 0.6), Llama models show extreme variance explosion (Var_Ratio up to 7.5), producing unpredictable outputs precisely when task completion requires context integration.
 
 ![Featured figure: Medical P30 entanglement spike](docs/figures/publication/entanglement_validation.png?v=2)
-*Caption: Complete 11-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Gemini show convergent entanglement (Var_Ratio<0.6). Analysis validates ΔRCI as VRI surrogate (r=0.76, p=1.5×10⁻⁶², N=330).*
+*Caption: Complete 12-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Kimi K2/Gemini show convergent entanglement (Var_Ratio<1.0). Analysis validates ΔRCI as VRI surrogate (r=0.76, p=8.2×10⁻⁶⁹, N=360).*
 
 ---
 

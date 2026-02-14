@@ -2,9 +2,9 @@
 
 **Status**: DRAFT COMPLETE
 **Role**: Extension of Paper 2 - Information-theoretic mechanism analysis
-**Dataset**: Paper 2 subset (11 models with response text)
+**Dataset**: Paper 2 subset (12 models with response text)
 
-## Models (11 total - Cross-domain subset)
+## Models (12 total - Cross-domain subset)
 
 ### Philosophy Domain (4 models - Closed only)
 
@@ -15,12 +15,13 @@
 | Claude Haiku | Philosophy | 50 | ✓ Computed | Complete |
 | Gemini Flash | Philosophy | 50 | ✓ Computed | Complete |
 
-### Medical Domain (7 models - Mixed)
+### Medical Domain (8 models - Mixed)
 
-**Open (6)**:
+**Open (7)**:
 | Model | Domain | Trials | Embedding Variance | Status |
 |-------|--------|--------|--------------------|--------|
 | DeepSeek V3.1 | Medical | 50 | ✓ Computed | Complete |
+| Kimi K2 | Medical | 50 | ✓ Computed | Complete |
 | Llama 4 Maverick | Medical | 50 | ✓ Computed | Complete |
 | Llama 4 Scout | Medical | 50 | ✓ Computed | Complete |
 | Mistral Small 24B | Medical | 50 | ✓ Computed | Complete |
@@ -43,11 +44,11 @@ Response text is required for:
 - Variance Reduction Index (1 - Var_Ratio)
 - Entanglement validation (ΔRCI ~ VRI)
 
-Only 11 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
+Only 12 of Paper 2's 25 model-domain runs (14 unique models) have complete response text preserved.
 
 ## Data Points
-- **Total**: 330 model-position points (11 models × 30 positions)
-- **Correlation**: r = 0.76, p = 1.5×10⁻⁶²
+- **Total**: 360 model-position points (12 models × 30 positions)
+- **Correlation**: r = 0.76, p = 8.2×10⁻⁶⁹
 
 ## Key Findings
 1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76)
@@ -55,7 +56,7 @@ Only 11 of Paper 2's 25 model-domain runs (14 unique models) have complete respo
    - Convergent: Var_Ratio < 1 (context reduces variance)
    - Divergent: Var_Ratio > 1 (context increases variance)
 3. **Llama safety anomaly**: Extreme divergence at P30 (Var_Ratio 2.6-7.5)
-4. **Domain differences**: Medical variance-increasing (1.23), Philosophy neutral (1.01)
+4. **Domain differences**: Medical variance-increasing (1.20), Philosophy neutral (1.01)
 
 ## Figures
 All Paper 4 figures stored in `papers/paper4_entanglement/figures/`

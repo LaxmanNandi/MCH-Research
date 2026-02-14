@@ -13,7 +13,7 @@ Paper 3's core theoretical finding: AI context sensitivity varies systematically
 | Type | Architecture | Domain | Goal Structure | Temporal Pattern | P30 Behavior | Evidence |
 |------|--------------|--------|----------------|------------------|--------------|----------|
 | **Type 1** | Open-Goal | Philosophy | Unbounded | Inverted-U (mid-conversation peak) | No spike (summarization feasible) | 4/4 models (100%) |
-| **Type 2** | Closed-Goal | Medical | Guideline-bounded | U-shaped (diagnostic independence trough) | **Extreme spike** (Z > +3.5, task enablement) | 6/6 models (100%) |
+| **Type 2** | Closed-Goal | Medical | Guideline-bounded | U-shaped (diagnostic independence trough) | **Extreme spike** (Z > +3.5, task enablement) | 7/7 models (100%) |
 
 **ASCII Visualization - Temporal Pattern Distinction:**
 ```
@@ -21,7 +21,7 @@ Type 1 (Open-Goal):     /‾‾‾\     Inverted-U, mid-peak at P15-20
 Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
 ```
 
-**Key Insight**: Architectures are distinguished by **temporal dynamics and P30 task enablement**, not by ΔRCI magnitude (ranges overlap: Philosophy 0.27-0.33, Medical 0.29-0.35). Goal structure—not domain content—determines context sensitivity pattern.
+**Key Insight**: Architectures are distinguished by **temporal dynamics and P30 task enablement**, not by ΔRCI magnitude (ranges overlap: Philosophy 0.27-0.33, Medical 0.30-0.36). Goal structure—not domain content—determines context sensitivity pattern.
 
 ### Why This Matters
 
@@ -30,7 +30,7 @@ Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
    - **Type 2 (Closed-Goal)**: Medical diagnosis, legal contract analysis, guideline-based review → U-shaped pattern, extreme P30 spike
 
 2. **Safety Implications**: Type 2 tasks show **task enablement** (not just performance enhancement) at summarization positions:
-   - Medical P30: Z > +3.5 (all 6 models show extreme spike)
+   - Medical P30: Z > +3.5 (all 7 models show extreme spike)
    - Philosophy P30: Z ≈ +0.25 (no spike)
    - **Critical**: Models cannot execute Type 2 summarization without context—produce refusals or generic templates in COLD condition
 
@@ -48,7 +48,7 @@ Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
 
 1. **Two Cognitive Architectures Identified**:
    - **Type 1 (Open-Goal)**: Philosophy shows inverted-U temporal pattern, mid-conversation peak (ΔRCI = 0.331 at P15-20), 4/4 models consistent
-   - **Type 2 (Closed-Goal)**: Medical shows U-shaped pattern, diagnostic independence trough (ΔRCI = 0.292 at P10-25), 6/6 models consistent
+   - **Type 2 (Closed-Goal)**: Medical shows U-shaped pattern, diagnostic independence trough (ΔRCI = 0.303 at P10-25), 7/7 models consistent
    - **Architecture is determined by goal structure, not domain content**
    - **Distinction is by temporal pattern + P30 behavior, NOT by ΔRCI magnitude** (ranges overlap)
 
@@ -67,15 +67,15 @@ Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
    - Framework-general finding across both architectures
 
 ## Dataset
-- **Models**: 10 (subset of Paper 2 with response text)
+- **Models**: 11 (subset of Paper 2 with response text)
   - Philosophy: 4 closed (GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash)
-  - Medical: 6 open (DeepSeek, Llama 4 Maverick/Scout, Mistral Small, Ministral, Qwen3 235B)
+  - Medical: 7 open (DeepSeek, Kimi K2, Llama 4 Maverick/Scout, Mistral Small, Ministral, Qwen3 235B)
 - **Data source**: Paper 2 standardized dataset
 - **Location**: `/data/` (shared, no duplication)
 
 ## Contents
 - `figures/`: All Paper 3 figures (domain comparison, position patterns, P30 analysis)
-- `MODEL_LIST.md`: 10-model subset details
+- `MODEL_LIST.md`: 11-model subset details
 - `Paper3_Results.md`: Complete results and discussion
 
 ## Figures

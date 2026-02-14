@@ -62,7 +62,7 @@ This research program investigates how domain structure shapes AI context sensit
 **Title**: *How Philosophical vs Medical Reasoning Shapes Context Sensitivity Dynamics in Large Language Models*
 
 **Role**: Extension of Paper 2 - Position-level temporal analysis
-- **Dataset**: Paper 2 subset (10 models with response text)
+- **Dataset**: Paper 2 subset (11 models with response text)
 - **Focus**: Domain-specific temporal evolution patterns
 
 **Key Findings**:
@@ -79,16 +79,16 @@ This research program investigates how domain structure shapes AI context sensit
 **Title**: *Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling*
 
 **Role**: Extension of Paper 2 - Information-theoretic mechanism
-- **Dataset**: Paper 2 subset (11 models with response text)
+- **Dataset**: Paper 2 subset (12 models with response text)
 - **Innovation**: Variance-based entanglement measure
 
 **Key Findings**:
-1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76, p<10⁻⁶²)
+1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76, p<10⁻⁶⁹)
 2. **Bidirectional regimes**:
    - Convergent: Var_Ratio < 1 (context reduces variance)
    - Divergent: Var_Ratio > 1 (context increases variance)
 3. **Llama safety anomaly**: Extreme divergence at P30 (Var_Ratio > 7)
-4. **Domain architecture**: Medical variance-increasing (1.23), Philosophy neutral (1.01)
+4. **Domain architecture**: Medical variance-increasing (1.20), Philosophy neutral (1.01)
 5. **Variance sufficiency**: Simple surrogate works (no k-NN needed)
 
 **Status**: Figures complete, ready for submission

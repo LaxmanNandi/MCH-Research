@@ -7,7 +7,7 @@
 Extension of Paper 2 providing information-theoretic interpretation of ΔRCI. Demonstrates that context effects represent predictability modulation via variance ratio, validating ΔRCI as a Variance Reduction Index (VRI).
 
 ## Key Findings
-1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76, p=1.5×10⁻⁶², N=330)
+1. **Entanglement validation**: ΔRCI ~ VRI (r=0.76, p=8.2×10⁻⁶⁹, N=360)
 2. **Bidirectional entanglement**:
    - Convergent: Var_Ratio < 1, ΔRCI > 0 (context reduces variance)
    - Divergent: Var_Ratio > 1, ΔRCI < 0 (context increases variance)
@@ -18,22 +18,22 @@ Extension of Paper 2 providing information-theoretic interpretation of ΔRCI. De
    - Identifies safety-critical divergence class
 
 4. **Domain architecture differences**:
-   - Medical: Var_Ratio ~ 1.23 (variance-increasing)
+   - Medical: Var_Ratio ~ 1.20 (variance-increasing)
    - Philosophy: Var_Ratio ~ 1.01 (variance-neutral)
 
 5. **Variance sufficiency**: Simple surrogate works (no k-NN needed)
 
 ## Dataset
-- **Models**: 11 (subset of Paper 2 with response text)
+- **Models**: 12 (subset of Paper 2 with response text)
   - Philosophy: 4 closed (GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash)
-  - Medical: 7 (6 open + Gemini Flash closed)
-- **Data points**: 330 (11 models × 30 positions)
+  - Medical: 8 (7 open + Gemini Flash closed)
+- **Data points**: 360 (12 models × 30 positions)
 - **Data source**: Paper 2 standardized dataset
 - **Location**: `/data/` (shared, no duplication)
 
 ## Contents
 - `figures/`: All Paper 4 figures (main + supplementary)
-- `MODEL_LIST.md`: 11-model subset details
+- `MODEL_LIST.md`: 12-model subset details
 - `Paper4_Results.md`: Complete results and discussion
 
 ## Main Figures
@@ -50,7 +50,7 @@ Extension of Paper 2 providing information-theoretic interpretation of ΔRCI. De
 ## Safety Implications
 - Var_Ratio > 3 or ESI < 1: Red flag for safety-critical tasks
 - Llama models show extreme instability at task enablement (P30)
-- Convergent models (DeepSeek, Gemini) stabilize under context
+- Convergent models (DeepSeek, Kimi K2, Gemini) stabilize under context
 
 ## Related Documents
 - Parent study: `papers/paper2_standardized/`

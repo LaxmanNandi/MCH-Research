@@ -28,15 +28,15 @@ Positive VRI indicates reduced variance (more predictability) with context. We t
 ---
 
 ### Finding 1: DRCI tracks VRI (entanglement signal)
-Across **11 model-domain runs** (4 philosophy, 7 medical) and 30 positions, DRCI correlated strongly with VRI derived from variance ratios:
+Across **12 model-domain runs** (4 philosophy, 8 medical) and 30 positions, DRCI correlated strongly with VRI derived from variance ratios:
 
-- Pooled correlation: r = 0.76, p = 1.5e-62 (N = 330 model-position points)
-  - Data: 11 model-domain runs × 30 positions = 330 points
+- Pooled correlation: r = 0.76, p = 8.2e-69 (N = 360 model-position points)
+  - Data: 12 model-domain runs × 30 positions = 360 points
   - Each point aggregates 50 independent trials per condition (4,500 total responses per model)
-  - Medical models: DeepSeek V3.1, Llama 4 Maverick/Scout, Mistral Small 24B, Ministral 14B, Qwen3 235B, **Gemini Flash**
+  - Medical models: DeepSeek V3.1, Kimi K2, Llama 4 Maverick/Scout, Mistral Small 24B, Ministral 14B, Qwen3 235B, **Gemini Flash**
   - Philosophy models: GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash
 
-*Note: Entanglement analysis requires actual response text to compute embedding variances (Var_TRUE and Var_COLD). Only 11 of the 24 available models have complete response text saved, limiting this analysis to 330 data points. Paper 3's cross-domain study uses a 10-model subset (6 medical open, 4 philosophy closed) with response text for qualitative validation. Gemini Flash Medical (the 11th model here) has response text processed separately. Expansion to additional models would require rerunning experiments with response text preservation enabled.*
+*Note: Entanglement analysis requires actual response text to compute embedding variances (Var_TRUE and Var_COLD). Only 12 of the 25 available model-domain runs have complete response text saved, limiting this analysis to 360 data points. Paper 3's cross-domain study uses an 11-model subset (7 medical open, 4 philosophy closed) with response text for qualitative validation. Gemini Flash Medical (processed separately) brings the total to 12. Expansion to additional models would require rerunning experiments with response text preservation enabled.*
 
 Interpretation: DRCI increases as context **reduces** response variance. This supports the entanglement view: context couples the response distribution to prior information, changing the predictability of outputs.
 
@@ -66,7 +66,7 @@ At medical position 30 (summarization), we observe extreme divergence in two Lla
 - Llama 4 Maverick: Var_Ratio = 2.64, DRCI = -0.15
 - Llama 4 Scout: Var_Ratio = 7.46, DRCI = -0.22
 
-While other open medical models (Qwen3 235B, Mistral Small 24B) show mild divergence (Var_Ratio 1.02-1.45), only the Llama models exhibit extreme instability warranting safety concern. In contrast, convergent models at P30 show Var_Ratio < 1 and positive DRCI (Ministral 14B, DeepSeek V3.1, Gemini Flash). This identifies a **safety risk class**: models that diverge under Type 2 prompts produce highly unstable, unpredictable outputs precisely when task enablement is expected.
+While other open medical models (Qwen3 235B, Mistral Small 24B) show mild divergence (Var_Ratio 1.02-1.45), only the Llama models exhibit extreme instability warranting safety concern. In contrast, convergent models at P30 show Var_Ratio < 1 and positive DRCI (Kimi K2, Ministral 14B, DeepSeek V3.1, Gemini Flash). This identifies a **safety risk class**: models that diverge under Type 2 prompts produce highly unstable, unpredictable outputs precisely when task enablement is expected.
 
 For audit detail (ESI calculation and "intact capability + broken coherence" framing), see `docs/Llama_Safety_Anomaly.md`.
 
@@ -80,7 +80,7 @@ For audit detail (ESI calculation and "intact capability + broken coherence" fra
 Mean variance ratios differ by domain:
 
 - Philosophy: Var_Ratio ~ 1.01 (variance-neutral)
-- Medical: Var_Ratio ~ 1.23 (variance-increasing)
+- Medical: Var_Ratio ~ 1.20 (variance-increasing)
 
 This suggests domain-specific architecture effects: medical prompts tend to **destabilize** response distributions under context, while philosophy is largely variance-neutral on average.
 
@@ -130,7 +130,7 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 ## FIGURE LIST (Paper 4)
 
 ### Main Figures
-1. **Figure 1:** DRCI vs VRI entanglement validation (r=0.76, 11 models, 330 points).
+1. **Figure 1:** DRCI vs VRI entanglement validation (r=0.76, 12 models, 360 points).
 2. **Figure 2:** Multi-panel entanglement analysis (regime map, position patterns, domain comparison).
 3. **Figure 3:** Llama safety anomaly at medical P30 (divergent variance signatures).
 4. **Figure 4:** Independence test: RCI vs Variance Ratio correlation.

@@ -45,6 +45,7 @@ models = {
     'Qwen3 235B (Med)': 'c:/Users/barla/mch_experiments/data/medical/open_models/mch_results_qwen3_235b_medical_50trials.json',
     'Mistral Small 24B (Med)': 'c:/Users/barla/mch_experiments/data/medical/open_models/mch_results_mistral_small_24b_medical_50trials.json',
     'Ministral 14B (Med)': 'c:/Users/barla/mch_experiments/data/medical/open_models/mch_results_ministral_14b_medical_50trials.json',
+    'Kimi K2 (Med)': 'c:/Users/barla/mch_experiments/data/medical/open_models/mch_results_kimi_k2_medical_50trials.json',
 }
 
 def compute_entanglement_metrics(file_path, model_name, n_positions=30):
