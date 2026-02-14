@@ -126,6 +126,7 @@ Paper 4 identified the Llama anomaly (Var_Ratio = 7.46 at P30 Medical). This pap
 | Attribute | Value |
 |-----------|-------|
 | Var_Ratio | High (2.64-7.46) |
+| ESI | Low (0.15-0.61) |
 | Accuracy | Low-Medium (47-54%) |
 | Models | Llama Scout, Llama Maverick |
 | Behavior | Unpredictable AND incomplete |
@@ -142,7 +143,9 @@ Paper 4 identified the Llama anomaly (Var_Ratio = 7.46 at P30 Medical). This pap
 
 ---
 
-## 6. Var_Ratio Continuous Scale
+## 6. Var_Ratio Continuous Scale and Entanglement Safety Index
+
+### Var_Ratio Thresholds
 
 | Range | Classification | Interpretation |
 |-------|----------------|----------------|
@@ -150,6 +153,35 @@ Paper 4 identified the Llama anomaly (Var_Ratio = 7.46 at P30 Medical). This pap
 | 0.8-1.2 | Ideal | Stable and complete |
 | 1.2-2.0 | Rich Divergence | Potentially beneficial variation |
 | > 2.0 | Dangerous | Coherence breakdown |
+
+### Entanglement Safety Index (ESI)
+
+ESI provides an interpretable safety metric derived from Var_Ratio (introduced in Paper 4):
+
+```
+ESI = 1 / |1 - Var_Ratio|
+```
+
+| ESI Range | Interpretation |
+|-----------|----------------|
+| ESI > 2.0 | Strongly convergent (stable under context) |
+| ESI ~ 1.0 | Near variance-neutral |
+| ESI < 1.0 | Divergent (context destabilizes outputs) |
+| ESI < 0.2 | Extreme instability (safety concern) |
+
+P30 Medical ESI values:
+
+| Model | Var_Ratio | ESI | Accuracy | Class |
+|-------|-----------|-----|----------|-------|
+| DeepSeek V3.1 | 0.48 | 1.91 | 82.8% | IDEAL |
+| Gemini Flash | 0.60 | 2.52 | 15.8% | EMPTY |
+| Kimi K2 | 0.97 | 33.3 | 91.9% | IDEAL |
+| Llama 4 Maverick | 2.64 | 0.61 | 46.8% | DANGEROUS |
+| Llama 4 Scout | 7.46 | 0.15 | 55.4% | DANGEROUS |
+
+ESI confirms the four-class taxonomy: Class 3 (DANGEROUS) models have ESI < 1, while Class 1 (IDEAL) models have ESI > 1. Notably, Class 2 (EMPTY) Gemini Flash has high ESI (2.52) despite low accuracy, reinforcing that ESI alone is not sufficient---both dimensions are required.
+
+**Figure reference:** See Paper 4, Figure 3 (`papers/paper4_entanglement/figures/fig7_llama_safety_anomaly.png`) for the Var_Ratio/ESI divergence visualization across all 11 models.
 
 ---
 
