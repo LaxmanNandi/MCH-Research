@@ -187,24 +187,16 @@ Paper 4 identified the Llama anomaly (Var_Ratio = 7.46 at P30 Medical). This pap
 
 ---
 
-## 8. Rebuttals to Anticipated Objections
+## 8. Methodological Considerations
 
-### Objection 1: "Token limit caused incompleteness"
+### Controlled experimental conditions
+All models operated under identical constraints (max_tokens: 1024, temperature: 0.7, identical prompt and context). Accuracy differences across models (DeepSeek 83% vs Llama 54%) reflect architectural variation rather than infrastructural limits.
 
-All models operated under identical constraints:
-- max_tokens: 1024
-- temperature: 0.7
-- Identical prompt and context
+### Accuracy alone as an evaluation metric
+Standard accuracy benchmarks would rate Llama's 54% as moderate but not disqualifying. The Var_Ratio dimension (7.46 for Llama Scout) captures extreme trial-to-trial inconsistency that accuracy metrics do not surface, motivating the two-dimensional framework.
 
-Result: DeepSeek achieved 83% accuracy; Llama achieved 54%. The difference is architectural, not infrastructural.
-
-### Objection 2: "Accuracy is sufficient for evaluation"
-
-Llama's 54% accuracy is not catastrophic by standard benchmarks. A deployer evaluating only accuracy might approve deployment. However, Var_Ratio = 7.46 reveals extreme inconsistency invisible to accuracy metrics.
-
-### Objection 3: "Variance is cosmetic (formatting only)"
-
-Var_Ratio is computed from 384-dimensional embeddings capturing semantic content, not surface formatting. Different trials emphasize different clinical priorities—this is semantic variance, not stylistic.
+### Semantic vs surface variance
+Var_Ratio is computed from 384-dimensional sentence embeddings capturing semantic content. Across Llama trials, different clinical priorities are emphasized or omitted stochastically---this reflects semantic variance in information selection, not stylistic or formatting differences.
 
 ---
 
