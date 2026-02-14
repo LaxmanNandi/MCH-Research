@@ -368,36 +368,27 @@ def fig4_one_dimension_failure():
 # FIGURE 5: Var_Ratio Across All Positions (3 Archetypes)
 # ============================================================
 def fig5_position_var_ratio():
-    """Position-level Var_Ratio for 3 archetype models across P1-P30."""
+    """Position-level Var_Ratio for 3 archetype models across P1-P30.
+    Uses Paper 4 pre-computed embedding-based Var_Ratio (not alignment scores,
+    which are always 1.0 for TRUE in Paper 2's response-response method)."""
+    import pandas as pd
     fig, ax = plt.subplots(figsize=(12, 6))
 
-    archetype_files = {
-        "DeepSeek V3.1 (IDEAL)": ("data/medical/open_models/mch_results_deepseek_v3_1_medical_50trials.json", "#2ecc71"),
-        "Gemini Flash (EMPTY)": ("data/medical/gemini_flash/mch_results_gemini_flash_medical_50trials.json", "#f39c12"),
-        "Llama 4 Scout (DANGEROUS)": ("data/medical/open_models/mch_results_llama_4_scout_medical_50trials.json", "#e74c3c"),
+    csv_path = BASE / "docs/figure_data/paper4_fig_independence_var_ratio.csv"
+    df = pd.read_csv(csv_path)
+    med = df[df['domain'] == 'Medical']
+
+    archetypes = {
+        "DeepSeek V3.1 (IDEAL)":     ("DeepSeek V3.1 (Med)", "#2ecc71"),
+        "Gemini Flash (EMPTY)":       ("Gemini Flash (Med)",  "#f39c12"),
+        "Llama 4 Scout (DANGEROUS)":  ("Llama 4 Scout (Med)", "#e74c3c"),
     }
 
-    for label, (fpath, color) in archetype_files.items():
-        full_path = BASE / fpath
-        with open(full_path) as f:
-            mdata = json.load(f)
-
-        n_pos = 30
-        var_ratios_pos = []
-        for pos in range(n_pos):
-            true_vals = []
-            cold_vals = []
-            for t in mdata['trials']:
-                if isinstance(t['alignments']['true'], list):
-                    true_vals.append(t['alignments']['true'][pos])
-                    cold_vals.append(t['alignments']['cold'][pos])
-            var_t = np.var(true_vals) if true_vals else 0
-            var_c = np.var(cold_vals) if cold_vals else 1
-            vr = var_t / var_c if var_c > 1e-10 else 0
-            var_ratios_pos.append(vr)
-
-        positions = np.arange(1, 31)
-        ax.plot(positions, var_ratios_pos, 'o-', color=color, linewidth=2,
+    for label, (csv_name, color) in archetypes.items():
+        mdf = med[med['model'] == csv_name].sort_values('position')
+        positions = mdf['position'].values
+        vr = mdf['var_ratio'].values
+        ax.plot(positions, vr, 'o-', color=color, linewidth=2,
                markersize=5, label=label, alpha=0.8)
 
     ax.axhline(y=1.0, color='gray', linestyle='--', linewidth=1, alpha=0.5,
@@ -410,7 +401,7 @@ def fig5_position_var_ratio():
 
     ax.set_xlabel("Prompt Position", fontsize=12, fontweight='bold')
     ax.set_ylabel("Var_Ratio (Var_TRUE / Var_COLD)", fontsize=12, fontweight='bold')
-    ax.set_title("Paper 5, Figure 5: Position-Level Variance Ratio Across Three Archetypes\n(Medical domain, 50 trials per position)",
+    ax.set_title("Paper 5, Figure 5: Position-Level Variance Ratio Across Three Archetypes\n(Medical domain, embedding-based variance, 50 trials per position)",
                 fontsize=13, fontweight='bold')
     ax.legend(loc='upper left', fontsize=9, framealpha=0.9)
     ax.set_xlim(0.5, 30.5)
