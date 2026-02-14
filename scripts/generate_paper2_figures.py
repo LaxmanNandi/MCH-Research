@@ -225,7 +225,7 @@ def fig1_dataset_overview(results):
             matrix[i, 1] = mv
 
     # Plot heatmap
-    im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=-0.15, vmax=0.45)
+    im = ax.imshow(matrix, cmap='RdYlGn', aspect='auto', vmin=0.20, vmax=0.45)
 
     # Annotate cells
     for i in range(len(names)):
