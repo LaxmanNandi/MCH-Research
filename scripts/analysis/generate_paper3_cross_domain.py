@@ -166,7 +166,7 @@ ax2.fill_between(positions,
 
 ax2.set_xlabel("Position")
 ax2.set_ylabel("dRCI")
-ax2.set_title("Medical Domain (n=6 models)")
+ax2.set_title(f"Medical Domain (n={len(med_data)} models)")
 ax2.legend(fontsize=8, loc='best')
 ax2.grid(True, alpha=0.3)
 
