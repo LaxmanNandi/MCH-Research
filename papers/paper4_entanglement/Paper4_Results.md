@@ -123,6 +123,7 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 - Expand to third domains (legal, technical, creative) to test domain architecture claims.
 - Compare embedding models to ensure variance effects are robust.
 - Examine attention patterns in open models to link divergence to mechanism.
+- **Paper 5** extends the safety findings here into a deployment framework: cross-model accuracy verification at P30 reveals that Var_Ratio and task completeness form a categorical (not continuous) relationship, yielding a four-class behavioral taxonomy for clinical deployment decisions.
 
 ---
 

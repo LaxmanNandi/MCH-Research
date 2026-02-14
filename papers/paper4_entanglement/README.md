@@ -55,6 +55,7 @@ Extension of Paper 2 providing information-theoretic interpretation of ΔRCI. De
 ## Related Documents
 - Parent study: `papers/paper2_standardized/`
 - Companion analysis: `papers/paper3_cross_domain/`
+- Safety application: `papers/paper5_safety/` (extends Llama anomaly into four-class deployment taxonomy)
 - Safety note: `docs/Llama_Safety_Anomaly.md`
 
 ---

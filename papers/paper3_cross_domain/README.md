@@ -90,6 +90,7 @@ Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
 ## Related Documents
 - Parent study: `papers/paper2_standardized/`
 - Companion analysis: `papers/paper4_entanglement/`
+- Safety application: `papers/paper5_safety/` (extends Type 2 task enablement findings to deployment)
 
 ---
 

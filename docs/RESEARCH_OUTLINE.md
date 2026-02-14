@@ -93,6 +93,24 @@ This research program investigates how domain structure shapes AI context sensit
 
 **Status**: Figures complete, ready for submission
 
+#### **Paper 5: Safety Taxonomy for Clinical Deployment** [DEFINED]
+**Title**: *Predictability as a Safety Metric: When Correct Isn't Safe*
+
+**Role**: Application of Papers 2-4 - Deployment framework
+- **Dataset**: 8 medical models with response text (P30 summarization, 50 trials each)
+- **Innovation**: 2×2 deployment matrix (Var_Ratio × Accuracy)
+
+**Key Findings**:
+1. **Falsification**: Var_Ratio does not linearly predict accuracy (r=-0.24, p=0.56, N=8)
+2. **Four behavioral classes**:
+   - IDEAL (Var_Ratio < 1.2, high accuracy): DeepSeek, Ministral, Mistral, Kimi K2
+   - EMPTY (low Var_Ratio, low accuracy): Gemini Flash (safety filter pathology)
+   - DANGEROUS (high Var_Ratio, low accuracy): Llama Scout, Llama Maverick
+   - RICH (mild divergence, high accuracy): Qwen3 235B
+3. **Categorical, not continuous**: Four-class taxonomy captures structure better than any continuous model (quadratic R²=0.11, F-test p=0.72)
+
+**Status**: Defined, accuracy data generated
+
 ---
 
 ## Data Organization
@@ -149,8 +167,10 @@ mch_experiments/
 2. **Generate Paper 2 figures** (cross-domain comparison, all 25 model-domain runs)
 3. **Write Paper 2 draft** (standardized framework)
 4. **Prepare submission packages** (Papers 2, 3, 4)
+5. **Complete philosophy open models rerun** (7 models with response text saving, in progress)
+6. **Draft Paper 5 manuscript** (safety taxonomy, accuracy verification data complete)
 
 ---
 
-**Last Updated**: February 12, 2026
-**Status**: ALL COMPLETE (25/25 model-domain runs), Paper 2 outline ready
+**Last Updated**: February 14, 2026
+**Status**: ALL COMPLETE (25/25 model-domain runs), Paper 5 defined, philosophy rerun in progress

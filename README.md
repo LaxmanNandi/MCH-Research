@@ -8,7 +8,7 @@
 
 > **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 14 LLMs across 112,500 responses. Medical (closed-goal) reasoning shows diagnostic independence troughs and task enablement spikes; philosophy (open-goal) shows mid-conversation peaks with late decline. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with VRI, p<10⁻⁶²). Significant vendor signatures persist even excluding outliers (p=0.017). Identifies safety-critical divergence in medical summarization tasks.
 
-**Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 14 models)** → Papers 3 & 4 (deep dives)
+**Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 14 models)** → Papers 3 & 4 (deep dives) → Paper 5 (safety taxonomy)
 
 *Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka, India*
 
@@ -38,6 +38,13 @@ All papers organized in `/papers/` directory by lineage:
 **Role**: Deep dives using Paper 2's standardized dataset
 - **Paper 3**: Temporal dynamics → `papers/paper3_cross_domain/Paper3_Results.md`
 - **Paper 4**: Entanglement mechanism → `papers/paper4_entanglement/Paper4_Results.md`
+
+### **Paper 5: Safety Taxonomy** [DEFINED]
+**Role**: Deployment framework - Accuracy verification and behavioral classification
+- 8 medical models scored against 16-element clinical accuracy rubric (50 trials each)
+- Four behavioral classes: IDEAL, EMPTY, DANGEROUS, RICH
+- 2×2 deployment matrix (Var_Ratio × Accuracy)
+- **Location**: `papers/paper5_safety/Paper5_Definition.md`
 
 **Complete Structure**: See `papers/README.md`
 
@@ -78,7 +85,8 @@ mch_experiments/
 │   ├── paper1_legacy/     # Paper 1 (Preprints.org, mixed methodology)
 │   ├── paper2_standardized/  # Paper 2 (IN PREP, core study)
 │   ├── paper3_cross_domain/  # Paper 3 (temporal dynamics)
-│   └── paper4_entanglement/  # Paper 4 (information theory)
+│   ├── paper4_entanglement/  # Paper 4 (information theory)
+│   └── paper5_safety/        # Paper 5 (deployment safety taxonomy)
 ├── data/                   # Experiment data (single source of truth)
 │   ├── medical/           # Medical domain (STEMI case)
 │   │   ├── closed_models/ # 7 models (GPT, Claude, Gemini)
