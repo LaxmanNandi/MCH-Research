@@ -9,7 +9,7 @@
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
 [![Domains](https://img.shields.io/badge/domains-medical%20%7C%20philosophy-orange.svg)](#methodology)
 
-> **TL;DR:** We discover that LLMs obey a conservation law: the product of context sensitivity and output variance is approximately constant within a task domain, across all architectures tested. This emerges from a six-paper program measuring how 14 LLMs from 8 vendors process conversational context across medical and philosophical reasoning.
+> **TL;DR:** We discover an empirical conservation constraint: the product of context sensitivity and output variance is approximately constant within a task domain, across all architectures tested. This emerges from a six-paper program measuring how 14 LLMs from 8 vendors process conversational context across medical and philosophical reasoning.
 
 *Dr. Laxman M M, MBBS*
 *Government Duty Medical Officer, PHC Manchi, Karnataka, India*
@@ -26,9 +26,9 @@
 | **3** | Cross-Domain Temporal Dynamics | Position-level analysis, Type 1 vs Type 2 | Draft complete |
 | **4** | Entanglement and Variance Reduction | VRI mechanism, r=0.76 with ΔRCI | Draft complete |
 | **5** | Predictability as Safety Metric | Four-class deployment taxonomy | Draft complete |
-| **6** | Conservation Law | **ΔRCI × Var_Ratio ≈ K(domain)** | Draft complete |
+| **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | Draft complete |
 
-### Key Discovery: Conservation Law (Paper 6)
+### Key Discovery: Conservation Constraint (Paper 6)
 
 ```
 ΔRCI × Var_Ratio ≈ K(domain)
@@ -36,12 +36,12 @@
 
 | Domain | K | CV | N | 95% CI |
 |--------|---|-----|---|--------|
-| Medical (closed-goal) | 0.429 | 0.170 | 8 | [0.368, 0.491] |
+| Medical (closed-goal) | 0.429 | 0.170 | 8 | [0.368, 0.490] |
 | Philosophy (open-goal) | 0.301 | 0.166 | 6 | [0.248, 0.353] |
 
 Domain difference: Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.00
 
-Models operate under a domain-specific information budget. The task structure determines the total budget K; each architecture allocates it differently between context sensitivity and output variance, but the total is conserved.
+Context sensitivity and output variance trade off within a domain-specific capacity shaped by task structure. Each architecture allocates this capacity differently, but the product remains approximately constant within a domain.
 
 ---
 
@@ -62,14 +62,14 @@ Strong correlation between ΔRCI and VRI (r=0.76, p=1.5×10⁻⁶², N=330 posit
 Medical P30 task enablement reveals four behavioral classes:
 - **IDEAL** (DeepSeek, Kimi K2): High accuracy, convergent outputs
 - **EMPTY** (Gemini Flash): High accuracy, but outputs lack clinical detail
-- **DANGEROUS** (Llama Scout/Maverick): Low accuracy, high variance
+- **HIGH-VARIANCE** (Llama Scout/Maverick): Inconsistent outputs, high trial-to-trial variance
 - **RICH** (Qwen3 235B): Moderate accuracy, verbose but informative
 
-### 5. Conservation Law
-All four safety classes obey the hyperbolic constraint ΔRCI × Var_Ratio ≈ K. They represent different allocation strategies within the same domain-specific budget.
+### 5. Conservation Constraint
+All four predictability classes follow the hyperbolic constraint ΔRCI × Var_Ratio ≈ K. They represent different allocation strategies within the same domain-specific capacity.
 
-![Conservation law with hyperbolas](docs/figures/paper6/fig1_conservation_law_hyperbolas.png)
-*Figure: Conservation law across 14 model-domain runs. Models cluster along domain-specific hyperbolas despite spanning 8 vendors and parameter counts from 14B to 671B.*
+![Conservation constraint with hyperbolas](docs/figures/paper6/fig1_conservation_law_hyperbolas.png)
+*Figure: Conservation constraint across 14 model-domain runs. Models cluster along domain-specific hyperbolas despite spanning 8 vendors and parameter counts from 14B to 671B.*
 
 ---
 
@@ -110,7 +110,7 @@ mch_experiments/
 │   ├── paper3_cross_domain/         #   Paper 3: Temporal dynamics
 │   ├── paper4_entanglement/         #   Paper 4: VRI mechanism
 │   ├── paper5_safety/               #   Paper 5: Deployment taxonomy
-│   └── paper6_conservation/         #   Paper 6: Conservation law
+│   └── paper6_conservation/         #   Paper 6: Conservation constraint
 │
 ├── data/                            # Experimental data (single source of truth)
 │   ├── medical/                     #   Medical domain (STEMI case)
@@ -120,7 +120,7 @@ mch_experiments/
 │   │   ├── closed_models/           #     5 closed-source models
 │   │   └── open_models/             #     7 open-source models
 │   ├── paper5/                      #   Accuracy verification data
-│   └── paper6/                      #   Conservation law test data
+│   └── paper6/                      #   Conservation constraint test data
 │
 ├── scripts/                         # Analysis and experiment code
 │   ├── experiments/                 #   Experiment runners
@@ -190,7 +190,7 @@ cd MCH-Research
 # Install dependencies
 pip install -r requirements.txt
 
-# Run conservation law test (Paper 6)
+# Run conservation constraint test (Paper 6)
 python scripts/analysis/paper6_conservation_product.py
 
 # Generate Paper 6 figures

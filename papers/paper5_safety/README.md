@@ -1,17 +1,17 @@
-# Paper 5: Predictability as a Safety Metric
+# Paper 5: Accuracy Is Not Enough
 
 **Status**: DRAFT COMPLETE
-**Title**: *Predictability as a Safety Metric: A Two-Dimensional Framework for Clinical AI Deployment*
+**Title**: *Accuracy Is Not Enough: Detecting Stochastic Incompleteness in Clinical AI Summarization*
 
 ## Overview
-Extension of Paper 4's Llama anomaly into a comprehensive four-class deployment taxonomy. Demonstrates that accuracy alone is insufficient for safety-critical deployment — output predictability (Var_Ratio) is required as a second dimension.
+Extension of Paper 4's Llama anomaly into a comprehensive four-class predictability taxonomy. Demonstrates that accuracy alone is insufficient for deployment assessment — output predictability (Var_Ratio) is required as a second dimension.
 
 ## Key Findings
-1. **Four-class taxonomy** based on Var_Ratio × Accuracy:
-   - **IDEAL** (DeepSeek V3.1, Kimi K2, Ministral 14B, Mistral Small): High accuracy, convergent outputs — deploy
-   - **EMPTY** (Gemini Flash): Low clinical detail (16% accuracy), convergent — reconfigure
-   - **DANGEROUS** (Llama Scout, Llama Maverick): High variance (2.6-7.5), low-medium accuracy — do not deploy
-   - **RICH** (Qwen3 235B): Moderate variance (1.5), high accuracy (95%) — investigate
+1. **Four-class taxonomy** based on Var_Ratio x Accuracy:
+   - **IDEAL** (DeepSeek V3.1, Kimi K2, Ministral 14B, Mistral Small): High accuracy, convergent outputs
+   - **EMPTY** (Gemini Flash): Low clinical detail (16% accuracy), convergent
+   - **HIGH-VARIANCE** (Llama Scout, Llama Maverick): High trial-to-trial variance (2.6-7.5), correlates with incomplete task coverage
+   - **RICH** (Qwen3 235B): Moderate variance (1.5), high accuracy (95%)
 
 2. **Accuracy verification**: Cross-model P30 medical accuracy assessed against clinical ground truth
 3. **Var_Ratio insufficiency**: Low Var_Ratio does not guarantee high accuracy (Gemini Flash counterexample)
@@ -28,7 +28,7 @@ Extension of Paper 4's Llama anomaly into a comprehensive four-class deployment 
 - `figures/`: All Paper 5 figures (6 files)
 
 ## Main Figures
-1. Safety matrix (Var_Ratio × Accuracy quadrant plot)
+1. Predictability matrix (Var_Ratio x Accuracy quadrant plot)
 2. Llama variability visualization
 3. Archetype embedding comparison
 4. One-dimension failure demonstration
@@ -37,7 +37,7 @@ Extension of Paper 4's Llama anomaly into a comprehensive four-class deployment 
 
 ## Related Documents
 - Parent study: `papers/paper4_entanglement/` (Llama anomaly source)
-- Conservation law: `papers/paper6_conservation/` (taxonomy maps onto hyperbola)
+- Conservation constraint: `papers/paper6_conservation/` (taxonomy maps onto hyperbola)
 
 ---
 

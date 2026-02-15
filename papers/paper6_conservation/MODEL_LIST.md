@@ -1,7 +1,7 @@
-# Paper 6 (Conservation Law): Models and Dataset
+# Paper 6 (Conservation Constraint): Models and Dataset
 
 **Status**: DRAFT COMPLETE
-**Role**: Capstone — Conservation law across all architectures
+**Role**: Capstone — Conservation constraint across all architectures
 **Dataset**: Paper 2 subset with embedding-based Var_Ratio (14 model-domain runs)
 
 ## Models (11 unique, 14 model-domain runs)

@@ -1,7 +1,7 @@
-# Paper 5 (Safety Taxonomy): Models and Dataset
+# Paper 5 (Predictability Taxonomy): Models and Dataset
 
 **Status**: DRAFT COMPLETE
-**Role**: Extension of Paper 4 — Deployment safety framework
+**Role**: Extension of Paper 4 — Deployment predictability framework
 **Dataset**: Paper 2 medical subset with P30 accuracy verification
 
 ## Models (8 total - Medical domain)
@@ -15,8 +15,8 @@
 | Ministral 14B | Mistral | 14B | ~1.08 | High | IDEAL |
 | Mistral Small 24B | Mistral | 24B | ~0.99 | High | IDEAL |
 | Qwen3 235B | Alibaba | 235B (22B active) | ~1.33 | 95% | RICH |
-| Llama 4 Maverick | Meta | 400B (17B active) | ~2.64 | Medium | DANGEROUS |
-| Llama 4 Scout | Meta | 109B (17B active) | ~7.46 | Low | DANGEROUS |
+| Llama 4 Maverick | Meta | 400B (17B active) | ~2.64 | Medium | HIGH-VARIANCE |
+| Llama 4 Scout | Meta | 109B (17B active) | ~7.46 | Low | HIGH-VARIANCE |
 
 ### Closed-Source (1 model)
 
@@ -32,10 +32,10 @@
 ## Why This Subset?
 Paper 5 focuses on medical P30 (task enablement position) where:
 - Full clinical summaries are generated
-- Safety-critical divergence is most pronounced
+- Trial-to-trial variance is most pronounced
 - Accuracy can be verified against clinical ground truth (STEMI case)
 
 ## Key Findings
-1. Four distinct behavioral classes emerge from Var_Ratio × Accuracy
+1. Four distinct behavioral classes emerge from Var_Ratio x Accuracy
 2. Standard accuracy benchmarks miss the EMPTY class (low detail despite convergent outputs)
-3. Llama models show extreme divergence at the most safety-critical position
+3. Higher trial-to-trial variance correlates with incomplete task coverage at the critical summarization position
