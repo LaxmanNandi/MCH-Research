@@ -21,7 +21,7 @@ All figures organized by paper in `figures/`:
 | `figures/paper3/` | Temporal dynamics | 8 | Position-level ΔRCI curves |
 | `figures/paper4/` | Entanglement | 3 | Gaussian verification, convergence |
 | `figures/paper5/` | Safety taxonomy | 6 | Safety matrix, deployment flowchart |
-| `figures/paper6/` | Conservation law | 7 | Hyperbola plot, product distribution |
+| `figures/paper6/` | Conservation law | 4 main + variants | Hyperbola plot, product distribution |
 | `figures/publication/` | Cross-paper | 8 | Entanglement validation composite |
 | `figures/legacy/` | Archived | 25 | Earlier figure versions |
 

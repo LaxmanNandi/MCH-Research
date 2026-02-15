@@ -39,7 +39,7 @@
 | Medical (closed-goal) | 0.429 | 0.170 | 8 | [0.368, 0.491] |
 | Philosophy (open-goal) | 0.301 | 0.166 | 6 | [0.248, 0.353] |
 
-Domain difference: Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.06
+Domain difference: Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.00
 
 Models operate under a domain-specific information budget. The task structure determines the total budget K; each architecture allocates it differently between context sensitivity and output variance, but the total is conserved.
 
@@ -132,7 +132,7 @@ mch_experiments/
 │   │   ├── paper3/                  #     Paper 3 figures (8)
 │   │   ├── paper4/                  #     Paper 4 figures (3)
 │   │   ├── paper5/                  #     Paper 5 figures (6)
-│   │   ├── paper6/                  #     Paper 6 figures (7)
+│   │   ├── paper6/                  #     Paper 6 figures (4 main + variants)
 │   │   ├── publication/             #     Publication-ready composites
 │   │   └── legacy/                  #     Archived earlier versions
 │   └── figure_data/                 #   CSV data behind figures

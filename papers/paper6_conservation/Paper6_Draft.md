@@ -8,7 +8,7 @@ DNB General Medicine Resident (2026), KC General Hospital, Bangalore
 
 ## Abstract
 
-We report an empirical conservation law governing the interaction between context sensitivity and output variance in large language models. Across 14 model-domain configurations spanning 11 architectures from 8 vendors, we find that the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a task domain: K(Medical) = 0.429 (CV = 0.170, N = 8) and K(Philosophy) = 0.301 (CV = 0.166, N = 6). The domain-specific constants differ significantly (Mann-Whitney U = 46, p = 0.003; Cohen's d = 2.06). This conservation law implies that models operate under a domain-specific information budget: architectures that invest more heavily in context sensitivity must exhibit lower output variance, and vice versa. The finding unifies prior observations about context sensitivity (Papers 1-2), entanglement dynamics (Papers 3-4), and deployment safety (Paper 5) under a single quantitative constraint, and provides a theoretical explanation for why the four-class safety taxonomy holds across architectures.
+We report an empirical conservation law governing the interaction between context sensitivity and output variance in large language models. Across 14 model-domain configurations spanning 11 architectures from 8 vendors, we find that the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a task domain: K(Medical) = 0.429 (CV = 0.170, N = 8) and K(Philosophy) = 0.301 (CV = 0.166, N = 6). The domain-specific constants differ significantly (Mann-Whitney U = 46, p = 0.003; Cohen's d = 2.00). This conservation law implies that models operate under a domain-specific information budget: architectures that invest more heavily in context sensitivity must exhibit lower output variance, and vice versa. The finding unifies prior observations about context sensitivity (Papers 1-2), entanglement dynamics (Papers 3-4), and deployment safety (Paper 5) under a single quantitative constraint, and provides a theoretical explanation for why the four-class safety taxonomy holds across architectures.
 
 ---
 
@@ -139,8 +139,8 @@ Table 1 presents the conservation product for all 14 model-domain runs, sorted b
 | Llama 4 Scout | Medical | 0.323 | 1.610 | 0.521 |
 | Qwen3 235B | Medical | 0.328 | 1.334 | 0.437 |
 | Ministral 14B | Medical | 0.391 | 1.080 | 0.423 |
-| Kimi K2 | Medical | 0.417 | 1.007 | 0.420 |
-| Llama 4 Maverick | Medical | 0.317 | 1.213 | 0.384 |
+| Kimi K2 | Medical | 0.417 | 1.006 | 0.420 |
+| Llama 4 Maverick | Medical | 0.316 | 1.213 | 0.384 |
 | Mistral Small 24B | Medical | 0.365 | 0.985 | 0.359 |
 | DeepSeek V3.1 | Medical | 0.320 | 1.071 | 0.343 |
 | Gemini Flash | Philosophy | 0.338 | 1.120 | 0.378 |
@@ -173,7 +173,7 @@ The conservation constants differ significantly between domains:
 |------|-----------|---------|
 | Mann-Whitney U | U = 46.0 | p = 0.003 |
 | Welch's t-test | t = 3.91 | p = 0.002 |
-| Cohen's d | d = 2.06 | (very large) |
+| Cohen's d | d = 2.00 | (very large) |
 
 The medical domain has a 43% higher conservation constant than the philosophy domain (K_med / K_phil = 1.43). This difference is consistent with the interpretation that closed-goal tasks impose a higher information budget than open-goal tasks (Figure 3).
 

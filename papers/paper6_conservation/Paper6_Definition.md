@@ -37,7 +37,7 @@ This paper reports an empirical conservation law governing the relationship betw
 | Medical | 8 | 0.429 | 0.073 | 0.170 | [0.368, 0.491] |
 | Philosophy | 6 | 0.301 | 0.050 | 0.166 | [0.248, 0.353] |
 
-**Domain difference:** Mann-Whitney U = 46, p = 0.003; Welch t = 3.91, p = 0.002; Cohen's d = 2.06
+**Domain difference:** Mann-Whitney U = 46, p = 0.003; Welch t = 3.91, p = 0.002; Cohen's d = 2.00
 
 ---
 
