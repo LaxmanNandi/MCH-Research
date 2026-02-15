@@ -1,0 +1,353 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue,
+    pdftitle={Domain-Specific Temporal Dynamics of Context Sensitivity in LLMs},
+    pdfauthor={Laxman M M},
+}
+
+% Title
+\title{Domain-Specific Temporal Dynamics of Context Sensitivity in Large Language Models}
+
+\author{
+Dr. Laxman M M, MBBS\\
+\small Government Duty Medical Officer, PHC Manchi\\
+\small Bantwal Taluk, Dakshina Kannada, Karnataka, India\\
+\small DNB General Medicine Resident (2026), KC General Hospital, Bangalore\\
+\small Email: \texttt{barlax5377@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0009-0405-6531}{0009-0009-0405-6531}
+}
+
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+% ============================================
+% ABSTRACT
+% ============================================
+\begin{abstract}
+
+Large language models exhibit context sensitivity—the degree to which conversational history shapes their responses. However, whether this sensitivity varies systematically across conversation positions and task domains remains unexplored. We analyzed 12 models across 30 conversational positions in two domains: philosophical reasoning (open-goal, 4 models) and medical summarization (closed-goal, 8 models), totaling approximately 54,000 responses.
+
+We report three findings. First, \textbf{position 30 (P30) task enablement}: at the summarization position, all 8 medical models showed extreme context sensitivity spikes ($Z > +2.7$, mean $Z = +3.47 \pm 0.51$), while all 4 philosophy models showed no spike (mean $Z = +0.25$). This 8/8 vs 0/4 split suggests that closed-goal tasks require accumulated context for task execution, not merely performance enhancement. Second, \textbf{domain-specific temporal patterns}: medical models exhibited U-shaped dynamics with a ``diagnostic trough'' in mid-conversation (positions 10-25), while philosophy models showed inverted-U patterns peaking mid-conversation. Third, \textbf{disruption sensitivity}: all 12 models showed negative disruption sensitivity ($DS < 0$; medical mean $-0.115$, philosophy mean $-0.073$), indicating that context presence provides more value than context ordering—an architecture-independent finding.
+
+These results demonstrate that task structure, not domain content, determines how context sensitivity unfolds over conversation. We introduce the distinction between open-goal (Type 1) and closed-goal (Type 2) temporal dynamics, with implications for clinical AI deployment where summarization reliability is critical.
+
+\end{abstract}
+
+\noindent\textbf{Keywords:} context sensitivity, temporal dynamics, large language models, medical AI, position effects, behavioral evaluation
+
+% ============================================
+% 1. INTRODUCTION
+% ============================================
+\section{Introduction}
+
+Large language models (LLMs) process conversational context through self-attention mechanisms that theoretically allow every token to attend to every prior token \citep{vaswani2017attention}. This enables in-context learning—the capacity to adapt behavior based on conversational history without parameter updates \citep{brown2020language}. However, the assumption that LLMs utilize context uniformly across conversation positions has been challenged by recent findings on serial position effects \citep{guo2025serial} and attention waveform patterns \citep{chen2024fortify}.
+
+Prior work has established that LLMs exhibit systematic serial position effects, with information at the beginning and end of context receiving differential attention \citep{guo2025serial, liu2024lost}. Chen et al. (2024) identified ``inherent waveform patterns in attention allocation'' where crucial information is overlooked when positioned in ``trough zones.'' However, whether these temporal dynamics are universal across tasks or vary systematically with domain structure has remained unexplored.
+
+This paper provides the first evidence that context sensitivity dynamics are \textbf{domain-specific}. We introduce the Relative Context Index ($\Delta RCI$), a metric that quantifies how much conversational history changes model responses at each position. Analyzing 12 models across 30 positions in medical summarization (closed-goal) and philosophical reasoning (open-goal) tasks, we find:
+
+\begin{enumerate}
+    \item \textbf{P30 Task Enablement}: Medical models show extreme context sensitivity spikes at the summarization position (8/8 models, $Z > +2.7$); philosophy models show none (0/4).
+    \item \textbf{Two Temporal Patterns}: Medical tasks produce U-shaped dynamics with a diagnostic trough; philosophy tasks produce inverted-U dynamics peaking mid-conversation.
+    \item \textbf{Disruption Sensitivity}: Context presence matters more than order (12/12 models, $DS < 0$).
+\end{enumerate}
+
+These findings extend prior work on position effects by demonstrating that task structure—not just architecture—determines how models utilize context over conversation. For clinical AI, where summarization reliability directly impacts patient safety \citep{asgari2025framework}, understanding these dynamics is essential.
+
+% ============================================
+% 2. BACKGROUND
+% ============================================
+\section{Background}
+
+\subsection{Context Sensitivity in LLMs}
+
+Context sensitivity refers to the degree to which an LLM's response is shaped by conversational history rather than isolated prompt content. While LLMs are designed to leverage context through attention mechanisms \citep{vaswani2017attention}, the extent to which they actually do so—and how this varies across positions—has received limited systematic study.
+
+The ``lost in the middle'' phenomenon \citep{liu2024lost} demonstrated that LLMs perform worse on information positioned in the middle of long contexts compared to information at the beginning or end. This suggests non-uniform context utilization that may follow predictable patterns.
+
+\subsection{The $\Delta RCI$ Framework}
+
+In prior work \citep{laxman2026paper1, laxman2026paper2}, we introduced the Relative Context Index ($\Delta RCI$) to quantify context sensitivity:
+
+\begin{equation}
+\Delta RCI = RCI_{TRUE} - RCI_{COLD}
+\end{equation}
+
+where $RCI_{TRUE}$ measures response coherence with full conversational history, and $RCI_{COLD}$ measures coherence with only the immediate prompt. $\Delta RCI > 0$ indicates that context increases response coherence—i.e., the model is ``using'' the conversation.
+
+Paper 2 established that $\Delta RCI > 0$ universally across 25 model-domain combinations (14 unique models, 2 domains). The present paper extends this by analyzing \textbf{position-level} temporal dynamics of $\Delta RCI$ across conversation.
+
+% ============================================
+% 3. METHODS
+% ============================================
+\section{Methods}
+
+\subsection{Dataset}
+
+We analyzed a subset of the Paper 2 standardized dataset: 12 model-domain runs with preserved response text, enabling position-level analysis.
+
+\textbf{Philosophy domain} (4 models): GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash. Open-goal task: 30-turn Socratic dialogue exploring consciousness---from definitions through phenomenological analysis to self-reference and meta-reflection.
+
+\textbf{Medical domain} (8 models): DeepSeek V3.1, Gemini Flash, Kimi K2, Llama 4 Maverick, Llama 4 Scout, Ministral 14B, Mistral Small 24B, Qwen3 235B. Closed-goal task: 29-turn STEMI case presentation followed by summarization at position 30.
+
+Each model completed 50 trials per condition (TRUE, COLD, SCRAMBLED), yielding approximately 54,000 total responses.
+
+\subsection{Position-Level $\Delta RCI$ Computation}
+
+For each model and position $p \in \{1, 2, ..., 30\}$:
+
+\begin{equation}
+\Delta RCI_p = \frac{1}{N} \sum_{i=1}^{N} \left( RCI_{TRUE,p,i} - RCI_{COLD,p,i} \right)
+\end{equation}
+
+where $N = 50$ trials. This yields a 30-point temporal trajectory for each model.
+
+\subsection{Statistical Analysis}
+
+\textbf{P30 Outlier Analysis}: Z-scores computed for each model's P30 $\Delta RCI$ relative to positions 1-29:
+
+\begin{equation}
+Z_{P30} = \frac{\Delta RCI_{P30} - \mu_{P1-P29}}{\sigma_{P1-P29}}
+\end{equation}
+
+\textbf{Three-Bin Aggregation}: Positions grouped into Early (1-10), Mid (11-20), Late (21-29) to reveal phase-level patterns despite position-level noise.
+
+\textbf{Disruption Sensitivity}:
+
+\begin{equation}
+DS = \Delta RCI_{SCRAMBLED} - \Delta RCI_{COLD}
+\end{equation}
+
+$DS < 0$ indicates that scrambled context (presence without order) yields lower coherence than no context—i.e., presence matters more than order.
+
+% ============================================
+% 4. RESULTS
+% ============================================
+\section{Results}
+
+\subsection{Finding 1: P30 Task Enablement}
+
+The most striking finding is the complete separation between domains at position 30 (Figure \ref{fig:p30_zscores}).
+
+\textbf{Medical domain}: All 8 models showed extreme P30 spikes:
+\begin{itemize}
+    \item Mean $Z = +3.47 \pm 0.51$ (all $> +2.7$)
+    \item 8/8 models exceeded $Z = +2.0$ threshold
+    \item Effect is architecture-independent (spans 7 vendors)
+\end{itemize}
+
+\textbf{Philosophy domain}: No model showed a spike:
+\begin{itemize}
+    \item Mean $Z = +0.25$ (range: $-0.5$ to $+1.8$)
+    \item 0/4 models exceeded $Z = +2.0$ threshold
+\end{itemize}
+
+This 8/8 vs 0/4 split ($p < 0.001$, Fisher's exact test) suggests that closed-goal summarization \textit{requires} accumulated context for task execution, while open-goal philosophical synthesis can proceed without context dependence at the final position.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig3_zscores.png}
+    \caption{P30 Z-score analysis. Medical domain (left): all 8 models exceed $Z = +2.0$ (orange dashed line). Philosophy domain (right): no model exceeds threshold. 8/8 vs 0/4 split, $p < 0.001$ (Fisher's exact test).}
+    \label{fig:p30_zscores}
+\end{figure}
+
+\subsection{Finding 2: Domain-Specific Temporal Patterns}
+
+Aggregating positions into three conversational phases reveals distinct temporal signatures (Figure \ref{fig:three_bin}).
+
+\textbf{Medical (U-shaped pattern)}:
+\begin{itemize}
+    \item Early (P1-10): High $\Delta RCI$ (mean = 0.347)
+    \item Mid (P11-20): Diagnostic trough (mean = 0.311)
+    \item Late (P21-29): Rising $\Delta RCI$ (mean = 0.371)
+    \item Pattern: Early $>$ Mid, Late $>$ Mid
+\end{itemize}
+
+\textbf{Philosophy (Inverted-U pattern)}:
+\begin{itemize}
+    \item Early (P1-10): Moderate $\Delta RCI$ (mean = 0.307)
+    \item Mid (P11-20): Peak (mean = 0.331)
+    \item Late (P21-29): Declining $\Delta RCI$ (mean = 0.270)
+    \item Pattern: Mid $>$ Early, Mid $>$ Late
+\end{itemize}
+
+These patterns suggest that medical reasoning requires context accumulation at boundaries (case opening, summary), while philosophical reasoning peaks during mid-conversation synthesis.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig4_three_bin_analysis.png}
+    \caption{Three-bin temporal analysis. Medical domain (left) shows U-shaped pattern: Early (0.347), Mid (0.311), Late (0.371). Philosophy domain (right) shows inverted-U: Early (0.307), Mid (0.331), Late (0.270).}
+    \label{fig:three_bin}
+\end{figure}
+
+\subsection{Finding 3: Disruption Sensitivity}
+
+All 12 models showed negative disruption sensitivity (Figure \ref{fig:disruption}).
+
+\begin{itemize}
+    \item Medical: Mean $DS = -0.115$ (range: $-0.15$ to $-0.06$)
+    \item Philosophy: Mean $DS = -0.073$ (range: $-0.12$ to $-0.04$)
+    \item 12/12 models: $DS < 0$
+\end{itemize}
+
+This result extends an aggregate-level finding from Paper 2 \citep{laxman2026paper2}, which reported that $\Delta RCI_{COLD} > \Delta RCI_{SCRAMBLED}$ in 25/25 model-domain runs---i.e., the presence of context (even disordered) always brings responses closer to the TRUE condition than its complete absence. $DS < 0$ is mathematically equivalent to this inequality ($DS = \Delta RCI_{scrambled} - \Delta RCI_{cold} < 0 \Leftrightarrow \Delta RCI_{COLD} > \Delta RCI_{SCRAMBLED}$). What Paper 3 adds is position-level granularity: the aggregate ``presence $>$ absence'' finding holds at every conversational position, but its magnitude varies systematically with task structure.
+
+This indicates that context \textit{presence} provides more value than context \textit{ordering}. Even scrambled context provides information that exceeds no context, but ordered context provides additional structure. This finding is architecture-independent, spanning 7 vendors and parameter counts from 14B to 671B.
+
+The practical implication for retrieval-augmented systems: prioritize information recall over perfect chronological ordering. However, position-specific DS patterns indicate that ordering matters more at some positions than others.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{fig5a_disruption_sensitivity.png}
+    \caption{Disruption sensitivity by model. All 12 models show $DS < 0$ (bars point left), indicating presence $>$ order. Medical mean $= -0.115$, Philosophy mean $= -0.073$.}
+    \label{fig:disruption}
+\end{figure}
+
+\subsection{Finding 4: Position-Level Dynamics}
+
+Figure \ref{fig:grand_mean} shows the full position-level trajectories. While individual positions show task-specific variation (prompt-dependent oscillations), the aggregate patterns confirm the domain-specific dynamics described above.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig2_domain_grand_mean.png}
+    \caption{Cross-domain grand mean $\Delta RCI$ with SEM bands. Medical (red) shows U-shaped pattern with dramatic P30 spike ($Z > +2.7$ for all 8 models). Philosophy (blue) shows inverted-U without P30 spike.}
+    \label{fig:grand_mean}
+\end{figure}
+
+% ============================================
+% 5. DISCUSSION
+% ============================================
+\section{Discussion}
+
+\subsection{Two Fundamental Patterns}
+
+Our findings support a distinction between two fundamental patterns of context sensitivity dynamics:
+
+\textbf{Type 1 (Open-Goal)}: Tasks without definitive endpoints (philosophical reasoning, creative writing, hypothesis generation) show inverted-U temporal dynamics. Context sensitivity peaks mid-conversation during synthesis, then declines as the conversation reaches natural saturation.
+
+\textbf{Type 2 (Closed-Goal)}: Tasks with guideline-bounded outputs (medical summarization, legal analysis, diagnostic reasoning) show U-shaped dynamics with task enablement spikes. Context is essential at boundaries—initial framing and final synthesis—with a ``diagnostic trough'' during information accumulation.
+
+This distinction aligns with Chen et al.'s (2024) observation of ``trough zones'' in attention allocation, but extends it by showing that trough location is domain-dependent rather than architecture-dependent.
+
+\subsection{Clinical Implications}
+
+The P30 task enablement finding has direct clinical relevance. Medical summarization at position 30 showed $Z > +2.7$ for all 8 models—meaning that without full context, models cannot execute the summarization task meaningfully. In COLD conditions, models produced generic templates or refusals rather than case-specific summaries.
+
+This aligns with recent work on clinical AI safety \citep{asgari2025framework}, which documented omission rates of 3.45\% in medical summarization. Our findings suggest that such omissions may be position-dependent: summarization quality depends critically on the accumulated context, and models that show high variability at P30 (high Var\_Ratio, as documented in our companion Paper 5) pose elevated clinical risk.
+
+\subsection{Mechanistic Interpretation}
+
+The diagnostic trough (positions 10-25 in medical) may reflect a phase where models are ``accumulating'' rather than ``synthesizing'' information. During case presentation, each new clinical fact adds to the context, but the model is not yet required to integrate this information into a coherent output. At position 30, the summarization prompt triggers synthesis, and context sensitivity spikes as the model must draw on the full accumulated history.
+
+Philosophy shows the opposite pattern because open-goal tasks require continuous synthesis—each response must build on prior exchanges—rather than deferred integration.
+
+\subsection{Limitations}
+
+Several limitations warrant acknowledgment:
+
+\begin{enumerate}
+    \item \textbf{Two domains}: We tested medical and philosophy only. Whether the Type 1/Type 2 distinction generalizes to other domains (coding, legal, creative) requires further study.
+    \item \textbf{Position-level noise}: Raw $\Delta RCI$ trajectories show prompt-specific oscillations. The inverted-U and U-shape patterns emerge clearly only in phase-level aggregation.
+    \item \textbf{Scaling hypothesis}: Preliminary observation suggests Type 2 task enablement may scale logarithmically with context length ($\Delta RCI \propto \log(\text{context})$), but with only two anchor points (P10, P30), this remains speculative.
+    \item \textbf{Model count}: Philosophy had 4 models vs medical's 8, limiting cross-domain statistical power.
+\end{enumerate}
+
+% ============================================
+% 6. CONCLUSION
+% ============================================
+\section{Conclusion}
+
+We provide the first evidence that context sensitivity dynamics in LLMs are domain-specific. Medical summarization (closed-goal) produces U-shaped temporal patterns with diagnostic troughs and extreme P30 task enablement (8/8 models, $Z > +2.7$). Philosophical reasoning (open-goal) produces inverted-U patterns with mid-conversation peaks and no P30 spike (0/4 models).
+
+These findings demonstrate that task structure—not domain content—determines how context sensitivity unfolds over conversation. The universality of disruption sensitivity ($DS < 0$, 12/12 models) confirms that context presence matters more than order, an architecture-independent property.
+
+For clinical AI deployment, understanding these dynamics is critical: summarization reliability depends on position-specific context integration, and models with high output variability at P30 may pose elevated patient safety risks.
+
+% ============================================
+% ACKNOWLEDGMENTS
+% ============================================
+\section*{Acknowledgments}
+
+This research builds on human-AI collaborative methodology established in Paper 1. AI systems (Claude, ChatGPT, DeepSeek) assisted with data analysis, visualization, and manuscript preparation. The framework, findings, and interpretations remain the author's sole responsibility.
+
+% ============================================
+% REFERENCES
+% ============================================
+\bibliographystyle{plainnat}
+\begin{thebibliography}{20}
+
+\bibitem[Vaswani et al., 2017]{vaswani2017attention}
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, \L., \& Polosukhin, I. (2017).
+\newblock Attention is all you need.
+\newblock {\em Advances in Neural Information Processing Systems}, 30.
+
+\bibitem[Brown et al., 2020]{brown2020language}
+Brown, T., Mann, B., Ryder, N., Subbiah, M., et al. (2020).
+\newblock Language models are few-shot learners.
+\newblock {\em Advances in Neural Information Processing Systems}, 33.
+
+\bibitem[Guo \& Vosoughi, 2025]{guo2025serial}
+Guo, X., \& Vosoughi, S. (2025).
+\newblock Serial position effects of large language models.
+\newblock {\em Findings of the Association for Computational Linguistics: ACL 2025}, 927--953.
+
+\bibitem[Chen et al., 2024]{chen2024fortify}
+Chen, Y., et al. (2024).
+\newblock Fortify the shortest stave in attention: Enhancing context awareness of large language models for effective tool use.
+\newblock {\em Proceedings of the 62nd Annual Meeting of the ACL}, 11160--11174.
+
+\bibitem[Liu et al., 2024]{liu2024lost}
+Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., \& Liang, P. (2024).
+\newblock Lost in the middle: How language models use long contexts.
+\newblock {\em Transactions of the Association for Computational Linguistics}, 12, 104--123.
+
+\bibitem[Asgari et al., 2025]{asgari2025framework}
+Asgari, E., et al. (2025).
+\newblock A framework to assess clinical safety and hallucination rates of LLMs for medical text summarisation.
+\newblock {\em npj Digital Medicine}, 8(1), 274.
+
+\bibitem[Polonioli, 2025]{polonioli2025moving}
+Polonioli, A. (2025).
+\newblock Moving LLM evaluation forward: lessons from human judgment research.
+\newblock {\em Frontiers in Artificial Intelligence}, 8, 1592399.
+
+\bibitem[Singhal et al., 2023]{singhal2023large}
+Singhal, K., et al. (2023).
+\newblock Large language models encode clinical knowledge.
+\newblock {\em Nature}, 620, 172--180.
+
+\bibitem[Laxman, 2026a]{laxman2026paper1}
+Laxman, M. M. (2026a).
+\newblock Context curves behavior: Measuring AI relational dynamics with $\Delta$RCI.
+\newblock {\em Preprints.org}, 202601.1881. DOI: 10.20944/preprints202601.1881.v2
+
+\bibitem[Laxman, 2026b]{laxman2026paper2}
+Laxman, M. M. (2026b).
+\newblock Scaling context sensitivity: A standardized benchmark of $\Delta$RCI across 25 model-domain runs.
+\newblock {\em Preprints.org}, 202602.1114. DOI: 10.20944/preprints202602.1114.v2
+
+\end{thebibliography}
+
+\end{document}
