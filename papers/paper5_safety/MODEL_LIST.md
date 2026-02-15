@@ -15,8 +15,8 @@
 | Ministral 14B | Mistral | 14B | ~1.08 | High | IDEAL |
 | Mistral Small 24B | Mistral | 24B | ~0.99 | High | IDEAL |
 | Qwen3 235B | Alibaba | 235B (22B active) | ~1.33 | 95% | RICH |
-| Llama 4 Maverick | Meta | 400B (17B active) | ~2.64 | Medium | HIGH-VARIANCE |
-| Llama 4 Scout | Meta | 109B (17B active) | ~7.46 | Low | HIGH-VARIANCE |
+| Llama 4 Maverick | Meta | 400B (17B active) | ~2.64 | Medium | DIVERGENT |
+| Llama 4 Scout | Meta | 109B (17B active) | ~7.46 | Low | DIVERGENT |
 
 ### Closed-Source (1 model)
 

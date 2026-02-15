@@ -1,7 +1,7 @@
-# Paper 5: Accuracy Is Not Enough
+# Paper 5: Stochastic Incompleteness in LLM Summarization
 
 **Status**: DRAFT COMPLETE
-**Title**: *Accuracy Is Not Enough: Detecting Stochastic Incompleteness in Clinical AI Summarization*
+**Title**: *Stochastic Incompleteness in LLM Summarization: A Predictability Taxonomy for Clinical AI Deployment*
 
 ## Overview
 Extension of Paper 4's Llama anomaly into a comprehensive four-class predictability taxonomy. Demonstrates that accuracy alone is insufficient for deployment assessment — output predictability (Var_Ratio) is required as a second dimension.
@@ -10,7 +10,7 @@ Extension of Paper 4's Llama anomaly into a comprehensive four-class predictabil
 1. **Four-class taxonomy** based on Var_Ratio x Accuracy:
    - **IDEAL** (DeepSeek V3.1, Kimi K2, Ministral 14B, Mistral Small): High accuracy, convergent outputs
    - **EMPTY** (Gemini Flash): Low clinical detail (16% accuracy), convergent
-   - **HIGH-VARIANCE** (Llama Scout, Llama Maverick): High trial-to-trial variance (2.6-7.5), correlates with incomplete task coverage
+   - **DIVERGENT** (Llama Scout, Llama Maverick): High trial-to-trial variance (2.6-7.5), correlates with incomplete task coverage
    - **RICH** (Qwen3 235B): Moderate variance (1.5), high accuracy (95%)
 
 2. **Accuracy verification**: Cross-model P30 medical accuracy assessed against clinical ground truth

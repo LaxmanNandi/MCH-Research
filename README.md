@@ -62,7 +62,7 @@ Strong correlation between ΔRCI and VRI (r=0.76, p=1.5×10⁻⁶², N=330 posit
 Medical P30 task enablement reveals four behavioral classes:
 - **IDEAL** (DeepSeek, Kimi K2): High accuracy, convergent outputs
 - **EMPTY** (Gemini Flash): High accuracy, but outputs lack clinical detail
-- **HIGH-VARIANCE** (Llama Scout/Maverick): Inconsistent outputs, high trial-to-trial variance
+- **DIVERGENT** (Llama Scout/Maverick): Inconsistent outputs, high trial-to-trial variance
 - **RICH** (Qwen3 235B): Moderate accuracy, verbose but informative
 
 ### 5. Conservation Constraint

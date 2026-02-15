@@ -77,11 +77,11 @@ The constraint is consistent with domain-specific resource allocation. The task 
 
 ## Integration with Paper 5
 
-The four-class predictability taxonomy (IDEAL, EMPTY, HIGH-VARIANCE, RICH) maps onto the conservation constraint. All classes follow the hyperbolic relationship — they represent different allocation strategies within the same domain-specific capacity:
+The four-class predictability taxonomy (IDEAL, EMPTY, DIVERGENT, RICH) maps onto the conservation constraint. All classes follow the hyperbolic relationship — they represent different allocation strategies within the same domain-specific capacity:
 
 - **IDEAL** (DeepSeek, Kimi K2): Balanced allocation — moderate ΔRCI, moderate VR
 - **EMPTY** (Gemini Flash): High ΔRCI, convergent but incomplete outputs
-- **HIGH-VARIANCE** (Llama Scout/Maverick): Lower ΔRCI, capacity allocated toward variance
+- **DIVERGENT** (Llama Scout/Maverick): Lower ΔRCI, capacity allocated toward variance
 - **RICH** (Qwen3): Moderate ΔRCI with excess variance that remains accurate
 
 ---

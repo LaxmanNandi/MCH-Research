@@ -123,7 +123,7 @@ These choices were deliberate to isolate core effects (entanglement signatures, 
 - Expand to third domains (legal, technical, creative) to test domain architecture claims.
 - Compare embedding models to ensure variance effects are robust.
 - Examine attention patterns in open models to link divergence to mechanism.
-- **Paper 5** extends these findings into a predictability framework: cross-model accuracy verification at P30 reveals that Var_Ratio and task completeness form a categorical (not continuous) relationship, yielding a four-class behavioral taxonomy (IDEAL, EMPTY, HIGH-VARIANCE, RICH) for deployment assessment.
+- **Paper 5** extends these findings into a predictability framework: cross-model accuracy verification at P30 reveals that Var_Ratio and task completeness form a categorical (not continuous) relationship, yielding a four-class behavioral taxonomy (IDEAL, EMPTY, DIVERGENT, RICH) for deployment assessment.
 
 ---
 
