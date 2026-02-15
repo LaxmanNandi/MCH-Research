@@ -49,8 +49,8 @@ phil = [d for d in data if d['domain'] == 'Philosophy']
 
 K_med = np.mean([d['product'] for d in med])
 K_phil = np.mean([d['product'] for d in phil])
-cv_med = np.std([d['product'] for d in med]) / K_med
-cv_phil = np.std([d['product'] for d in phil]) / K_phil
+cv_med = np.std([d['product'] for d in med], ddof=1) / K_med
+cv_phil = np.std([d['product'] for d in phil], ddof=1) / K_phil
 
 print(f"Medical:    N={len(med)}, K={K_med:.4f}, CV={cv_med:.4f}")
 print(f"Philosophy: N={len(phil)}, K={K_phil:.4f}, CV={cv_phil:.4f}")
@@ -175,7 +175,7 @@ def fig2_product_distribution():
     ]:
         products = [d['product'] for d in subset]
         mean_p = np.mean(products)
-        std_p = np.std(products)
+        std_p = np.std(products, ddof=1)
 
         # Individual bars
         names = [pretty_name(d['model']) for d in subset]
@@ -228,7 +228,7 @@ def fig3_domain_constants():
     phil_products = [d['product'] for d in phil]
 
     means = [K_med, K_phil]
-    stds = [np.std(med_products), np.std(phil_products)]
+    stds = [np.std(med_products, ddof=1), np.std(phil_products, ddof=1)]
     # 95% CI = mean ± t * (std / sqrt(n))
     ci_med = stats.t.ppf(0.975, len(med_products)-1) * stds[0] / np.sqrt(len(med_products))
     ci_phil = stats.t.ppf(0.975, len(phil_products)-1) * stds[1] / np.sqrt(len(phil_products))

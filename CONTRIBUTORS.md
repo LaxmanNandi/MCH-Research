@@ -1,7 +1,7 @@
 # Contributors
 
 ## Human
-- **Dr. Laxman M M** � Principal investigator, research design, integration
+- **Dr. Laxman M M** -- Principal investigator, research design, integration
 
 ## AI Collaborators
 
