@@ -14,7 +14,7 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 2. **Domain scaling factors differ significantly**:
    - Mann-Whitney U = 46, p = 0.003
    - Welch's t = 3.91, p = 0.002
-   - Cohen's d = 2.00 (very large)
+   - Cohen's d = 2.06 (very large)
 
 3. **Resource allocation interpretation**: Context sensitivity and output variance trade off within a domain-specific capacity shaped by task structure.
 

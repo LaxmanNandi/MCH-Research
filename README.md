@@ -39,7 +39,7 @@
 | Medical (closed-goal) | 0.429 | 0.170 | 8 | [0.368, 0.490] |
 | Philosophy (open-goal) | 0.301 | 0.166 | 6 | [0.248, 0.353] |
 
-Domain difference: Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.00
+Domain difference: Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.06
 
 Context sensitivity and output variance trade off within a domain-specific capacity shaped by task structure. Each architecture allocates this capacity differently, but the product remains approximately constant within a domain.
 

@@ -8,7 +8,7 @@ DNB General Medicine Resident (2026), KC General Hospital, Bangalore
 
 ## Abstract
 
-We report an empirical conservation constraint governing the relationship between context sensitivity and output variance in large language models. Across 14 model-domain configurations spanning 11 architectures from 8 vendors, the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a task domain: K(Medical) = 0.429 (CV = 0.170, N = 8) and K(Philosophy) = 0.301 (CV = 0.166, N = 6). These domain-specific scaling factors differ significantly (Mann-Whitney U = 46, p = 0.003; Cohen's d = 2.00). The constraint implies an inverse trade-off: architectures that exhibit greater context sensitivity tend to produce lower output variance, and vice versa, consistent with a shared capacity allocation shaped by task structure. This regularity holds across dense transformers, mixture-of-experts architectures, and both open- and closed-weight models, with parameter counts ranging from 14 billion to over 600 billion. We discuss this finding in terms of domain-specific resource allocation and identify testable predictions for additional domains. The constraint unifies prior observations on context sensitivity scaling (Papers 1-2), temporal dynamics (Paper 3), variance reduction (Paper 4), and deployment predictability (Paper 5) under a single quantitative relationship, and invites replication across broader task domains.
+We report an empirical conservation constraint governing the relationship between context sensitivity and output variance in large language models. Across 14 model-domain configurations spanning 11 architectures from 8 vendors, the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a task domain: K(Medical) = 0.429 (CV = 0.170, N = 8) and K(Philosophy) = 0.301 (CV = 0.166, N = 6). These domain-specific scaling factors differ significantly (Mann-Whitney U = 46, p = 0.003; Cohen's d = 2.06). The constraint implies an inverse trade-off: architectures that exhibit greater context sensitivity tend to produce lower output variance, and vice versa, consistent with a shared capacity allocation shaped by task structure. This regularity holds across dense transformers, mixture-of-experts architectures, and both open- and closed-weight models, with parameter counts ranging from 14 billion to over 600 billion. We discuss this finding in terms of domain-specific resource allocation and identify testable predictions for additional domains. The constraint unifies prior observations on context sensitivity scaling (Papers 1-2), temporal dynamics (Paper 3), variance reduction (Paper 4), and deployment predictability (Paper 5) under a single quantitative relationship, and invites replication across broader task domains.
 
 ---
 
@@ -179,7 +179,7 @@ The domain-specific scaling factors differ significantly:
 |------|-----------|---------|
 | Mann-Whitney U | U = 46.0 | p = 0.003 |
 | Welch's t-test | t = 3.91 | p = 0.002 |
-| Cohen's d | d = 2.00 | (very large) |
+| Cohen's d | d = 2.06 | (very large) |
 
 The medical domain has a 43% higher conservation product than the philosophy domain (K_med / K_phil = 1.43). This difference is consistent with the interpretation that closed-goal tasks (with convergent answer structures) yield a higher domain-specific scaling factor than open-goal tasks (Figure 3).
 
@@ -284,7 +284,7 @@ The conservation constraint is empirically observed but not mechanistically expl
 
 ## 7. Conclusion
 
-We report an empirical conservation constraint for large language models: the product of context sensitivity and output variance is approximately constant within a task domain, across architectures and vendors. This constraint, ΔRCI × Var_Ratio ≈ K(domain), holds with CV < 0.17 across 14 configurations from 8 vendors, with domain-specific scaling factors K(Medical) = 0.429 and K(Philosophy) = 0.301 (p = 0.003, Cohen's d = 2.00).
+We report an empirical conservation constraint for large language models: the product of context sensitivity and output variance is approximately constant within a task domain, across architectures and vendors. This constraint, ΔRCI × Var_Ratio ≈ K(domain), holds with CV < 0.17 across 14 configurations from 8 vendors, with domain-specific scaling factors K(Medical) = 0.429 and K(Philosophy) = 0.301 (p = 0.003, Cohen's d = 2.06).
 
 The constraint is consistent with domain-specific resource allocation in which context sensitivity and output variance trade off within a capacity shaped by the goal structure of the task. This capacity appears to be determined more by domain properties than by model architecture — models spanning 14B to over 600B parameters, from 8 different vendors, all conform to their domain's scaling factor.
 

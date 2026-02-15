@@ -9,7 +9,7 @@
 
 ## Abstract
 
-This paper reports an empirical conservation constraint governing the relationship between context sensitivity (ΔRCI) and output variance (Var_Ratio) in large language models: the product ΔRCI × Var_Ratio is approximately constant within a domain, across architectures. Across 14 model-domain runs spanning 8 vendors and 11 architectures, the product clusters tightly within each domain (Medical K = 0.429, CV = 0.170; Philosophy K = 0.301, CV = 0.166) while differing significantly between domains (U = 46, p = 0.003; Cohen's d = 2.00). The constraint implies an inverse trade-off consistent with domain-specific resource allocation: increased context sensitivity correlates with decreased output variance, and vice versa.
+This paper reports an empirical conservation constraint governing the relationship between context sensitivity (ΔRCI) and output variance (Var_Ratio) in large language models: the product ΔRCI × Var_Ratio is approximately constant within a domain, across architectures. Across 14 model-domain runs spanning 8 vendors and 11 architectures, the product clusters tightly within each domain (Medical K = 0.429, CV = 0.170; Philosophy K = 0.301, CV = 0.166) while differing significantly between domains (U = 46, p = 0.003; Cohen's d = 2.06). The constraint implies an inverse trade-off consistent with domain-specific resource allocation: increased context sensitivity correlates with decreased output variance, and vice versa.
 
 ---
 
@@ -37,7 +37,7 @@ This paper reports an empirical conservation constraint governing the relationsh
 | Medical | 8 | 0.429 | 0.073 | 0.170 | [0.368, 0.490] |
 | Philosophy | 6 | 0.301 | 0.050 | 0.166 | [0.248, 0.353] |
 
-**Domain difference:** Mann-Whitney U = 46, p = 0.003; Welch t = 3.91, p = 0.002; Cohen's d = 2.00
+**Domain difference:** Mann-Whitney U = 46, p = 0.003; Welch t = 3.91, p = 0.002; Cohen's d = 2.06
 
 ---
 
