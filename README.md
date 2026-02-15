@@ -1,112 +1,182 @@
-# Cross-Domain AI Behavior: Medical vs Philosophical Reasoning
+# MCH Research Program: Context Sensitivity in Large Language Models
 
-## Standardized Measurement of Context Sensitivity Across 14 LLMs
+## A Six-Paper Empirical Study Across 14 LLMs, 2 Domains, and 112,500 Responses
 
-[![Preprints.org](https://img.shields.io/badge/Preprints.org-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
+[![Paper 1 - Preprints.org](https://img.shields.io/badge/Paper%201-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
+[![Paper 2 - Preprints.org](https://img.shields.io/badge/Paper%202-10.20944%2Fpreprints202602.1114.v2-blue.svg)](https://www.preprints.org/manuscript/202602.1114/v2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
+[![Domains](https://img.shields.io/badge/domains-medical%20%7C%20philosophy-orange.svg)](#methodology)
 
-> **TL;DR:** Cross-domain experimental study measuring how domain structure shapes context sensitivity in 14 LLMs across 112,500 responses. Medical (closed-goal) reasoning shows diagnostic independence troughs and task enablement spikes; philosophy (open-goal) shows mid-conversation peaks with late decline. Standardized 50-trial methodology validates ΔRCI as robust metric (r=0.76 with VRI, p<10⁻⁶²). Significant vendor signatures persist even excluding outliers (p=0.017). Identifies safety-critical divergence in medical summarization tasks.
+> **TL;DR:** We discover that LLMs obey a conservation law: the product of context sensitivity and output variance is approximately constant within a task domain, across all architectures tested. This emerges from a six-paper program measuring how 14 LLMs from 8 vendors process conversational context across medical and philosophical reasoning.
 
-**Research Program**: Paper 1 (legacy) → **Paper 2 (standardized framework, 14 models)** → Papers 3 & 4 (deep dives) → Paper 5 (safety taxonomy)
-
-*Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka, India*
-
-**Keywords:** Cross-domain AI evaluation · Context sensitivity · Medical vs philosophical reasoning · GPT-4o · Claude · Gemini · Llama 4 · DeepSeek · Qwen · Mistral · AI safety · Domain-specific behavior · Reproducible research
+*Dr. Laxman M M, MBBS*
+*Government Duty Medical Officer, PHC Manchi, Karnataka, India*
+*DNB General Medicine Resident (2026), KC General Hospital, Bangalore*
 
 ---
 
-## Paper Series
+## Research Program
 
-All papers organized in `/papers/` directory by lineage:
+| Paper | Title | Core Finding | Status |
+|-------|-------|-------------|--------|
+| **1** | Context Curves Behavior | ΔRCI metric validated | [Published](https://www.preprints.org/manuscript/202601.1881/v2) |
+| **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | [Published](https://www.preprints.org/manuscript/202602.1114/v2) |
+| **3** | Cross-Domain Temporal Dynamics | Position-level analysis, Type 1 vs Type 2 | Draft complete |
+| **4** | Entanglement and Variance Reduction | VRI mechanism, r=0.76 with ΔRCI | Draft complete |
+| **5** | Predictability as Safety Metric | Four-class deployment taxonomy | Draft complete |
+| **6** | Conservation Law | **ΔRCI × Var_Ratio ≈ K(domain)** | Draft complete |
 
-### **Paper 1: Context Curves Behavior** [PUBLISHED - Preprints.org]
-**Role**: Legacy foundation - Introduced ΔRCI metric and Epistemological Relativity
-- 7 closed models, 2 domains (philosophy + medical), 1,000 trials (90,000 API calls)
-- **Location**: `papers/paper1_legacy/`
-- **Status**: [Preprints.org](https://www.preprints.org/manuscript/202601.1881/v2) - DOI:10.20944/preprints202601.1881.v2 (February 2, 2026, corrected version)
+### Key Discovery: Conservation Law (Paper 6)
 
-### **Paper 2: Scaling Context Sensitivity** [ACCEPTED - Preprints.org]
-**Title**: *Scaling Context Sensitivity: A Standardized Benchmark of ΔRCI Across 25 Model-Domain Runs*
-**Role**: Core study - Standardized methodology, cross-domain validation
-- 25 model-domain runs × 50 trials = **112,500 responses** (14 unique models)
-- Medical (13 models: 6 closed + 7 open) + Philosophy (12 models: 5 closed + 7 open)
-- **Location**: `papers/paper2_standardized/`
-- **Status**: Preprints.org (ID: 198770, accepted February 12, 2026)
+```
+ΔRCI × Var_Ratio ≈ K(domain)
+```
 
-### **Papers 3 & 4: Extensions** [DRAFTS COMPLETE]
-**Role**: Deep dives using Paper 2's standardized dataset
-- **Paper 3**: Temporal dynamics → `papers/paper3_cross_domain/Paper3_Results.md`
-- **Paper 4**: Entanglement mechanism → `papers/paper4_entanglement/Paper4_Results.md`
+| Domain | K | CV | N | 95% CI |
+|--------|---|-----|---|--------|
+| Medical (closed-goal) | 0.429 | 0.170 | 8 | [0.368, 0.491] |
+| Philosophy (open-goal) | 0.301 | 0.166 | 6 | [0.248, 0.353] |
 
-### **Paper 5: Safety Taxonomy** [DEFINED]
-**Role**: Deployment framework - Accuracy verification and behavioral classification
-- 8 medical models scored against 16-element clinical accuracy rubric (50 trials each)
-- Four behavioral classes: IDEAL, EMPTY, DANGEROUS, RICH
-- 2×2 deployment matrix (Var_Ratio × Accuracy)
-- **Location**: `papers/paper5_safety/Paper5_Definition.md`
+Domain difference: Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.06
 
-**Complete Structure**: See `papers/README.md`
-
-**Why this matters:** Domain structure fundamentally shapes how LLMs use context. Medical (closed-goal) tasks show diagnostic independence troughs and task enablement spikes; philosophical (open-goal) tasks show recursive accumulation. This repository provides the first **standardized cross-domain framework** to measure these effects across 14 models (25 model-domain runs) with unified methodology—critical for understanding deployment risks in medical and safety-relevant applications.
-
-**Featured Finding:** Medical P30 task enablement reveals safety-critical divergence classes. While convergent models (DeepSeek, Gemini) stabilize under context (Var_Ratio < 0.6), Llama models show extreme variance explosion (Var_Ratio up to 7.5), producing unpredictable outputs precisely when task completion requires context integration.
-
-![Featured figure: Medical P30 entanglement spike](docs/figures/publication/entanglement_validation.png?v=2)
-*Caption: Complete 12-model analysis showing P30 medical summarization divergence. Llama models show extreme variance explosion (Var_Ratio=2.6-7.5), while DeepSeek/Kimi K2/Gemini show convergent entanglement (Var_Ratio<1.0). Analysis validates ΔRCI as VRI surrogate (r=0.76, p=8.2×10⁻⁶⁹, N=360).*
+Models operate under a domain-specific information budget. The task structure determines the total budget K; each architecture allocates it differently between context sensitivity and output variance, but the total is conserved.
 
 ---
 
 ## Key Findings
 
-### 1. Epistemological Relativity v2.0
-Domain shapes temporal dynamics of context sensitivity:
-
-| Domain | Temporal Pattern (3-bin aggregation) |
-|--------|------------------|
-| Philosophy (open-goal) | Mid-conversation peak, late decline (inverted-U in Early/Mid/Late bins) |
-| Medical (closed-goal) | Diagnostic independence trough, integration rise (U-shape in bins) + Type-2 spike at P30 |
+### 1. Domain Shapes Context Processing
+- **Medical (closed-goal):** Diagnostic independence trough + integration rise (U-shape in 3-bin aggregation)
+- **Philosophy (open-goal):** Mid-conversation peak + late decline (inverted-U in 3-bin aggregation)
+- Raw 30-position curves are oscillatory; temporal patterns emerge under aggregation
 
 ### 2. Vendor Signatures
-Significant vendor-level differences in context utilization (F=90.65, p<0.0001).
+Significant vendor-level differences in context utilization (F=90.65, p<0.0001; persists excluding outliers: F(7,16)=3.55, p=0.017)
 
-### 3. Variance Reduction Entanglement
-Strong correlation (r=0.76, p=1.5×10⁻⁶²) between ΔRCI and VRI (Variance Reduction Index) across 330 position-level measurements (11 model-domain runs), validating information-theoretic interpretation.
+### 3. Entanglement Mechanism
+Strong correlation between ΔRCI and VRI (r=0.76, p=1.5×10⁻⁶², N=330 position-level measurements), validating information-theoretic interpretation
+
+### 4. Safety-Critical Divergence
+Medical P30 task enablement reveals four behavioral classes:
+- **IDEAL** (DeepSeek, Kimi K2): High accuracy, convergent outputs
+- **EMPTY** (Gemini Flash): High accuracy, but outputs lack clinical detail
+- **DANGEROUS** (Llama Scout/Maverick): Low accuracy, high variance
+- **RICH** (Qwen3 235B): Moderate accuracy, verbose but informative
+
+### 5. Conservation Law
+All four safety classes obey the hyperbolic constraint ΔRCI × Var_Ratio ≈ K. They represent different allocation strategies within the same domain-specific budget.
+
+![Conservation law with hyperbolas](docs/figures/paper6/fig1_conservation_law_hyperbolas.png)
+*Figure: Conservation law across 14 model-domain runs. Models cluster along domain-specific hyperbolas despite spanning 8 vendors and parameter counts from 14B to 671B.*
+
+---
+
+## Models Tested
+
+### Closed-Source (API)
+| Model | Vendor | Domains |
+|-------|--------|---------|
+| GPT-4o | OpenAI | Medical, Philosophy |
+| GPT-4o Mini | OpenAI | Medical, Philosophy |
+| GPT-5.2 | OpenAI | Medical, Philosophy |
+| Claude Opus | Anthropic | Medical |
+| Claude Haiku | Anthropic | Medical, Philosophy |
+| Gemini Flash | Google | Medical, Philosophy |
+
+### Open-Source (via Together AI)
+| Model | Vendor | Parameters | Domains |
+|-------|--------|-----------|---------|
+| DeepSeek V3.1 | DeepSeek | 671B | Medical, Philosophy |
+| Qwen3 235B | Alibaba | 235B (22B active) | Medical, Philosophy |
+| Llama 4 Maverick | Meta | 400B (17B active) | Medical, Philosophy |
+| Llama 4 Scout | Meta | 109B (17B active) | Medical |
+| Mistral Small 24B | Mistral | 24B | Medical |
+| Ministral 14B | Mistral | 14B | Medical |
+| Kimi K2 | Moonshot | 1T (32B active) | Medical |
+
+**14 unique models, 8 vendors, 25 model-domain runs, 50 trials each = 112,500 responses**
 
 ---
 
 ## Repository Structure
 
-**Organized by paper lineage** (not file type):
-
 ```
 mch_experiments/
-├── papers/                 # Research outputs organized by paper
-│   ├── paper1_legacy/     # Paper 1 (Preprints.org, mixed methodology)
-│   ├── paper2_standardized/  # Paper 2 (IN PREP, core study)
-│   ├── paper3_cross_domain/  # Paper 3 (temporal dynamics)
-│   ├── paper4_entanglement/  # Paper 4 (information theory)
-│   └── paper5_safety/        # Paper 5 (deployment safety taxonomy)
-├── data/                   # Experiment data (single source of truth)
-│   ├── medical/           # Medical domain (STEMI case)
-│   │   ├── closed_models/ # 7 models (GPT, Claude, Gemini)
-│   │   └── open_models/   # 7 models (DeepSeek, Kimi, Llama, Mistral, Qwen)
-│   └── philosophy/        # Philosophy domain (consciousness)
-│       ├── closed_models/ # 5 models (GPT, Claude, Gemini)
-│       └── open_models/   # 7 models (DeepSeek, Kimi, Llama, Mistral, Qwen)
-├── results/               # Analysis outputs
-│   └── tables/           # Data tables (CSV)
-├── scripts/               # Code
-│   ├── experiments/      # Run experiments
-│   └── analysis/         # Analyze data
-├── docs/                  # Documentation
-│   ├── RESEARCH_OUTLINE.md
-│   └── PAPER_COMPARISON.md
-└── archive/              # Historical materials
+├── papers/                          # Research manuscripts (by paper)
+│   ├── paper1_legacy/               #   Paper 1: Published (Preprints.org)
+│   ├── paper2_standardized/         #   Paper 2: Published (Preprints.org)
+│   ├── paper3_cross_domain/         #   Paper 3: Temporal dynamics
+│   ├── paper4_entanglement/         #   Paper 4: VRI mechanism
+│   ├── paper5_safety/               #   Paper 5: Deployment taxonomy
+│   └── paper6_conservation/         #   Paper 6: Conservation law
+│
+├── data/                            # Experimental data (single source of truth)
+│   ├── medical/                     #   Medical domain (STEMI case)
+│   │   ├── closed_models/           #     6 closed-source models
+│   │   └── open_models/             #     7 open-source models
+│   ├── philosophy/                  #   Philosophy domain (consciousness)
+│   │   ├── closed_models/           #     5 closed-source models
+│   │   └── open_models/             #     7 open-source models
+│   ├── paper5/                      #   Accuracy verification data
+│   └── paper6/                      #   Conservation law test data
+│
+├── scripts/                         # Analysis and experiment code
+│   ├── experiments/                 #   Experiment runners
+│   ├── analysis/                    #   Analysis scripts (Papers 3-6)
+│   └── validate/                    #   Validation and verification
+│
+├── docs/                            # Documentation and figures
+│   ├── figures/                     #   All figures by paper
+│   │   ├── paper3/                  #     Paper 3 figures (8)
+│   │   ├── paper4/                  #     Paper 4 figures (3)
+│   │   ├── paper5/                  #     Paper 5 figures (6)
+│   │   ├── paper6/                  #     Paper 6 figures (7)
+│   │   ├── publication/             #     Publication-ready composites
+│   │   └── legacy/                  #     Archived earlier versions
+│   └── figure_data/                 #   CSV data behind figures
+│
+└── archive/                         # Historical materials
+    ├── arxiv_v1/                    #   Original arXiv submission
+    ├── deprecated_scripts/          #   Superseded analysis code
+    └── old_data/                    #   Paper 2 early exports
 ```
 
-**Key principle**: Data stored once in `/data/`, papers organized by lineage in `/papers/`.
+---
 
+## Methodology
+
+### ΔRCI (Delta Relational Coherence Index)
+
+```
+ΔRCI = mean(RCI_TRUE) - mean(RCI_COLD)
+```
+
+- **RCI_TRUE** = 1.0 (self-alignment under full context)
+- **RCI_COLD** = cosine similarity between context-free and context-dependent responses
+- Higher ΔRCI = greater context sensitivity
+
+### Var_Ratio (Output Variance Ratio)
+
+```
+Var_Ratio = Var(TRUE embeddings) / Var(COLD embeddings)
+```
+
+- Var_Ratio > 1: Context increases output variability
+- Var_Ratio < 1: Context constrains (entangles) outputs
+- VRI = 1 - Var_Ratio (Variance Reduction Index)
+
+### Experimental Protocol
+- **3 conditions**: TRUE (coherent 29-message history), COLD (no context), SCRAMBLED (randomized)
+- **50 trials** per model-domain configuration
+- **30 prompts** per trial (positions P1-P30)
+- **Temperature**: 0.7 (all models)
+- **Embedding**: all-MiniLM-L6-v2 (384-dimensional sentence embeddings)
+
+### Task Domains
+- **Medical (closed-goal):** STEMI case progression with diagnostic and therapeutic prompts
+- **Philosophy (open-goal):** Consciousness and phenomenology with recursive philosophical prompts
 
 ---
 
@@ -114,75 +184,45 @@ mch_experiments/
 
 ```bash
 # Clone
-git clone https://github.com/LaxmanNandi/MCH-Experiments.git
-cd MCH-Experiments
+git clone https://github.com/LaxmanNandi/MCH-Research.git
+cd MCH-Research
 
-# Install
+# Install dependencies
 pip install -r requirements.txt
 
-# Run analysis
-python scripts/analysis/compute_trial_drci.py
+# Run conservation law test (Paper 6)
+python scripts/analysis/paper6_conservation_product.py
 
-# Generate figures
-python scripts/analysis/generate_paper3_figures.py
+# Generate Paper 6 figures
+python scripts/analysis/paper6_figures.py
+
+# Generate Paper 5 figures
+python scripts/generate_paper5_figures.py
 ```
-
----
-
-## Methodology
-
-### Delta Relational Coherence Index (ΔRCI)
-
-ΔRCI measures how context affects response consistency:
-
-```
-ΔRCI = mean(RCI_TRUE) - mean(RCI_COLD)
-```
-
-Where:
-- **RCI_TRUE**: Self-similarity of responses within true context (≈1.0)
-- **RCI_COLD**: Cross-similarity between true and scrambled context responses
-
-**Interpretation:**
-- ΔRCI > 0: Context increases coherence (positive dependence)
-- ΔRCI ≈ 0: Context-independent generation
-- ΔRCI < 0: Context decreases coherence (rare; suggests instability)
-
-### Task Types
-
-- **Type 1 (Open-goal):** Philosophy prompts, no single correct answer
-- **Type 2 (Closed-goal):** Medical reasoning, diagnostic/therapeutic targets
-
-### Embedding Model
-All semantic similarity computed using `sentence-transformers/all-MiniLM-L6-v2` (384-dim).
-
----
-
-## Models Tested
-
-### Closed (API-based)
-- GPT-4o, GPT-4o-mini, GPT-5.2
-- Claude Opus, Claude Haiku
-- Gemini Flash
-
-### Open (Self-hosted)
-- DeepSeek V3.1, Qwen3 235B
-- Llama 4 Maverick, Llama 4 Scout
-- Mistral Small 24B, Ministral 14B
-- Kimi K2
 
 ---
 
 ## Citation
 
+### Paper 1
 ```bibtex
 @article{laxman2026context,
-  title={Context Curves Behavior: Measuring AI Relational Dynamics with ΔRCI},
+  title={Context Curves Behavior: Measuring AI Relational Dynamics with {$\Delta$RCI}},
   author={Laxman, M M},
   journal={Preprints.org},
   doi={10.20944/preprints202601.1881.v2},
-  year={2026},
-  note={Corrected version, published February 2, 2026}
+  year={2026}
+}
+```
+
+### Paper 2
+```bibtex
+@article{laxman2026scaling,
+  title={Scaling Context Sensitivity: A Standardized Benchmark of {$\Delta$RCI} Across 25 Model-Domain Runs},
+  author={Laxman, M M},
+  journal={Preprints.org},
+  doi={10.20944/preprints202602.1114.v2},
+  year={2026}
 }
 ```
 
@@ -190,21 +230,19 @@ All semantic similarity computed using `sentence-transformers/all-MiniLM-L6-v2` 
 
 ## Acknowledgments
 
-See `CONTRIBUTORS.md` for collaborator roles and contributions.
-
-Developed using Distributed Intelligence Architecture (DIA) with Claude Code and GPT-5.2 Codex assistance.
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) for collaborator roles. Developed using Distributed Intelligence Architecture (DIA) with Claude Code and GPT-5.2 Codex assistance.
 
 ---
 
 ## License
 
-MIT License - see `LICENSE` for details.
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
 ## Contact
 
 **Dr. Laxman M M, MBBS**
-Primary Health Centre Manchi, Karnataka, India
-Email: barlax5377@gmail.com
+Government Duty Medical Officer, PHC Manchi, Karnataka, India
+DNB General Medicine Resident (2026), KC General Hospital, Bangalore
 GitHub: [@LaxmanNandi](https://github.com/LaxmanNandi)

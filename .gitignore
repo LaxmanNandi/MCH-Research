@@ -39,3 +39,9 @@ CLAUDE.md
 
 # Logs
 *.log
+
+# Temporary files
+nul
+temp_*
+*_checkpoint.json
+archive_structure.txt
