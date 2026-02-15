@@ -5,12 +5,7 @@
 | Document | Description |
 |----------|-------------|
 | [RESEARCH_OUTLINE.md](RESEARCH_OUTLINE.md) | Full research program outline and methodology |
-| [PAPER_COMPARISON.md](PAPER_COMPARISON.md) | Detailed Paper 1 vs Paper 2 comparison |
-| [API_SETUP.md](API_SETUP.md) | API configuration for model access |
 | [QUICKSTART.md](QUICKSTART.md) | Getting started guide |
-| [Data_Structure_Complete.md](Data_Structure_Complete.md) | Complete data file inventory |
-| [data_availability_index.md](data_availability_index.md) | Which models have which data |
-| [data_validation_report.md](data_validation_report.md) | Data integrity verification |
 
 ## Figures
 
@@ -30,10 +25,3 @@ All figures organized by paper in `figures/`:
 CSV data underlying key figures stored in `figure_data/`:
 - Paper 3: Position-level ΔRCI, P30 z-scores, Type 2 scaling
 - Paper 4: Entanglement scatter, independence Var_Ratio, Llama anomaly
-
-## Session Summaries
-
-| Document | Date | Content |
-|----------|------|---------|
-| [Paper1_Archived_Summary.md](Paper1_Archived_Summary.md) | Feb 2026 | Paper 1 archive notes |
-| [Paper5_Saturday_Summary_Feb14_2026.md](Paper5_Saturday_Summary_Feb14_2026.md) | Feb 14 | Paper 5 development session |
