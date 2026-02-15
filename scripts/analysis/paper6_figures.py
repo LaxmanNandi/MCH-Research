@@ -100,31 +100,39 @@ def fig1_conservation_hyperbolas():
         ax.scatter(d['drci'], d['var_ratio'], c='#3498db', s=120,
                    edgecolors='black', linewidths=0.8, zorder=10, marker='s')
 
+    # Models that appear in both domains — add suffix to disambiguate
+    dual_domain = {'deepseek_v3_1', 'gemini_flash', 'llama_4_maverick'}
+
     # Labels with offsets to avoid overlap
     label_offsets = {
-        ('gemini_flash', 'Medical'): (0.005, 0.08),
-        ('llama_4_scout', 'Medical'): (0.005, 0.08),
-        ('llama_4_maverick', 'Medical'): (-0.06, 0.05),
-        ('qwen3_235b', 'Medical'): (0.005, 0.05),
-        ('ministral_14b', 'Medical'): (0.005, -0.06),
-        ('kimi_k2', 'Medical'): (0.005, -0.06),
-        ('mistral_small_24b', 'Medical'): (-0.07, -0.04),
-        ('deepseek_v3_1', 'Medical'): (0.005, -0.06),
-        ('gemini_flash', 'Philosophy'): (0.005, 0.04),
-        ('claude_haiku', 'Philosophy'): (0.005, -0.05),
-        ('deepseek_v3_1', 'Philosophy'): (0.005, 0.03),
-        ('gpt4o', 'Philosophy'): (-0.05, -0.04),
-        ('gpt4o_mini', 'Philosophy'): (0.005, -0.05),
-        ('llama_4_maverick', 'Philosophy'): (-0.06, 0.02),
+        ('gemini_flash', 'Medical'): (0.008, 0.06),
+        ('llama_4_scout', 'Medical'): (0.008, 0.08),
+        ('llama_4_maverick', 'Medical'): (-0.07, 0.06),
+        ('qwen3_235b', 'Medical'): (0.008, 0.05),
+        ('ministral_14b', 'Medical'): (0.008, -0.07),
+        ('kimi_k2', 'Medical'): (0.008, -0.07),
+        ('mistral_small_24b', 'Medical'): (-0.08, -0.04),
+        ('deepseek_v3_1', 'Medical'): (0.02, -0.07),
+        ('gemini_flash', 'Philosophy'): (0.008, 0.05),
+        ('claude_haiku', 'Philosophy'): (0.008, -0.06),
+        ('deepseek_v3_1', 'Philosophy'): (-0.08, 0.04),
+        ('gpt4o', 'Philosophy'): (-0.06, -0.04),
+        ('gpt4o_mini', 'Philosophy'): (0.008, -0.06),
+        ('llama_4_maverick', 'Philosophy'): (-0.07, -0.04),
     }
 
     for d in data:
         key = (d['model'], d['domain'])
-        dx, dy = label_offsets.get(key, (0.005, 0.03))
-        ax.annotate(pretty_name(d['model']),
+        dx, dy = label_offsets.get(key, (0.008, 0.03))
+        # Add domain tag for models in both domains
+        label = pretty_name(d['model'])
+        if d['model'] in dual_domain:
+            tag = 'Med' if d['domain'] == 'Medical' else 'Phil'
+            label = f"{label} ({tag})"
+        ax.annotate(label,
                     (d['drci'], d['var_ratio']),
                     xytext=(d['drci'] + dx, d['var_ratio'] + dy),
-                    fontsize=8, ha='left', va='bottom',
+                    fontsize=7.5, ha='left', va='bottom',
                     arrowprops=dict(arrowstyle='-', color='gray', alpha=0.4, lw=0.5)
                     if abs(dx) > 0.02 or abs(dy) > 0.06 else None)
 
