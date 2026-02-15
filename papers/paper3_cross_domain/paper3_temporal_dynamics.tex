@@ -17,7 +17,7 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,
+    filecolor=magenta,      
     urlcolor=cyan,
     citecolor=blue,
     pdftitle={Domain-Specific Temporal Dynamics of Context Sensitivity in LLMs},
@@ -49,7 +49,7 @@ Dr. Laxman M M, MBBS\\
 
 Large language models exhibit context sensitivity—the degree to which conversational history shapes their responses. However, whether this sensitivity varies systematically across conversation positions and task domains remains unexplored. We analyzed 12 models across 30 conversational positions in two domains: philosophical reasoning (open-goal, 4 models) and medical summarization (closed-goal, 8 models), totaling approximately 54,000 responses.
 
-We report three findings. First, \textbf{position 30 (P30) task enablement}: at the summarization position, all 8 medical models showed extreme context sensitivity spikes ($Z > +2.7$, mean $Z = +3.47 \pm 0.51$), while all 4 philosophy models showed no spike (mean $Z = +0.25$). This 8/8 vs 0/4 split suggests that closed-goal tasks require accumulated context for task execution, not merely performance enhancement. Second, \textbf{domain-specific temporal patterns}: medical models exhibited U-shaped dynamics with a ``diagnostic trough'' in mid-conversation (positions 10-25), while philosophy models showed inverted-U patterns peaking mid-conversation. Third, \textbf{disruption sensitivity}: all 12 models showed negative disruption sensitivity ($DS < 0$; medical mean $-0.115$, philosophy mean $-0.073$), indicating that context presence provides more value than context ordering—an architecture-independent finding.
+We report three findings. First, \textbf{position 30 (P30) task enablement}: at the summarization position, all 8 medical models showed extreme context sensitivity spikes ($Z > +2.7$, mean $Z = +3.47$, SD $= 0.51$), while all 4 philosophy models showed no spike (mean $Z = +0.25$). This 8/8 vs 0/4 split ($p = 0.002$, Fisher's exact test) suggests that closed-goal tasks require accumulated context for task execution, not merely performance enhancement. Second, \textbf{domain-specific temporal patterns}: medical models exhibited U-shaped dynamics with a ``diagnostic trough'' in mid-conversation (positions 10-25), while philosophy models showed inverted-U patterns peaking mid-conversation. Third, \textbf{disruption sensitivity}: all 12 models showed negative disruption sensitivity ($DS < 0$; medical mean $-0.115$, philosophy mean $-0.073$), indicating that context presence provides more value than context ordering—an architecture-independent finding.
 
 These results demonstrate that task structure, not domain content, determines how context sensitivity unfolds over conversation. We introduce the distinction between open-goal (Type 1) and closed-goal (Type 2) temporal dynamics, with implications for clinical AI deployment where summarization reliability is critical.
 
@@ -134,7 +134,7 @@ Z_{P30} = \frac{\Delta RCI_{P30} - \mu_{P1-P29}}{\sigma_{P1-P29}}
 
 \textbf{Three-Bin Aggregation}: Positions grouped into Early (1-10), Mid (11-20), Late (21-29) to reveal phase-level patterns despite position-level noise.
 
-\textbf{Disruption Sensitivity}:
+\textbf{Disruption Sensitivity}: 
 
 \begin{equation}
 DS = \Delta RCI_{SCRAMBLED} - \Delta RCI_{COLD}
@@ -153,7 +153,7 @@ The most striking finding is the complete separation between domains at position
 
 \textbf{Medical domain}: All 8 models showed extreme P30 spikes:
 \begin{itemize}
-    \item Mean $Z = +3.47 \pm 0.51$ (all $> +2.7$)
+    \item Mean $Z = +3.47$ (SD $= 0.51$, all $> +2.7$)
     \item 8/8 models exceeded $Z = +2.0$ threshold
     \item Effect is architecture-independent (spans 7 vendors)
 \end{itemize}
@@ -164,12 +164,12 @@ The most striking finding is the complete separation between domains at position
     \item 0/4 models exceeded $Z = +2.0$ threshold
 \end{itemize}
 
-This 8/8 vs 0/4 split ($p < 0.001$, Fisher's exact test) suggests that closed-goal summarization \textit{requires} accumulated context for task execution, while open-goal philosophical synthesis can proceed without context dependence at the final position.
+This 8/8 vs 0/4 split ($p = 0.002$, Fisher's exact test) suggests that closed-goal summarization \textit{requires} accumulated context for task execution, while open-goal philosophical synthesis can proceed without context dependence at the final position.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{fig3_zscores.png}
-    \caption{P30 Z-score analysis. Medical domain (left): all 8 models exceed $Z = +2.0$ (orange dashed line). Philosophy domain (right): no model exceeds threshold. 8/8 vs 0/4 split, $p < 0.001$ (Fisher's exact test).}
+    \caption{P30 Z-score analysis. Medical domain (left): all 8 models exceed $Z = +2.0$ (orange dashed line). Philosophy domain (right): no model exceeds threshold. 8/8 vs 0/4 split, $p = 0.002$ (Fisher's exact test).}
     \label{fig:p30_zscores}
 \end{figure}
 
@@ -177,7 +177,7 @@ This 8/8 vs 0/4 split ($p < 0.001$, Fisher's exact test) suggests that closed-go
 
 Aggregating positions into three conversational phases reveals distinct temporal signatures (Figure \ref{fig:three_bin}).
 
-\textbf{Medical (U-shaped pattern)}:
+\textbf{Medical (U-shaped pattern)}: 
 \begin{itemize}
     \item Early (P1-10): High $\Delta RCI$ (mean = 0.347)
     \item Mid (P11-20): Diagnostic trough (mean = 0.311)
