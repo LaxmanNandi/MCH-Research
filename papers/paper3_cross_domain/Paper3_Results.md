@@ -142,11 +142,10 @@ Figure 4. Three-bin comparison (positions 1-29) showing inverted-U vs U-shape pa
 ---
 
 ### Finding 4: Disruption Sensitivity shows presence > order (with task-specific deviations)
-Across 14 of 15 runs, DS < 0 (p < 0.001), indicating that scrambled context is closer to TRUE than no context. This implies context presence provides most of the value.
+Across all 12 runs, DS < 0, indicating that scrambled context is closer to TRUE than no context. This implies context presence provides most of the value.
 
-- Philosophy: 11/11 models had DS < 0, mean DS = -0.081 (SD = 0.032, range -0.117 to -0.027).
-- Medical: 3/4 models had DS < 0, mean DS = -0.062 (SD = 0.058, range -0.128 to +0.013).
-- Exception: GPT-4o-mini DS = +0.013 (p = 0.328, ns).
+- Philosophy: 4/4 models had DS < 0, mean DS = -0.073 (SD = 0.037, range -0.113 to -0.039).
+- Medical: 8/8 models had DS < 0, mean DS = -0.115 (SD = 0.026, range -0.148 to -0.065).
 
 Per-position analysis showed task-specific structure in medical prompts: DS was strongly negative during diagnostic reasoning (positions 15-20) and near zero during summarization (P30).
 
@@ -306,6 +305,6 @@ This controlled scope prioritizes mechanistic clarity over exhaustive coverage. 
 - All 50-trial JSON files include complete response text for qualitative validation
 - Analysis scripts, figure generation code, and position-dependent measurements included
 
-Repository: `https://github.com/LaxmanNandi/MCH-Experiments`
+Repository: `https://github.com/LaxmanNandi/MCH-Research`
 
 Dataset DOI: To be assigned upon publication.
