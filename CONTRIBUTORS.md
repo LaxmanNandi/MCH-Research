@@ -1,22 +1,21 @@
 # Contributors
 
-## Human
-- **Dr. Laxman M M** -- Principal investigator, research design, integration
+## Principal Investigator
+- **Dr. Laxman M M**, MBBS — Research design, experimental methodology, data interpretation, manuscript authorship
 
 ## AI Collaborators
 
-This research was developed using Distributed Intelligence Architecture (DIA), 
-a methodology where multiple AI systems collaborate under human oversight.
+This research employed multi-AI collaborative methodology:
 
 | Agent | Role | Platform |
 |-------|------|----------|
-| Claude | Synthesis, analysis, narrative | Anthropic |
-| Codex | Execution, audit, code | OpenAI GPT-5.2 |
-| Gemini | Visualization, figures | Google |
-| DeepSeek | Theory validation, critique | DeepSeek |
+| Claude Code | Implementation: experiment scripts, statistical verification, git management, data validation | Anthropic |
+| Claude AI | Synthesis, analysis, narrative drafting, cross-paper consistency | Anthropic |
+| ChatGPT | Theoretical formalization, framework development | OpenAI |
+| DeepSeek | Theory validation, critical review | DeepSeek |
+| Gemini | Figure generation, visualization | Google |
 
 ## Note
-All AI contributions are under human direction. Research decisions, 
-integration, and responsibility remain with the human investigator.
+All AI tools operated under direct human supervision. The research framework, experimental design, findings, and interpretations remain the author's sole responsibility.
 
 ---
