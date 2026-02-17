@@ -1,7 +1,7 @@
 # Paper 3: Cross-Domain Temporal Dynamics
 
-**Status**: DRAFT COMPLETE
-**Title**: *How Philosophical vs Medical Reasoning Shapes Context Sensitivity Dynamics in Large Language Models*
+**Status**: SUBMITTED — Preprints.org (ID: 199272, pending approval)
+**Title**: *Domain-Specific Temporal Dynamics of Context Sensitivity in Large Language Models*
 
 ## Overview
 Extension of Paper 2 analyzing position-level temporal evolution patterns. **Central contribution: Two Cognitive Architectures (Type 1/Type 2) framework showing that goal structure—not domain content—determines context sensitivity patterns. Architectures distinguished by temporal dynamics and task enablement, not by ΔRCI magnitude.**
@@ -94,4 +94,4 @@ Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
 
 ---
 
-**Status**: Ready for submission
+**Status**: Submitted to Preprints.org (ID: 199272, pending approval)

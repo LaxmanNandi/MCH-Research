@@ -8,7 +8,7 @@ This directory organizes research outputs by **paper lineage** rather than file 
 papers/
 ├── paper1_legacy/           Paper 1 (Published, Preprints.org)
 ├── paper2_standardized/     Paper 2 (Published, Preprints.org)
-├── paper3_cross_domain/     Paper 3 (Draft complete)
+├── paper3_cross_domain/     Paper 3 (Submitted, Preprints.org ID: 199272, pending approval)
 ├── paper4_entanglement/     Paper 4 (Draft complete)
 ├── paper5_safety/           Paper 5 (Draft complete)
 └── paper6_conservation/     Paper 6 (Draft complete)
@@ -38,7 +38,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Location**: `paper2_standardized/`
 
 ### Paper 3: Cross-Domain Temporal Dynamics
-- **Status**: Draft complete
+- **Status**: Submitted — Preprints.org (ID: 199272, pending approval)
 - **Role**: Extension of Paper 2 -- Position-level analysis across 30 conversation positions
 - **Key Finding**: Domain-specific temporal signatures (U-shape medical, inverted-U philosophy in 3-bin aggregation)
 - **Dataset**: Paper 2 subset (12 models with response text)
@@ -103,5 +103,5 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 
 ---
 
-**Last Updated**: February 15, 2026
+**Last Updated**: February 16, 2026
 **Data Status**: ALL COMPLETE (25/25 model-domain runs) + Paper 5 accuracy + Paper 6 conservation

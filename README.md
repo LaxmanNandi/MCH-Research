@@ -23,7 +23,7 @@
 |-------|-------|-------------|--------|
 | **1** | Context Curves Behavior | ΔRCI metric validated | [Published](https://www.preprints.org/manuscript/202601.1881/v2) |
 | **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | [Published](https://www.preprints.org/manuscript/202602.1114/v2) |
-| **3** | Cross-Domain Temporal Dynamics | Position-level analysis, Type 1 vs Type 2 | Draft complete |
+| **3** | Cross-Domain Temporal Dynamics | Position-level analysis, Type 1 vs Type 2 | Submitted (Preprints.org ID: 199272, pending approval) |
 | **4** | Entanglement and Variance Reduction | VRI mechanism, r=0.76 with ΔRCI | Draft complete |
 | **5** | Predictability as Safety Metric | Four-class deployment taxonomy | Draft complete |
 | **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | Draft complete |
