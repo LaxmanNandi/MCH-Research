@@ -119,6 +119,56 @@ This suggests architectural differences in how Maverick processes conversation h
 - Philosophy K-curves too noisy for meaningful CUD — may need different analysis
 - Maverick philosophy lost 11 trials to Together AI outage
 
+## Cross-Paper Hypothesis: CUD as Depth Signature for Var_Ratio
+
+### The Observation
+
+Papers 1-6 identified the Llama safety anomaly: Var_Ratio up to 7.46 at medical P30,
+far exceeding other models. This was interpreted as a safety-relevant instability.
+
+Paper 7 now reveals that Llama 4 Maverick — a different generation of the same vendor
+family — is the only pilot model with a genuine rising K-curve (CUD > 1). All other
+models (DeepSeek, Gemini Flash, Qwen3) show flat K-curves with CUD ≈ 1.
+
+### The Hypothesis
+
+High Var_Ratio and high CUD may be two measurements of the same underlying property:
+**deep context dependence**.
+
+- A model that genuinely processes deep conversation history (high CUD) generates
+  responses that are more sensitive to trial-to-trial variations in that history.
+  Each trial produces a slightly different conversation, and a deep-context model
+  amplifies those differences → high Var_Ratio.
+
+- A recency-dominant model (CUD ≈ 1) ignores most of the conversation history,
+  so trial-to-trial variations in earlier messages have minimal effect on the
+  response → low Var_Ratio.
+
+### Predicted Pattern
+
+| CUD Class | Expected Var_Ratio | Models |
+|-----------|-------------------|--------|
+| High CUD (deep) | High Var_Ratio | Llama family |
+| Low CUD (recency) | Low Var_Ratio | DeepSeek, Gemini Flash, Qwen3 |
+
+### Testable With Existing Data
+
+This hypothesis can be verified by computing Var_Ratio for the Paper 7 pilot models
+from their 50-trial data and checking whether Maverick's Var_Ratio exceeds that of
+the flat-CUD models. The original Papers 1-6 Llama data (high Var_Ratio) and the
+Paper 7 Maverick data (high CUD) constitute independent observations from different
+model generations, strengthening the cross-paper link.
+
+### Implications
+
+- The Llama "safety anomaly" may not be anomalous — it may be a structural property
+  of deep context processing, visible as high variance from one angle and as rising
+  K-curves from another.
+- Paper 6's conservation constraint (ΔRCI × Var_Ratio ≈ K) may decompose further:
+  models with high CUD concentrate the conservation product in deeper context layers,
+  while recency-dominant models concentrate it in K=1 alone.
+- The DIVERGENT class in Paper 5's taxonomy may correspond to high-CUD models.
+
 ## Connection to Papers 1-6
 
 - **Paper 2**: CUD extends the ΔRCI benchmark by asking not just "how much" but "how deep"
@@ -132,5 +182,6 @@ This suggests architectural differences in how Maverick processes conversation h
 - Test CUD on the original 14 Paper 2 models
 - Examine CUD at multiple positions (not just P30/P15)
 - Investigate CUD × conservation constraint interaction
+- Compute Var_Ratio for Paper 7 pilot models to test CUD-variance hypothesis
 - Test whether CUD predicts practical deployment performance
 - Explore CUD in additional domains beyond medical/philosophy
