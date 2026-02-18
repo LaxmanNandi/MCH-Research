@@ -112,13 +112,6 @@ This suggests architectural differences in how Maverick processes conversation h
 | Llama 4 Maverick | 50/50 | 39/50 | Needs 11 trial rerun |
 | Qwen3 235B | IN PROGRESS | 0/50 | Running |
 
-## Known Issues
-
-- Together AI intermittent Cloudflare 500 errors cause trial failures
-- Qwen3 235B required client-level `timeout=120.0` on OpenAI() init
-- Philosophy K-curves too noisy for meaningful CUD — may need different analysis
-- Maverick philosophy lost 11 trials to Together AI outage
-
 ## Cross-Paper Hypothesis: CUD as Depth Signature for Var_Ratio
 
 ### The Observation
