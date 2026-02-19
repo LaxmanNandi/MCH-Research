@@ -110,7 +110,7 @@ This suggests architectural differences in how Maverick processes conversation h
 | DeepSeek V3.1 | 50/50 | 50/50 | COMPLETE |
 | Gemini Flash | 50/50 | 50/50 | COMPLETE |
 | Llama 4 Maverick | 50/50 | 39/50 | Needs 11 trial rerun |
-| Qwen3 235B | IN PROGRESS | 0/50 | Running |
+| Qwen3 235B | 50/50 | 50/50 | COMPLETE |
 
 ## Cross-Paper Hypothesis: CUD as Depth Signature for Var_Ratio
 
