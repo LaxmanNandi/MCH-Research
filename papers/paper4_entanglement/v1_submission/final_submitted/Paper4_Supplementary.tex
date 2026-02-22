@@ -1,0 +1,406 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{mathptmx}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{longtable}
+\usepackage{setspace}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=cyan,
+    pdftitle={Supplementary Materials: Engagement as Entanglement},
+    pdfauthor={Laxman M M},
+}
+
+\title{\LARGE\textbf{Supplementary Materials}\\
+\large Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling in Large Language Models}
+
+\author{
+    \textbf{Dr.\ Laxman M M, MBBS}\\
+    Government Duty Medical Officer, PHC Manchi\\
+    Bantwal Taluk, Dakshina Kannada, Karnataka, India\\
+    DNB General Medicine Resident (2026), KC General Hospital, Bangalore
+}
+
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% ============================================
+% SUPPLEMENTARY FIGURES
+% ============================================
+\section{Supplementary Figures}
+
+\subsection{Figure S1: Information-Theoretic Verification}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figure6_gaussian_verification.png}
+    \caption{\textbf{Information-theoretic verification: $\Delta$RCI $\sim$ 1 -- Var\_Ratio.}
+    The correlation ($r = 0.76$, $p = 2.37 \times 10^{-68}$) validates the use of Pearson correlation as the primary statistical test. The regression fit ($y = 0.10x + 0.03$) shows systematic attenuation relative to perfect agreement (dashed diagonal), indicating that $\Delta$RCI captures a fraction of the total variance modulation. Effective dimensionality: 12--23 of 384 dimensions.}
+    \label{fig:s1}
+\end{figure}
+
+\subsection{Figure S2: Trial-Level Convergence Analysis}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figure8_trial_convergence.png}
+    \caption{\textbf{Trial-level convergence analysis.}
+    $\Delta$RCI stability across 50 independent trials per model-domain run, split by domain.
+    \textbf{Left:} Philosophy domain (Type1, Open) shows slope $= -0.00004$, $p = 0.7473$ (non-significant drift).
+    \textbf{Right:} Medical domain (Type2, Closed) shows slope $= -0.00006$, $p = 0.6279$ (non-significant drift).
+    Rolling 5-trial means (colored lines) show stable estimates throughout. Both domains confirm 50-trial adequacy for stable $\Delta$RCI estimation.}
+    \label{fig:s2}
+\end{figure}
+
+\subsection{Figure S3: Model-Level $\Delta$RCI Comparison}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figure9_model_comparison.png}
+    \caption{\textbf{Model-level mean context sensitivity ($\Delta$RCI) by domain.}
+    Mean $\Delta$RCI values by model, grouped by domain.
+    Philosophy models (blue, open-goal): Gemini Flash, Claude Haiku, GPT-4o, GPT-4o-mini.
+    Medical models (red, closed-goal): Gemini Flash, Kimi K2, Ministral 14B, Mistral Small 24B, Qwen3 235B, Llama 4 Scout, DeepSeek V3.1, Llama 4 Maverick.
+    Dashed lines show domain means. Medical domain shows higher mean $\Delta$RCI than philosophy, consistent with closed-goal tasks eliciting stronger context sensitivity.}
+    \label{fig:s3}
+\end{figure}
+
+\newpage
+\subsection{Figure S4: ``Lost in Conversation'' Experimental Validation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{lost_in_conversation_tests.png}
+    \caption{\textbf{Experimental validation of the ``Lost in Conversation'' phenomenon (Laban et al., 2025).}
+    \textbf{Top panel}: Var\_Ratio progression across 30 conversational positions for all 12 models. Llama 4 Scout (red) shows extreme divergence escalation from 0.92 (P1) to 7.46 (P30). 10/12 models (83\%) exhibit INCREASING Var\_Ratio, consistent with Laban et al.'s unreliability increase.
+    \textbf{Middle-left panel}: Change in Var\_Ratio from early (P1--P10) to late (P21--P30) conversation. Positive bars indicate models getting MORE unstable over conversation length. Llama 4 Scout shows largest increase (+0.76), Kimi K2 shows decrease ($-$0.25).
+    \textbf{Middle-center panel}: Model classification by mean Var\_Ratio. 9/12 models are DIVERGENT (Var\_Ratio $>$ 1.0, red bars). Only 3 models maintain CONVERGENT behavior (Var\_Ratio $<$ 1.0, blue bars).
+    \textbf{Middle-right panel}: Recovery analysis after first divergence event. 9/12 models show recovery rate $<$ 50\% (red), confirming Laban et al.'s ``do not recover'' claim. Only 3 models (GPT-4o, Mistral Small 24B, Kimi K2) show $>$ 50\% recovery (green).
+    \textbf{Bottom-left panel}: Domain comparison showing Medical (red) vs Philosophy (blue) Var\_Ratio trajectories. Medical domain shows higher mean Var\_Ratio (1.198 vs 1.012).
+    \textbf{Bottom-right panel}: Llama models' descent into extreme divergence. Both start stable (Var\_Ratio $\sim$ 0.92 at P1) but escalate dramatically by P30 (Maverick: 2.64, Scout: 7.46). Star marks extreme divergence (Var\_Ratio $>$ 3.0).
+    \textbf{Summary}: Progression: 10/12 models (83\%) show increasing Var\_Ratio; Classification: 9/12 (75\%) are divergent; Recovery: 9/12 (75\%) fail to recover; Domain effect: Medical 18\% higher mean Var\_Ratio; Extreme case: Llama 4 Scout ESI $=$ 0.15 at P30.
+    These results provide independent empirical validation of Laban et al.'s (2025) findings using the MCH dataset ($N=360$ observations, 12 models).}
+    \label{fig:s4}
+\end{figure}
+
+% ============================================
+% SUPPLEMENTARY TABLES
+% ============================================
+\newpage
+\section{Supplementary Tables}
+
+\subsection{Table S1: Complete Model-Position Data}
+
+\begin{small}
+\begin{longtable}{llrrrr}
+\caption{Complete $\Delta$RCI and Var\_Ratio data across 360 observations (12 models $\times$ 30 positions).
+Models span 8 vendors with parameter counts from 14B to 671B. Var\_Ratio > 1.0 indicates divergent
+entanglement (context increases output variance). VRI = 1 - Var\_Ratio. Data available in full at:
+\url{https://github.com/LaxmanNandi/MCH-Research/tree/master/analysis/entanglement_position_data.csv}}\\
+\toprule
+\textbf{Model} & \textbf{Domain} & \textbf{Position} & \textbf{$\Delta$RCI} & \textbf{Var\_Ratio} & \textbf{VRI} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{c}{\tablename\ \thetable\ -- \textit{Continued from previous page}}\\
+\toprule
+\textbf{Model} & \textbf{Domain} & \textbf{Position} & \textbf{$\Delta$RCI} & \textbf{Var\_Ratio} & \textbf{VRI} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+% Data rows - truncated for space, full table generated from CSV
+GPT-4o-mini & Philosophy & 1 & 0.021 & 0.692 & 0.308 \\
+GPT-4o-mini & Philosophy & 2 & 0.018 & 0.745 & 0.255 \\
+GPT-4o-mini & Philosophy & 3 & 0.019 & 0.812 & 0.188 \\
+\dots & \dots & \dots & \dots & \dots & \dots \\
+Llama 4 Scout & Medical & 28 & -0.031 & 5.123 & -4.123 \\
+Llama 4 Scout & Medical & 29 & -0.028 & 6.247 & -5.247 \\
+Llama 4 Scout & Medical & 30 & -0.035 & 7.463 & -6.463 \\
+\end{longtable}
+\end{small}
+
+\textit{Note}: Table S1 shows representative rows only. Complete 360-row dataset available in repository.
+
+\subsection{Table S2: ESI Classification and Recovery Rates}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Model} & \textbf{Mean} & \textbf{P30} & \textbf{ESI} & \textbf{First} & \textbf{Recovery} & \textbf{Class} \\
+ & \textbf{Var\_Ratio} & \textbf{Var\_Ratio} & \textbf{(P30)} & \textbf{Div.} & \textbf{Rate (\%)} & \\
+\midrule
+Llama 4 Scout & 1.610 & 7.463 & 0.15 & P2 & 17.9 & Divergent \\
+Qwen3 235B & 1.334 & 1.624 & 1.60 & P4 & 26.9 & Divergent \\
+Llama 4 Maverick & 1.213 & 2.644 & 0.61 & P2 & 35.7 & Divergent \\
+Gemini Flash (Med) & 1.287 & 1.441 & 3.48 & P3 & 44.4 & Divergent \\
+DeepSeek V3.1 & 1.071 & 1.048 & 14.02 & P2 & 46.4 & Convergent \\
+Ministral 14B & 1.080 & 1.046 & 21.74 & P4 & 38.5 & Divergent \\
+Claude Haiku & 1.012 & 1.028 & 35.71 & P2 & 35.7 & Divergent \\
+Gemini Flash (Phil) & 1.120 & 1.233 & 4.29 & P1 & 48.3 & Divergent \\
+Kimi K2 & 1.006 & 0.885 & 8.70 & P1 & 62.1 & Convergent \\
+GPT-4o-mini & 0.968 & 0.980 & 50.00 & P12 & 50.0 & Convergent \\
+GPT-4o & 0.950 & 1.129 & 7.75 & P7 & 56.5 & Convergent \\
+Mistral Small 24B & 0.985 & 1.129 & 7.75 & P4 & 57.7 & Convergent \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{ESI and recovery classification for all 12 models.}
+ESI = 1/|1 - Var\_Ratio| computed at P30. ``First Div.'' = position where model first entered
+divergent regime (Var\_Ratio > 1.0). ``Recovery Rate'' = percentage of positions where model
+returned to convergent after first divergence. Models with recovery < 50\% (red class) are
+consistent with Laban et al.'s ``do not recover'' claim.}
+\label{tab:s2}
+\end{table}
+
+% ============================================
+% SUPPLEMENTARY METHODS
+% ============================================
+\newpage
+\section{Supplementary Methods}
+
+\subsection{``Lost in Conversation'' Test Design}
+
+To validate whether our entanglement framework explains Laban et al.'s (2025) ``Lost in Conversation''
+phenomenon, we designed 5 experiments using the existing MCH dataset (360 observations, 12 models, 30 positions):
+
+\subsubsection{Experiment 1: Var\_Ratio Progression Test}
+
+\textbf{Hypothesis}: If ``Lost in Conversation'' is real, Var\_Ratio should increase with conversation length.
+
+\textbf{Method}: For each model, compute linear regression slope of Var\_Ratio vs position (P1-P30).
+Positive slope indicates increasing instability; negative slope indicates increasing stability.
+
+\textbf{Statistical test}: Pearson correlation r and slope significance (p < 0.05).
+
+\textbf{Classification}: Compare early (P1-P10 mean) vs late (P21-P30 mean) Var\_Ratio.
+Delta = Late - Early. Positive delta = consistent with ``Lost in Conversation.''
+
+\subsubsection{Experiment 2: Convergent vs Divergent Classification}
+
+\textbf{Hypothesis}: Most models are divergent (mean Var\_Ratio > 1.0) across all positions.
+
+\textbf{Method}: Compute mean Var\_Ratio across all 30 positions per model.
+Classify as:
+\begin{itemize}
+    \item CONVERGENT: mean Var\_Ratio < 1.0
+    \item DIVERGENT: mean Var\_Ratio > 1.0
+\end{itemize}
+
+\textbf{Statistical test}: Count proportion in each class.
+
+\subsubsection{Experiment 3: Recovery Analysis}
+
+\textbf{Hypothesis}: Models ``get lost and do not recover'' (Laban et al. claim).
+
+\textbf{Method}: For each model:
+\begin{enumerate}
+    \item Find first position where Var\_Ratio > 1.0 (first divergence)
+    \item Count subsequent positions where Var\_Ratio returns to < 1.0 (recovery events)
+    \item Compute recovery rate = (recovery positions) / (total positions after first divergence)
+\end{enumerate}
+
+\textbf{Classification}:
+\begin{itemize}
+    \item RECOVERS: recovery rate > 50\%
+    \item DOES NOT RECOVER: recovery rate $\leq$ 50\%
+\end{itemize}
+
+\textbf{Prediction}: If Laban et al. are correct, most models should NOT recover.
+
+\subsubsection{Experiment 4: Domain Comparison}
+
+\textbf{Hypothesis}: Domain structure affects divergence tendency.
+
+\textbf{Method}: Compare mean Var\_Ratio between Medical (N=8 models) and Philosophy (N=4 models).
+
+\textbf{Statistical test}: Independent t-test or Mann-Whitney U (depending on normality).
+
+\subsubsection{Experiment 5: Llama Trajectory Analysis}
+
+\textbf{Hypothesis}: Llama models show extreme divergence escalation.
+
+\textbf{Method}: Trace Llama 4 Maverick and Llama 4 Scout Var\_Ratio from P1 to P30.
+Identify:
+\begin{itemize}
+    \item Starting stability (P1 Var\_Ratio)
+    \item Ending divergence (P30 Var\_Ratio)
+    \item Maximum divergence position
+    \item ESI at P30
+\end{itemize}
+
+\textbf{Extreme divergence threshold}: Var\_Ratio > 3.0 (empirically derived from distribution).
+
+\subsection{Implementation}
+
+All experiments implemented in Python using:
+\begin{itemize}
+    \item Pandas for data manipulation
+    \item SciPy for statistical tests
+    \item Matplotlib/Seaborn for visualization
+    \item Input data: \texttt{entanglement\_position\_data.csv} (N=360 rows)
+\end{itemize}
+
+Script location: \texttt{scripts/analysis/test\_lost\_in\_conversation.py}
+
+Results saved to:
+\begin{itemize}
+    \item \texttt{analysis/lost\_in\_conversation\_tests.png} (6-panel figure)
+    \item \texttt{analysis/lost\_in\_conversation\_summary.csv} (aggregate statistics)
+    \item \texttt{analysis/lost\_in\_conversation\_progression.csv} (model-level trajectories)
+\end{itemize}
+
+% ============================================
+% SUPPLEMENTARY RESULTS
+% ============================================
+\newpage
+\section{Supplementary Results}
+
+\subsection{Detailed Progression Statistics}
+
+Table S3 shows detailed progression analysis for all 12 models:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Model} & \textbf{Correlation} & \textbf{Slope} & \textbf{Early} & \textbf{Late} \\
+ & \textbf{r} & \textbf{(per position)} & \textbf{Var\_Ratio} & \textbf{Var\_Ratio} \\
+\midrule
+Llama 4 Scout & 0.380* & +0.053* & 1.408 & 2.171 \\
+Qwen3 235B & 0.394* & +0.029* & 1.058 & 1.624 \\
+GPT-4o & 0.426* & +0.020* & 0.734 & 1.129 \\
+Gemini Flash (Med) & 0.211 & +0.018 & 1.209 & 1.441 \\
+Mistral Small 24B & 0.331 & +0.015 & 0.853 & 1.129 \\
+GPT-4o-mini & 0.275 & +0.015 & 0.692 & 0.980 \\
+Llama 4 Maverick & 0.217 & +0.013 & 1.151 & 1.335 \\
+Gemini Flash (Phil) & 0.200 & +0.010 & 0.992 & 1.233 \\
+Claude Haiku & 0.155 & +0.004 & 0.964 & 1.028 \\
+Ministral 14B & 0.064 & +0.002 & 1.026 & 1.046 \\
+DeepSeek V3.1 & -0.036 & -0.002 & 1.071 & 1.048 \\
+Kimi K2 & -0.284 & -0.012 & 1.137 & 0.885 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Var\_Ratio progression statistics.}
+Correlation r and slope computed from linear regression (Var\_Ratio ~ Position).
+* indicates p < 0.05 (significant trend). Early = mean(P1-P10), Late = mean(P21-P30).
+10/12 models show positive slopes (increasing instability).}
+\label{tab:s3}
+\end{table}
+
+\subsection{Recovery Event Analysis}
+
+Recovery events plotted in Figure S5 show temporal pattern of divergence/convergence transitions:
+
+Recovery events are shown in Figure S4 (middle-right panel), which plots recovery rates after first divergence for all 12 models. Llama models (bottom rows) show persistent divergent behavior after P2--P4.
+
+% ============================================
+% SUPPLEMENTARY DISCUSSION
+% ============================================
+\newpage
+\section{Supplementary Discussion}
+
+\subsection{Laban et al. (2025) Comparison}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{6cm}p{6cm}}
+\toprule
+\textbf{Laban et al. (2025)} & \textbf{MCH Framework (This Study)} \\
+\midrule
+200,000+ conversations, 15 LLMs & 360 observations, 12 LLMs \\
+Performance drops 39\% & $\Delta$RCI becomes negative (divergent class) \\
+Unreliability increases 112\% & Var\_Ratio increases up to 7.46$\times$ \\
+``Models get lost'' & Divergent entanglement (Var\_Ratio > 1) \\
+``Do not recover'' & 75\% recovery rate < 50\% \\
+No mechanistic explanation & Variance reduction framework (VRI/ESI) \\
+No predictive tool & ESI < 1.0 predicts instability \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Comparison between Laban et al.'s empirical findings and our mechanistic framework.}
+Our study provides quantitative explanation for their qualitative observations and adds predictive capability.}
+\end{table}
+
+\subsection{Clinical Implications}
+
+The ``Lost in Conversation'' phenomenon has direct clinical safety implications:
+
+\textbf{Scenario}: A medical LLM assists with STEMI diagnosis over 29-exchange case history (as in MCH Medical domain).
+
+\textbf{Risk}: At P30, Llama 4 Scout has Var\_Ratio = 7.46, ESI = 0.15.
+This means:
+\begin{itemize}
+    \item Output variance is 7.46$\times$ higher with context than without
+    \item Across 50 identical trials, responses range from 5/16 to 14/16 clinical elements covered
+    \item No hallucinations, but random incompleteness
+    \item Clinician cannot trust output to be stable
+\end{itemize}
+
+\textbf{Proposed Framework for Future Validation}: The ESI metric provides a mechanistic basis for screening protocols, but requires large-scale validation:
+\begin{itemize}
+    \item Our study: 360 controlled observations across 12 model-domain runs
+    \item Laban et al.\ (2025): 200,000+ simulated conversations documenting the phenomenon at scale
+    \item \textbf{Gap}: Operational deployment thresholds (e.g., ESI < 1.0 as exclusion criterion) require validation across thousands of models and diverse real-world contexts
+    \item \textbf{Next steps}: Large-scale empirical studies testing whether ESI values consistently predict instability across deployment scenarios
+    \item Our contribution: Mechanistic explanation enabling hypothesis-driven threshold development
+\end{itemize}
+
+\subsection{Architectural Insights}
+
+Recovery analysis reveals potential architectural differences:
+
+\textbf{Models that recover} (GPT-4o, Mistral Small 24B, Kimi K2):
+\begin{itemize}
+    \item Larger parameter counts (24B-1T)
+    \item May have better context windowing strategies
+    \item Possibly more robust attention mechanisms
+\end{itemize}
+
+\textbf{Models that do NOT recover} (Llama 4 Scout/Maverick, Qwen3 235B):
+\begin{itemize}
+    \item Mixture-of-Experts architectures (potential expert routing instability?)
+    \item Medical domain shows worse recovery than Philosophy
+    \item Early divergence (P2-P4) predicts poor recovery
+\end{itemize}
+
+\textbf{Hypothesis for future testing}: MoE routing may introduce stochasticity that amplifies with conversation length, leading to divergent entanglement. Dense transformers may maintain more stable attention patterns.
+
+\subsection{Limitations of ``Lost in Conversation'' Analysis}
+
+\begin{enumerate}
+    \item \textbf{Sample size}: 12 models is small compared to Laban et al.'s 15 LLMs
+    \item \textbf{Domain scope}: Only medical and philosophy tested; Laban et al. used diverse tasks
+    \item \textbf{Recovery threshold}: 50\% cutoff is arbitrary; sensitivity analysis needed
+    \item \textbf{Causality}: We show correlation between Var\_Ratio and instability, not proof of mechanism
+    \item \textbf{Intervention testing}: We did not test whether context summarization/truncation can prevent divergence
+\end{enumerate}
+
+% ============================================
+% END
+% ============================================
+\end{document}
