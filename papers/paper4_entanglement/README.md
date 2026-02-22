@@ -5,8 +5,10 @@
 
 ## Manuscript Files
 
-- **Paper4_Manuscript.tex** - Main manuscript (standalone version)
-- **Paper4_Supplementary.tex** - Supplementary materials
+- **Paper4_Manuscript.tex** (32 KB) - Main manuscript LaTeX source
+- **Paper4_Manuscript.pdf** (606 KB) - Main manuscript PDF (submitted)
+- **Paper4_Supplementary.tex** (19 KB) - Supplementary materials LaTeX source
+- **Paper4_Supplementary.pdf** (890 KB) - Supplementary materials PDF (submitted)
 
 ## Figures
 
