@@ -5,7 +5,7 @@
 
 ## Manuscript Files
 
-- **Paper4_Manuscript_Overleaf.tex** - Main manuscript
+- **Paper4_Manuscript.tex** - Main manuscript (standalone version)
 - **Paper4_Supplementary.tex** - Supplementary materials
 
 ## Figures

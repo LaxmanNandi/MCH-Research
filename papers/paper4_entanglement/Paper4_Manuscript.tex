@@ -59,7 +59,7 @@
 \noindent Recent large-scale simulations demonstrate that LLMs exhibit systematic performance degradation in multi-turn conversations, with unreliability increasing 112\% across 200,000+ conversations \citep{laban2025lost}. However, this ``Lost in Conversation'' phenomenon lacks mechanistic explanation. We present an entanglement framework for understanding context sensitivity in large language models using embedding-level variance analysis across 12 model-domain runs (4 philosophy, 8 medical) and 360 position-level measurements. We demonstrate that $\Delta$RCI---a measure of context sensitivity introduced in Papers~1--2---tracks variance reduction in response embeddings. The correlation between $\Delta$RCI and the Variance Reduction Index ($\text{VRI} = 1 - \text{Var\_Ratio}$) is strong and highly significant ($r = 0.76$, $p = 2.37 \times 10^{-68}$, $N = 360$). This relationship reveals \emph{bidirectional} context coupling: convergent entanglement ($\text{Var\_Ratio} < 1$, $\Delta\text{RCI} > 0$), where context narrows the response distribution, and divergent entanglement ($\text{Var\_Ratio} > 1$, $\Delta\text{RCI} < 0$), where context widens it. The ``Lost in Conversation'' effect corresponds specifically to divergent entanglement. Two medical models (Llama 4 Scout: $\text{Var\_Ratio} = 7.46$; Llama 4 Maverick: $\text{Var\_Ratio} = 2.64$) exhibit extreme divergent entanglement at the summarization position (P30), producing highly unstable outputs when task enablement is expected. We introduce the Entanglement Stability Index (ESI) to predict which models will exhibit instability in multi-turn settings, transforming the descriptive observation that ``LLMs get lost'' into a predictive science of human-AI relational dynamics.
 
 \vspace{0.5em}
-\noindent\textbf{Keywords:} context sensitivity, $\Delta$RCI, entanglement, variance reduction, response predictability, LLM safety, medical AI, multi-turn conversation
+\noindent\textbf{Keywords:} large language models, context sensitivity, entanglement, variance reduction, multi-turn conversation, output stability, medical AI, model evaluation
 \end{abstract}
 
 % ============================================
@@ -145,7 +145,7 @@ $\Delta$RCI increases as context reduces response variance. This supports the en
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{entanglement_validation.png}
+    \includegraphics[width=0.80\textwidth]{../figures/entanglement_validation.png}
     \caption{\textbf{$\Delta$RCI vs VRI across 360 model-position points.}
     Blue: philosophy models (4). Red: medical models (8). The strong positive correlation ($r = 0.76$, $p = 2.37 \times 10^{-68}$) validates the entanglement framework: higher context sensitivity corresponds to greater variance reduction. Points in the lower-left quadrant represent divergent entanglement ($\text{Var\_Ratio} > 1$, $\Delta\text{RCI} < 0$), corresponding to the ``Lost in Conversation'' phenomenon documented by Laban et al.\ \citeyearpar{laban2025lost}.}
     \label{fig:entanglement}
@@ -170,7 +170,7 @@ Critically, divergent entanglement explains Laban et al.'s \citeyearpar{laban202
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{fig4_entanglement_multipanel.png}
+    \includegraphics[width=\textwidth]{../figures/fig4_entanglement_multipanel.png}
     \caption{\textbf{Multi-panel entanglement analysis.}
     The regime map shows convergent ($\text{Var\_Ratio} < 1$) and divergent ($\text{Var\_Ratio} > 1$) regions, with domain-specific patterns and position-dependent dynamics across medical and philosophy models.}
     \label{fig:multipanel}
@@ -191,7 +191,7 @@ This identifies a \textbf{distinct behavioral class}: models that exhibit diverg
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{fig7_llama_safety_anomaly.png}
+    \includegraphics[width=0.85\textwidth]{../figures/fig7_llama_safety_anomaly.png}
     \caption{\textbf{Llama divergence anomaly at medical P30.}
     Divergent variance signatures ($\text{Var\_Ratio} \gg 1$, ESI $< 1.0$) at the summarization position indicate extreme output instability in Llama 4 Maverick and Llama 4 Scout. Other open-weight medical models show mild or no divergence. Convergent models (Kimi K2, DeepSeek V3.1, Gemini Flash, Ministral 14B) show $\text{Var\_Ratio} < 1$ at P30, with ESI $> 2.0$ indicating stable multi-turn behavior.}
     \label{fig:llama}
@@ -210,7 +210,7 @@ Medical prompts tend to destabilize response distributions under context, while 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{fig5_independence_rci_var.png}
+    \includegraphics[width=0.80\textwidth]{../figures/fig5_independence_rci_var.png}
     \caption{\textbf{RCI vs.\ Variance Ratio across models and positions.}
     Domain-specific relationship between context sensitivity and output variance. Medical models (red) cluster at higher Var\_Ratio than philosophy models (blue), indicating that closed-goal tasks systematically increase output variance under context.}
     \label{fig:independence}
@@ -291,7 +291,7 @@ The emergence of convergent versus divergent classes suggests differences in how
 
 \textbf{Model subset.} Only 12 of 25 model-domain runs have response text, limiting the analysis to 360 data points. Expansion requires rerunning experiments with text preservation.
 
-\textbf{Scale of evidence.} Our controlled experimental design (360 observations, 50 trials per position) establishes the mechanistic relationship between context sensitivity and variance reduction. However, Laban et al.\ \citeyearpar{laban2025lost} documented the ``Lost in Conversation'' phenomenon across 200,000+ real-world conversations. Our study provides mechanistic explanation for their empirical findings but does not replace their large-scale evidence. Operational deployment recommendations require validation at comparable scale.
+\textbf{Scale of evidence.} Our controlled experimental design (360 observations, 50 trials per position) establishes the mechanistic relationship between context sensitivity and variance reduction. However, Laban et al.\ \citeyearpar{laban2025lost} documented the ``Lost in Conversation'' phenomenon across 200,000+ simulated conversations. Our study provides mechanistic explanation for their empirical findings but does not replace their large-scale evidence. Operational deployment recommendations require validation at comparable scale.
 
 \textbf{Embedding dependence.} Variance metrics depend on the all-MiniLM-L6-v2 embedding space. Alternative embedding models may yield different variance ratio distributions.
 
@@ -307,7 +307,7 @@ The emergence of convergent versus divergent classes suggests differences in how
 
 The entanglement framework presented here opens several research directions. First, \textbf{context utilization depth (CUD)} experiments currently in progress will test whether models with high ESI values can effectively integrate longer context windows, or whether engagement depth trades off against stability. Preliminary pilot data from 4 models suggest that Medical domain requires deeper context integration (K $>$ 15 messages) than Philosophy domain, consistent with the domain-specific entanglement signatures observed here.
 
-Second, the framework should be tested across additional domains (legal reasoning, code generation, creative writing) to determine whether the engagement-as-entanglement interpretation generalizes beyond medical diagnostics and philosophical discourse. If the conservation constraint ΔRCI $\times$ Var\_Ratio $\approx$ K(domain) reported in Paper~6 holds across diverse task structures, it would suggest a fundamental trade-off in how language models allocate processing capacity.
+Second, the framework should be tested across additional domains (legal reasoning, code generation, creative writing) to determine whether the engagement-as-entanglement interpretation generalizes beyond medical diagnostics and philosophical discourse. If the conservation constraint $\Delta$RCI $\times$ Var\_Ratio $\approx$ K(domain) reported in Paper~6 holds across diverse task structures, it would suggest a fundamental trade-off in how language models allocate processing capacity.
 
 Third, longitudinal studies tracking VRI and ESI across model versions could reveal whether architectural improvements enhance engagement capacity or merely redistribute existing capacity between context sensitivity and output stability. The distinction between convergent and divergent entanglement may reflect training objective choices (e.g., helpfulness vs.\ harmlessness tuning) rather than fundamental capability limits.
 
@@ -348,9 +348,9 @@ All raw data, response text, and analysis scripts are available in the project r
 
 Supplementary materials include:
 \begin{itemize}
-    \item \textbf{Figure S1}: Gaussian assumption verification for ΔRCI distributions
-    \item \textbf{Figure S2}: Trial-level convergence analysis (50-trial adequacy)
-    \item \textbf{Figure S3}: Model-level ΔRCI comparison across architectures
+    \item \textbf{Figure S1}: Information-theoretic verification ($\Delta$RCI $\sim$ 1 -- Var\_Ratio)
+    \item \textbf{Figure S2}: Trial-level convergence analysis (dRCI stability across 50 trials)
+    \item \textbf{Figure S3}: Model-level mean context sensitivity ($\Delta$RCI) by domain
     \item \textbf{Figure S4}: ``Lost in Conversation'' experimental validation (6-panel analysis)
     \item \textbf{Table S1}: Complete model-position data (N=360)
     \item \textbf{Table S2}: ESI classification and recovery rates
@@ -384,14 +384,14 @@ Laxman, M.\ M.\ (2026c).
 \newblock Domain-specific temporal dynamics of context sensitivity in large language models.
 \newblock {\em Preprints.org}, ID:~199272.
 
-\bibitem[Laxman, 2026d]{laxman2026paper5}
-Laxman, M.\ M.\ (2026d).
+\bibitem[Laxman, 2026e]{laxman2026paper5}
+Laxman, M.\ M.\ (2026e).
 \newblock Stochastic incompleteness in LLM summarization: A predictability taxonomy
 for clinical AI deployment.
 \newblock In preparation.
 
-\bibitem[Laxman, 2026e]{laxman2026paper6}
-Laxman, M.\ M.\ (2026e).
+\bibitem[Laxman, 2026f]{laxman2026paper6}
+Laxman, M.\ M.\ (2026f).
 \newblock An empirical conservation constraint on context sensitivity and output variance:
 Evidence across LLM architectures.
 \newblock In preparation.
@@ -403,7 +403,7 @@ Brown, T., Mann, B., Ryder, N., Subbiah, M., et al.\ (2020).
 
 \bibitem[Vaswani et al., 2017]{vaswani2017attention}
 Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.\ N.,
-Kaiser, Ł., \& Polosukhin, I.\ (2017).
+Kaiser, \L., \& Polosukhin, I.\ (2017).
 \newblock Attention is all you need.
 \newblock {\em Advances in Neural Information Processing Systems}, 30.
 
@@ -425,44 +425,5 @@ Liu, N.\ F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F.,
 \newblock {\em Transactions of the Association for Computational Linguistics}, 12, 104--123.
 
 \end{thebibliography}
-
-% ============================================
-% SUPPLEMENTARY FIGURES
-% ============================================
-\clearpage
-\appendix
-\section*{Supplementary Figures}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{figure6_gaussian_verification.png}
-    \caption{\textbf{Figure S1: Gaussian assumption verification.}
-    Distribution analysis of $\Delta$RCI values across models and positions.
-    Marginal normality is partially satisfied ($|\text{skew}| < 1$, $|\text{kurt}| < 3$
-    for 61--76\% of dimensions), validating the use of Pearson correlation as the primary
-    statistical test. Effective dimensionality: 12--23 of 384 dimensions.}
-    \label{fig:gaussian}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{figure8_trial_convergence.png}
-    \caption{\textbf{Figure S2: Trial-level convergence analysis.}
-    $\Delta$RCI stability across 50 independent trials per model-domain run.
-    Rolling 5-trial means show stable estimates throughout. Slope tests: 11/12 models
-    show non-significant drift ($p > 0.05$), confirming 50-trial adequacy for stable estimation.}
-    \label{fig:convergence}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{figure9_model_comparison.png}
-    \caption{\textbf{Figure S3: Model-level $\Delta$RCI comparison.}
-    Mean $\Delta$RCI values by model with 95\% confidence intervals.
-    Medical models (closed-goal): mean $\Delta$RCI $= 0.361$;
-    Philosophy models (open-goal): mean $\Delta$RCI $= 0.305$.
-    Bar chart illustrates inter-model variability and domain separation.}
-    \label{fig:model_comparison}
-\end{figure}
 
 \end{document}
