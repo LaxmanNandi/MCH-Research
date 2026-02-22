@@ -22,9 +22,9 @@
 | Paper | Title | Core Finding | Status |
 |-------|-------|-------------|--------|
 | **1** | Context Curves Behavior | ΔRCI metric validated | [Published](https://www.preprints.org/manuscript/202601.1881/v2) |
-| **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | [Published](https://www.preprints.org/manuscript/202602.1114/v2) |
+| **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | [Published (v1)](https://www.preprints.org/manuscript/202602.1114/v1), [v2](https://www.preprints.org/manuscript/202602.1114/v2) |
 | **3** | Cross-Domain Temporal Dynamics | Position-level analysis, Type 1 vs Type 2 | Submitted (Preprints.org ID: 199272, pending approval) |
-| **4** | Entanglement and Variance Reduction | VRI mechanism, r=0.76 with ΔRCI | Draft complete |
+| **4** | Entanglement and Variance Reduction | VRI mechanism, r=0.76 with ΔRCI | Submitted (Preprints.org ID: 199894, pending approval) |
 | **5** | Predictability as Safety Metric | Four-class deployment taxonomy | Draft complete |
 | **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | Draft complete |
 
@@ -56,7 +56,7 @@ Context sensitivity and output variance trade off within a domain-specific capac
 Significant vendor-level differences in context utilization (F=90.65, p<0.0001; persists excluding outliers: F(7,16)=3.55, p=0.017)
 
 ### 3. Entanglement Mechanism
-Strong correlation between ΔRCI and VRI (r=0.76, p=1.5×10⁻⁶², N=330 position-level measurements), validating information-theoretic interpretation
+Strong correlation between ΔRCI and VRI (r=0.76, p=2.37×10⁻⁶⁸, N=360 position-level measurements), validating information-theoretic interpretation
 
 ### 4. Safety-Critical Divergence
 Medical P30 task enablement reveals four behavioral classes:
