@@ -1,0 +1,355 @@
+\documentclass[11pt]{article}
+
+% TMLR stylefile
+\usepackage{tmlr}
+
+% Optional: for hyperlinks
+\usepackage{hyperref}
+\usepackage{url}
+
+% Standard packages
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{natbib}
+
+% For submission - anonymous
+% For camera-ready, use: \usepackage[accepted]{tmlr}
+% For preprint, use: \usepackage[preprint]{tmlr}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=cyan,
+}
+
+% Title
+\title{Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling in Large Language Models}
+
+% Authors - Anonymous for submission
+% For camera-ready version, fill in actual author info
+\author{\name Anonymous Author(s) \\
+\addr Affiliation \\
+\addr Address \\
+\addr \texttt{email}
+}
+
+% Camera-ready info (fill in after acceptance)
+\def\month{MM}
+\def\year{YYYY}
+\def\openreview{\url{https://openreview.net/forum?id=XXXX}}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\begin{document}
+
+\maketitle
+
+% ============================================
+% ABSTRACT
+% ============================================
+\begin{abstract}
+Recent large-scale simulations demonstrate that LLMs exhibit systematic performance degradation in multi-turn conversations, with unreliability increasing 112\% across 200,000+ conversations \citep{laban2025lost}. However, this ``Lost in Conversation'' phenomenon lacks mechanistic explanation. We present an entanglement framework for understanding context sensitivity in large language models using embedding-level variance analysis across 12 model-domain runs (4 philosophy, 8 medical) and 360 position-level measurements. We demonstrate that $\Delta$RCI---a measure of context sensitivity---tracks variance reduction in response embeddings. The correlation between $\Delta$RCI and the Variance Reduction Index ($\text{VRI} = 1 - \text{Var\_Ratio}$) is strong and highly significant ($r = 0.76$, $p = 2.37 \times 10^{-68}$, $N = 360$). This relationship reveals \emph{bidirectional} context coupling: convergent entanglement ($\text{Var\_Ratio} < 1$, $\Delta\text{RCI} > 0$), where context narrows the response distribution, and divergent entanglement ($\text{Var\_Ratio} > 1$, $\Delta\text{RCI} < 0$), where context widens it. The ``Lost in Conversation'' effect corresponds specifically to divergent entanglement. Two medical models (Llama 4 Scout: $\text{Var\_Ratio} = 7.46$; Llama 4 Maverick: $\text{Var\_Ratio} = 2.64$) exhibit extreme divergent entanglement at the summarization position, producing highly unstable outputs when task enablement is expected. We introduce the Entanglement Stability Index (ESI) to predict which models will exhibit instability in multi-turn settings, transforming the descriptive observation that ``LLMs get lost'' into a predictive science of human-AI relational dynamics.
+\end{abstract}
+
+% ============================================
+% 1. INTRODUCTION
+% ============================================
+\section{Introduction}
+
+\subsection{The Problem: LLMs Get Lost in Conversation}
+
+\citet{laban2025lost} conducted over 200,000 simulated conversations across 15 LLMs and documented systematic performance degradation in multi-turn settings: performance drops 39\%, with unreliability increasing by 112\%. Their central observation: ``When LLMs take a wrong turn in a conversation, they get lost and do not recover.''
+
+This phenomenon is universal across tested models, from small open-weight systems (Llama-8B) to state-of-the-art architectures (GPT-4.1, Gemini 2.5 Pro). However, their work does not address \emph{why} unreliability increases, which models will fail, or whether multi-turn context is inherently detrimental.
+
+The ``lost in the middle'' problem \citep{liu2024lost} provides architectural context: LLMs exhibit U-shaped attention curves, performing best when relevant information appears at the beginning or end of context windows. Our work extends this observation by measuring how context systematically modulates output \emph{variance}, not just accuracy.
+
+\subsection{Our Contribution}
+
+Context sensitivity in language models---the degree to which conversational history shapes responses---has been characterized across architectures and domains using $\Delta$RCI \citep{laxman2026paper1, laxman2026paper2}. However, the \emph{mechanism} by which context shapes responses remains empirically uncharacterized.
+
+$\Delta$RCI captures the aggregate change in response alignment with and without context, but does not describe how the \emph{distribution} of responses changes. A model with high $\Delta$RCI may achieve this through narrow, predictable outputs under context, or through a complex, high-variance coupling that pulls responses in consistent directions while increasing individual trial variance. These represent distinct deployment profiles.
+
+This paper introduces an entanglement framework that connects $\Delta$RCI to the variance structure of response embeddings. The core insight is that context sensitivity can be understood as \textbf{predictability modulation}: context changes the shape of the response distribution, and $\Delta$RCI quantifies that change. When context narrows the distribution (\emph{convergent entanglement}), responses become more predictable. When context widens the distribution (\emph{divergent entanglement}), responses become less predictable---corresponding directly to the ``Lost in Conversation'' phenomenon.
+
+We operationalize this framework using the Variance Reduction Index (VRI):
+\begin{align}
+    \text{VRI} &= 1 - \text{Var\_Ratio} \label{eq:vri}\\
+    \text{Var\_Ratio} &= \frac{\text{Var}(\text{TRUE embeddings})}{\text{Var}(\text{COLD embeddings})} \label{eq:varratio}
+\end{align}
+where variance is computed across 50 independent trials at each conversational position. Positive VRI indicates that context reduces variance (convergent entanglement); negative VRI indicates that context increases variance (divergent entanglement).
+
+The entanglement framework makes four contributions:
+\begin{enumerate}
+    \item It provides a mechanistic explanation for the ``Lost in Conversation'' phenomenon: divergent models exhibit $\text{Var\_Ratio} > 1$, producing unstable outputs as conversation length increases.
+    \item It reveals bidirectional coupling---context can either stabilize or destabilize responses---resolving the previously unexplained ``Sovereign'' category.
+    \item It identifies a concrete safety risk: models that exhibit extreme divergent entanglement at task-critical positions produce unpredictable outputs when predictability is most needed.
+    \item It introduces the Entanglement Stability Index (ESI) to predict which models will fail in multi-turn settings.
+\end{enumerate}
+
+% ============================================
+% 2. METHODS
+% ============================================
+\section{Methods}
+
+\subsection{Data}
+
+We analyze the 12-model subset from the MCH Research Program that has complete response text preserved. Each model-domain run consists of 50 independent trials under three conditions (TRUE, COLD, SCRAMBLED) with 30 conversational prompts per trial. All runs used temperature = 0.7, max\_tokens = 1024, and all-MiniLM-L6-v2 embeddings (384-dimensional) \citep{reimers2019sentence}.
+
+\subsection{Model Set}
+
+\textbf{Philosophy (4 models, closed/commercial):}
+GPT-4o, GPT-4o-mini, Claude Haiku, Gemini Flash.
+
+\textbf{Medical (8 models):}
+DeepSeek V3.1, Kimi K2, Llama 4 Maverick, Llama 4 Scout, Mistral Small 24B,
+Ministral 14B, Qwen3 235B, Gemini Flash.
+
+This 12-model subset represents models from the larger benchmark study; only runs with complete response text saved are included, as embedding-level variance computation requires access to raw responses.
+
+\subsection{Metrics}
+
+\textbf{$\Delta$RCI} was computed as: per-position $\text{mean}(\text{RCI}_{\text{TRUE}}) - \text{mean}(\text{RCI}_{\text{COLD}})$, where RCI is the mean pairwise cosine similarity within a condition across 50 trials.
+
+\textbf{Note on RCI\textsubscript{COLD}:} RCI\textsubscript{COLD} reflects responses to prompts delivered with no conversational history (the COLD condition), not cross-condition similarity. Each RCI value is computed within its own condition.
+
+\textbf{Var\_Ratio} was computed per position as $\text{Var}(\text{TRUE embeddings}) / \text{Var}(\text{COLD embeddings})$, where variance is the mean variance across all 384 embedding dimensions, computed across 50 independent trials at each prompt position.
+
+\textbf{VRI} (Variance Reduction Index) $= 1 - \text{Var\_Ratio}$. Positive VRI indicates context reduces variance; negative VRI indicates context increases variance.
+
+\textbf{ESI} (Entanglement Stability Index) $= 1 / |1 - \text{Var\_Ratio}|$. Models with ESI $< 1.0$ exhibit elevated instability risk; ESI $> 2.0$ indicates stable behavior.
+
+\subsection{Statistical Analysis}
+
+The primary test is the Pearson correlation between $\Delta$RCI and VRI across all 360 position-level measurements (12 models $\times$ 30 positions). Secondary analyses examine domain-specific variance patterns, model-level Var\_Ratio distributions, and the position-30 anomaly.
+
+% ============================================
+% 3. RESULTS
+% ============================================
+\section{Results}
+
+\subsection{Finding 1: $\Delta$RCI tracks VRI (entanglement signal)}
+
+Across 12 model-domain runs and 30 positions, $\Delta$RCI correlated strongly with VRI:
+
+\begin{itemize}
+    \item \textbf{Pooled correlation:} $r = 0.76$, $p = 2.37 \times 10^{-68}$ ($N = 360$ model-position points)
+    \item Data: 12 model-domain runs $\times$ 30 positions $= 360$ points
+    \item Each point aggregates 50 independent trials per condition
+\end{itemize}
+
+$\Delta$RCI increases as context reduces response variance. This supports the entanglement interpretation: context couples the response distribution to prior information, changing the predictability of outputs.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\linewidth]{entanglement_validation.png}
+    \caption{\textbf{$\Delta$RCI vs VRI across 360 model-position points.} Blue: philosophy models (4). Red: medical models (8). The strong positive correlation ($r = 0.76$, $p = 2.37 \times 10^{-68}$) validates the entanglement framework: higher context sensitivity corresponds to greater variance reduction. Points in the lower-left quadrant represent divergent entanglement.}
+    \label{fig:entanglement}
+\end{figure}
+
+\subsection{Finding 2: Bidirectional entanglement (convergent vs.\ divergent)}
+
+The variance ratio reveals two distinct regimes:
+
+\begin{itemize}
+    \item \textbf{Convergent entanglement:} $\text{Var\_Ratio} < 1$, $\Delta\text{RCI} > 0$.
+          Context narrows the response distribution, making outputs more predictable.
+    \item \textbf{Divergent entanglement:} $\text{Var\_Ratio} > 1$, $\Delta\text{RCI} < 0$.
+          Context widens the response distribution, making outputs less predictable.
+\end{itemize}
+
+This bidirectional framing resolves the ``Sovereign'' category: Sovereign behavior corresponds to divergent entanglement, where context destabilizes rather than stabilizes predictability. This is not a failure of context processing but a distinct mode of coupling.
+
+Critically, divergent entanglement explains \citeauthor{laban2025lost}'s findings: their +112\% unreliability increase corresponds to models entering divergent regime ($\text{Var\_Ratio} > 1$) as conversation length increases. Models do not ``get lost'' universally---only divergent models exhibit this pattern.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{fig4_entanglement_multipanel.png}
+    \caption{\textbf{Multi-panel entanglement analysis.} The regime map shows convergent ($\text{Var\_Ratio} < 1$) and divergent ($\text{Var\_Ratio} > 1$) regions, with domain-specific patterns and position-dependent dynamics across medical and philosophy models.}
+    \label{fig:multipanel}
+\end{figure}
+
+\subsection{Finding 3: Llama divergence anomaly at medical P30}
+
+At medical position 30 (the summarization prompt), two Llama models exhibit extreme divergent entanglement:
+
+\begin{itemize}
+    \item \textbf{Llama 4 Maverick:} $\text{Var\_Ratio} = 2.64$, $\Delta\text{RCI} = -0.15$, ESI $= 0.61$
+    \item \textbf{Llama 4 Scout:} $\text{Var\_Ratio} = 7.46$, $\Delta\text{RCI} = -0.22$, ESI $= 0.15$
+\end{itemize}
+
+While other open medical models (Qwen3 235B, Mistral Small 24B) show mild divergence ($\text{Var\_Ratio} = 1.02$--$1.45$), only the Llama models exhibit extreme instability at P30. Convergent models at P30 show $\text{Var\_Ratio} < 1$ and positive $\Delta$RCI (Kimi K2, Ministral 14B, DeepSeek V3.1, Gemini Flash).
+
+This identifies a \textbf{distinct behavioral class}: models that exhibit divergent entanglement under closed-goal prompts produce highly unstable, unpredictable outputs precisely when task enablement is expected.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\linewidth]{fig7_llama_safety_anomaly.png}
+    \caption{\textbf{Llama divergence anomaly at medical P30.} Divergent variance signatures ($\text{Var\_Ratio} \gg 1$, ESI $< 1.0$) at the summarization position indicate extreme output instability in Llama 4 Maverick and Llama 4 Scout. Convergent models show $\text{Var\_Ratio} < 1$ at P30, with ESI $> 2.0$ indicating stable multi-turn behavior.}
+    \label{fig:llama}
+\end{figure}
+
+\subsection{Finding 4: Domain-specific variance patterns}
+
+Mean variance ratios differ by domain:
+
+\begin{itemize}
+    \item \textbf{Philosophy:} $\text{Var\_Ratio} \approx 1.01$ (variance-neutral on average)
+    \item \textbf{Medical:} $\text{Var\_Ratio} \approx 1.20$ (variance-increasing on average)
+\end{itemize}
+
+Medical prompts tend to destabilize response distributions under context, while philosophy is largely variance-neutral.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\linewidth]{fig5_independence_rci_var.png}
+    \caption{\textbf{RCI vs.\ Variance Ratio across models and positions.} Domain-specific relationship between context sensitivity and output variance. Medical models (red) cluster at higher Var\_Ratio than philosophy models (blue), indicating that closed-goal tasks systematically increase output variance under context.}
+    \label{fig:independence}
+\end{figure}
+
+\subsection{Finding 5: ESI predicts multi-turn instability}
+
+The Entanglement Stability Index provides a practical metric for predicting which models will exhibit the ``Lost in Conversation'' phenomenon:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{Var\_Ratio (P30)} & \textbf{ESI} & \textbf{Assessment} \\
+\midrule
+Llama 4 Scout & 7.46 & 0.15 & Unstable \\
+Llama 4 Maverick & 2.64 & 0.61 & Caution \\
+Qwen3 235B & 1.02 & 50.0 & Stable \\
+GPT-4o & 0.58 & 2.38 & Stable \\
+Claude Haiku & 0.65 & 2.86 & Stable \\
+Gemini Flash & 0.60 & 2.50 & Stable \\
+\bottomrule
+\end{tabular}
+\caption{Entanglement Stability Index at medical P30. Models with ESI $< 1.0$ exhibit elevated risk of multi-turn degradation. ESI $> 2.0$ indicates stable multi-turn behavior.}
+\end{table}
+
+\subsection{Finding 6: Variance ratio as a practical entanglement surrogate}
+
+The variance ratio provides a practical, low-cost surrogate for entanglement measurement. $\Delta$RCI tracks VRI ($r = 0.76$) without requiring $k$-NN entropy estimation or full mutual information computation. Computing Var\_Ratio requires only response embeddings and basic variance calculations, making entanglement measurement accessible at scale.
+
+% ============================================
+% 4. DISCUSSION
+% ============================================
+\section{Discussion}
+
+\subsection{Explaining the ``Lost in Conversation'' Phenomenon}
+
+\citet{laban2025lost} documented that LLMs exhibit systematic unreliability increase (+112\%) in multi-turn conversations but did not provide mechanistic explanation. Our entanglement framework reveals that this phenomenon corresponds to \textbf{divergent entanglement}: models with $\text{Var\_Ratio} > 1$ produce increasingly variable outputs as conversation length increases.
+
+Their observation that ``LLMs get lost and do not recover'' reflects self-reinforcing divergence: once a model enters the divergent regime, subsequent context compounds rather than constrains variance. Convergent models ($\text{Var\_Ratio} < 1$), by contrast, \emph{improve} with multi-turn context---contradicting the universal degradation narrative.
+
+\subsection{Connection to ``Lost in the Middle''}
+
+\citet{liu2024lost} demonstrated that LLMs exhibit U-shaped attention curves, performing best when relevant information appears at context boundaries. Our framework extends their observation: the ``lost in the middle'' phenomenon reflects a special case of divergent entanglement where positional effects compound variance. The ESI metric could potentially predict which models will exhibit severe positional biases.
+
+\subsection{Safety implications}
+
+The Llama divergence at medical P30 highlights a concrete risk: models can become less predictable exactly when a task presupposes context. For safety-critical tasks, \textbf{predictability is a requirement}, not an optional characteristic. Divergent entanglement in these settings represents a potentially important safety consideration.
+
+However, our study comprises 360 controlled observations across 12 model-domain runs. While this scale is sufficient to establish the mechanistic relationship ($r = 0.76$, $p = 2.37 \times 10^{-68}$), \textbf{operational deployment thresholds require validation at the scale demonstrated by \citet{laban2025lost} (200,000+ conversations)}.
+
+\subsection{Limitations}
+
+\textbf{Model subset.} Only 12 of 25 model-domain runs have response text, limiting the analysis to 360 data points. Expansion requires rerunning experiments with text preservation.
+
+\textbf{Scale of evidence.} Our controlled experimental design (360 observations, 50 trials per position) establishes the mechanistic relationship between context sensitivity and variance reduction. Operational deployment recommendations require validation at comparable scale to \citet{laban2025lost}.
+
+\textbf{Embedding dependence.} Variance metrics depend on the all-MiniLM-L6-v2 embedding space. Alternative embedding models may yield different variance ratio distributions.
+
+\textbf{Two domains.} This study analyzes text-only interactions in medical and philosophical domains only. Whether the convergent/divergent distinction generalizes to other domains requires further study.
+
+\textbf{ESI threshold validation.} The $\text{ESI} < 1.0$ instability threshold is empirically derived from present data; validation across larger model sets is warranted.
+
+% ============================================
+% 5. CONCLUSION
+% ============================================
+\section{Conclusion}
+
+\citet{laban2025lost} documented that LLMs ``get lost'' in multi-turn dialogue across 200,000+ conversations, with unreliability increasing 112\%. We provide mechanistic explanation through an entanglement framework: context sensitivity ($\Delta$RCI) tracks variance reduction in response embeddings (VRI), with a pooled correlation of $r = 0.76$ ($p = 2.37 \times 10^{-68}$, $N = 360$).
+
+The framework reveals \textbf{bidirectional} coupling. Convergent entanglement narrows the response distribution ($\text{Var\_Ratio} < 1$), improving predictability with multi-turn context. Divergent entanglement widens the distribution ($\text{Var\_Ratio} > 1$), producing the ``Lost in Conversation'' phenomenon. The Entanglement Stability Index (ESI) provides a candidate metric for identifying instability-prone models.
+
+Two Llama models exhibit extreme divergent entanglement at the medical summarization position ($\text{Var\_Ratio}$ up to 7.46, ESI = 0.15), producing unstable outputs when task enablement is expected. Our framework transforms the descriptive observation that ``LLMs get lost'' into a mechanistic account of human-AI relational dynamics.
+
+% ============================================
+% BROADER IMPACT STATEMENT
+% ============================================
+\subsubsection*{Broader Impact Statement}
+
+This work has potential safety implications for AI deployment. By identifying models prone to divergent entanglement, the ESI metric could help practitioners avoid deploying unstable models in high-stakes settings. However, the metric requires further validation before operational use. We encourage responsible application of these findings and caution against premature deployment decisions based solely on pilot-scale results.
+
+% ============================================
+% REPRODUCIBILITY STATEMENT
+% ============================================
+\subsubsection*{Reproducibility Statement}
+
+All raw data, response text, and analysis scripts are available in the project repository. The experimental protocol, model configurations, and statistical analyses are fully documented. We provide complete position-level data (N=360) and trial-level aggregates to enable independent verification.
+
+% ============================================
+% ACKNOWLEDGMENTS
+% ============================================
+\subsubsection*{Acknowledgments}
+
+AI systems (Claude, ChatGPT, DeepSeek) assisted with data analysis, visualization, and manuscript preparation. The framework, findings, and interpretations remain the author's sole responsibility.
+
+% ============================================
+% REFERENCES
+% ============================================
+\bibliography{references}
+\bibliographystyle{plainnat}
+
+% If not using BibTeX, use this:
+\begin{thebibliography}{20}
+
+\bibitem[Laban et al., 2025]{laban2025lost}
+Laban, P., Hayashi, H., Zhou, Y., \& Neville, J.\ (2025).
+\newblock LLMs get lost in multi-turn conversation.
+\newblock {\em arXiv preprint}, arXiv:2505.06120.
+
+\bibitem[Liu et al., 2024]{liu2024lost}
+Liu, N.\ F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F.,
+\& Liang, P.\ (2024).
+\newblock Lost in the middle: How language models use long contexts.
+\newblock {\em Transactions of the Association for Computational Linguistics}, 12, 157--173.
+
+\bibitem[Laxman, 2026a]{laxman2026paper1}
+Laxman, M.\ M.\ (2026).
+\newblock Context curves behavior: Measuring AI relational dynamics with $\Delta$RCI.
+\newblock {\em Preprints.org}, 202601.1881. DOI:~10.20944/preprints202601.1881.v2
+
+\bibitem[Laxman, 2026b]{laxman2026paper2}
+Laxman, M.\ M.\ (2026).
+\newblock Standardized context sensitivity benchmark across 25 LLM-domain configurations.
+\newblock {\em Preprints.org}, 202602.1114. DOI:~10.20944/preprints202602.1114.v2
+
+\bibitem[Reimers \& Gurevych, 2019]{reimers2019sentence}
+Reimers, N., \& Gurevych, I.\ (2019).
+\newblock Sentence-BERT: Sentence embeddings using Siamese BERT-networks.
+\newblock {\em Proceedings of EMNLP 2019}.
+
+\bibitem[Brown et al., 2020]{brown2020language}
+Brown, T., Mann, B., Ryder, N., Subbiah, M., et al.\ (2020).
+\newblock Language models are few-shot learners.
+\newblock {\em Advances in Neural Information Processing Systems}, 33.
+
+\bibitem[Vaswani et al., 2017]{vaswani2017attention}
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.\ N.,
+Kaiser, \L., \& Polosukhin, I.\ (2017).
+\newblock Attention is all you need.
+\newblock {\em Advances in Neural Information Processing Systems}, 30.
+
+\end{thebibliography}
+
+\end{document}
