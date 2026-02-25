@@ -45,3 +45,6 @@ nul
 temp_*
 *_checkpoint.json
 archive_structure.txt
+
+# Internal audit reports (not public)
+docs/DATA_VERIFICATION_REPORT_*.md
