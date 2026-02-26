@@ -1,7 +1,10 @@
 # Paper 4: Engagement as Entanglement
 
-**Status**: ✅ Submitted to Preprints.org (ID: 199894)
-**Date**: February 22, 2026
+**Status**:
+- ✅ Published on Preprints.org (ID: 199894) - February 22, 2026
+- 📝 Submitted to TMLR (Transactions on Machine Learning Research) - February 26, 2026
+
+**DOI**: 10.20944/preprints202602.XXXXX (pending assignment)
 
 ## Manuscript Files
 
@@ -47,11 +50,14 @@ Data location: `/data/`
 3. **Llama safety anomaly**: Extreme instability at medical P30 (Var_Ratio up to 7.46)
 4. **Domain differences**: Medical ~1.20, Philosophy ~1.01
 
-## Archive
+## Submission Folders
 
-All submission documentation, verification reports, and old drafts are in `/archive/`.
+- **`v1_submission/`** - Preprints.org submission package (February 22, 2026)
+- **`tmlr_submission/`** - TMLR journal submission package (February 26, 2026)
+- **`archive/`** - Old drafts, verification reports, and intermediate versions
 
----
+## Related Links
 
-**GitHub**: https://github.com/LaxmanNandi/MCH-Research
-**Preprints.org**: https://www.preprints.org/manuscript/202602.XXXXX (pending approval)
+- **GitHub**: https://github.com/LaxmanNandi/MCH-Research
+- **Preprints.org**: https://www.preprints.org/manuscript/202602.XXXXX (pending DOI assignment)
+- **TMLR**: Submitted via OpenReview (under review)

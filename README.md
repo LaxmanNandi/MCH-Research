@@ -1,9 +1,10 @@
 # MCH Research Program: Context Sensitivity in Large Language Models
 
-## A Six-Paper Empirical Study Across 14 LLMs, 2 Domains, and 112,500 Responses
+## A Seven-Paper Research Program Across 14 LLMs, 2 Domains, and 112,500 Responses
 
 [![Paper 1 - Preprints.org](https://img.shields.io/badge/Paper%201-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![Paper 2 - Preprints.org](https://img.shields.io/badge/Paper%202-10.20944%2Fpreprints202602.1114.v2-blue.svg)](https://www.preprints.org/manuscript/202602.1114/v2)
+[![Paper 3 - Preprints.org](https://img.shields.io/badge/Paper%203-10.20944%2Fpreprints202602.1674.v1-blue.svg)](https://www.preprints.org/manuscript/202602.1674/v1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
@@ -21,12 +22,13 @@
 
 | Paper | Title | Core Finding | Status |
 |-------|-------|-------------|--------|
-| **1** | Context Curves Behavior | ΔRCI metric validated | [Published](https://www.preprints.org/manuscript/202601.1881/v2) |
-| **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | [Published (v1)](https://www.preprints.org/manuscript/202602.1114/v1), [v2](https://www.preprints.org/manuscript/202602.1114/v2) |
-| **3** | Cross-Domain Temporal Dynamics | Position-level analysis, Type 1 vs Type 2 | Submitted (Preprints.org ID: 199272, pending approval) |
-| **4** | Entanglement and Variance Reduction | VRI mechanism, r=0.76 with ΔRCI | Submitted (Preprints.org ID: 199894, pending approval) |
-| **5** | Predictability as Safety Metric | Four-class deployment taxonomy | Draft complete |
-| **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | Draft complete |
+| **1** | Context Curves Behavior | ΔRCI metric validated | ✅ [Published](https://www.preprints.org/manuscript/202601.1881/v2) - DOI: 10.20944/preprints202601.1881.v2 |
+| **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | ✅ [Published v2](https://www.preprints.org/manuscript/202602.1114/v2) - DOI: 10.20944/preprints202602.1114.v2 |
+| **3** | Domain-Specific Temporal Dynamics | 3-bin aggregation, U-shape vs inverted-U | ✅ [Published](https://www.preprints.org/manuscript/202602.1674/v1) - DOI: 10.20944/preprints202602.1674.v1 |
+| **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | 📝 Submitted to TMLR (Feb 2026) |
+| **5** | Predictability as Safety Metric | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | 📄 Draft complete |
+| **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | 📄 Draft complete, p=0.003 |
+| **7** | Context Utilization Depth | Mechanism-independence of K | 🔬 Pilot complete (4 models) |
 
 ### Key Discovery: Conservation Constraint (Paper 6)
 

@@ -6,18 +6,19 @@ This directory organizes research outputs by **paper lineage** rather than file 
 
 ```
 papers/
-├── paper1_legacy/           Paper 1 (Published, Preprints.org)
-├── paper2_standardized/     Paper 2 (Published, Preprints.org)
-├── paper3_cross_domain/     Paper 3 (Submitted, Preprints.org ID: 199272, pending approval)
-├── paper4_entanglement/     Paper 4 (Draft complete)
-├── paper5_safety/           Paper 5 (Draft complete)
-└── paper6_conservation/     Paper 6 (Draft complete)
+├── paper1_legacy/           Paper 1 ✅ Published (Preprints.org)
+├── paper2_standardized/     Paper 2 ✅ Published v2 (Preprints.org)
+├── paper3_cross_domain/     Paper 3 ✅ Published (Preprints.org)
+├── paper4_entanglement/     Paper 4 📝 Submitted to TMLR + Preprints.org
+├── paper5_safety/           Paper 5 📄 Draft complete
+├── paper6_conservation/     Paper 6 📄 Draft complete
+└── paper7_cud/              Paper 7 🔬 Pilot complete (4 models)
 ```
 
 ## Paper Lineage
 
 ```
-Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Paper 5 (Safety) → Paper 6 (Conservation Law)
+Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Paper 5 (Safety) → Paper 6 (Conservation Law) → Paper 7 (Mechanism Independence)
 ```
 
 ### Paper 1: Context Curves Behavior
@@ -37,19 +38,22 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Methodology**: Standardized 50 trials, corrected trial definition
 - **Location**: `paper2_standardized/`
 
-### Paper 3: Cross-Domain Temporal Dynamics
-- **Status**: Submitted — Preprints.org (ID: 199272, pending approval)
+### Paper 3: Domain-Specific Temporal Dynamics
+- **Status**: ✅ Published (Preprints.org, February 16, 2026)
+- **DOI**: 10.20944/preprints202602.1674.v1
 - **Role**: Extension of Paper 2 -- Position-level analysis across 30 conversation positions
 - **Key Finding**: Domain-specific temporal signatures (U-shape medical, inverted-U philosophy in 3-bin aggregation)
-- **Dataset**: Paper 2 subset (12 models with response text)
+- **Dataset**: Paper 2 data (25 model-domain runs)
 - **Location**: `paper3_cross_domain/`
 
-### Paper 4: Entanglement and Variance Reduction
-- **Status**: Draft complete
-- **Role**: Extension of Paper 2 -- Information-theoretic mechanism
-- **Key Finding**: ΔRCI ~ VRI correlation r=0.76, p=1.5×10⁻⁶² (N=330)
-- **Dataset**: Paper 2 subset (12 models with response text)
-- **Location**: `paper4_entanglement/`
+### Paper 4: Engagement as Entanglement
+- **Status**: 📝 Submitted to TMLR (February 26, 2026) + Preprints.org (ID: 199894)
+- **DOI**: 10.20944/preprints202602.XXXXX (pending)
+- **Role**: Extension of Paper 2 -- Variance-based entanglement mechanism
+- **Key Finding**: ΔRCI ~ VRI correlation r=0.76, p=2.37×10⁻⁶⁸ (N=360), ESI metric for instability prediction
+- **Dataset**: Paper 2 subset (12 models with response text for variance computation)
+- **Location**: `paper4_entanglement/` (includes `tmlr_submission/` folder)
+- **Journal**: TMLR (Transactions on Machine Learning Research) - under review
 
 ### Paper 5: Predictability as Safety Metric
 - **Status**: Draft complete
@@ -58,12 +62,21 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Dataset**: 8 medical models with response text (P30 summarization, 50 trials each)
 - **Location**: `paper5_safety/`
 
-### Paper 6: Conservation Law
-- **Status**: Draft complete
+### Paper 6: Conservation Constraint
+- **Status**: 📄 Draft complete
 - **Role**: Unifying theory -- Conservation constraint across all prior papers
-- **Key Finding**: ΔRCI × Var_Ratio ≈ K(domain). Medical K=0.429, Philosophy K=0.301 (p=0.003)
+- **Key Finding**: ΔRCI × Var_Ratio ≈ K(domain). Medical K=0.429, Philosophy K=0.301 (Mann-Whitney p=0.003, Cohen's d=2.06)
 - **Dataset**: 14 model-domain runs across 11 architectures, 8 vendors
 - **Location**: `paper6_conservation/`
+
+### Paper 7: Context Utilization Depth (CUD)
+- **Status**: 🔬 Pilot complete (4 models × 2 domains)
+- **Role**: Mechanistic validation -- Tests whether conservation constraint is architecture-dependent
+- **Key Finding**: CUD (mechanism) is orthogonal to K (capacity). Immediate processors (CUD=1) and deep integrators (CUD=10) converge to same K constraint.
+- **Models**: DeepSeek V3.1, Gemini Flash, Llama 4 Maverick, Qwen3 235B
+- **Dataset**: 18 JSON files with K-curve measurements, cud_summary.csv
+- **Location**: `paper7_cud/` + `/scripts/experiments/paper7_pilot/results/`
+- **Analysis**: PAPER7_ANALYSIS_SUMMARY.md (246 lines)
 
 ## Each Paper Folder Contains
 
@@ -103,5 +116,10 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 
 ---
 
-**Last Updated**: February 16, 2026
-**Data Status**: ALL COMPLETE (25/25 model-domain runs) + Paper 5 accuracy + Paper 6 conservation
+**Last Updated**: February 26, 2026
+**Data Status**:
+- ✅ Foundation data: 25/25 model-domain runs complete
+- ✅ Paper 5 accuracy verification complete
+- ✅ Paper 6 conservation constraint data complete
+- ✅ Paper 7 CUD pilot complete (4 models)
+**Publications**: 3 published (Papers 1-3), 1 under journal review (Paper 4 TMLR)
