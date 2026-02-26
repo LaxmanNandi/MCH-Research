@@ -1,6 +1,7 @@
 # Paper 2 (Standardized): Scaling Context Sensitivity
 
-**Status**: ACCEPTED — Preprints.org (ID: 198770, February 12, 2026; v2 correction submitted February 2026)
+**Status**: ✅ PUBLISHED — Preprints.org v2 (ID: 198770/v2: 198986, February 14, 2026)
+**DOI**: 10.20944/preprints202602.1114.v2
 **Title**: *Scaling Context Sensitivity: A Standardized Benchmark of ΔRCI Across 25 Model-Domain Runs*
 
 ## Overview

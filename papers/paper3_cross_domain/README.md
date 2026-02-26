@@ -1,6 +1,7 @@
 # Paper 3: Cross-Domain Temporal Dynamics
 
-**Status**: SUBMITTED — Preprints.org (ID: 199272, pending approval)
+**Status**: ✅ PUBLISHED — Preprints.org (February 16, 2026)
+**DOI**: 10.20944/preprints202602.1674.v1
 **Title**: *Domain-Specific Temporal Dynamics of Context Sensitivity in Large Language Models*
 
 ## Overview
