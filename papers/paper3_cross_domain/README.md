@@ -75,9 +75,9 @@ Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
 - **Location**: `/data/` (shared, no duplication)
 
 ## Contents
+- `paper3_temporal_dynamics.tex`: Published manuscript (LaTeX source)
 - `figures/`: All Paper 3 figures (domain comparison, position patterns, P30 analysis)
-- `MODEL_LIST.md`: 12-model subset details
-- `Paper3_Results.md`: Complete results and discussion
+- `archive/`: Legacy drafts (Paper3_Draft_v1.md, Paper3_Results.md, MODEL_LIST.md)
 
 ## Figures
 1. Position-level ΔRCI by domain
@@ -95,4 +95,4 @@ Type 2 (Closed-Goal):   \_____/   U-shaped trough, then P30 spike ↑↑↑
 
 ---
 
-**Status**: Submitted to Preprints.org (ID: 199272, pending approval)
+**Published**: Preprints.org (ID: 199272) — DOI: 10.20944/preprints202602.1674.v1

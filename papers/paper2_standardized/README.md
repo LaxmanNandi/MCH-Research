@@ -39,8 +39,7 @@ Key impacts: 25/25 positive ΔRCI (was 24/25), domain effect p=0.041 (was 0.149)
 - `figures/`: 6 cross-domain comparison figures (v2)
 - `v1_submission/`: Archived v1 submission files
 - `v2_submission/`: Corrected v2 submission files (final .tex, .pdf, figures)
-- `MODEL_LIST.md`: Complete model inventory with status
-- `Paper2_Draft.md`: ~~Main manuscript draft~~ DEPRECATED (superseded by .tex v2)
+- `archive/`: Legacy drafts (Paper2_Draft.md, MODEL_LIST.md)
 
 ## Data Location
 All data in `/data/` directory (single source of truth):
@@ -49,8 +48,9 @@ All data in `/data/` directory (single source of truth):
 
 ## Extensions
 This dataset serves as the foundation for:
-- **Paper 3**: Temporal dynamics analysis (10 models with text)
-- **Paper 4**: Entanglement mechanism (11 models with text)
+- **Paper 3**: Temporal dynamics analysis (12 models with text) — ✅ Published
+- **Paper 4**: Entanglement mechanism (12 models with text) — ✅ Published
+- **Paper 5**: Stochastic incompleteness taxonomy (8 medical models) — ✅ Published
 
 ## Related Documents
 - `docs/RESEARCH_OUTLINE.md`: Complete research program
@@ -58,4 +58,4 @@ This dataset serves as the foundation for:
 
 ---
 
-**Target**: Nature Machine Intelligence, Science Advances, PNAS
+**Published**: Preprints.org v2 — DOI: 10.20944/preprints202602.1114.v2

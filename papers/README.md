@@ -9,8 +9,8 @@ papers/
 ├── paper1_legacy/           Paper 1 ✅ Published (Preprints.org)
 ├── paper2_standardized/     Paper 2 ✅ Published v2 (Preprints.org)
 ├── paper3_cross_domain/     Paper 3 ✅ Published (Preprints.org)
-├── paper4_entanglement/     Paper 4 📝 Submitted to TMLR + Preprints.org
-├── paper5_safety/           Paper 5 📄 Draft complete
+├── paper4_entanglement/     Paper 4 ✅ Published (Preprints.org) + TMLR under review
+├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
 ├── paper6_conservation/     Paper 6 📄 Draft complete
 └── paper7_cud/              Paper 7 🔬 Pilot complete (4 models)
 ```
@@ -47,18 +47,20 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Location**: `paper3_cross_domain/`
 
 ### Paper 4: Engagement as Entanglement
-- **Status**: 📝 Submitted to TMLR (February 26, 2026) + Preprints.org (ID: 199894)
-- **DOI**: 10.20944/preprints202602.XXXXX (pending)
+- **Status**: ✅ Published on Preprints.org (ID: 199894, February 22, 2026) + Submitted to TMLR (February 26, 2026)
+- **DOI**: Pending assignment
 - **Role**: Extension of Paper 2 -- Variance-based entanglement mechanism
 - **Key Finding**: ΔRCI ~ VRI correlation r=0.76, p=2.37×10⁻⁶⁸ (N=360), ESI metric for instability prediction
 - **Dataset**: Paper 2 subset (12 models with response text for variance computation)
 - **Location**: `paper4_entanglement/` (includes `tmlr_submission/` folder)
 - **Journal**: TMLR (Transactions on Machine Learning Research) - under review
 
-### Paper 5: Predictability as Safety Metric
-- **Status**: Draft complete
+### Paper 5: Stochastic Incompleteness
+- **Status**: ✅ Published on Preprints.org (ID: 200695, February 28, 2026)
+- **DOI**: 10.20944/preprints202602.2034.v1
+- **Title**: *Stochastic Incompleteness: A Predictability Taxonomy for Clinical AI Deployment*
 - **Role**: Application -- Deployment framework based on accuracy verification
-- **Key Finding**: Four behavioral classes (IDEAL, EMPTY, DANGEROUS, RICH) based on 2×2 Var_Ratio × Accuracy matrix
+- **Key Finding**: Four behavioral classes (IDEAL, EMPTY, DIVERGENT, RICH) based on 2×2 Var_Ratio × Accuracy matrix
 - **Dataset**: 8 medical models with response text (P30 summarization, 50 trials each)
 - **Location**: `paper5_safety/`
 
@@ -80,9 +82,10 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 
 ## Each Paper Folder Contains
 
-- `Paper[X]_Definition.md` or `Paper[X]_Results.md` -- Paper content
+- `Paper[X]_Manuscript.tex` or `Paper[X]_Draft.md` -- Paper content
 - `figures/` -- All figures specific to this paper
-- `README.md` and `MODEL_LIST.md` -- Overview and model inventory (Papers 1-4)
+- `README.md` -- Overview and key findings
+- `archive/` -- Legacy drafts and superseded versions
 
 ## Data Location
 
@@ -108,18 +111,18 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 | Paper 1 vs 2 comparison | `/docs/PAPER_COMPARISON.md` |
 | Paper 1 figures | `paper1_legacy/figures/` |
 | Paper 2 manuscript | `paper2_standardized/Paper2_Manuscript.tex` |
-| Paper 3 results | `paper3_cross_domain/Paper3_Results.md` |
-| Paper 4 results | `paper4_entanglement/Paper4_Results.md` |
-| Paper 5 definition | `paper5_safety/Paper5_Definition.md` |
+| Paper 3 manuscript | `paper3_cross_domain/paper3_temporal_dynamics.tex` |
+| Paper 4 manuscript | `paper4_entanglement/Paper4_Manuscript.tex` |
+| Paper 5 manuscript | `paper5_safety/Paper5_Final_Corrected.tex` |
 | Paper 6 draft | `paper6_conservation/Paper6_Draft.md` |
 | Conservation data | `/data/paper6/conservation_product_test.csv` |
 
 ---
 
-**Last Updated**: February 26, 2026
+**Last Updated**: March 1, 2026
 **Data Status**:
 - ✅ Foundation data: 25/25 model-domain runs complete
 - ✅ Paper 5 accuracy verification complete
 - ✅ Paper 6 conservation constraint data complete
 - ✅ Paper 7 CUD pilot complete (4 models)
-**Publications**: 3 published (Papers 1-3), 1 under journal review (Paper 4 TMLR)
+**Publications**: 5 published (Papers 1-5 on Preprints.org), Paper 4 also under TMLR journal review

@@ -5,6 +5,8 @@
 [![Paper 1 - Preprints.org](https://img.shields.io/badge/Paper%201-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![Paper 2 - Preprints.org](https://img.shields.io/badge/Paper%202-10.20944%2Fpreprints202602.1114.v2-blue.svg)](https://www.preprints.org/manuscript/202602.1114/v2)
 [![Paper 3 - Preprints.org](https://img.shields.io/badge/Paper%203-10.20944%2Fpreprints202602.1674.v1-blue.svg)](https://www.preprints.org/manuscript/202602.1674/v1)
+[![Paper 4 - Preprints.org](https://img.shields.io/badge/Paper%204-Published-blue.svg)](https://www.preprints.org/manuscript/202602.1894)
+[![Paper 5 - Preprints.org](https://img.shields.io/badge/Paper%205-10.20944%2Fpreprints202602.2034.v1-blue.svg)](https://www.preprints.org/manuscript/202602.2034/v1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
@@ -25,8 +27,8 @@
 | **1** | Context Curves Behavior | ΔRCI metric validated | ✅ [Published](https://www.preprints.org/manuscript/202601.1881/v2) - DOI: 10.20944/preprints202601.1881.v2 |
 | **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | ✅ [Published v2](https://www.preprints.org/manuscript/202602.1114/v2) - DOI: 10.20944/preprints202602.1114.v2 |
 | **3** | Domain-Specific Temporal Dynamics | 3-bin aggregation, U-shape vs inverted-U | ✅ [Published](https://www.preprints.org/manuscript/202602.1674/v1) - DOI: 10.20944/preprints202602.1674.v1 |
-| **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | 📝 Submitted to TMLR (Feb 2026) |
-| **5** | Predictability as Safety Metric | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | 📄 Draft complete |
+| **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202602.1894) + TMLR under review |
+| **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | 📄 Draft complete, p=0.003 |
 | **7** | Context Utilization Depth | Mechanism-independence of K | 🔬 Pilot complete (4 models) |
 
@@ -109,10 +111,11 @@ mch_experiments/
 ├── papers/                          # Research manuscripts (by paper)
 │   ├── paper1_legacy/               #   Paper 1: Published (Preprints.org)
 │   ├── paper2_standardized/         #   Paper 2: Published (Preprints.org)
-│   ├── paper3_cross_domain/         #   Paper 3: Temporal dynamics
-│   ├── paper4_entanglement/         #   Paper 4: VRI mechanism
-│   ├── paper5_safety/               #   Paper 5: Deployment taxonomy
-│   └── paper6_conservation/         #   Paper 6: Conservation constraint
+│   ├── paper3_cross_domain/         #   Paper 3: Published (Preprints.org)
+│   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org) + TMLR
+│   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
+│   ├── paper6_conservation/         #   Paper 6: Conservation constraint
+│   ├── paper7_cud/                  #   Paper 7: CUD pilot
 │
 ├── data/                            # Experimental data (single source of truth)
 │   ├── medical/                     #   Medical domain (STEMI case)
@@ -224,6 +227,39 @@ python scripts/generate_paper5_figures.py
   author={Laxman, M M},
   journal={Preprints.org},
   doi={10.20944/preprints202602.1114.v2},
+  year={2026}
+}
+```
+
+### Paper 3
+```bibtex
+@article{laxman2026temporal,
+  title={Domain-Specific Temporal Dynamics of Context Sensitivity in Large Language Models},
+  author={Laxman, M M},
+  journal={Preprints.org},
+  doi={10.20944/preprints202602.1674.v1},
+  year={2026}
+}
+```
+
+### Paper 4
+```bibtex
+@article{laxman2026entanglement,
+  title={Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling in Large Language Models},
+  author={Laxman, M M},
+  journal={Preprints.org},
+  note={Also submitted to TMLR},
+  year={2026}
+}
+```
+
+### Paper 5
+```bibtex
+@article{laxman2026stochastic,
+  title={Stochastic Incompleteness: A Predictability Taxonomy for Clinical AI Deployment},
+  author={Laxman, M M},
+  journal={Preprints.org},
+  doi={10.20944/preprints202602.2034.v1},
   year={2026}
 }
 ```
