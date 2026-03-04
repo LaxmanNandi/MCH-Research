@@ -8,7 +8,7 @@
 | **1** | Context Curves Behavior | Preprints.org | ✅ Published | 10.20944/preprints202601.1881.v2 |
 | **2** | Scaling Context Sensitivity | Preprints.org | ✅ Published (v2) | 10.20944/preprints202602.1114.v2 |
 | **3** | Domain-Specific Temporal Dynamics | Preprints.org | ✅ Published | 10.20944/preprints202602.1674.v1 |
-| **4** | Engagement as Entanglement | Preprints.org + TMLR | ✅ Published (preprint) / Under review (TMLR) | Pending |
+| **4** | Engagement as Entanglement | Preprints.org + TMLR | ✅ Published (preprint) / Under review (TMLR) | 10.20944/preprints202603.0055.v1 |
 | **5** | Stochastic Incompleteness | Preprints.org | ✅ Published | 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | — | 📄 Draft complete | — |
 | **7** | Context Utilization Depth | — | 🔬 Pilot in progress | — |
@@ -21,7 +21,7 @@
 **Status**: ✅ PUBLISHED (Preprints.org, Feb 22, 2026) + TMLR under review (Feb 26, 2026)
 
 - Preprints.org ID: 199894
-- DOI: Pending assignment
+- DOI: 10.20944/preprints202603.0055.v1
 - TMLR: Submitted via OpenReview
 - Manuscript: `paper4_entanglement/Paper4_Manuscript.tex`
 - Supplementary: `paper4_entanglement/Paper4_Supplementary.tex`

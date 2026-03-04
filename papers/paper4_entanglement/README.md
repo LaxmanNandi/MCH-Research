@@ -4,7 +4,7 @@
 - ✅ Published on Preprints.org (ID: 199894) - February 22, 2026
 - 📝 Submitted to TMLR (Transactions on Machine Learning Research) - February 26, 2026
 
-**DOI**: Pending assignment
+**DOI**: 10.20944/preprints202603.0055.v1
 
 ## Manuscript Files
 
@@ -59,5 +59,5 @@ Data location: `/data/`
 ## Related Links
 
 - **GitHub**: https://github.com/LaxmanNandi/MCH-Research
-- **Preprints.org**: Published (ID: 199894, DOI pending assignment)
+- **Preprints.org**: Published (ID: 199894, DOI: 10.20944/preprints202603.0055.v1)
 - **TMLR**: Submitted via OpenReview (under review)

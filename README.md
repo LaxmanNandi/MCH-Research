@@ -248,6 +248,7 @@ python scripts/generate_paper5_figures.py
   title={Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling in Large Language Models},
   author={Laxman, M M},
   journal={Preprints.org},
+  doi={10.20944/preprints202603.0055.v1},
   note={Also submitted to TMLR},
   year={2026}
 }

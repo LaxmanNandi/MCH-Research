@@ -48,7 +48,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 
 ### Paper 4: Engagement as Entanglement
 - **Status**: ✅ Published on Preprints.org (ID: 199894, February 22, 2026) + Submitted to TMLR (February 26, 2026)
-- **DOI**: Pending assignment
+- **DOI**: 10.20944/preprints202603.0055.v1
 - **Role**: Extension of Paper 2 -- Variance-based entanglement mechanism
 - **Key Finding**: ΔRCI ~ VRI correlation r=0.76, p=2.37×10⁻⁶⁸ (N=360), ESI metric for instability prediction
 - **Dataset**: Paper 2 subset (12 models with response text for variance computation)
