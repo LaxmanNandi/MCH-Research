@@ -8,7 +8,7 @@
 | **1** | Context Curves Behavior | Preprints.org | ✅ Published | 10.20944/preprints202601.1881.v2 |
 | **2** | Scaling Context Sensitivity | Preprints.org | ✅ Published (v2) | 10.20944/preprints202602.1114.v2 |
 | **3** | Domain-Specific Temporal Dynamics | Preprints.org | ✅ Published | 10.20944/preprints202602.1674.v1 |
-| **4** | Engagement as Entanglement | Preprints.org + TMLR | ✅ Published (preprint) / Under review (TMLR) | 10.20944/preprints202603.0055.v1 |
+| **4** | Engagement as Entanglement | Preprints.org + JMLR | ✅ Published (preprint) / Under review (JMLR) | 10.20944/preprints202603.0055.v1 |
 | **5** | Stochastic Incompleteness | Preprints.org | ✅ Published | 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | — | 📄 Draft complete | — |
 | **7** | Context Utilization Depth | — | 🔬 Pilot in progress | — |
@@ -18,14 +18,14 @@
 ---
 
 ## Paper 4: Engagement as Entanglement
-**Status**: ✅ PUBLISHED (Preprints.org, Feb 22, 2026) + TMLR under review (Feb 26, 2026)
+**Status**: ✅ PUBLISHED (Preprints.org, Feb 22, 2026) + JMLR under review (Mar 4, 2026)
 
 - Preprints.org ID: 199894
 - DOI: 10.20944/preprints202603.0055.v1
-- TMLR: Submitted via OpenReview
+- JMLR: Submitted (Journal of Machine Learning Research)
 - Manuscript: `paper4_entanglement/Paper4_Manuscript.tex`
 - Supplementary: `paper4_entanglement/Paper4_Supplementary.tex`
-- TMLR package: `paper4_entanglement/tmlr_submission/`
+- JMLR package: `paper4_entanglement/jmlr_submission/`
 
 ---
 

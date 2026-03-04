@@ -27,7 +27,7 @@
 | **1** | Context Curves Behavior | ΔRCI metric validated | ✅ [Published](https://www.preprints.org/manuscript/202601.1881/v2) - DOI: 10.20944/preprints202601.1881.v2 |
 | **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | ✅ [Published v2](https://www.preprints.org/manuscript/202602.1114/v2) - DOI: 10.20944/preprints202602.1114.v2 |
 | **3** | Domain-Specific Temporal Dynamics | 3-bin aggregation, U-shape vs inverted-U | ✅ [Published](https://www.preprints.org/manuscript/202602.1674/v1) - DOI: 10.20944/preprints202602.1674.v1 |
-| **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202602.1894) + TMLR under review |
+| **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) + JMLR under review |
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | 📄 Draft complete, p=0.003 |
 | **7** | Context Utilization Depth | Mechanism-independence of K | 🔬 Pilot complete (4 models) |
@@ -249,7 +249,7 @@ python scripts/generate_paper5_figures.py
   author={Laxman, M M},
   journal={Preprints.org},
   doi={10.20944/preprints202603.0055.v1},
-  note={Also submitted to TMLR},
+  note={Also submitted to JMLR},
   year={2026}
 }
 ```

@@ -47,13 +47,13 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Location**: `paper3_cross_domain/`
 
 ### Paper 4: Engagement as Entanglement
-- **Status**: ✅ Published on Preprints.org (ID: 199894, February 22, 2026) + Submitted to TMLR (February 26, 2026)
+- **Status**: ✅ Published on Preprints.org (ID: 199894, February 22, 2026) + Submitted to JMLR (March 4, 2026)
 - **DOI**: 10.20944/preprints202603.0055.v1
 - **Role**: Extension of Paper 2 -- Variance-based entanglement mechanism
 - **Key Finding**: ΔRCI ~ VRI correlation r=0.76, p=2.37×10⁻⁶⁸ (N=360), ESI metric for instability prediction
 - **Dataset**: Paper 2 subset (12 models with response text for variance computation)
-- **Location**: `paper4_entanglement/` (includes `tmlr_submission/` folder)
-- **Journal**: TMLR (Transactions on Machine Learning Research) - under review
+- **Location**: `paper4_entanglement/` (includes `jmlr_submission/` folder)
+- **Journal**: JMLR (Journal of Machine Learning Research) - under review
 
 ### Paper 5: Stochastic Incompleteness
 - **Status**: ✅ Published on Preprints.org (ID: 200695, February 28, 2026)

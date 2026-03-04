@@ -2,7 +2,7 @@
 
 **Status**:
 - ✅ Published on Preprints.org (ID: 199894) - February 22, 2026
-- 📝 Submitted to TMLR (Transactions on Machine Learning Research) - February 26, 2026
+- 📝 Submitted to JMLR (Journal of Machine Learning Research) - March 4, 2026
 
 **DOI**: 10.20944/preprints202603.0055.v1
 
@@ -53,11 +53,11 @@ Data location: `/data/`
 ## Submission Folders
 
 - **`v1_submission/`** - Preprints.org submission package (February 22, 2026)
-- **`tmlr_submission/`** - TMLR journal submission package (February 26, 2026)
+- **`jmlr_submission/`** - JMLR journal submission package (March 4, 2026)
 - **`archive/`** - Old drafts, verification reports, and intermediate versions
 
 ## Related Links
 
 - **GitHub**: https://github.com/LaxmanNandi/MCH-Research
 - **Preprints.org**: Published (ID: 199894, DOI: 10.20944/preprints202603.0055.v1)
-- **TMLR**: Submitted via OpenReview (under review)
+- **JMLR**: Submitted (March 4, 2026) — under review
