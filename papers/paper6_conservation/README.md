@@ -58,6 +58,13 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 - `scripts/analysis/paper6_verify.py` — Statistical verification
 - `scripts/analysis/paper6_robustness_embedding.py` — Embedding robustness check (mpnet 768D)
 
+## Supplementary: COLD Prior Voice Analysis
+- **Location**: `/data/paper7_cold_analysis/`
+- **Figures**: `/docs/figures/paper7/`
+- Domain forces cross-vendor centroid convergence (cos > 0.97 in Medical) — grounds K(domain) at the baseline level
+- Same model cross-domain = nearly orthogonal voices (cos ~0.18) — Epistemological Relativity at the prior level
+- Llama compressed spring: tightest Var_COLD → highest Var_Ratio with context
+
 ## Related Documents
 - Paper 4 (entanglement): Provides ΔRCI ~ VRI correlation that conservation constraint quantifies
 - Paper 5 (predictability): Taxonomy maps onto hyperbolic constraint
