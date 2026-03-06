@@ -60,7 +60,7 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 
 ## Supplementary: COLD Prior Voice Analysis
 - **Location**: `/data/paper7_cold_analysis/`
-- **Figures**: `/docs/figures/paper7/`
+- **Figures**: `/docs/figures/paper6_supplementary/`
 - Domain forces cross-vendor centroid convergence (cos > 0.97 in Medical) — grounds K(domain) at the baseline level
 - Same model cross-domain = nearly orthogonal voices (cos ~0.18) — Epistemological Relativity at the prior level
 - Llama compressed spring: tightest Var_COLD → highest Var_Ratio with context
