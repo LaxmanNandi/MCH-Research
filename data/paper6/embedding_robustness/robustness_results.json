@@ -1,0 +1,177 @@
+{
+  "embedding_model": "all-mpnet-base-v2",
+  "embedding_dim": 768,
+  "original_embedding": "all-MiniLM-L6-v2",
+  "original_embedding_dim": 384,
+  "runs": [
+    {
+      "model": "llama_4_scout",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.2714318037033081,
+      "var_ratio": 1.8197713694251367,
+      "product": 0.4939438251307039
+    },
+    {
+      "model": "gemini_flash",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.39848190546035767,
+      "var_ratio": 1.141538027388256,
+      "product": 0.4548822483091302
+    },
+    {
+      "model": "qwen3_235b",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.29307615756988525,
+      "var_ratio": 1.4742635669307202,
+      "product": 0.43207150144132883
+    },
+    {
+      "model": "ministral_14b",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.3648836016654968,
+      "var_ratio": 1.1759443671418843,
+      "product": 0.4290828160409841
+    },
+    {
+      "model": "kimi_k2",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.3401768207550049,
+      "var_ratio": 1.1898364392369194,
+      "product": 0.4047547771180708
+    },
+    {
+      "model": "deepseek_v3_1",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.26449739933013916,
+      "var_ratio": 1.312857203073791,
+      "product": 0.34724731590485813
+    },
+    {
+      "model": "mistral_small_24b",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.322246253490448,
+      "var_ratio": 1.0444629111628314,
+      "product": 0.336574260031949
+    },
+    {
+      "model": "llama_4_maverick",
+      "domain": "Medical",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.2650895118713379,
+      "var_ratio": 1.204129589940438,
+      "product": 0.319202125227145
+    },
+    {
+      "model": "gemini_flash",
+      "domain": "Philosophy",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.3142789602279663,
+      "var_ratio": 1.1169752178331656,
+      "product": 0.3510418100610134
+    },
+    {
+      "model": "gpt4o",
+      "domain": "Philosophy",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.2597538232803345,
+      "var_ratio": 1.142367297738258,
+      "product": 0.2967342731779367
+    },
+    {
+      "model": "deepseek_v3_1",
+      "domain": "Philosophy",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.2574304938316345,
+      "var_ratio": 1.079626931572907,
+      "product": 0.2779288941487457
+    },
+    {
+      "model": "llama_4_maverick",
+      "domain": "Philosophy",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.24590086936950684,
+      "var_ratio": 1.0901480143838052,
+      "product": 0.2680683444784193
+    },
+    {
+      "model": "claude_haiku",
+      "domain": "Philosophy",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.30655336380004883,
+      "var_ratio": 0.8663812362940605,
+      "product": 0.2655920823191892
+    },
+    {
+      "model": "gpt4o_mini",
+      "domain": "Philosophy",
+      "n_trials": 50,
+      "n_prompts": 30,
+      "drci": 0.2381543517112732,
+      "var_ratio": 0.974972617543859,
+      "product": 0.23219397166740083
+    }
+  ],
+  "domain_stats": {
+    "Medical": {
+      "mpnet": {
+        "N": 8,
+        "mean": 0.40221985865052123,
+        "std": 0.06213929894863058,
+        "cv": 0.15449087759394262,
+        "ci_lo": 0.35027010467406294,
+        "ci_hi": 0.4541696126269795,
+        "min": 0.319202125227145,
+        "max": 0.4939438251307039
+      },
+      "minilm": {
+        "K": 0.429,
+        "CV": 0.17,
+        "N": 8
+      },
+      "delta_k": -0.02678014134947876,
+      "delta_k_pct": -6.24245719102069,
+      "verdict": "CONSISTENT"
+    },
+    "Philosophy": {
+      "mpnet": {
+        "N": 6,
+        "mean": 0.2819265626421175,
+        "std": 0.0398606651565725,
+        "cv": 0.14138669582252994,
+        "ci_lo": 0.24009535999685028,
+        "ci_hi": 0.32375776528738476,
+        "min": 0.23219397166740083,
+        "max": 0.3510418100610134
+      },
+      "minilm": {
+        "K": 0.301,
+        "CV": 0.166,
+        "N": 6
+      },
+      "delta_k": -0.019073437357882472,
+      "delta_k_pct": -6.336690152120424,
+      "verdict": "CONSISTENT"
+    }
+  },
+  "overall_verdict": "EMBEDDING_ROBUST"
+}
