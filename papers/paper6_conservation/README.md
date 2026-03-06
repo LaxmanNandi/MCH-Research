@@ -22,6 +22,12 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 
 5. **MI-based test**: Negative result — KSG estimator failed in high-dimensional space. Conservation constraint established via direct product test.
 
+6. **Embedding robustness**: Conservation holds under alternative embedding (all-mpnet-base-v2, 768D):
+   - Medical K = 0.402 (CV = 0.154) vs original 0.429 (CV = 0.170)
+   - Philosophy K = 0.282 (CV = 0.141) vs original 0.301 (CV = 0.166)
+   - Both CVs *improved* under mpnet — constraint is tighter, not weaker
+   - Shared embedding space objection refuted
+
 ## Dataset
 - **Configurations**: 14 model-domain runs (8 Medical, 6 Philosophy)
 - **Models**: 11 unique architectures from 8 vendors
@@ -39,11 +45,18 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 3. Domain scaling factors comparison (K_med vs K_phil with 95% CI)
 4. Predictability taxonomy overlay on conservation constraint
 
+## Pre-registration
+- **OSF Project**: https://osf.io/7954v/
+- **OSF Registration**: https://osf.io/dp8nj/
+- **Date**: March 6, 2026
+- **Scope**: Prospective replication in 3 new domains (Legal, Technical, Applied Ethics)
+
 ## Scripts
 - `scripts/analysis/paper6_conservation_law.py` — MI-based conservation test
 - `scripts/analysis/paper6_conservation_product.py` — Direct product test
 - `scripts/analysis/paper6_figures.py` — Figure generation
 - `scripts/analysis/paper6_verify.py` — Statistical verification
+- `scripts/analysis/paper6_robustness_embedding.py` — Embedding robustness check (mpnet 768D)
 
 ## Related Documents
 - Paper 4 (entanglement): Provides ΔRCI ~ VRI correlation that conservation constraint quantifies
