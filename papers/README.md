@@ -9,16 +9,16 @@ papers/
 ├── paper1_legacy/           Paper 1 ✅ Published (Preprints.org)
 ├── paper2_standardized/     Paper 2 ✅ Published v2 (Preprints.org)
 ├── paper3_cross_domain/     Paper 3 ✅ Published (Preprints.org)
-├── paper4_entanglement/     Paper 4 ✅ Published (Preprints.org) + TMLR under review
+├── paper4_entanglement/     Paper 4 ✅ Published (Preprints.org) + JMLR under review
 ├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
-├── paper6_conservation/     Paper 6 📄 Draft complete
-└── paper7_cud/              Paper 7 🔬 Pilot complete (4 models)
+├── paper6_conservation/     Paper 6 📄 Draft complete + Legal experiments in progress
+└── paper7_cud/              Paper 7 ✅ Submitted (Content-Order Decomposition)
 ```
 
 ## Paper Lineage
 
 ```
-Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Paper 5 (Safety) → Paper 6 (Conservation Law) → Paper 7 (Mechanism Independence)
+Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Paper 5 (Safety) → Paper 6 (Conservation Law) → Paper 7 (Decomposition)
 ```
 
 ### Paper 1: Context Curves Behavior
@@ -43,7 +43,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **DOI**: 10.20944/preprints202602.1674.v1
 - **Role**: Extension of Paper 2 -- Position-level analysis across 30 conversation positions
 - **Key Finding**: Domain-specific temporal signatures (U-shape medical, inverted-U philosophy in 3-bin aggregation)
-- **Dataset**: Paper 2 data (25 model-domain runs)
+- **Dataset**: 12 model-domain runs (8 Medical + 4 Philosophy with response text, for consistency with Papers 4-5)
 - **Location**: `paper3_cross_domain/`
 
 ### Paper 4: Engagement as Entanglement
@@ -65,20 +65,21 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Location**: `paper5_safety/`
 
 ### Paper 6: Conservation Constraint
-- **Status**: 📄 Draft complete
+- **Status**: 📄 Draft complete + Legal domain experiments in progress
 - **Role**: Unifying theory -- Conservation constraint across all prior papers
 - **Key Finding**: ΔRCI × Var_Ratio ≈ K(domain). Medical K=0.429, Philosophy K=0.301 (Mann-Whitney p=0.003, Cohen's d=2.06)
-- **Dataset**: 14 model-domain runs across 11 architectures, 8 vendors
-- **Location**: `paper6_conservation/`
+- **Dataset**: 14 model-domain runs (8 Medical + 6 Philosophy) across 11 architectures, 8 vendors
+- **Legal extension**: 5 models × Legal P30, pre-registered on OSF. DeepSeek + Maverick complete, Qwen3 in progress.
+- **Location**: `paper6_conservation/` + `/data/legal/open_models/`
 
-### Paper 7: Context Utilization Depth (CUD)
-- **Status**: 🔬 Pilot complete (4 models × 2 domains)
-- **Role**: Mechanistic validation -- Tests whether conservation constraint is architecture-dependent
-- **Key Finding**: CUD (mechanism) is orthogonal to K (capacity). Immediate processors (CUD=1) and deep integrators (CUD=10) converge to same K constraint.
-- **Models**: DeepSeek V3.1, Gemini Flash, Llama 4 Maverick, Qwen3 235B
-- **Dataset**: 18 JSON files with K-curve measurements, cud_summary.csv
-- **Location**: `paper7_cud/` + `/scripts/experiments/paper7_pilot/results/`
-- **Analysis**: PAPER7_ANALYSIS_SUMMARY.md (246 lines)
+### Paper 7: Content-Order Decomposition & Variance Dissociation
+- **Status**: ✅ Submitted (March 12, 2026)
+- **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
+- **Role**: Structural decomposition -- Breaks ΔRCI into content/order components, introduces exploration arc
+- **Key Findings**: Content fraction ~45-55% Medical / ~35-55% Philosophy; Exploration Arc separates domains (Medical convergent, Philosophy divergent); CUD pilot in Supplementary S1
+- **Model set**: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
+- **Figures**: 9 (all verified against raw data)
+- **Location**: `/paper7_submission/` (tex, pdf, figures/) + `paper7_cud/` (concept docs)
 
 ## Each Paper Folder Contains
 
@@ -100,7 +101,8 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 │   ├── open_models/      7 models (DeepSeek, Kimi, Llama 4 ×2, Mistral ×2, Qwen)
 │   └── closed_models/    5 models (GPT ×3, Claude, Gemini)
 ├── paper5/               Accuracy verification and Llama deep-dive data
-└── paper6/               Conservation law test data and MI verification
+├── paper6/               Conservation law test data and MI verification
+└── legal/                Legal domain experiment data (Paper 6 extension)
 ```
 
 ## Quick Navigation
@@ -115,14 +117,16 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 | Paper 4 manuscript | `paper4_entanglement/Paper4_Manuscript.tex` |
 | Paper 5 manuscript | `paper5_safety/Paper5_Final_Corrected.tex` |
 | Paper 6 draft | `paper6_conservation/Paper6_Draft.md` |
+| Paper 7 manuscript | `/paper7_submission/paper7.tex` |
 | Conservation data | `/data/paper6/conservation_product_test.csv` |
 
 ---
 
-**Last Updated**: March 1, 2026
+**Last Updated**: March 12, 2026
 **Data Status**:
 - ✅ Foundation data: 25/25 model-domain runs complete
 - ✅ Paper 5 accuracy verification complete
 - ✅ Paper 6 conservation constraint data complete
-- ✅ Paper 7 CUD pilot complete (4 models)
-**Publications**: 5 published (Papers 1-5 on Preprints.org), Paper 4 also under TMLR journal review
+- ✅ Paper 7 submitted (all figures verified)
+- 🔄 Legal domain experiments: 2/5 models complete, 3 remaining
+**Publications**: 5 published (Papers 1-5 on Preprints.org), Paper 4 under JMLR review, Paper 7 submitted

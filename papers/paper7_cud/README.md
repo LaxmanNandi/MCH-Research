@@ -1,9 +1,13 @@
-# Paper 7: Context Utilization Depth (CUD)
+# Paper 7: Content-Order Decomposition & Variance Dissociation
 
-**Status**: 🔬 PILOT COMPLETE (4 models × 2 domains)
-**Title**: *Context Utilization Depth: Mechanism Diversity Under Conservation Constraint*
+**Status**: ✅ SUBMITTED (March 12, 2026)
+**Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
 
-**Date**: February 2026
+**Final submission**: `/paper7_submission/` (tex, pdf, figures/)
+
+> **Note**: This folder contains concept documents and the CUD pilot analysis from early development. The CUD pilot became Supplementary S1 in the final paper. The main paper evolved into content-order decomposition using Paper 6's conservation-validated model set (N=8 Medical + N=6 Philosophy).
+
+**Date**: February–March 2026
 
 ---
 
@@ -117,6 +121,6 @@ Paper 7 proves the constraint is:
 
 ---
 
-**Pilot Completed By**: Dr. Laxman M M (assisted by Claude Code)
+**Pilot By**: Dr. Laxman M M (assisted by Claude Code)
 **Date**: February 2026
-**Next Step**: Draft full paper when Paper 6 is submitted
+**Final Paper**: Submitted March 12, 2026 — see `/paper7_submission/`

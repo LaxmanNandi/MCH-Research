@@ -30,7 +30,7 @@
 | **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) + JMLR under review |
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | 📄 Draft complete, p=0.003 |
-| **7** | Context Utilization Depth | Mechanism-independence of K | 🔬 Pilot complete (4 models) |
+| **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ Submitted |
 
 ### Key Discovery: Conservation Constraint (Paper 6)
 
@@ -112,10 +112,12 @@ mch_experiments/
 │   ├── paper1_legacy/               #   Paper 1: Published (Preprints.org)
 │   ├── paper2_standardized/         #   Paper 2: Published (Preprints.org)
 │   ├── paper3_cross_domain/         #   Paper 3: Published (Preprints.org)
-│   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org) + TMLR
+│   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org) + JMLR
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
 │   ├── paper6_conservation/         #   Paper 6: Conservation constraint
-│   ├── paper7_cud/                  #   Paper 7: CUD pilot
+│   ├── paper7_cud/                  #   Paper 7: Concept docs + CUD analysis
+│
+├── paper7_submission/                # Paper 7 final (tex, pdf, figures/)
 │
 ├── data/                            # Experimental data (single source of truth)
 │   ├── medical/                     #   Medical domain (STEMI case)
@@ -125,7 +127,8 @@ mch_experiments/
 │   │   ├── closed_models/           #     5 closed-source models
 │   │   └── open_models/             #     7 open-source models
 │   ├── paper5/                      #   Accuracy verification data
-│   └── paper6/                      #   Conservation constraint test data
+│   ├── paper6/                      #   Conservation constraint test data
+│   └── legal/                       #   Legal domain experiment data (Paper 6 extension)
 │
 ├── scripts/                         # Analysis and experiment code
 │   ├── experiments/                 #   Experiment runners

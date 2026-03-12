@@ -1,5 +1,5 @@
 # MCH Research Program — Submission Status
-**Updated**: March 1, 2026
+**Updated**: March 12, 2026
 
 ## Publication Summary
 
@@ -11,9 +11,9 @@
 | **4** | Engagement as Entanglement | Preprints.org + JMLR | ✅ Published (preprint) / Under review (JMLR) | 10.20944/preprints202603.0055.v1 |
 | **5** | Stochastic Incompleteness | Preprints.org | ✅ Published | 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | — | 📄 Draft complete | — |
-| **7** | Context Utilization Depth | — | 🔬 Pilot in progress | — |
+| **7** | Content-Order Decomposition & Variance Dissociation | — | ✅ Submitted | — |
 
-**Total**: 5 papers published, 1 draft ready, 1 pilot stage
+**Total**: 5 papers published, 1 draft ready, 1 submitted
 
 ---
 
@@ -50,18 +50,15 @@
 
 ---
 
-## Paper 7: Context Utilization Depth (CUD)
-**Status**: 🔬 PILOT IN PROGRESS
+## Paper 7: Content-Order Decomposition & Variance Dissociation
+**Status**: ✅ SUBMITTED (March 12, 2026)
 
-| Model | Medical P30 | Philosophy P15 | Status |
-|-------|------------|----------------|--------|
-| DeepSeek V3.1 | 50/50 | 50/50 | ✅ COMPLETE |
-| Gemini Flash | 50/50 | 50/50 | ✅ COMPLETE |
-| Llama 4 Maverick | 50/50 | 39/50 | ⚠️ Needs rerun |
-| Qwen3 235B | ~29/50 | 0/50 | 🔄 IN PROGRESS |
-
-- Script: `/scripts/experiments/paper7_pilot/run_pilot.py`
-- Results: `/scripts/experiments/paper7_pilot/results/raw/`
+- Full title: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
+- Model set: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
+- Figures: 9 (all verified against raw data)
+- CUD pilot moved to Supplementary S1
+- Manuscript: `/paper7_submission/paper7.tex`
+- Figures: `/paper7_submission/figures/`
 
 ---
 
@@ -73,7 +70,9 @@
 | Feb 12, 2026 | Paper 2 published (Preprints.org) |
 | Feb 16, 2026 | Paper 3 published (Preprints.org) |
 | Feb 22, 2026 | Paper 4 published (Preprints.org) |
-| Feb 26, 2026 | Paper 4 submitted to TMLR |
+| Feb 26, 2026 | Paper 4 submitted to JMLR |
 | Feb 28, 2026 | Paper 5 published (Preprints.org) |
+| Mar 6, 2026 | Paper 6 OSF pre-registration (Legal domain experiment) |
+| Mar 12, 2026 | Paper 7 submitted |
 
-**5 papers published in 31 days** (Jan 28 – Feb 28, 2026)
+**5 papers published in 31 days** (Jan 28 – Feb 28, 2026), Paper 7 submitted Mar 12
