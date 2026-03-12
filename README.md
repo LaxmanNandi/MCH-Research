@@ -259,6 +259,16 @@ python scripts/generate_paper5_figures.py
 }
 ```
 
+### Paper 7
+```bibtex
+@article{laxman2026decomposition,
+  title={The Structure and Trajectory of Context Sensitivity in {LLMs}: Content-Order Decomposition and Variance Dissociation},
+  author={Laxman, M M},
+  note={Submitted, March 2026},
+  year={2026}
+}
+```
+
 ---
 
 ## Acknowledgments
