@@ -11,7 +11,7 @@
 | **4** | Engagement as Entanglement | Preprints.org + JMLR | ✅ Published (preprint) / Under review (JMLR) | 10.20944/preprints202603.0055.v1 |
 | **5** | Stochastic Incompleteness | Preprints.org | ✅ Published | 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | — | 📄 Draft complete | — |
-| **7** | Content-Order Decomposition & Variance Dissociation | — | ✅ Submitted | — |
+| **7** | Content-Order Decomposition & Variance Dissociation | Preprints.org | ✅ Submitted (ID: 202917) | — |
 
 **Total**: 5 papers published, 1 draft ready, 1 submitted
 
@@ -51,9 +51,10 @@
 ---
 
 ## Paper 7: Content-Order Decomposition & Variance Dissociation
-**Status**: ✅ SUBMITTED (March 12, 2026)
+**Status**: ✅ SUBMITTED (March 12, 2026) — Preprints.org ID: 202917, screening in progress
 
 - Full title: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
+- Preprints.org ID: 202917
 - Model set: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
 - Figures: 9 (all verified against raw data)
 - CUD pilot moved to Supplementary S1
