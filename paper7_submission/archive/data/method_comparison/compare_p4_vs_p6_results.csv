@@ -1,0 +1,19 @@
+Model,Domain,P4_Total,P4_Content,P4_Order,P6_Total,P6_Content,P6_Order
+gemini_flash,Medical,0.9045,1.6104,0.8115,1.2866,3.8650,0.3826
+deepseek_v3_1,Medical,0.8777,5.3661,0.2176,1.0712,3.7923,0.2938
+kimi_k2,Medical,1.0396,3.3793,0.2968,1.0065,2.3376,0.4313
+llama_4_maverick,Medical,1.5094,10.2246,0.1946,1.2133,5.7210,0.2319
+llama_4_scout,Medical,2.0959,7.5084,0.2756,1.6100,5.8263,0.2729
+ministral_14b,Medical,1.3125,3.7413,0.3770,1.0799,2.7817,0.4045
+mistral_small_24b,Medical,1.0575,6.8178,0.2129,0.9851,4.3122,0.2410
+qwen3_235b,Medical,2.8761,11.3634,0.2047,1.3336,5.1231,0.2661
+claude_haiku,Philosophy,0.9724,5.1208,0.2715,1.0117,3.4065,0.4088
+gemini_flash,Philosophy,1.1362,4.6481,0.6361,1.1196,3.7247,0.3989
+gpt4o_mini,Philosophy,0.8161,17.0635,0.0697,0.9677,6.3206,0.2157
+gpt4o,Philosophy,1.2006,36.0872,0.1176,0.9499,11.4544,0.2312
+deepseek_v3_1,Philosophy,1.0302,2.6497,0.4718,1.0338,3.0544,0.3849
+llama_4_maverick,Philosophy,0.7748,13.1147,0.1458,0.9394,4.8504,0.2526
+qwen3_235b,Philosophy,2.3603,115.4871,0.1473,1.3035,7.0000,0.3307
+,,,,,,,
+Correlation VR_Total,r=0.7295,p=0.002025,,,,
+Correlation VR_Content,r=0.5194,p=0.047211,,,,
