@@ -36,7 +36,8 @@ if not TOGETHER_API_KEY:
 
 together_client = OpenAI(
     api_key=TOGETHER_API_KEY,
-    base_url="https://api.together.xyz/v1"
+    base_url="https://api.together.xyz/v1",
+    timeout=120.0
 )
 
 # Load embedding model
@@ -52,11 +53,11 @@ print("Embedding model loaded.", flush=True)
 MODELS_TO_RUN = [
     ("deepseek_v3_1", "deepseek-ai/DeepSeek-V3.1", "together"),
     ("llama_4_maverick", "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8", "together"),
-    ("llama_4_scout", "meta-llama/Llama-4-Scout-17B-16E-Instruct", "together"),
+    # ("llama_4_scout", "meta-llama/Llama-4-Scout-17B-16E-Instruct", "together"),  # Removed from Together AI serverless
     ("qwen3_235b", "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8", "together"),
     ("mistral_small_24b", "mistralai/Mistral-Small-24B-Instruct-2501", "together"),
     ("ministral_14b", "mistralai/Ministral-3-14B-Instruct-2512", "together"),
-    ("kimi_k2", "moonshotai/Kimi-K2-Instruct-0905", "together"),
+    # ("kimi_k2", "moonshotai/Kimi-K2-Instruct-0905", "together"),  # Removed from Together AI serverless
 ]
 
 # ============================================================================

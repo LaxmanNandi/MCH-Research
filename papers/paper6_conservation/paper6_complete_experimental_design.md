@@ -119,11 +119,11 @@ K(Medical) ≈ K(Legal) ≈ K(Technical)  >  K(Philosophy) ≈ K(Applied Ethics)
 | GPT-4o Mini | OpenAI | Undisclosed | Efficiency comparison |
 | Gemini Flash 2.0 | Google | Undisclosed | Already tested |
 | Llama 4 Maverick | Meta | 400B (17B active) | Already tested |
-| Llama 4 Scout | Meta | 109B (17B active) | DIVERGENT anomaly |
+| Llama 4 Scout | Meta | 109B (17B active) | DIVERGENT anomaly — **removed from Together AI serverless (Mar 2026)** |
 | Qwen3 235B | Alibaba | 235B (22B active) | Already tested |
 | Claude Haiku | Anthropic | Undisclosed | Already tested |
 | Mistral Small 24B | Mistral | 24B | Already tested |
-| Kimi K2 | Moonshot | ~1T (32B active) | Already tested |
+| Kimi K2 | Moonshot | ~1T (32B active) | Already tested — **removed from Together AI serverless (Mar 2026)** |
 
 ### 5.2 Historical Version Series
 
@@ -194,10 +194,25 @@ K(Medical) ≈ K(Legal) ≈ K(Technical)  >  K(Philosophy) ≈ K(Applied Ethics)
 
 ## 8. Domain 3: LEGAL (Closed-Goal)
 
-**Status:** New  
-**Predicted K:** ~0.41  
+**Status:** In progress (2/5 models complete)
+**Predicted K:** ~0.41
+**Preliminary K(DeepSeek):** 0.3162 (closer to Philosophy than predicted)
 **Structure:** 29-exchange employment dispute → P30 legal analysis
 **Theme:** Wrongful termination / whistleblower retaliation case
+
+### Trial Status (updated March 12, 2026)
+
+| Model | Trials | ΔRCI | K | Status |
+|-------|--------|------|---|--------|
+| DeepSeek V3.1 | 50/50 | 0.2760 | 0.3162 | COMPLETE |
+| Llama 4 Maverick | 50/50 | 0.2089 | TBD (needs re-embedding) | COMPLETE |
+| Qwen3 235B | 10/50 | — | — | RUNNING |
+| Mistral Small 24B | 0/50 | — | — | QUEUED |
+| Ministral 14B | 0/50 | — | — | QUEUED |
+| Llama 4 Scout | — | — | — | UNAVAILABLE (Together AI) |
+| Kimi K2 | — | — | — | UNAVAILABLE (Together AI) |
+
+**Note:** DeepSeek preliminary K=0.3162 is closer to Philosophy K (0.301) than the pre-registered prediction of ~0.41. If this holds across models, the closed-goal assumption for Legal may need revision — legal reasoning may be more open-ended than medical diagnosis.
 
 ### Prompt Categories
 
@@ -575,11 +590,13 @@ K(Medical) > K(Legal) ≥ K(Technical) > K(Philosophy) ≈ K(Applied Ethics)
 
 | Task | Status | Priority |
 |------|--------|----------|
-| Pre-register on OSF | ⏳ Pending | **CRITICAL** |
+| Pre-register on OSF | ✅ Done (https://osf.io/dp8nj/) | **CRITICAL** |
 | Re-embed Medical with all-mpnet-base-v2 | ⏳ Pending | HIGH |
-| Verify historical model availability | ⏳ Pending | HIGH |
-| Confirm API access (Together AI, OpenRouter) | ⏳ Pending | HIGH |
-| Set up checkpoint/resume system | ⏳ Pending | MEDIUM |
+| Verify historical model availability | ⚠️ Scout & Kimi K2 unavailable on Together AI | HIGH |
+| Confirm API access (Together AI, OpenRouter) | ✅ Together AI active | HIGH |
+| Set up checkpoint/resume system | ✅ Done (saves every 5 trials) | MEDIUM |
+| Legal domain: complete remaining models | 🔄 2/5 done, Qwen3 running | HIGH |
+| Legal domain: re-embed for Var_Ratio | ⏳ After trials complete | HIGH |
 
 ---
 
@@ -665,6 +682,7 @@ If resources are limited:
 | 1.0 | March 4, 2026 | Initial 6-domain design |
 | 2.0 | March 5, 2026 | Removed Creative/Emotional (P30 COLD broken), Added Applied Ethics |
 | 2.1 | March 6, 2026 | OSF pre-registration submitted |
+| 2.2 | March 12, 2026 | Legal experiment progress: DeepSeek & Maverick complete, Scout/Kimi K2 unavailable. DeepSeek preliminary K=0.3162 noted. |
 
 ---
 
