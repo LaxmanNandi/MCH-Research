@@ -114,10 +114,9 @@ mch_experiments/
 │   ├── paper3_cross_domain/         #   Paper 3: Published (Preprints.org)
 │   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org) + JMLR
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
-│   ├── paper6_conservation/         #   Paper 6: Conservation constraint
-│   ├── paper7_cud/                  #   Paper 7: Concept docs + CUD analysis
-│
-├── paper7_submission/                # Paper 7 final (tex, pdf, figures/)
+│   ├── paper6_conservation/         #   Paper 6: Draft complete
+│   ├── paper7_cud/                  #   Paper 7: Concept docs + CUD pilot
+│   └── paper7_submission/           #   Paper 7: Final submission (tex, pdf, figures/)
 │
 ├── data/                            # Experimental data (single source of truth)
 │   ├── medical/                     #   Medical domain (STEMI case)
@@ -128,27 +127,19 @@ mch_experiments/
 │   │   └── open_models/             #     7 open-source models
 │   ├── paper5/                      #   Accuracy verification data
 │   ├── paper6/                      #   Conservation constraint test data
+│   ├── paper7/                      #   Paper 7 cold prior voice analysis
 │   └── legal/                       #   Legal domain experiment data (Paper 6 extension)
 │
 ├── scripts/                         # Analysis and experiment code
 │   ├── experiments/                 #   Experiment runners
-│   ├── analysis/                    #   Analysis scripts (Papers 3-6)
+│   ├── analysis/                    #   Analysis scripts (Papers 3-7)
 │   └── validate/                    #   Validation and verification
 │
 ├── docs/                            # Documentation and figures
 │   ├── figures/                     #   All figures by paper
-│   │   ├── paper3/                  #     Paper 3 figures (8)
-│   │   ├── paper4/                  #     Paper 4 figures (3)
-│   │   ├── paper5/                  #     Paper 5 figures (6)
-│   │   ├── paper6/                  #     Paper 6 figures (4 main + variants)
-│   │   ├── publication/             #     Publication-ready composites
-│   │   └── legacy/                  #     Archived earlier versions
 │   └── figure_data/                 #   CSV data behind figures
 │
 └── archive/                         # Historical materials
-    ├── arxiv_v1/                    #   Original arXiv submission
-    ├── deprecated_scripts/          #   Superseded analysis code
-    └── old_data/                    #   Paper 2 early exports
 ```
 
 ---

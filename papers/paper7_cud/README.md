@@ -3,7 +3,7 @@
 **Status**: ✅ SUBMITTED (March 12, 2026)
 **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
 
-**Final submission**: `/paper7_submission/` (tex, pdf, figures/)
+**Final submission**: `papers/paper7_submission/` (tex, pdf, figures/)
 
 > **Note**: This folder contains concept documents and the CUD pilot analysis from early development. The CUD pilot became Supplementary S1 in the final paper. The main paper evolved into content-order decomposition using Paper 6's conservation-validated model set (N=8 Medical + N=6 Philosophy).
 
@@ -123,4 +123,4 @@ Paper 7 proves the constraint is:
 
 **Pilot By**: Dr. Laxman M M (assisted by Claude Code)
 **Date**: February 2026
-**Final Paper**: Submitted March 12, 2026 — see `/paper7_submission/`
+**Final Paper**: Submitted March 12, 2026 — see `papers/paper7_submission/`

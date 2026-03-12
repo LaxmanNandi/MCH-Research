@@ -12,7 +12,8 @@ papers/
 ├── paper4_entanglement/     Paper 4 ✅ Published (Preprints.org) + JMLR under review
 ├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
 ├── paper6_conservation/     Paper 6 📄 Draft complete + Legal experiments in progress
-└── paper7_cud/              Paper 7 ✅ Submitted (Content-Order Decomposition)
+├── paper7_cud/              Paper 7: Concept docs + CUD pilot
+└── paper7_submission/       Paper 7 ✅ Submitted (tex, pdf, figures/)
 ```
 
 ## Paper Lineage
@@ -79,7 +80,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Key Findings**: Content fraction ~45-55% Medical / ~35-55% Philosophy; Exploration Arc separates domains (Medical convergent, Philosophy divergent); CUD pilot in Supplementary S1
 - **Model set**: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
 - **Figures**: 9 (all verified against raw data)
-- **Location**: `/paper7_submission/` (tex, pdf, figures/) + `paper7_cud/` (concept docs)
+- **Location**: `paper7_submission/` (tex, pdf, figures/) + `paper7_cud/` (concept docs)
 
 ## Each Paper Folder Contains
 
@@ -102,6 +103,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 │   └── closed_models/    5 models (GPT ×3, Claude, Gemini)
 ├── paper5/               Accuracy verification and Llama deep-dive data
 ├── paper6/               Conservation law test data and MI verification
+├── paper7/               Paper 7 cold prior voice analysis
 └── legal/                Legal domain experiment data (Paper 6 extension)
 ```
 
@@ -117,7 +119,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 | Paper 4 manuscript | `paper4_entanglement/Paper4_Manuscript.tex` |
 | Paper 5 manuscript | `paper5_safety/Paper5_Final_Corrected.tex` |
 | Paper 6 draft | `paper6_conservation/Paper6_Draft.md` |
-| Paper 7 manuscript | `/paper7_submission/paper7.tex` |
+| Paper 7 manuscript | `paper7_submission/paper7.tex` |
 | Conservation data | `/data/paper6/conservation_product_test.csv` |
 
 ---

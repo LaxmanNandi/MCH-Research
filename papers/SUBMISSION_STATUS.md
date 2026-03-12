@@ -57,8 +57,8 @@
 - Model set: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
 - Figures: 9 (all verified against raw data)
 - CUD pilot moved to Supplementary S1
-- Manuscript: `/paper7_submission/paper7.tex`
-- Figures: `/paper7_submission/figures/`
+- Manuscript: `papers/paper7_submission/paper7.tex`
+- Figures: `papers/paper7_submission/figures/`
 
 ---
 
