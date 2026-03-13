@@ -45,6 +45,32 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 3. Domain scaling factors comparison (K_med vs K_phil with 95% CI)
 4. Predictability taxonomy overlay on conservation constraint
 
+## Legal Domain Extension — Emerging Insight (March 13, 2026)
+
+### Reasoning Topology Hypothesis
+Early legal data (3 models: DeepSeek, Maverick, Qwen3) suggests K(Legal) ≈ 0.30, clustering with Philosophy (K=0.301) rather than Medical (K=0.429). This contradicts the pre-registered prediction of K ≈ 0.41.
+
+**Proposed reframing**: K is not domain-specific but **reasoning-topology-specific**:
+- **Convergent reasoning** (single correct answer) → K ≈ 0.43 (Medical: symptoms → diagnosis)
+- **Divergent reasoning** (interpretive, argued positions) → K ≈ 0.30 (Philosophy: open inquiry; Legal: fixed rules + ambiguous application)
+
+Legal reasoning has rigid structure (statutes, precedent) but the *application* of that structure to facts is interpretive — more like philosophical argument than diagnostic convergence. The models treat legal as open-goal despite its professional/structured surface.
+
+**Implication**: If confirmed across all 7 legal models, Paper 6 shifts from "domain-specific K" to "topology-specific K" — a stronger, more general claim. The failed pre-registered prediction becomes the paper's strongest finding.
+
+### Legal Trial Status (March 13, 2026)
+| Model | ΔRCI (cold) | Trials | Status |
+|-------|------------|--------|--------|
+| DeepSeek V3.1 | 0.276 | 50/50 | COMPLETE |
+| Llama 4 Maverick | 0.209 | 50/50 | COMPLETE |
+| Qwen3 235B | 0.265 | 42/50 | RUNNING |
+| Llama 4 Scout | — | 0/50 | QUEUED |
+| Mistral Small | — | 0/50 | QUEUED |
+| Ministral 14B | — | 0/50 | QUEUED |
+| Kimi K2 | — | 0/50 | QUEUED |
+
+All 3 completed models show information hierarchy: TRUE > SCRAMBLED > COLD.
+
 ## Pre-registration
 - **OSF Project**: https://osf.io/7954v/
 - **OSF Registration**: https://osf.io/dp8nj/
