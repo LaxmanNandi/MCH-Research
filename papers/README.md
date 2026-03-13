@@ -13,7 +13,7 @@ papers/
 ├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
 ├── paper6_conservation/     Paper 6 📄 Draft complete + Legal experiments in progress
 ├── paper7_cud/              Paper 7: Concept docs + CUD pilot
-└── paper7_submission/       Paper 7 ✅ Submitted (tex, pdf, figures/)
+└── paper7_submission/       Paper 7 ✅ Accepted (tex, pdf, figures/)
 ```
 
 ## Paper Lineage
@@ -74,7 +74,7 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Location**: `paper6_conservation/` + `/data/legal/open_models/`
 
 ### Paper 7: Content-Order Decomposition & Variance Dissociation
-- **Status**: ✅ Submitted (March 12, 2026)
+- **Status**: ✅ Accepted (March 13, 2026, pending online push)
 - **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
 - **Role**: Structural decomposition -- Breaks ΔRCI into content/order components, introduces exploration arc
 - **Key Findings**: Content fraction ~45-55% Medical / ~35-55% Philosophy; Exploration Arc separates domains (Medical convergent, Philosophy divergent); CUD pilot in Supplementary S1
@@ -129,6 +129,6 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - ✅ Foundation data: 25/25 model-domain runs complete
 - ✅ Paper 5 accuracy verification complete
 - ✅ Paper 6 conservation constraint data complete
-- ✅ Paper 7 submitted (all figures verified)
+- ✅ Paper 7 accepted (all figures verified)
 - 🔄 Legal domain experiments: 2/5 models complete, 3 remaining
-**Publications**: 5 published (Papers 1-5 on Preprints.org), Paper 4 under JMLR review, Paper 7 submitted
+**Publications**: 6 published (Papers 1-5 + 7 on Preprints.org), Paper 4 under JMLR review

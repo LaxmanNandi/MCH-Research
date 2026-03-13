@@ -1,5 +1,5 @@
 # MCH Research Program — Submission Status
-**Updated**: March 12, 2026
+**Updated**: March 13, 2026
 
 ## Publication Summary
 
@@ -11,9 +11,9 @@
 | **4** | Engagement as Entanglement | Preprints.org + JMLR | ✅ Published (preprint) / Under review (JMLR) | 10.20944/preprints202603.0055.v1 |
 | **5** | Stochastic Incompleteness | Preprints.org | ✅ Published | 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | — | 📄 Draft complete | — |
-| **7** | Content-Order Decomposition & Variance Dissociation | Preprints.org | ✅ Submitted (ID: 202917) | — |
+| **7** | Content-Order Decomposition & Variance Dissociation | Preprints.org | ✅ Accepted (ID: 202917) | — |
 
-**Total**: 5 papers published, 1 draft ready, 1 submitted
+**Total**: 6 papers published (pending online), 1 draft ready
 
 ---
 
@@ -51,7 +51,7 @@
 ---
 
 ## Paper 7: Content-Order Decomposition & Variance Dissociation
-**Status**: ✅ SUBMITTED (March 12, 2026) — Preprints.org ID: 202917, screening in progress
+**Status**: ✅ ACCEPTED (March 13, 2026) — Preprints.org ID: 202917, pending online push
 
 - Full title: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
 - Preprints.org ID: 202917
@@ -75,5 +75,6 @@
 | Feb 28, 2026 | Paper 5 published (Preprints.org) |
 | Mar 6, 2026 | Paper 6 OSF pre-registration (Legal domain experiment) |
 | Mar 12, 2026 | Paper 7 submitted |
+| Mar 13, 2026 | Paper 7 accepted (pending online) |
 
-**5 papers published in 31 days** (Jan 28 – Feb 28, 2026), Paper 7 submitted Mar 12
+**6 papers published in 44 days** (Jan 28 – Mar 13, 2026), Paper 4 under JMLR review
