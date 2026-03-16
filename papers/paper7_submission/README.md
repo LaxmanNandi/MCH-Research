@@ -44,7 +44,7 @@ Uses Paper 6's conservation-validated subset (N=14 model-domain runs):
 
 ## Supplementary
 
-CUD (Context Utilization Depth) pilot in Supplementary S1 — moved from main paper due to noise. See `papers/paper7_cud/` for concept docs and pilot data.
+CUD (Context Utilization Depth) pilot in Supplementary S1 — moved from main paper due to noise. Concept docs and pilot analysis in `archive/`.
 
 ## Related Papers
 
