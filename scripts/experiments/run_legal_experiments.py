@@ -26,6 +26,40 @@ from openai import OpenAI
 
 sys.stdout.reconfigure(line_buffering=True)
 
+# ============================================================================
+# PROGRESS DISPLAY
+# ============================================================================
+
+_trial_start_times = []
+
+def progress_bar(current, total, width=30, label=""):
+    filled = int(width * current / total) if total > 0 else 0
+    bar = "\u2588" * filled + "\u2591" * (width - filled)
+    pct = current / total * 100 if total > 0 else 0
+    return f"  {label:12s} {current:3d}/{total} [{bar}] {pct:5.1f}%"
+
+def show_model_header(model_name, start_trial, total_trials):
+    print(f"\n\u2550\u2550\u2550 {model_name} {'='*50}", flush=True)
+    remaining = total_trials - start_trial
+    print(f"  Trials: {start_trial} done, {remaining} remaining", flush=True)
+
+def show_trial_progress(model_name, trial_num, total_trials):
+    print(f"\r{progress_bar(trial_num + 1, total_trials, label='Trials')}", end="", flush=True)
+
+def show_condition_progress(condition, prompt_num, total_prompts):
+    print(f"\r{progress_bar(prompt_num, total_prompts, label=condition)}", end="", flush=True)
+
+def show_trial_complete(model_name, trial_num, total_trials, drci, elapsed):
+    avg_time = elapsed
+    remaining_trials = total_trials - (trial_num + 1)
+    if len(_trial_start_times) >= 2:
+        avg_time = np.mean(_trial_start_times[-5:]) if len(_trial_start_times) >= 5 else np.mean(_trial_start_times)
+    est_remaining = avg_time * remaining_trials
+    h, rem = divmod(int(est_remaining), 3600)
+    m, s = divmod(rem, 60)
+    time_str = f"{h}h {m:02d}m" if h > 0 else f"{m}m {s:02d}s"
+    print(f"\r{progress_bar(trial_num + 1, total_trials, label='Trials')}  dRCI={drci:+.4f}  ETA: ~{time_str}   ", flush=True)
+
 load_dotenv()
 
 # Together.ai client
@@ -180,45 +214,41 @@ def get_response_together(model_id, messages, max_retries=5):
 
 def run_trial(model_name, model_id, trial_num):
     """Run a single trial with 3 conditions."""
-    print(f"  [{model_name}] Trial {trial_num+1}/{N_TRIALS}...", flush=True)
 
     # TRUE condition - full conversation history
-    print(f"    TRUE condition ({len(PROMPTS)} prompts)...", flush=True)
     true_messages = []
     true_responses = []
     for i, prompt in enumerate(PROMPTS):
-        if (i + 1) % 10 == 0:
-            print(f"      TRUE prompt {i+1}/{len(PROMPTS)}...", flush=True)
+        show_condition_progress("TRUE", i + 1, len(PROMPTS))
         true_messages.append({"role": "user", "content": prompt})
         resp = get_response_together(model_id, true_messages)
         true_responses.append(resp)
         true_messages.append({"role": "assistant", "content": resp})
+    print(flush=True)
 
     # COLD condition - no history (each prompt independent)
     # Use P30_COLD for position 30 (standalone version)
-    print(f"    COLD condition ({len(PROMPTS)} prompts)...", flush=True)
     cold_responses = []
     for i, prompt in enumerate(PROMPTS):
-        if (i + 1) % 10 == 0:
-            print(f"      COLD prompt {i+1}/{len(PROMPTS)}...", flush=True)
+        show_condition_progress("COLD", i + 1, len(PROMPTS))
         # Use standalone P30 for COLD condition at last position
         cold_prompt = P30_COLD if i == len(PROMPTS) - 1 else prompt
         resp = get_response_together(model_id, [{"role": "user", "content": cold_prompt}])
         cold_responses.append(resp)
+    print(flush=True)
 
     # SCRAMBLED condition - randomized history
-    print(f"    SCRAMBLED condition ({len(PROMPTS)} prompts)...", flush=True)
     scrambled_order = list(range(len(PROMPTS)))
     random.shuffle(scrambled_order)
     scrambled_messages = []
     scrambled_responses = []
     for i, idx in enumerate(scrambled_order):
-        if (i + 1) % 10 == 0:
-            print(f"      SCRAMBLED prompt {i+1}/{len(PROMPTS)}...", flush=True)
+        show_condition_progress("SCRAMBLED", i + 1, len(PROMPTS))
         scrambled_messages.append({"role": "user", "content": PROMPTS[idx]})
         resp = get_response_together(model_id, scrambled_messages)
         scrambled_responses.append(resp)
         scrambled_messages.append({"role": "assistant", "content": resp})
+    print(flush=True)
 
     # Compute embeddings
     true_embs = [get_embedding(r) for r in true_responses]
@@ -243,8 +273,6 @@ def run_trial(model_name, model_id, trial_num):
 
     delta_rci_cold = mean_true - mean_cold
     delta_rci_scrambled = mean_true - mean_scrambled
-
-    print(f"  [{model_name}] Trial {trial_num+1} dRCI={delta_rci_cold:.4f}", flush=True)
 
     return {
         "trial": trial_num,
@@ -274,10 +302,6 @@ def run_trial(model_name, model_id, trial_num):
 # ============================================================================
 
 def run_model(model_name, model_id, vendor):
-    print(f"\n{'='*60}", flush=True)
-    print(f"Starting {model_name} ({vendor}) — LEGAL DOMAIN", flush=True)
-    print(f"{'='*60}", flush=True)
-
     checkpoint_file = os.path.join(OUTPUT_DIR, f"mch_results_{model_name}_legal_checkpoint.json")
     final_file = os.path.join(OUTPUT_DIR, f"mch_results_{model_name}_legal_{N_TRIALS}trials.json")
 
@@ -294,15 +318,22 @@ def run_model(model_name, model_id, vendor):
             checkpoint = json.load(f)
         trials = checkpoint.get("trials", [])
         start_trial = len(trials)
-        print(f"  Resuming from trial {start_trial}", flush=True)
+
+    show_model_header(model_name, start_trial, N_TRIALS)
+    _trial_start_times.clear()
 
     # Run remaining trials
     for i in range(start_trial, N_TRIALS):
+        trial_t0 = time.time()
         try:
             trial_data = run_trial(model_name, model_id, i)
             trials.append(trial_data)
+            trial_elapsed = time.time() - trial_t0
+            _trial_start_times.append(trial_elapsed)
+            drci = trial_data["delta_rci"]["cold"]
+            show_trial_complete(model_name, i, N_TRIALS, drci, trial_elapsed)
         except Exception as e:
-            print(f"  [{model_name}] Trial {i+1} FAILED: {e}", flush=True)
+            print(f"\n  [{model_name}] Trial {i+1} FAILED: {e}", flush=True)
             # Save checkpoint and continue
             checkpoint = {
                 "model": model_name,
@@ -317,7 +348,6 @@ def run_model(model_name, model_id, vendor):
             }
             with open(checkpoint_file, 'w') as f:
                 json.dump(checkpoint, f, indent=2)
-            print(f"  Checkpoint saved at trial {len(trials)}", flush=True)
             continue
 
         # Save checkpoint every 5 trials
@@ -335,7 +365,6 @@ def run_model(model_name, model_id, vendor):
             }
             with open(checkpoint_file, 'w') as f:
                 json.dump(checkpoint, f, indent=2)
-            print(f"  Checkpoint saved at trial {i + 1}", flush=True)
 
     # Compute statistics
     drci_values = [t["delta_rci"]["cold"] for t in trials]
@@ -370,9 +399,7 @@ def run_model(model_name, model_id, vendor):
     if os.path.exists(checkpoint_file):
         os.remove(checkpoint_file)
 
-    print(f"\n  {model_name} COMPLETE: {N_TRIALS}/{N_TRIALS} trials", flush=True)
-    print(f"  Mean dRCI: {mean_drci:.4f} +/- {std_drci:.4f}", flush=True)
-    print(f"  Pattern: {pattern}", flush=True)
+    print(f"\n  {model_name} COMPLETE | Mean dRCI: {mean_drci:.4f} +/- {std_drci:.4f} | {pattern}", flush=True)
 
 # ============================================================================
 # MAIN
