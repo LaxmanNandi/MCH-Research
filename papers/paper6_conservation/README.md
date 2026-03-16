@@ -48,28 +48,51 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 ## Legal Domain Extension — Emerging Insight (March 13, 2026)
 
 ### Reasoning Topology Hypothesis
-Early legal data (3 models: DeepSeek, Maverick, Qwen3) suggests K(Legal) ≈ 0.30, clustering with Philosophy (K=0.301) rather than Medical (K=0.429). This contradicts the pre-registered prediction of K ≈ 0.41.
+4 models complete (N=4): K(Legal) = 0.362 (CV=0.189). Sits between Philosophy (K=0.301) and Medical (K=0.429), contradicting both the pre-registered prediction (K≈0.41) and early 3-model estimate (K≈0.30).
 
 **Proposed reframing**: K is not domain-specific but **reasoning-topology-specific**:
 - **Convergent reasoning** (single correct answer) → K ≈ 0.43 (Medical: symptoms → diagnosis)
-- **Divergent reasoning** (interpretive, argued positions) → K ≈ 0.30 (Philosophy: open inquiry; Legal: fixed rules + ambiguous application)
+- **Divergent reasoning** (interpretive, argued positions) → K ≈ 0.30 (Philosophy: open inquiry)
+- **Hybrid reasoning** (rigid rules + interpretive application) → K ≈ 0.36 (Legal: statutes + argument)
 
-Legal reasoning has rigid structure (statutes, precedent) but the *application* of that structure to facts is interpretive — more like philosophical argument than diagnostic convergence. The models treat legal as open-goal despite its professional/structured surface.
+### Discovered Truth vs Constructed Truth (March 15, 2026)
 
-**Implication**: If confirmed across all 7 legal models, Paper 6 shifts from "domain-specific K" to "topology-specific K" — a stronger, more general claim. The failed pre-registered prediction becomes the paper's strongest finding.
+**Key insight**: Entanglement (ΔRCI~VRI coupling) depends on whether truth in a domain is discovered or constructed.
 
-### Legal Trial Status (March 13, 2026)
-| Model | ΔRCI (cold) | Trials | Status |
-|-------|------------|--------|--------|
-| DeepSeek V3.1 | 0.276 | 50/50 | COMPLETE |
-| Llama 4 Maverick | 0.209 | 50/50 | COMPLETE |
-| Qwen3 235B | 0.265 | 42/50 | RUNNING |
-| Llama 4 Scout | — | 0/50 | QUEUED |
-| Mistral Small | — | 0/50 | QUEUED |
-| Ministral 14B | — | 0/50 | QUEUED |
-| Kimi K2 | — | 0/50 | QUEUED |
+- **Medical** (discovered truth — molecular pathways, fixed diagnoses): Context converges the answer → ΔRCI and VRI couple → r=0.76, p=2.37×10⁻⁶⁸ → P30 spike → U-shape temporal dynamics
+- **Legal** (constructed truth — dynamic rules, argued verdicts): Context expands argument space → ΔRCI and VRI decouple → r=-0.033, p=0.722 → no P30 spike → mixed temporal dynamics
 
-All 3 completed models show information hierarchy: TRUE > SCRAMBLED > COLD.
+Per-model legal correlations (N=30 each): DeepSeek r=0.29 (p=0.13), Maverick r=-0.14 (p=0.46), Qwen3 r=0.02 (p=0.92), Mistral Small r=-0.13 (p=0.48). Zero significant — entanglement genuinely absent, not a sample size artifact.
+
+**Conservation holds despite decoupling**: K is more fundamental than entanglement. K constrains the product regardless of whether components are correlated. Hierarchy: Conservation > Entanglement > Temporal dynamics.
+
+**Implication for Paper 5 taxonomy**: IDEAL/EMPTY/DIVERGENT/RICH classification loses predictive power in decoupled domains. In entangled domains, ΔRCI alone predicts safety class. In decoupled domains, both ΔRCI and VRI must be measured independently.
+
+### Legal Temporal Dynamics (3-bin)
+| Model | Early | Mid | Late | Pattern |
+|-------|-------|-----|------|---------|
+| DeepSeek V3.1 | 0.285 | 0.258 | 0.285 | U-shape |
+| Llama 4 Maverick | 0.222 | 0.216 | 0.189 | Declining |
+| Qwen3 235B | 0.242 | 0.263 | 0.289 | Rising |
+| Mistral Small | 0.277 | 0.208 | 0.272 | U-shape |
+
+No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (all inverted-U). Legal is a "weak situation" that doesn't constrain model temporal behavior.
+
+### Legal Trial Status (March 15, 2026)
+| Model | ΔRCI (cold) | Var_Ratio | K | Trials | Status |
+|-------|------------|-----------|------|--------|--------|
+| DeepSeek V3.1 | 0.276 | 1.225 | 0.338 | 50/50 | COMPLETE |
+| Llama 4 Maverick | 0.209 | 1.412 | 0.295 | 50/50 | COMPLETE |
+| Qwen3 235B | 0.265 | 1.796 | 0.476 | 50/50 | COMPLETE |
+| Mistral Small | 0.254 | 1.338 | 0.338 | 50/50 | COMPLETE |
+| Kimi K2.5 | — | — | — | 0/50 | QUEUED |
+| Llama 3.3 70B | — | — | — | 0/50 | QUEUED |
+| GLM-5 | — | — | — | 0/50 | QUEUED |
+| Ministral 14B | — | — | — | 0/50 | UNAVAILABLE (Together AI) |
+| Llama 4 Scout | — | — | — | 0/50 | UNAVAILABLE (Together AI) |
+| Kimi K2 | — | — | — | 0/50 | UNAVAILABLE (Together AI) |
+
+All 4 completed models show information hierarchy: TRUE > SCRAMBLED > COLD. No P30 spike (max z=0.66).
 
 ## Pre-registration
 - **OSF Project**: https://osf.io/7954v/

@@ -56,8 +56,11 @@ MODELS_TO_RUN = [
     # ("llama_4_scout", "meta-llama/Llama-4-Scout-17B-16E-Instruct", "together"),  # Removed from Together AI serverless
     ("qwen3_235b", "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8", "together"),
     ("mistral_small_24b", "mistralai/Mistral-Small-24B-Instruct-2501", "together"),
-    ("ministral_14b", "mistralai/Ministral-3-14B-Instruct-2512", "together"),
-    # ("kimi_k2", "moonshotai/Kimi-K2-Instruct-0905", "together"),  # Removed from Together AI serverless
+    # ("ministral_14b", "mistralai/Ministral-3-14B-Instruct-2512", "together"),  # Not available serverless
+    # ("kimi_k2", "moonshotai/Kimi-K2-Instruct-0905", "together"),  # Not available serverless
+    ("kimi_k2_5", "moonshotai/Kimi-K2.5", "together"),
+    ("llama_3_3_70b", "meta-llama/Llama-3.3-70B-Instruct", "together"),
+    ("glm_5", "zai-org/GLM-5", "together"),
 ]
 
 # ============================================================================

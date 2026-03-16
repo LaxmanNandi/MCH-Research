@@ -13,7 +13,7 @@ papers/
 ├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
 ├── paper6_conservation/     Paper 6 📄 Draft complete + Legal experiments in progress
 ├── paper7_cud/              Paper 7: Concept docs + CUD pilot
-└── paper7_submission/       Paper 7 ✅ Accepted (tex, pdf, figures/)
+└── paper7_submission/       Paper 7 ✅ Published (tex, pdf, figures/)
 ```
 
 ## Paper Lineage
@@ -70,11 +70,12 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 - **Role**: Unifying theory -- Conservation constraint across all prior papers
 - **Key Finding**: ΔRCI × Var_Ratio ≈ K(domain). Medical K=0.429, Philosophy K=0.301 (Mann-Whitney p=0.003, Cohen's d=2.06)
 - **Dataset**: 14 model-domain runs (8 Medical + 6 Philosophy) across 11 architectures, 8 vendors
-- **Legal extension**: 5 models × Legal P30, pre-registered on OSF. DeepSeek + Maverick complete, Qwen3 in progress.
+- **Legal extension**: 4 models complete (DeepSeek, Maverick, Qwen3, Mistral Small), 3 queued (Kimi K2.5, Llama 3.3, GLM-5). K(Legal)=0.362, no entanglement, order-dominated.
 - **Location**: `paper6_conservation/` + `/data/legal/open_models/`
 
 ### Paper 7: Content-Order Decomposition & Variance Dissociation
-- **Status**: ✅ Accepted (March 13, 2026, pending online push)
+- **Status**: ✅ Published (Preprints.org, March 16, 2026)
+- **DOI**: 10.20944/preprints202603.1116.v1
 - **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
 - **Role**: Structural decomposition -- Breaks ΔRCI into content/order components, introduces exploration arc
 - **Key Findings**: Content fraction ~45-55% Medical / ~35-55% Philosophy; Exploration Arc separates domains (Medical convergent, Philosophy divergent); CUD pilot in Supplementary S1
@@ -124,11 +125,11 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 
 ---
 
-**Last Updated**: March 12, 2026
+**Last Updated**: March 16, 2026
 **Data Status**:
 - ✅ Foundation data: 25/25 model-domain runs complete
 - ✅ Paper 5 accuracy verification complete
 - ✅ Paper 6 conservation constraint data complete
-- ✅ Paper 7 accepted (all figures verified)
-- 🔄 Legal domain experiments: 2/5 models complete, 3 remaining
-**Publications**: 6 published (Papers 1-5 + 7 on Preprints.org), Paper 4 under JMLR review
+- ✅ Paper 7 published (DOI: 10.20944/preprints202603.1116.v1)
+- 🔄 Legal domain experiments: 4/7 models complete, 3 queued
+**Publications**: 7 published (Papers 1-5 + 7 on Preprints.org), Paper 4 under JMLR review, Paper 6 draft ready

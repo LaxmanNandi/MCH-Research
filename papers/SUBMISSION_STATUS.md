@@ -1,5 +1,5 @@
 # MCH Research Program — Submission Status
-**Updated**: March 13, 2026
+**Updated**: March 16, 2026
 
 ## Publication Summary
 
@@ -11,9 +11,9 @@
 | **4** | Engagement as Entanglement | Preprints.org + JMLR | ✅ Published (preprint) / Under review (JMLR) | 10.20944/preprints202603.0055.v1 |
 | **5** | Stochastic Incompleteness | Preprints.org | ✅ Published | 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | — | 📄 Draft complete | — |
-| **7** | Content-Order Decomposition & Variance Dissociation | Preprints.org | ✅ Accepted (ID: 202917) | — |
+| **7** | Content-Order Decomposition & Variance Dissociation | Preprints.org | ✅ Published | 10.20944/preprints202603.1116.v1 |
 
-**Total**: 6 papers published (pending online), 1 draft ready
+**Total**: 7 papers published, 1 draft ready (Paper 6), Paper 4 under JMLR review
 
 ---
 
@@ -51,10 +51,12 @@
 ---
 
 ## Paper 7: Content-Order Decomposition & Variance Dissociation
-**Status**: ✅ ACCEPTED (March 13, 2026) — Preprints.org ID: 202917, pending online push
+**Status**: ✅ PUBLISHED (Preprints.org, March 16, 2026)
 
 - Full title: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
-- Preprints.org ID: 202917
+- Preprints.org ID: 202603.1116
+- DOI: 10.20944/preprints202603.1116.v1
+- URL: https://www.preprints.org/manuscript/202603.1116/v1
 - Model set: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
 - Figures: 9 (all verified against raw data)
 - CUD pilot moved to Supplementary S1
@@ -75,6 +77,7 @@
 | Feb 28, 2026 | Paper 5 published (Preprints.org) |
 | Mar 6, 2026 | Paper 6 OSF pre-registration (Legal domain experiment) |
 | Mar 12, 2026 | Paper 7 submitted |
-| Mar 13, 2026 | Paper 7 accepted (pending online) |
+| Mar 13, 2026 | Paper 7 accepted |
+| Mar 16, 2026 | Paper 7 published online (DOI: 10.20944/preprints202603.1116.v1) |
 
-**6 papers published in 44 days** (Jan 28 – Mar 13, 2026), Paper 4 under JMLR review
+**7 papers published in 47 days** (Jan 28 – Mar 16, 2026), Paper 4 under JMLR review
