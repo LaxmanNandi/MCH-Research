@@ -31,10 +31,10 @@ This research program investigates how domain structure shapes AI context sensit
 
 ---
 
-### **Paper 2 (Standardized): Scaling Context Sensitivity** [ACCEPTED - Preprints.org]
+### **Paper 2 (Standardized): Scaling Context Sensitivity** [PUBLISHED]
 **Role**: Core Study - Unified methodology, cross-domain validation
 **Title**: *Scaling Context Sensitivity: A Standardized Benchmark of ΔRCI Across 25 Model-Domain Runs*
-**Status**: Preprints.org (ID: 198770, accepted February 12, 2026)
+**Status**: Published on Preprints.org — DOI: 10.20944/preprints202602.1114.v2
 
 **Design**: Controlled cross-domain experimental study
 - **Models**: 14 unique models, 25 model-domain runs
@@ -58,8 +58,9 @@ This research program investigates how domain structure shapes AI context sensit
 
 **Extensions & Deep Dives** (build on Paper 2 standardized data):
 
-#### **Paper 3: Temporal Dynamics Analysis** [DRAFT COMPLETE]
-**Title**: *How Philosophical vs Medical Reasoning Shapes Context Sensitivity Dynamics in Large Language Models*
+#### **Paper 3: Temporal Dynamics Analysis** [PUBLISHED]
+**Title**: *Domain-Specific Temporal Dynamics of Context Sensitivity in Large Language Models*
+**DOI**: 10.20944/preprints202602.1674.v1
 
 **Role**: Extension of Paper 2 - Position-level temporal analysis
 - **Dataset**: Paper 2 subset (12 models with response text)
@@ -73,10 +74,9 @@ This research program investigates how domain structure shapes AI context sensit
 3. **Disruption sensitivity**: Presence > order (context structure matters)
 4. **Type 2 scaling law**: ΔRCI ∝ log(context_volume)
 
-**Status**: Figures complete, ready for submission
-
-#### **Paper 4: Entanglement Mechanism** [DRAFT COMPLETE]
-**Title**: *Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling*
+#### **Paper 4: Entanglement Mechanism** [PUBLISHED + JMLR UNDER REVIEW]
+**Title**: *Engagement as Entanglement: Variance Signatures of Bidirectional Context Coupling in Large Language Models*
+**DOI**: 10.20944/preprints202603.0055.v1
 
 **Role**: Extension of Paper 2 - Information-theoretic mechanism
 - **Dataset**: Paper 2 subset (12 models with response text)
@@ -91,10 +91,9 @@ This research program investigates how domain structure shapes AI context sensit
 4. **Domain architecture**: Medical variance-increasing (1.20), Philosophy neutral (1.01)
 5. **Variance sufficiency**: Simple surrogate works (no k-NN needed)
 
-**Status**: Figures complete, ready for submission
-
-#### **Paper 5: Safety Taxonomy for Clinical Deployment** [DEFINED]
-**Title**: *Predictability as a Safety Metric: When Correct Isn't Safe*
+#### **Paper 5: Safety Taxonomy for Clinical Deployment** [PUBLISHED]
+**Title**: *Stochastic Incompleteness: A Predictability Taxonomy for Clinical AI Deployment*
+**DOI**: 10.20944/preprints202602.2034.v1
 
 **Role**: Application of Papers 2-4 - Deployment framework
 - **Dataset**: 8 medical models with response text (P30 summarization, 50 trials each)
@@ -105,11 +104,39 @@ This research program investigates how domain structure shapes AI context sensit
 2. **Four behavioral classes**:
    - IDEAL (Var_Ratio < 1.2, high accuracy): DeepSeek, Ministral, Mistral, Kimi K2
    - EMPTY (low Var_Ratio, low accuracy): Gemini Flash (safety filter pathology)
-   - DANGEROUS (high Var_Ratio, low accuracy): Llama Scout, Llama Maverick
+   - DIVERGENT (high Var_Ratio, low accuracy): Llama Scout, Llama Maverick
    - RICH (mild divergence, high accuracy): Qwen3 235B
 3. **Categorical, not continuous**: Four-class taxonomy captures structure better than any continuous model (quadratic R²=0.11, F-test p=0.72)
 
-**Status**: Defined, accuracy data generated
+#### **Paper 6: Conservation Constraint** [DRAFT]
+**Title**: *Conservation Constraint in Context Sensitivity*
+
+**Role**: Theoretical unification - Domain-specific conservation law
+- **Dataset**: Paper 2 conservation-validated subset (N=8 Medical + N=6 Philosophy)
+- **Innovation**: ΔRCI × Var_Ratio ≈ K(domain)
+
+**Key Findings**:
+1. **Conservation constraint**: K(Medical)=0.429 (CV=0.170), K(Philosophy)=0.301 (CV=0.166)
+2. **Domain difference**: Mann-Whitney U=46, p=0.003, Cohen's d=2.06
+3. **Legal domain extension**: K(Legal)=0.362 (CV=0.189), 4 models complete, 3 queued
+4. **Discovered vs Constructed truth**: Entanglement depends on truth-type; conservation holds in both
+
+**Status**: Draft complete, legal experiments ongoing (4/7 models)
+
+#### **Paper 7: Content-Order Decomposition** [PUBLISHED]
+**Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
+**DOI**: 10.20944/preprints202603.1116.v1
+
+**Role**: Theoretical capstone - Decomposes ΔRCI into content/order components
+- **Dataset**: Paper 6 conservation-validated subset (N=8 Medical + N=6 Philosophy)
+- **Innovation**: Content-order decomposition, exploration arc, CUD pilot
+
+**Key Findings**:
+1. **Content fraction**: Medical ~45-55%, Philosophy ~35-55%
+2. **Exploration Arc**: Medical 1.72±0.68 (convergent), Philosophy 15.23±16.64 (divergent) — zero domain overlap
+3. **P30 spike decomposition**: All N=8 Medical models show z > +2.43 at position 30
+4. **Llama P30 anomaly**: Driven entirely by order component, not content
+5. **Sensitivity-stability dissociation**: High content fraction ≠ high Var_Ratio
 
 ---
 
@@ -163,14 +190,11 @@ mch_experiments/
 
 ## Next Steps
 
-1. ~~Complete Kimi K2 medical~~ **DONE** (50/50 trials, dRCI=0.417)
-2. **Generate Paper 2 figures** (cross-domain comparison, all 25 model-domain runs)
-3. **Write Paper 2 draft** (standardized framework)
-4. **Prepare submission packages** (Papers 2, 3, 4)
-5. **Complete philosophy open models rerun** (7 models with response text saving, in progress)
-6. **Draft Paper 5 manuscript** (safety taxonomy, accuracy verification data complete)
+1. **Complete legal domain experiments** — 3 models queued (Kimi K2.5, Llama 3.3 70B, GLM-5)
+2. **Finalize Paper 6** — Incorporate full legal results, submit to Preprints.org
+3. **Paper 4 JMLR review** — Under review since March 4, 2026
 
 ---
 
-**Last Updated**: February 14, 2026
-**Status**: ALL COMPLETE (25/25 model-domain runs), Paper 5 defined, philosophy rerun in progress
+**Last Updated**: March 16, 2026
+**Status**: 7 papers (6 published, 1 draft). Legal domain experiments ongoing (4/7 models complete).

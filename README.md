@@ -7,6 +7,7 @@
 [![Paper 3 - Preprints.org](https://img.shields.io/badge/Paper%203-10.20944%2Fpreprints202602.1674.v1-blue.svg)](https://www.preprints.org/manuscript/202602.1674/v1)
 [![Paper 4 - Preprints.org](https://img.shields.io/badge/Paper%204-Published-blue.svg)](https://www.preprints.org/manuscript/202602.1894)
 [![Paper 5 - Preprints.org](https://img.shields.io/badge/Paper%205-10.20944%2Fpreprints202602.2034.v1-blue.svg)](https://www.preprints.org/manuscript/202602.2034/v1)
+[![Paper 7 - Preprints.org](https://img.shields.io/badge/Paper%207-10.20944%2Fpreprints202603.1116.v1-blue.svg)](https://www.preprints.org/manuscript/202603.1116/v1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
@@ -30,7 +31,7 @@
 | **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) + JMLR under review |
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | 📄 Draft complete, p=0.003 |
-| **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ Submitted |
+| **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
 
 ### Key Discovery: Conservation Constraint (Paper 6)
 
@@ -264,7 +265,8 @@ python scripts/generate_paper5_figures.py
 @article{laxman2026decomposition,
   title={The Structure and Trajectory of Context Sensitivity in {LLMs}: Content-Order Decomposition and Variance Dissociation},
   author={Laxman, M M},
-  note={Submitted, March 2026},
+  journal={Preprints.org},
+  doi={10.20944/preprints202603.1116.v1},
   year={2026}
 }
 ```

@@ -1,6 +1,6 @@
 # Paper 7: Content-Order Decomposition & Variance Dissociation
 
-**Status**: ✅ SUBMITTED (March 12, 2026)
+**Status**: ✅ PUBLISHED (March 16, 2026) — DOI: 10.20944/preprints202603.1116.v1
 **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
 
 **Final submission**: `papers/paper7_submission/` (tex, pdf, figures/)
@@ -123,4 +123,4 @@ Paper 7 proves the constraint is:
 
 **Pilot By**: Dr. Laxman M M (assisted by Claude Code)
 **Date**: February 2026
-**Final Paper**: Submitted March 12, 2026 — see `papers/paper7_submission/`
+**Final Paper**: Published March 16, 2026 (DOI: 10.20944/preprints202603.1116.v1) — see `papers/paper7_submission/`
