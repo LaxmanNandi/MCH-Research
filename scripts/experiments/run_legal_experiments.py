@@ -24,7 +24,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from openai import OpenAI
 
-sys.stdout.reconfigure(line_buffering=True)
+sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 
 # ============================================================================
 # PROGRESS DISPLAY
@@ -87,14 +87,16 @@ print("Embedding model loaded.", flush=True)
 MODELS_TO_RUN = [
     ("deepseek_v3_1", "deepseek-ai/DeepSeek-V3.1", "together"),
     ("llama_4_maverick", "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8", "together"),
-    # ("llama_4_scout", "meta-llama/Llama-4-Scout-17B-16E-Instruct", "together"),  # Removed from Together AI serverless
+    # ("llama_4_scout", "meta-llama/Llama-4-Scout-17B-16E-Instruct", "together"),  # Listed but not serverless
     ("qwen3_235b", "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8", "together"),
     ("mistral_small_24b", "mistralai/Mistral-Small-24B-Instruct-2501", "together"),
     # ("ministral_14b", "mistralai/Ministral-3-14B-Instruct-2512", "together"),  # Not available serverless
     # ("kimi_k2", "moonshotai/Kimi-K2-Instruct-0905", "together"),  # Not available serverless
     ("kimi_k2_5", "moonshotai/Kimi-K2.5", "together"),
-    ("llama_3_3_70b", "meta-llama/Llama-3.3-70B-Instruct", "together"),
-    ("glm_5", "zai-org/GLM-5", "together"),
+    # ("llama_3_3_70b", "meta-llama/Llama-3.3-70B-Instruct", "together"),  # Removed from Together AI serverless
+    # ("glm_5", "zai-org/GLM-5", "together"),  # EXCLUDED: 86% empty responses
+    # ("llama_3_1_405b", "meta-llama/Llama-3.1-405B-Instruct", "together"),  # Listed but not serverless
+    ("llama_3_3_70b_turbo", "meta-llama/Llama-3.3-70B-Instruct-Turbo", "together"),  # New — turbo variant available
 ]
 
 # ============================================================================
@@ -305,10 +307,24 @@ def run_model(model_name, model_id, vendor):
     checkpoint_file = os.path.join(OUTPUT_DIR, f"mch_results_{model_name}_legal_checkpoint.json")
     final_file = os.path.join(OUTPUT_DIR, f"mch_results_{model_name}_legal_{N_TRIALS}trials.json")
 
-    # Check if already complete
+    # Check if already complete (must have all trials, not just exist)
     if os.path.exists(final_file):
-        print(f"  {model_name} already complete. Skipping.", flush=True)
-        return
+        with open(final_file, 'r') as f:
+            existing = json.load(f)
+        if len(existing.get("trials", [])) >= N_TRIALS:
+            print(f"  {model_name} already complete ({len(existing['trials'])} trials). Skipping.", flush=True)
+            return
+        else:
+            # File exists but incomplete — move to checkpoint and resume
+            incomplete_trials = existing.get("trials", [])
+            if incomplete_trials:
+                checkpoint = existing
+                with open(checkpoint_file, 'w') as f:
+                    json.dump(checkpoint, f, indent=2)
+                print(f"  {model_name} incomplete ({len(incomplete_trials)}/{N_TRIALS} trials). Resuming...", flush=True)
+            else:
+                print(f"  {model_name} empty (0 trials). Starting fresh...", flush=True)
+            os.remove(final_file)
 
     # Load checkpoint if exists
     trials = []
