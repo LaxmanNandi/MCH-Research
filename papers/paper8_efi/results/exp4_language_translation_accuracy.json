@@ -1,0 +1,427 @@
+{
+  "experiment": "Paper 8 Experiment 4",
+  "timestamp": "2026-03-19T10:28:54.471110",
+  "temperature": 0.0,
+  "language_id": {
+    "DeepSeek_V3.1": {
+      "correct": 15,
+      "total": 15,
+      "accuracy": 1.0
+    },
+    "Mistral_Small": {
+      "correct": 15,
+      "total": 15,
+      "accuracy": 1.0
+    }
+  },
+  "translation": {
+    "DeepSeek_V3.1": {
+      "Kannada": {
+        "mean_similarity": 0.86,
+        "min_similarity": 0.634,
+        "values": [
+          0.9891,
+          0.947,
+          0.7627,
+          0.9681,
+          0.6339
+        ]
+      },
+      "Tamil": {
+        "mean_similarity": 0.845,
+        "min_similarity": 0.594,
+        "values": [
+          0.9891,
+          0.9523,
+          0.9458,
+          0.7412,
+          0.5944
+        ]
+      },
+      "Hindi": {
+        "mean_similarity": 0.903,
+        "min_similarity": 0.664,
+        "values": [
+          0.9891,
+          0.96,
+          0.9458,
+          0.9549,
+          0.664
+        ]
+      }
+    },
+    "Mistral_Small": {
+      "Kannada": {
+        "mean_similarity": 0.516,
+        "min_similarity": 0.391,
+        "values": [
+          0.6348,
+          0.6167,
+          0.4144,
+          0.3908,
+          0.524
+        ]
+      },
+      "Tamil": {
+        "mean_similarity": 0.383,
+        "min_similarity": 0.213,
+        "values": [
+          0.472,
+          0.3606,
+          0.4695,
+          0.2134,
+          0.3983
+        ]
+      },
+      "Hindi": {
+        "mean_similarity": 0.497,
+        "min_similarity": 0.382,
+        "values": [
+          0.5204,
+          0.5199,
+          0.4325,
+          0.6307,
+          0.3822
+        ]
+      }
+    }
+  },
+  "raw_responses": {
+    "DeepSeek_V3.1": {
+      "language_id": {
+        "Kannada": [
+          {
+            "input": "ರೋಗಿಗೆ ಜ್ವರ ಇದೆ",
+            "response": "Kannada"
+          },
+          {
+            "input": "ರೋಗಿಗೆ ಎದೆ ನೋವು ಎಡ ತೋಳಿಗೆ ಹರಡುತ್ತಿದೆ ಮತ್ತು ಬೆವರುತ್ತಿದೆ",
+            "response": "Kannada"
+          },
+          {
+            "input": "ಗರ್ಭಿಣಿ ಮಹಿಳೆಗೆ ಹೆಚ್ಚಿನ ರಕ್ತದೊತ್ತಡ ಮತ್ತು ಊತ",
+            "response": "Kannada"
+          },
+          {
+            "input": "ಮಗುವಿಗೆ ದದ್ದು ಜ್ವರ ಮತ್ತು ಕೀಲು ನೋವು ಒಂದು ವಾರದಿಂದ",
+            "response": "Kannada"
+          },
+          {
+            "input": "V1 ನಿಂದ V4 ವರೆಗೆ ST ಏರಿಕೆಯೊಂದಿಗೆ ತೀವ್ರ ಹೃದ್ರೋಗಲಕ್ಷಣವನ್ನು ಪರಿಗಣಿಸಿ",
+            "response": "Kannada"
+          }
+        ],
+        "Tamil": [
+          {
+            "input": "நோயாளிக்கு காய்ச்சல் உள்ளது",
+            "response": "Tamil"
+          },
+          {
+            "input": "நோயாளிக்கு நெஞ்சு வலி இடது கைக்கு பரவுகிறது மற்றும் வியர்வை வருகிறது",
+            "response": "Tamil"
+          },
+          {
+            "input": "கர்ப்பிணி பெண்ணுக்கு உயர்ந்த ரத்த அழுத்தம் மற்றும் வீக்கம்",
+            "response": "Tamil"
+          },
+          {
+            "input": "குழந்தைக்கு தடிப்பு காய்ச்சல் மற்றும் மூட்டு வலி ஒரு வாரமாக",
+            "response": "Tamil"
+          },
+          {
+            "input": "V1 முதல் V4 வரை ST உயர்வுடன் கடுமையான இதய நாள நோய்க்குறியை கருதுங்கள்",
+            "response": "Tamil"
+          }
+        ],
+        "Hindi": [
+          {
+            "input": "मरीज़ को बुखार है",
+            "response": "Hindi"
+          },
+          {
+            "input": "मरीज़ को सीने में दर्द बाएं हाथ तक फैल रहा है और पसीना आ रहा है",
+            "response": "Hindi"
+          },
+          {
+            "input": "गर्भवती महिला को उच्च रक्तचाप और सूजन",
+            "response": "Hindi"
+          },
+          {
+            "input": "बच्चे को दाने बुखार और जोड़ों में दर्द एक हफ़्ते से",
+            "response": "Hindi"
+          },
+          {
+            "input": "V1 से V4 तक ST एलिवेशन दिख रहा है गंभीर हृदय रोग का संकेत",
+            "response": "Hindi"
+          }
+        ]
+      },
+      "translation": {
+        "Kannada": [
+          {
+            "input": "ರೋಗಿಗೆ ಜ್ವರ ಇದೆ",
+            "reference_english": "The patient has fever",
+            "translated": "The patient has a fever.",
+            "cosine_similarity": 0.9891
+          },
+          {
+            "input": "ರೋಗಿಗೆ ಎದೆ ನೋವು ಎಡ ತೋಳಿಗೆ ಹರಡುತ್ತಿದೆ ಮತ್ತು ಬೆವರುತ್ತಿದೆ",
+            "reference_english": "Patient complains of chest pain radiating to left arm with sweating",
+            "translated": "The patient has chest pain radiating to the left arm and is sweating.",
+            "cosine_similarity": 0.947
+          },
+          {
+            "input": "ಗರ್ಭಿಣಿ ಮಹಿಳೆಗೆ ಹೆಚ್ಚಿನ ರಕ್ತದೊತ್ತಡ ಮತ್ತು ಊತ",
+            "reference_english": "Pregnant woman with elevated blood pressure and swelling",
+            "translated": "Of course. Here is the English translation:\n\n**The pregnant woman has high blood pressure and swelling (edema).**\n\n**Clinical Context:**\nThis combination of symptoms is highly suggestive of **preeclampsia**, a serious pregnancy complication. It is essential for a pregnant woman experiencing these symptoms to seek immediate medical evaluation.",
+            "cosine_similarity": 0.7627
+          },
+          {
+            "input": "ಮಗುವಿಗೆ ದದ್ದು ಜ್ವರ ಮತ್ತು ಕೀಲು ನೋವು ಒಂದು ವಾರದಿಂದ",
+            "reference_english": "Child with rash, fever, and joint pain for one week",
+            "translated": "The child has had a rash, fever, and joint pain for one week.",
+            "cosine_similarity": 0.9681
+          },
+          {
+            "input": "V1 ನಿಂದ V4 ವರೆಗೆ ST ಏರಿಕೆಯೊಂದಿಗೆ ತೀವ್ರ ಹೃದ್ರೋಗಲಕ್ಷಣವನ್ನು ಪರಿಗಣಿಸಿ",
+            "reference_english": "ECG shows ST elevation in leads V1 through V4 with reciprocal changes",
+            "translated": "Consider acute myocardial infarction with ST elevation from V1 to V4.",
+            "cosine_similarity": 0.6339
+          }
+        ],
+        "Tamil": [
+          {
+            "input": "நோயாளிக்கு காய்ச்சல் உள்ளது",
+            "reference_english": "The patient has fever",
+            "translated": "The patient has a fever.",
+            "cosine_similarity": 0.9891
+          },
+          {
+            "input": "நோயாளிக்கு நெஞ்சு வலி இடது கைக்கு பரவுகிறது மற்றும் வியர்வை வருகிறது",
+            "reference_english": "Patient complains of chest pain radiating to left arm with sweating",
+            "translated": "The patient has chest pain radiating to the left arm and is experiencing sweating.",
+            "cosine_similarity": 0.9523
+          },
+          {
+            "input": "கர்ப்பிணி பெண்ணுக்கு உயர்ந்த ரத்த அழுத்தம் மற்றும் வீக்கம்",
+            "reference_english": "Pregnant woman with elevated blood pressure and swelling",
+            "translated": "The pregnant woman has high blood pressure and swelling.",
+            "cosine_similarity": 0.9458
+          },
+          {
+            "input": "குழந்தைக்கு தடிப்பு காய்ச்சல் மற்றும் மூட்டு வலி ஒரு வாரமாக",
+            "reference_english": "Child with rash, fever, and joint pain for one week",
+            "translated": "The child has had measles and joint pain for a week.",
+            "cosine_similarity": 0.7412
+          },
+          {
+            "input": "V1 முதல் V4 வரை ST உயர்வுடன் கடுமையான இதய நாள நோய்க்குறியை கருதுங்கள்",
+            "reference_english": "ECG shows ST elevation in leads V1 through V4 with reciprocal changes",
+            "translated": "Of course. Here is the English translation of the clinical sentence:\n\n**\"Consider severe coronary artery disease from leads V1 to V4 with ST elevation.\"**\n\n### Breakdown of the translation:\n*   **V1 to V4:** Refers to specific leads on an electrocardiogram (ECG) that view the anterior wall of the heart.\n*   **ST elevation:** A specific ECG finding that indicates acute injury to the heart muscle, often seen in a heart attack (myocardial infarction).\n*   **Severe coronary artery disease:** The underlying condition being considered, where the arteries supplying blood to the heart are severely blocked.\n\nIn clinical terms, this phrase is a classic description of an **anteroseptal ST-elevation myocardial infarction (STEMI)**, a serious type of heart attack.",
+            "cosine_similarity": 0.5944
+          }
+        ],
+        "Hindi": [
+          {
+            "input": "मरीज़ को बुखार है",
+            "reference_english": "The patient has fever",
+            "translated": "The patient has a fever.",
+            "cosine_similarity": 0.9891
+          },
+          {
+            "input": "मरीज़ को सीने में दर्द बाएं हाथ तक फैल रहा है और पसीना आ रहा है",
+            "reference_english": "Patient complains of chest pain radiating to left arm with sweating",
+            "translated": "The patient is experiencing chest pain radiating to the left arm and sweating.",
+            "cosine_similarity": 0.96
+          },
+          {
+            "input": "गर्भवती महिला को उच्च रक्तचाप और सूजन",
+            "reference_english": "Pregnant woman with elevated blood pressure and swelling",
+            "translated": "The pregnant woman has high blood pressure and swelling.",
+            "cosine_similarity": 0.9458
+          },
+          {
+            "input": "बच्चे को दाने बुखार और जोड़ों में दर्द एक हफ़्ते से",
+            "reference_english": "Child with rash, fever, and joint pain for one week",
+            "translated": "The child has had a rash, fever, and joint pain for a week.",
+            "cosine_similarity": 0.9549
+          },
+          {
+            "input": "V1 से V4 तक ST एलिवेशन दिख रहा है गंभीर हृदय रोग का संकेत",
+            "reference_english": "ECG shows ST elevation in leads V1 through V4 with reciprocal changes",
+            "translated": "ST elevation from V1 to V4 is visible, indicating severe heart disease.",
+            "cosine_similarity": 0.664
+          }
+        ]
+      }
+    },
+    "Mistral_Small": {
+      "language_id": {
+        "Kannada": [
+          {
+            "input": "ರೋಗಿಗೆ ಜ್ವರ ಇದೆ",
+            "response": "Kannada"
+          },
+          {
+            "input": "ರೋಗಿಗೆ ಎದೆ ನೋವು ಎಡ ತೋಳಿಗೆ ಹರಡುತ್ತಿದೆ ಮತ್ತು ಬೆವರುತ್ತಿದೆ",
+            "response": "Kannada"
+          },
+          {
+            "input": "ಗರ್ಭಿಣಿ ಮಹಿಳೆಗೆ ಹೆಚ್ಚಿನ ರಕ್ತದೊತ್ತಡ ಮತ್ತು ಊತ",
+            "response": "Kannada"
+          },
+          {
+            "input": "ಮಗುವಿಗೆ ದದ್ದು ಜ್ವರ ಮತ್ತು ಕೀಲು ನೋವು ಒಂದು ವಾರದಿಂದ",
+            "response": "Kannada"
+          },
+          {
+            "input": "V1 ನಿಂದ V4 ವರೆಗೆ ST ಏರಿಕೆಯೊಂದಿಗೆ ತೀವ್ರ ಹೃದ್ರೋಗಲಕ್ಷಣವನ್ನು ಪರಿಗಣಿಸಿ",
+            "response": "Kannada"
+          }
+        ],
+        "Tamil": [
+          {
+            "input": "நோயாளிக்கு காய்ச்சல் உள்ளது",
+            "response": "Tamil"
+          },
+          {
+            "input": "நோயாளிக்கு நெஞ்சு வலி இடது கைக்கு பரவுகிறது மற்றும் வியர்வை வருகிறது",
+            "response": "Tamil"
+          },
+          {
+            "input": "கர்ப்பிணி பெண்ணுக்கு உயர்ந்த ரத்த அழுத்தம் மற்றும் வீக்கம்",
+            "response": "Tamil"
+          },
+          {
+            "input": "குழந்தைக்கு தடிப்பு காய்ச்சல் மற்றும் மூட்டு வலி ஒரு வாரமாக",
+            "response": "Tamil"
+          },
+          {
+            "input": "V1 முதல் V4 வரை ST உயர்வுடன் கடுமையான இதய நாள நோய்க்குறியை கருதுங்கள்",
+            "response": "Tamil"
+          }
+        ],
+        "Hindi": [
+          {
+            "input": "मरीज़ को बुखार है",
+            "response": "Hindi"
+          },
+          {
+            "input": "मरीज़ को सीने में दर्द बाएं हाथ तक फैल रहा है और पसीना आ रहा है",
+            "response": "Hindi"
+          },
+          {
+            "input": "गर्भवती महिला को उच्च रक्तचाप और सूजन",
+            "response": "Hindi"
+          },
+          {
+            "input": "बच्चे को दाने बुखार और जोड़ों में दर्द एक हफ़्ते से",
+            "response": "Hindi"
+          },
+          {
+            "input": "V1 से V4 तक ST एलिवेशन दिख रहा है गंभीर हृदय रोग का संकेत",
+            "response": "Hindi"
+          }
+        ]
+      },
+      "translation": {
+        "Kannada": [
+          {
+            "input": "ರೋಗಿಗೆ ಜ್ವರ ಇದೆ",
+            "reference_english": "The patient has fever",
+            "translated": "The sentence \"ರೋಗಿಗೆ ಜ್ವರ ಇದೆ\" translates to English as \"The patient has a fever.\"",
+            "cosine_similarity": 0.6348
+          },
+          {
+            "input": "ರೋಗಿಗೆ ಎದೆ ನೋವು ಎಡ ತೋಳಿಗೆ ಹರಡುತ್ತಿದೆ ಮತ್ತು ಬೆವರುತ್ತಿದೆ",
+            "reference_english": "Patient complains of chest pain radiating to left arm with sweating",
+            "translated": "The sentence translates to: \"The patient's chest pain radiated to the left arm and was accompanied by sweating.\"\n\nHere's a breakdown:\n- ರೋಗಿಗೆ (rogige) = to the patient\n- ಎದೆ ನೋವು (ede novu) = chest pain\n- ಎಡ ತೋಳಿಗೆ (eda tolige) = to the left arm\n- ಹರಡುತ್ತಿದೆ (haraduttide) = was radiating\n- ಮತ್ತು (mattu) = and\n- ಬೆವರುತ್ತಿದೆ (bevaruttide) = was sweating",
+            "cosine_similarity": 0.6167
+          },
+          {
+            "input": "ಗರ್ಭಿಣಿ ಮಹಿಳೆಗೆ ಹೆಚ್ಚಿನ ರಕ್ತದೊತ್ತಡ ಮತ್ತು ಊತ",
+            "reference_english": "Pregnant woman with elevated blood pressure and swelling",
+            "translated": "The given sentence in Kannada translates to English as: \"A pregnant woman has excessive bleeding and swelling.\"\n\nHere's a breakdown:\n- ಗರ್ಭಿಣಿ ಮಹಿಳೆ (garbhini mahile) = pregnant woman\n- ಹೆಚ್ಚಿನ (heccina) = excessive\n- ರಕ್ತದೊತ್ತಡ (rakta dottaDa) = bleeding\n- ಮತ್ತು (matthu) = and\n- ಊತ (oota) = swelling",
+            "cosine_similarity": 0.4144
+          },
+          {
+            "input": "ಮಗುವಿಗೆ ದದ್ದು ಜ್ವರ ಮತ್ತು ಕೀಲು ನೋವು ಒಂದು ವಾರದಿಂದ",
+            "reference_english": "Child with rash, fever, and joint pain for one week",
+            "translated": "The sentence \"ಮಗುವಿಗೆ ದದ್ದು ಜ್ವರ ಮತ್ತು ಕೀಲು ನೋವು ಒಂದು ವಾರದಿಂದ\" translates to English as:\n\n\"The child has a fever and joint pain for a week.\"\n\nHere's a breakdown:\n- ಮಗುವಿಗೆ (maguvige) = for the child\n- ದದ್ದು (daddu) = fever\n- ಜ್ವರ (jwara) = fever\n- ಮತ್ತು (mattu) = and\n- ಕೀಲು ನೋವು (kīlu nōvu) = joint pain\n- ಒಂದು ವಾರದಿಂದ (ondu vāradinda) = for a week",
+            "cosine_similarity": 0.3908
+          },
+          {
+            "input": "V1 ನಿಂದ V4 ವರೆಗೆ ST ಏರಿಕೆಯೊಂದಿಗೆ ತೀವ್ರ ಹೃದ್ರೋಗಲಕ್ಷಣವನ್ನು ಪರಿಗಣಿಸಿ",
+            "reference_english": "ECG shows ST elevation in leads V1 through V4 with reciprocal changes",
+            "translated": "The sentence appears to be in Kannada, a language spoken primarily in the Indian state of Karnataka. Here is a translation of the sentence to English:\n\n\"Consider severe cardiac symptoms from V1 to V4 for ST elevation.\"\n\nIf you need further clarification or additional context, please let me know!",
+            "cosine_similarity": 0.524
+          }
+        ],
+        "Tamil": [
+          {
+            "input": "நோயாளிக்கு காய்ச்சல் உள்ளது",
+            "reference_english": "The patient has fever",
+            "translated": "The sentence \"நோயாளிக்கு காய்ச்சல் உள்ளது\" translates to English as \"The patient has a fever.\"\n\nHere's a breakdown:\n- நோயாளி (nōyaḷi) means \"patient\"\n- காய்ச்சல் (kāyccal) means \"fever\"\n- உள்ளது (uḷḷatu) means \"has\"",
+            "cosine_similarity": 0.472
+          },
+          {
+            "input": "நோயாளிக்கு நெஞ்சு வலி இடது கைக்கு பரவுகிறது மற்றும் வியர்வை வருகிறது",
+            "reference_english": "Patient complains of chest pain radiating to left arm with sweating",
+            "translated": "The sentence translates to: \"The patient's headache spreads to the left hand and sweating occurs.\"\n\nHere's a breakdown:\n- நோயாளிக்கு (nōyaḷikka) = to the patient\n- நெஞ்சு வலி (neñcu vali) = headache\n- இடது கைக்கு (iṭatu kaikku) = to the left hand\n- பரவுகிறது (paravukiṟatu) = spreads\n- மற்றும் (maṟṟum) = and\n- வியர்வை (viyarvai) = sweating\n- வருகிறது (varukiṟatu) = occurs",
+            "cosine_similarity": 0.3606
+          },
+          {
+            "input": "கர்ப்பிணி பெண்ணுக்கு உயர்ந்த ரத்த அழுத்தம் மற்றும் வீக்கம்",
+            "reference_english": "Pregnant woman with elevated blood pressure and swelling",
+            "translated": "The sentence you provided is in Tamil. Here is the translation to English:\n\n\"For a pregnant woman, high blood pressure and vomiting.\"\n\nHowever, this translation is quite literal and may not convey the full clinical context. If you can provide more details or clarify the context, I can offer a more accurate translation.",
+            "cosine_similarity": 0.4695
+          },
+          {
+            "input": "குழந்தைக்கு தடிப்பு காய்ச்சல் மற்றும் மூட்டு வலி ஒரு வாரமாக",
+            "reference_english": "Child with rash, fever, and joint pain for one week",
+            "translated": "The sentence \"குழந்தைக்கு தடிப்பு காய்ச்சல் மற்றும் மூட்டு வலி ஒரு வாரமாக\" translates to English as:\n\n\"Abdominal pain, fever, and constipation for one week.\"\n\nHere's a breakdown:\n- குழந்தைக்கு (kuḻantai-kku) = abdominal\n- தடிப்பு (taṭippu) = pain\n- காய்ச்சல் (kāyccal) = fever\n- மற்றும் (maṟṟum) = and\n- மூட்டு (mūṭṭu) = constipation\n- வலி (vali) = pain\n- ஒரு வாரமாக (oru vāramāk) = for one week",
+            "cosine_similarity": 0.2134
+          },
+          {
+            "input": "V1 முதல் V4 வரை ST உயர்வுடன் கடுமையான இதய நாள நோய்க்குறியை கருதுங்கள்",
+            "reference_english": "ECG shows ST elevation in leads V1 through V4 with reciprocal changes",
+            "translated": "The clinical sentence \"V1 முதல் V4 வரை ST உயர்வுடன் கடுமையான இதய நாள நோய்க்குறியை கருதுங்கள்\" translates to English as:\n\n\"Consider the diagnosis of severe coronary artery disease with ST elevation from V1 to V4.\"\n\nHere's a breakdown:\n- V1 முதல் V4 வரை (V1 to V4) refers to the electrocardiogram (ECG) leads.\n- ST உயர்வுடன் (with ST elevation) indicates the ECG finding.\n- கடுமையான இதய நாள நோய்க்குறியை கருதுங்கள் (consider the diagnosis of severe coronary artery disease) is the clinical interpretation.",
+            "cosine_similarity": 0.3983
+          }
+        ],
+        "Hindi": [
+          {
+            "input": "मरीज़ को बुखार है",
+            "reference_english": "The patient has fever",
+            "translated": "The sentence \"मरीज़ को बुखार है\" translates to English as \"The patient has a fever.\"",
+            "cosine_similarity": 0.5204
+          },
+          {
+            "input": "मरीज़ को सीने में दर्द बाएं हाथ तक फैल रहा है और पसीना आ रहा है",
+            "reference_english": "Patient complains of chest pain radiating to left arm with sweating",
+            "translated": "The sentence translates to: \"The patient is experiencing chest pain that is radiating to the left arm and is sweating.\"\n\nHere's a breakdown:\n- मरीज़ (marīz) = patient\n- को (ko) = to/for\n- सीने (sīne) = chest\n- में (mẽ) = in\n- दर्द (dard) = pain\n- बाएं (bāẽ) = left\n- हाथ (hāth) = arm\n- तक (tak) = to/up to\n- फैल (phail) = spreading\n- रहा (rahā) = is\n- है (hai) = is\n- और (aur) = and\n- पसीना (pasīnā) = sweat\n- आ (ā) = is coming",
+            "cosine_similarity": 0.5199
+          },
+          {
+            "input": "गर्भवती महिला को उच्च रक्तचाप और सूजन",
+            "reference_english": "Pregnant woman with elevated blood pressure and swelling",
+            "translated": "The sentence \"गर्भवती महिला को उच्च रक्तचाप और सूजन\" translates to English as:\n\n\"A pregnant woman with high blood pressure and swelling.\"\n\nHere's a breakdown:\n- गर्भवती महिला = pregnant woman\n- उच्च रक्तचाप = high blood pressure\n- और = and\n- सूजन = swelling",
+            "cosine_similarity": 0.4325
+          },
+          {
+            "input": "बच्चे को दाने बुखार और जोड़ों में दर्द एक हफ़्ते से",
+            "reference_english": "Child with rash, fever, and joint pain for one week",
+            "translated": "The sentence appears to be in Hindi. Here is the translation to English:\n\n\"The child has had a fever and joint pain for a week.\"\n\nIf you need more specific medical terminology or context, please provide additional details.",
+            "cosine_similarity": 0.6307
+          },
+          {
+            "input": "V1 से V4 तक ST एलिवेशन दिख रहा है गंभीर हृदय रोग का संकेत",
+            "reference_english": "ECG shows ST elevation in leads V1 through V4 with reciprocal changes",
+            "translated": "The sentence appears to be in Hindi and discusses a clinical finding related to a heart condition. Here is the translation to English:\n\n\"ST elevation is seen from V1 to V4, indicating a severe heart condition.\"\n\nHere's a breakdown:\n- V1 से V4 तक (V1 se V4 tak) = from V1 to V4\n- ST एलिवेशन (ST elevation) = ST elevation\n- दिख रहा है (dikh raha hai) = is seen\n- गंभीर हृदय रोग (gambhir hriday rog) = severe heart condition\n- का संकेत (ka sanket) = indicating",
+            "cosine_similarity": 0.3822
+          }
+        ]
+      }
+    }
+  }
+}

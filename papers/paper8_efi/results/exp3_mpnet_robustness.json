@@ -1,0 +1,39 @@
+{
+  "experiment": "Paper 8 Experiment 3: Embedding Robustness (MPNet 768D)",
+  "models": [
+    "all-MiniLM-L6-v2 (384D)",
+    "all-mpnet-base-v2 (768D)"
+  ],
+  "minilm_efi": {
+    "Kannada": 0.0986,
+    "Tamil": 0.0686
+  },
+  "mpnet_efi": {
+    "Kannada": 0.1254,
+    "Tamil": 0.1061
+  },
+  "mpnet_degradation": {
+    "Kannada": "87%",
+    "Tamil": "89%"
+  },
+  "cross_model_correlation": {
+    "Kannada": {
+      "pearson_r": 0.8757,
+      "p": 1.89e-05
+    },
+    "Tamil": {
+      "pearson_r": 0.7155,
+      "p": 0.00271
+    }
+  },
+  "mpnet_statistical_tests": {
+    "kannada_vs_english": {
+      "t": -32.05,
+      "p": 1.68e-14
+    },
+    "tamil_vs_english": {
+      "t": -52.4,
+      "p": 1.81e-17
+    }
+  }
+}

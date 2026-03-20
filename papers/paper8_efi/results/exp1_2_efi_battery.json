@@ -1,0 +1,73 @@
+{
+  "experiment": "Paper 8 Experiments 1-2: EFI Clinical Battery + Hindi Comparison",
+  "model": "all-MiniLM-L6-v2 (384D)",
+  "n_sentences": 15,
+  "languages": {
+    "Kannada": {
+      "efi_mean": 0.0986,
+      "efi_std": 0.1221,
+      "n": 15
+    },
+    "Tamil": {
+      "efi_mean": 0.0686,
+      "efi_std": 0.0876,
+      "n": 15
+    },
+    "Hindi": {
+      "efi_mean": 0.0756,
+      "efi_std": 0.0712,
+      "n": 15
+    },
+    "English": {
+      "efi_mean": 1.0,
+      "efi_std": 0.0,
+      "n": 15
+    }
+  },
+  "by_complexity": {
+    "simple": {
+      "kannada": 0.0905,
+      "tamil": 0.0578,
+      "hindi": 0.096,
+      "pooled": 0.0814
+    },
+    "medium": {
+      "kannada": 0.0311,
+      "tamil": 0.0124,
+      "hindi": 0.0168,
+      "pooled": 0.0201
+    },
+    "complex": {
+      "kannada": 0.1743,
+      "tamil": 0.1356,
+      "hindi": 0.1139,
+      "pooled": 0.1413
+    }
+  },
+  "statistical_tests": {
+    "kannada_vs_english": {
+      "t": -27.61,
+      "p": 1.31e-13
+    },
+    "tamil_vs_english": {
+      "t": -39.8,
+      "p": 8.32e-16
+    },
+    "hindi_vs_english": {
+      "t": -48.58,
+      "p": 5.21e-17
+    },
+    "kannada_vs_tamil": {
+      "U": 128.0,
+      "p": 0.5338
+    },
+    "dravidian_vs_indoaryan": {
+      "U": 212.0,
+      "p": 0.7634
+    }
+  },
+  "confusion": {
+    "kannada_tamil_confusion_ratio": 3.8,
+    "note": "Kannada 3.8x closer to Tamil than to English in embedding space"
+  }
+}

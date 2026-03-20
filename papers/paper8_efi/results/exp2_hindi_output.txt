@@ -1,0 +1,74 @@
+======================================================================
+ENCODING FIDELITY — Hindi vs Dravidian Comparison
+Model: all-MiniLM-L6-v2 (384D)
+Design: 3 complexity x 5 sentences x 4 languages
+Hypothesis: Hindi (Indo-Aryan) may have higher EFI than Dravidian
+======================================================================
+
+============================================================
+LEVEL: SIMPLE
+============================================================
+  S1: EFI_Kn=+0.0453  EFI_Ta=+0.0403  EFI_Hi=+0.0382  |  Kn-Ta=0.3277  Kn-Hi=0.3112  Ta-Hi=0.5580
+  S2: EFI_Kn=+0.1558  EFI_Ta=+0.1351  EFI_Hi=+0.1743  |  Kn-Ta=0.4525  Kn-Hi=0.2357  Ta-Hi=0.5685
+  S3: EFI_Kn=+0.0434  EFI_Ta=-0.0048  EFI_Hi=+0.0404  |  Kn-Ta=0.5924  Kn-Hi=0.3473  Ta-Hi=0.4202
+  S4: EFI_Kn=+0.0874  EFI_Ta=+0.0549  EFI_Hi=+0.0647  |  Kn-Ta=0.4232  Kn-Hi=0.3100  Ta-Hi=0.5916
+  S5: EFI_Kn=+0.1204  EFI_Ta=+0.0633  EFI_Hi=+0.1626  |  Kn-Ta=0.3278  Kn-Hi=0.2519  Ta-Hi=0.4969
+  ---
+  Mean EFI_Kn=0.0905  EFI_Ta=0.0578  EFI_Hi=0.0960
+
+============================================================
+LEVEL: MEDIUM
+============================================================
+  S1: EFI_Kn=+0.0569  EFI_Ta=-0.0004  EFI_Hi=-0.0088  |  Kn-Ta=0.3318  Kn-Hi=0.3332  Ta-Hi=0.5593
+  S2: EFI_Kn=+0.0394  EFI_Ta=+0.0007  EFI_Hi=+0.0593  |  Kn-Ta=0.4057  Kn-Hi=0.3944  Ta-Hi=0.5695
+  S3: EFI_Kn=+0.0495  EFI_Ta=+0.1018  EFI_Hi=+0.0376  |  Kn-Ta=0.2921  Kn-Hi=0.3018  Ta-Hi=0.5202
+  S4: EFI_Kn=+0.0269  EFI_Ta=-0.0068  EFI_Hi=-0.0311  |  Kn-Ta=0.3923  Kn-Hi=0.2941  Ta-Hi=0.4875
+  S5: EFI_Kn=-0.0174  EFI_Ta=-0.0334  EFI_Hi=+0.0269  |  Kn-Ta=0.2942  Kn-Hi=0.3014  Ta-Hi=0.5812
+  ---
+  Mean EFI_Kn=0.0311  EFI_Ta=0.0124  EFI_Hi=0.0168
+
+============================================================
+LEVEL: COMPLEX
+============================================================
+  S1: EFI_Kn=+0.4097  EFI_Ta=+0.2877  EFI_Hi=+0.2294  |  Kn-Ta=0.6289  Kn-Hi=0.5357  Ta-Hi=0.5536
+  S2: EFI_Kn=-0.0137  EFI_Ta=+0.0158  EFI_Hi=+0.0123  |  Kn-Ta=0.3366  Kn-Hi=0.2874  Ta-Hi=0.4372
+  S3: EFI_Kn=+0.3667  EFI_Ta=+0.2164  EFI_Hi=+0.1453  |  Kn-Ta=0.5592  Kn-Hi=0.5604  Ta-Hi=0.5659
+  S4: EFI_Kn=+0.0182  EFI_Ta=+0.0302  EFI_Hi=+0.0775  |  Kn-Ta=0.3999  Kn-Hi=0.3183  Ta-Hi=0.5251
+  S5: EFI_Kn=+0.0908  EFI_Ta=+0.1278  EFI_Hi=+0.1048  |  Kn-Ta=0.5275  Kn-Hi=0.4532  Ta-Hi=0.6252
+  ---
+  Mean EFI_Kn=0.1743  EFI_Ta=0.1356  EFI_Hi=0.1139
+
+============================================================
+AGGREGATE RESULTS (N=15 sentence pairs per language)
+============================================================
+EFI_Kannada: 0.0986 +/- 0.1221
+EFI_Tamil:   0.0686 +/- 0.0876
+EFI_Hindi:   0.0756 +/- 0.0712
+EFI_English: 1.0000 (reference)
+
+--- PAIRWISE COMPARISONS ---
+Hindi vs Kannada: U=110.0, p=0.933886
+Hindi vs Tamil:   U=128.0, p=0.533829
+Kannada vs Tamil: U=128.0, p=0.533829
+Kannada vs English: t=-27.61, p=1.31e-13
+Tamil vs English: t=-39.80, p=8.32e-16
+Hindi vs English: t=-48.58, p=5.21e-17
+
+--- LANGUAGE FAMILY COMPARISON ---
+Dravidian (Kn+Ta, N=30): 0.0836 +/- 0.1073
+Indo-Aryan (Hi, N=15):   0.0756 +/- 0.0712
+Mann-Whitney U: U=212.0, p=0.763441
+
+============================================================
+COMPLEXITY EFFECT
+============================================================
+  SIMPLE: EFI_Kn=0.0905  EFI_Ta=0.0578  EFI_Hi=0.0960
+  MEDIUM: EFI_Kn=0.0311  EFI_Ta=0.0124  EFI_Hi=0.0168
+ COMPLEX: EFI_Kn=0.1743  EFI_Ta=0.1356  EFI_Hi=0.1139
+
+============================================================
+KEY QUESTION: Is degradation Dravidian-specific or universal?
+============================================================
+RESULT: Hindi EFI NOT significantly different from Dravidian (p=0.7634)
+=> Degradation is universal for Indian languages, not Dravidian-specific
+=> All non-English languages suffer similar encoding fidelity loss

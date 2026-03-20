@@ -1,0 +1,88 @@
+======================================================================
+EFI ROBUSTNESS CHECK — Two Embedding Models
+Model A: all-MiniLM-L6-v2 (384D)
+Model B: all-mpnet-base-v2 (768D)
+Design: 3 complexity x 5 sentences x 3 languages x 2 models
+======================================================================
+
+######################################################################
+MODEL: MiniLM-384D
+######################################################################
+
+  --- SIMPLE ---
+    S1: EFI_Kn=+0.0453  EFI_Ta=+0.0403  Kn-Ta=0.3277
+    S2: EFI_Kn=+0.1558  EFI_Ta=+0.1351  Kn-Ta=0.4525
+    S3: EFI_Kn=+0.0434  EFI_Ta=-0.0048  Kn-Ta=0.5924
+    S4: EFI_Kn=+0.0874  EFI_Ta=+0.0549  Kn-Ta=0.4232
+    S5: EFI_Kn=+0.1204  EFI_Ta=+0.0633  Kn-Ta=0.3278
+
+  --- MEDIUM ---
+    S1: EFI_Kn=+0.0569  EFI_Ta=-0.0004  Kn-Ta=0.3318
+    S2: EFI_Kn=+0.0394  EFI_Ta=+0.0007  Kn-Ta=0.4057
+    S3: EFI_Kn=+0.0495  EFI_Ta=+0.1018  Kn-Ta=0.2921
+    S4: EFI_Kn=+0.0269  EFI_Ta=-0.0068  Kn-Ta=0.3923
+    S5: EFI_Kn=-0.0174  EFI_Ta=-0.0334  Kn-Ta=0.2942
+
+  --- COMPLEX ---
+    S1: EFI_Kn=+0.4097  EFI_Ta=+0.2877  Kn-Ta=0.6289
+    S2: EFI_Kn=-0.0137  EFI_Ta=+0.0158  Kn-Ta=0.3366
+    S3: EFI_Kn=+0.3667  EFI_Ta=+0.2164  Kn-Ta=0.5592
+    S4: EFI_Kn=+0.0182  EFI_Ta=+0.0302  Kn-Ta=0.3999
+    S5: EFI_Kn=+0.0908  EFI_Ta=+0.1278  Kn-Ta=0.5275
+
+  AGGREGATE:
+    EFI_Kn = 0.0986 +/- 0.1221
+    EFI_Ta = 0.0686 +/- 0.0876
+    Kn vs 1.0: t=-27.61, p=1.31e-13
+    Ta vs 1.0: t=-39.80, p=8.32e-16
+
+######################################################################
+MODEL: MPNet-768D
+######################################################################
+
+  --- SIMPLE ---
+    S1: EFI_Kn=+0.1614  EFI_Ta=+0.1620  Kn-Ta=0.4500
+    S2: EFI_Kn=+0.1704  EFI_Ta=+0.1757  Kn-Ta=0.4670
+    S3: EFI_Kn=+0.1908  EFI_Ta=+0.1356  Kn-Ta=0.5581
+    S4: EFI_Kn=+0.0536  EFI_Ta=+0.0572  Kn-Ta=0.4725
+    S5: EFI_Kn=+0.1705  EFI_Ta=+0.1407  Kn-Ta=0.4649
+
+  --- MEDIUM ---
+    S1: EFI_Kn=+0.0990  EFI_Ta=+0.0985  Kn-Ta=0.4015
+    S2: EFI_Kn=+0.0629  EFI_Ta=+0.0375  Kn-Ta=0.5332
+    S3: EFI_Kn=+0.1110  EFI_Ta=+0.0878  Kn-Ta=0.4269
+    S4: EFI_Kn=+0.0587  EFI_Ta=+0.0407  Kn-Ta=0.5352
+    S5: EFI_Kn=+0.0485  EFI_Ta=+0.0866  Kn-Ta=0.3942
+
+  --- COMPLEX ---
+    S1: EFI_Kn=+0.3264  EFI_Ta=+0.2371  Kn-Ta=0.6414
+    S2: EFI_Kn=-0.0679  EFI_Ta=-0.0168  Kn-Ta=0.4580
+    S3: EFI_Kn=+0.3306  EFI_Ta=+0.1778  Kn-Ta=0.6307
+    S4: EFI_Kn=+0.0445  EFI_Ta=+0.0673  Kn-Ta=0.5790
+    S5: EFI_Kn=+0.1206  EFI_Ta=+0.1035  Kn-Ta=0.6527
+
+  AGGREGATE:
+    EFI_Kn = 0.1254 +/- 0.1021
+    EFI_Ta = 0.1061 +/- 0.0638
+    Kn vs 1.0: t=-32.05, p=1.68e-14
+    Ta vs 1.0: t=-52.40, p=1.81e-17
+
+======================================================================
+ROBUSTNESS COMPARISON
+======================================================================
+                   MiniLM-384D    MPNet-768D
+EFI_Kannada:       0.0986          0.1254
+EFI_Tamil:         0.0686          0.1061
+
+Cross-model correlation (sentence-level):
+  Kannada EFI: r=0.8757, p=1.8879e-05
+  Tamil EFI:   r=0.7155, p=2.7075e-03
+
+======================================================================
+ROBUSTNESS VERDICT
+======================================================================
+CONFIRMED: EFI degradation replicates under MPNet-768D
+  MPNet Kannada vs English: p=1.68e-14
+  MPNet Tamil vs English:   p=1.81e-17
+  Degradation: Kannada ~87%, Tamil ~89%
+  => Finding is embedding-model-independent
