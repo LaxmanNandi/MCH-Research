@@ -1,0 +1,6 @@
+experiment,models_increasing_var,convergent_models,divergent_models,models_no_recovery,medical_mean_var,philosophy_mean_var
+Progression,10.0,,,,,
+Classification,,3.0,9.0,,,
+Recovery,,,,9.0,,
+Domain,,,,,1.1982548132083333,1.0121893541666667
+Llama,,,,,,

@@ -1,6 +1,6 @@
 # MCH Research Program: Context Sensitivity in Large Language Models
 
-## A Seven-Paper Research Program Across 14 LLMs, 2 Domains, and 112,500 Responses
+## An Eight-Paper Research Program Across 14 LLMs, 3 Domains, and 112,500+ Responses
 
 [![Paper 1 - Preprints.org](https://img.shields.io/badge/Paper%201-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![Paper 2 - Preprints.org](https://img.shields.io/badge/Paper%202-10.20944%2Fpreprints202602.1114.v2-blue.svg)](https://www.preprints.org/manuscript/202602.1114/v2)
@@ -8,12 +8,13 @@
 [![Paper 4 - Preprints.org](https://img.shields.io/badge/Paper%204-Published-blue.svg)](https://www.preprints.org/manuscript/202602.1894)
 [![Paper 5 - Preprints.org](https://img.shields.io/badge/Paper%205-10.20944%2Fpreprints202602.2034.v1-blue.svg)](https://www.preprints.org/manuscript/202602.2034/v1)
 [![Paper 7 - Preprints.org](https://img.shields.io/badge/Paper%207-10.20944%2Fpreprints202603.1116.v1-blue.svg)](https://www.preprints.org/manuscript/202603.1116/v1)
+[![Paper 8 - Preprints.org](https://img.shields.io/badge/Paper%208-Preprints%20204266-blue.svg)](https://www.preprints.org/manuscript/204266)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
-[![Domains](https://img.shields.io/badge/domains-medical%20%7C%20philosophy-orange.svg)](#methodology)
+[![Domains](https://img.shields.io/badge/domains-medical%20%7C%20philosophy%20%7C%20legal-orange.svg)](#methodology)
 
-> **TL;DR:** We discover an empirical conservation constraint: the product of context sensitivity and output variance is approximately constant within a task domain, across all architectures tested. This emerges from a six-paper program measuring how 14 LLMs from 8 vendors process conversational context across medical and philosophical reasoning.
+> **TL;DR:** We discover an empirical conservation constraint: the product of context sensitivity and output variance is approximately constant within a task domain, across all architectures tested. This emerges from an eight-paper program measuring how 14 LLMs from 8 vendors process conversational context across medical, philosophical, and legal reasoning — and extends to input encoding, where Shannon's fidelity assumption fails for non-English languages (Paper 8).
 
 *Dr. Laxman M M, MBBS*
 *Government Duty Medical Officer, PHC Manchi, Karnataka, India*
@@ -32,6 +33,7 @@
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | 📄 Draft complete, p=0.003 |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
+| **8** | Encoding Fidelity & Coherent Misalignment | Shannon's assumption fails; EFI metric; K⊥Truth | 📋 [Submitted](https://www.preprints.org/manuscript/204266) - Preprints ID: 204266 |
 
 ### Key Discovery: Conservation Constraint (Paper 6)
 
@@ -43,8 +45,9 @@
 |--------|---|-----|---|--------|
 | Medical (closed-goal) | 0.429 | 0.170 | 8 | [0.368, 0.490] |
 | Philosophy (open-goal) | 0.301 | 0.166 | 6 | [0.248, 0.353] |
+| Legal (constructed-truth) | 0.324 | — | 4 | [0.264, 0.415] |
 
-Domain difference: Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.06
+Domain difference (Medical vs Philosophy): Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.06
 
 Context sensitivity and output variance trade off within a domain-specific capacity shaped by task structure. Each architecture allocates this capacity differently, but the product remains approximately constant within a domain.
 
@@ -72,6 +75,9 @@ Medical P30 task enablement reveals four behavioral classes:
 
 ### 5. Conservation Constraint
 All four predictability classes follow the hyperbolic constraint ΔRCI × Var_Ratio ≈ K. They represent different allocation strategies within the same domain-specific capacity.
+
+### 6. Encoding Fidelity Failure (Paper 8)
+Shannon's encoding fidelity assumption fails for non-English LLMs. The Encoding Fidelity Index (EFI) shows ~90% semantic loss for Kannada, Tamil, and Hindi at the tokenizer-embedding boundary (p < 10⁻¹³). European language control confirms tokenizer-induced loss (d = 1.33). Variance amplification is Dravidian-specific (Kannada 1.72–2.05×). Conservation law K⊥Truth: self-consistency metrics cannot detect this failure. Implications for 1.5 billion non-English speakers.
 
 ![Conservation constraint with hyperbolas](docs/figures/paper6/fig1_conservation_law_hyperbolas.png)
 *Figure: Conservation constraint across 14 model-domain runs. Models cluster along domain-specific hyperbolas despite spanning 8 vendors and parameter counts from 14B to 671B.*
@@ -117,7 +123,8 @@ mch_experiments/
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
 │   ├── paper6_conservation/         #   Paper 6: Draft complete
 │   ├── paper7_cud/                  #   Paper 7: Concept docs + CUD pilot
-│   └── paper7_submission/           #   Paper 7: Final submission (tex, pdf, figures/)
+│   ├── paper7_submission/           #   Paper 7: Final submission (tex, pdf, figures/)
+│   └── paper8_efi/                  #   Paper 8: Submitted (Preprints ID: 204266)
 │
 ├── data/                            # Experimental data (single source of truth)
 │   ├── medical/                     #   Medical domain (STEMI case)
@@ -177,6 +184,7 @@ Var_Ratio = Var(TRUE embeddings) / Var(COLD embeddings)
 ### Task Domains
 - **Medical (closed-goal):** STEMI case progression with diagnostic and therapeutic prompts
 - **Philosophy (open-goal):** Consciousness and phenomenology with recursive philosophical prompts
+- **Legal (constructed-truth):** Employment law dispute with whistleblower retaliation (Paper 6 extension)
 
 ---
 
@@ -267,6 +275,17 @@ python scripts/generate_paper5_figures.py
   author={Laxman, M M},
   journal={Preprints.org},
   doi={10.20944/preprints202603.1116.v1},
+  year={2026}
+}
+```
+
+### Paper 8
+```bibtex
+@article{laxman2026encoding,
+  title={Encoding Fidelity and Coherent Misalignment: Why Shannon's Channel Model Breaks for Non-English Clinical {AI}},
+  author={Laxman, M M},
+  journal={Preprints.org},
+  note={Preprints ID: 204266},
   year={2026}
 }
 ```
