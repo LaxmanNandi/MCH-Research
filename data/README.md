@@ -17,6 +17,14 @@ All current analysis uses **50-trial datasets** collected with consistent method
 - **Status**: COMPLETE (11 models, 50 trials each)
 - **Models**: All 11 models complete
 
+### Legal Domain (Employment Law — Paper 6 Extension)
+- **Location**: `data/legal/open_models/`
+- **Status**: N=5 valid models complete, 50 trials each
+- **Models**: DeepSeek V3.1, Llama 4 Maverick, Qwen3 235B, Mistral Small 24B, Llama 3.3 70B Turbo
+- **Excluded**: Kimi K2.5 (COLD refusal, K=0.831), Ministral 14B (empty)
+- **K(Legal) = 0.348** (range 0.294–0.476)
+- **See**: `data/legal/README.md` for full details
+
 ## Legacy Data (100 Trials, Pre-Rerun)
 - **Location**: `data/philosophy/original/`
 - **Note**: Original Paper 1 data with 100 trials per model

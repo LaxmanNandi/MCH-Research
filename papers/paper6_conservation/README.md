@@ -78,21 +78,21 @@ Per-model legal correlations (N=30 each): DeepSeek r=0.29 (p=0.13), Maverick r=-
 
 No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (all inverted-U). Legal is a "weak situation" that doesn't constrain model temporal behavior.
 
-### Legal Trial Status (March 15, 2026)
+### Legal Trial Status (Updated March 21, 2026)
 | Model | ΔRCI (cold) | Var_Ratio | K | Trials | Status |
 |-------|------------|-----------|------|--------|--------|
 | DeepSeek V3.1 | 0.276 | 1.225 | 0.338 | 50/50 | COMPLETE |
 | Llama 4 Maverick | 0.209 | 1.412 | 0.295 | 50/50 | COMPLETE |
 | Qwen3 235B | 0.265 | 1.796 | 0.476 | 50/50 | COMPLETE |
-| Mistral Small | 0.254 | 1.338 | 0.338 | 50/50 | COMPLETE |
-| Kimi K2.5 | — | — | — | 0/50 | QUEUED |
-| Llama 3.3 70B | — | — | — | 0/50 | QUEUED |
-| GLM-5 | — | — | — | 0/50 | QUEUED |
+| Mistral Small | 0.252 | 1.338 | 0.338 | 50/50 | COMPLETE |
+| Llama 3.3 70B Turbo | 0.206 | 1.428 | 0.294 | 50/50 | COMPLETE |
+| Kimi K2.5 | 0.509 | 1.633 | 0.831 | 50/50 | EXCLUDED — COLD refusal + 21% empty |
+| GLM-5 | — | — | — | 13/50 | EXCLUDED — 86% empty responses |
 | Ministral 14B | — | — | — | 0/50 | UNAVAILABLE (Together AI) |
 | Llama 4 Scout | — | — | — | 0/50 | UNAVAILABLE (Together AI) |
 | Kimi K2 | — | — | — | 0/50 | UNAVAILABLE (Together AI) |
 
-All 4 completed models show information hierarchy: TRUE > SCRAMBLED > COLD. No P30 spike (max z=0.66).
+**N=5 valid models.** K(Legal) = 0.348 (range 0.294–0.476). All 5 show information hierarchy: TRUE > SCRAMBLED > COLD. No P30 spike. No entanglement (all r non-significant). All convergent (arc < 3.0).
 
 ## Pre-registration
 - **OSF Project**: https://osf.io/7954v/

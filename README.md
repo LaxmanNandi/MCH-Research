@@ -122,8 +122,7 @@ mch_experiments/
 │   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org) + JMLR
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
 │   ├── paper6_conservation/         #   Paper 6: Draft complete
-│   ├── paper7_cud/                  #   Paper 7: Concept docs + CUD pilot
-│   ├── paper7_submission/           #   Paper 7: Final submission (tex, pdf, figures/)
+│   ├── paper7_submission/           #   Paper 7: Published (tex, pdf, figures/, archive/)
 │   └── paper8_efi/                  #   Paper 8: Submitted (Preprints ID: 204266)
 │
 ├── data/                            # Experimental data (single source of truth)
