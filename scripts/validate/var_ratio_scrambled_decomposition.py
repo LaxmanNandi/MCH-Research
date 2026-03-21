@@ -39,6 +39,7 @@ def get_runs_with_scrambled():
         (BASE / "data" / "medical" / "gemini_flash", "Medical"),
         (BASE / "data" / "philosophy" / "closed_models", "Philosophy"),
         (BASE / "data" / "philosophy" / "open_models", "Philosophy"),
+        (BASE / "data" / "legal" / "open_models", "Legal"),
     ]
 
     runs = []
