@@ -1,0 +1,112 @@
+{
+  "description": "Legal domain var_ratio decomposition with all metrics (re-embedded)",
+  "date": "2026-03-21",
+  "embedding_model": "all-MiniLM-L6-v2 (384D)",
+  "n_valid": 5,
+  "excluded": [
+    "kimi_k2_5"
+  ],
+  "domain_summary": {
+    "K_mean": 0.348,
+    "K_range": [
+      0.294,
+      0.476
+    ],
+    "VR_mean": 1.44,
+    "entanglement": "none (all p > 0.1)",
+    "exploration": "all convergent (arc < 3.0)",
+    "content_dominates": "VR_Order < 0.36 for all models"
+  },
+  "results": [
+    {
+      "model": "deepseek_v3_1",
+      "domain": "Legal",
+      "drci": 0.276,
+      "var_ratio": 1.2251,
+      "K": 0.3382,
+      "vri": -0.2251,
+      "vr_content": 3.7315,
+      "vr_order": 0.3558,
+      "content_frac": 304.6,
+      "exploration_arc": 0.8255,
+      "entanglement_r": 0.286,
+      "entanglement_p": 0.125,
+      "status": "valid"
+    },
+    {
+      "model": "llama_3_3_70b_turbo",
+      "domain": "Legal",
+      "drci": 0.2059,
+      "var_ratio": 1.4276,
+      "K": 0.294,
+      "vri": -0.4276,
+      "vr_content": 6.5316,
+      "vr_order": 0.2249,
+      "content_frac": 457.5,
+      "exploration_arc": 1.9252,
+      "entanglement_r": -0.113,
+      "entanglement_p": 0.464,
+      "status": "valid"
+    },
+    {
+      "model": "llama_4_maverick",
+      "domain": "Legal",
+      "drci": 0.2089,
+      "var_ratio": 1.4118,
+      "K": 0.2949,
+      "vri": -0.4118,
+      "vr_content": 6.9498,
+      "vr_order": 0.2073,
+      "content_frac": 492.3,
+      "exploration_arc": 1.0385,
+      "entanglement_r": -0.139,
+      "entanglement_p": 0.464,
+      "status": "valid"
+    },
+    {
+      "model": "mistral_small_24b",
+      "domain": "Legal",
+      "drci": 0.2522,
+      "var_ratio": 1.3384,
+      "K": 0.3376,
+      "vri": -0.3384,
+      "vr_content": 5.5586,
+      "vr_order": 0.2542,
+      "content_frac": 415.3,
+      "exploration_arc": 1.141,
+      "entanglement_r": -0.134,
+      "entanglement_p": 0.481,
+      "status": "valid"
+    },
+    {
+      "model": "qwen3_235b",
+      "domain": "Legal",
+      "drci": 0.2648,
+      "var_ratio": 1.7962,
+      "K": 0.4757,
+      "vri": -0.7962,
+      "vr_content": 6.4118,
+      "vr_order": 0.2944,
+      "content_frac": 357.0,
+      "exploration_arc": 2.2163,
+      "entanglement_r": 0.02,
+      "entanglement_p": 0.918,
+      "status": "valid"
+    },
+    {
+      "model": "kimi_k2_5",
+      "domain": "Legal",
+      "drci": 0.5086,
+      "var_ratio": 1.6331,
+      "K": 0.8307,
+      "vri": -0.6331,
+      "vr_content": 2.4651,
+      "vr_order": 0.6938,
+      "content_frac": 150.9,
+      "exploration_arc": 1.6221,
+      "entanglement_r": -0.222,
+      "entanglement_p": 0.237,
+      "status": "excluded_cold_refusal"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+model,domain,drci,var_ratio,K,vri,vr_content,vr_order,content_frac,exploration_arc,entanglement_r,entanglement_p,status
+deepseek_v3_1,Legal,0.276,1.2251,0.3382,-0.2251,3.7315,0.3558,304.6,0.8255,0.286,0.125,valid
+llama_3_3_70b_turbo,Legal,0.2059,1.4276,0.294,-0.4276,6.5316,0.2249,457.5,1.9252,-0.113,0.464,valid
+llama_4_maverick,Legal,0.2089,1.4118,0.2949,-0.4118,6.9498,0.2073,492.3,1.0385,-0.139,0.464,valid
+mistral_small_24b,Legal,0.2522,1.3384,0.3376,-0.3384,5.5586,0.2542,415.3,1.141,-0.134,0.481,valid
+qwen3_235b,Legal,0.2648,1.7962,0.4757,-0.7962,6.4118,0.2944,357.0,2.2163,0.02,0.918,valid
+kimi_k2_5,Legal,0.5086,1.6331,0.8307,-0.6331,2.4651,0.6938,150.9,1.6221,-0.222,0.237,excluded_cold_refusal
