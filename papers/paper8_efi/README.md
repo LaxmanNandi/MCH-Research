@@ -6,7 +6,7 @@
 
 **Date:** March 20, 2026
 
-**Status:** Submitted to Preprints.org (Preprints ID: 204266, March 20, 2026)
+**Status:** Submitted to Preprints.org (Preprints ID: 204266)
 
 ---
 
