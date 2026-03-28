@@ -1,38 +1,66 @@
 # Paper 6: Conservation Constraint for Context Sensitivity
 
-**Status**: DRAFT COMPLETE
-**Title**: *An Empirical Conservation Constraint on Context Sensitivity and Output Variance: Evidence Across LLM Architectures*
+**Status**: IN PREPARATION — 4 domains (Medical, Philosophy, Legal, Ethics)
+**Title**: *Conservation Without Entanglement: A Four-Domain Taxonomy of Context Processing in Large Language Models*
+**Working subtitle**: How domain truth-type determines entanglement, variance structure, and reasoning stability
 
 ## Overview
-Capstone paper of the MCH Research Program. Reports that the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a domain, across all architectures tested. This conservation constraint connects findings from all five prior papers under a single quantitative relationship.
+Capstone paper of the MCH Research Program. Reports that the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a domain — K(domain) — across all architectures tested. Extended to 4 domains (Medical, Philosophy, Legal, Applied Ethics) revealing a four-mode taxonomy of context processing determined by truth-type. Legal domain reveals convergence WITHOUT entanglement — a third mode not predicted by Papers 2-5. K also functions as a stability predictor: higher K correlates with lower variance degradation across trials (rho=-0.600).
 
 ## Key Findings
-1. **Conservation constraint**: ΔRCI × Var_Ratio ≈ K(domain)
-   - Medical K = 0.429 (CV = 0.170, N = 8)
-   - Philosophy K = 0.301 (CV = 0.166, N = 6)
 
-2. **Domain scaling factors differ significantly**:
-   - Mann-Whitney U = 46, p = 0.003
-   - Welch's t = 3.91, p = 0.002
-   - Cohen's d = 2.06 (very large)
+### 1. Conservation constraint: ΔRCI × Var_Ratio ≈ K(domain)
+| Domain | K | CV | N | Status |
+|--------|------|------|---|--------|
+| Medical (discovered truth) | 0.429 | 0.170 | 8 | Complete |
+| Legal (argued truth) | 0.348 | 0.192 | 5 | Complete |
+| Philosophy (explored truth) | 0.301 | 0.166 | 6 | Complete |
+| Ethics (felt truth) | ~0.31* | — | 1+1 | In progress |
 
-3. **Resource allocation interpretation**: Context sensitivity and output variance trade off within a domain-specific capacity shaped by task structure.
+*Ethics K estimated from DeepSeek dRCI=0.257; full re-embedding needed after all models complete.
 
-4. **Predictability taxonomy integration**: The four classes from Paper 5 represent different allocation strategies within the same domain-specific capacity.
+### 2. Four-mode taxonomy of context processing
+| Mode | Domain | Entangled | Arc | Truth type |
+|------|--------|-----------|-----|-----------|
+| **Discovered** | Medical | Yes (r=0.76) | Convergent | Fixed answer exists |
+| **Argued** | Legal | **No** (all r ns) | Convergent | Constructed through structure |
+| **Explored** | Philosophy | Yes (r=0.76) | Divergent | Open-ended inquiry |
+| **Felt** | Ethics | TBD | TBD | Morally weighted, position-taking |
 
-5. **MI-based test**: Negative result — KSG estimator failed in high-dimensional space. Conservation constraint established via direct product test.
+Key discovery: Legal reveals **convergence WITHOUT entanglement** — a third mode not predicted by Papers 2-5.
 
-6. **Embedding robustness**: Conservation holds under alternative embedding (all-mpnet-base-v2, 768D):
-   - Medical K = 0.402 (CV = 0.154) vs original 0.429 (CV = 0.170)
-   - Philosophy K = 0.282 (CV = 0.141) vs original 0.301 (CV = 0.166)
-   - Both CVs *improved* under mpnet — constraint is tighter, not weaker
-   - Shared embedding space objection refuted
+### 3. Content-Order decomposition (Legal domain)
+- VR_Order < 0.36 for all models — order **constrains** variance
+- VR_Content > 3.7 for all models — content alone **explodes** variance
+- SCRAMBLED ≈ COLD in Ethics — order IS the reasoning in moral domains
+- Legal argument structure is the constraint, not truth content
 
-## Dataset
-- **Configurations**: 14 model-domain runs (8 Medical, 6 Philosophy)
-- **Models**: 11 unique architectures from 8 vendors
-- **Data source**: Paper 2 standardized dataset (models with embedding-based Var_Ratio)
-- **Location**: `/data/paper6/` (conservation product CSV + MI verification)
+### 4. K as stability predictor (Hot Mess connection)
+| Domain | K | Trial VR | Stability |
+|--------|------|----------|-----------|
+| Medical | 0.429 | 1.197 | STABLE |
+| Legal | 0.348 | 1.131 | STABLE |
+| Philosophy | 0.301 | 1.350 | MILD DEGRADATION |
+| Ethics | 0.257 | 1.264 | STABLE |
+
+K vs Trial Variance Ratio: rho=-0.600 (higher K = more stable).
+Conservation constraint may function as structural immune system against reasoning degradation.
+
+### 5. Domain scaling factors differ significantly
+- Medical vs Philosophy: Mann-Whitney U=46, p=0.003, Cohen's d=2.06
+
+### 6. Embedding robustness
+- Conservation holds under mpnet (768D): Medical K=0.402, Philosophy K=0.282
+- CVs improved — constraint is tighter, not weaker
+
+## Dataset (Updated March 2026)
+- **Configurations**: 20+ model-domain runs (8 Med, 6 Phil, 5 Legal, 1+ Ethics)
+- **Models**: 11+ unique architectures from 8 vendors
+- **Data sources**:
+  - `/data/paper6/` — conservation product CSV, MI verification
+  - `/data/legal/` — legal domain results + metrics
+  - `/data/ethics/` — ethics domain (in progress)
+  - `/data/medical/`, `/data/philosophy/` — original domains
 
 ## Contents
 - `Paper6_Draft.md`: Complete manuscript (v2.0)
@@ -114,10 +142,40 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 - Same model cross-domain = nearly orthogonal voices (cos ~0.18) — Epistemological Relativity at the prior level
 - Llama compressed spring: tightest Var_COLD → highest Var_Ratio with context
 
+## Ethics Domain — Emerging Fourth Mode (March 2026)
+
+### Current Status
+| Model | Trials | dRCI | Status |
+|-------|--------|------|--------|
+| DeepSeek V3.1 | 50/50 | 0.257 ± 0.014 | COMPLETE |
+| Llama 4 Maverick | 35/50 | 0.181 ± 0.010 | IN PROGRESS |
+| Qwen3 235B | 0/50 | — | QUEUED |
+| Mistral Small 24B | 0/50 | — | QUEUED |
+| Llama 3.3 70B Turbo | 0/50 | — | QUEUED |
+
+### Early findings
+- **SCRAMBLED ≈ COLD** in ethics — content alone is worthless, order IS the reasoning
+- **Model personality visible**: DeepSeek evolves framework (0.257), Maverick rigid (0.181)
+- **Moral commitment constrains**: taking a position at P6 constrains responses through P30
+- DeepSeek TRUE P30 = "Constrained Maximization" (evolved). COLD P30 = "Principled Pragmatism" (generic).
+- Predicted: ethics will entangle (like philosophy) but converge (like medical) — unique fourth mode
+
+## EEG Pilot — Biological Neural Network Validation
+
+### MCH framework applied to human brain (Sleep-EDF, 20 subjects)
+- **Deep Sleep > REM > Wake** in neural coherence
+- Deep > Wake: p=0.0000009, Cohen's d=2.10
+- **Hierarchy INVERTS** relative to LLMs (TRUE > COLD becomes Wake < Deep)
+- Aligns with Upanishadic consciousness model (Prajna > Taijasa > Vaishvanara)
+- Script: `scripts/experiments/eeg_pilot_rci.py`
+- Data: `data/eeg_pilot/sleep_rci_pilot.json`
+
 ## Related Documents
 - Paper 4 (entanglement): Provides ΔRCI ~ VRI correlation that conservation constraint quantifies
 - Paper 5 (predictability): Taxonomy maps onto hyperbolic constraint
+- Paper 7 (content-order): Decomposition method applied to legal and ethics domains
+- Paper 8 (encoding fidelity): K ⊥ Truth — conservation orthogonal to semantic correctness
 
 ---
 
-**Status**: Ready for submission
+**Status**: In preparation. Writing begins with 3 complete domains + Ethics preliminary data. Final version after Ethics experiment completes (~April 2026).
