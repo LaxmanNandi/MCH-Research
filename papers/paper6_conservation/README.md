@@ -15,9 +15,9 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 | Medical (discovered truth) | 0.429 | 0.170 | 8 | Complete |
 | Legal (argued truth) | 0.348 | 0.192 | 5 | Complete |
 | Philosophy (explored truth) | 0.301 | 0.166 | 6 | Complete |
-| Ethics (felt truth) | 0.190 | 0.171 | 3 | In progress (3/5 models) |
+| Ethics (felt truth) | 0.190 | 0.148 | 4 | In progress (4/5 models) |
 
-*Ethics K from re-embedded data (N=3: DeepSeek, Maverick, Qwen3). Mistral Small running, Llama 3.3 70B queued.
+*Ethics K from re-embedded data (N=4: DeepSeek, Maverick, Qwen3, Mistral Small). Llama 3.3 70B queued.
 
 ### 2. Four-mode taxonomy of context processing
 | Mode | Domain | Entangled | Arc | Truth type |
@@ -144,16 +144,16 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 
 ## Ethics Domain — Fourth Mode: "Felt Truth" (March 2026)
 
-### Trial Status (Updated March 30, 2026)
+### Trial Status (Updated March 31, 2026)
 | Model | ΔRCI | Var_Ratio | K | Ent r | Arc | Trials | Status |
 |-------|------|-----------|------|-------|-----|--------|--------|
 | DeepSeek V3.1 | 0.257 | 0.920 | 0.236 | 0.23 (ns) | 0.93 | 50/50 | COMPLETE |
 | Llama 4 Maverick | 0.181 | 0.925 | 0.167 | 0.63 (p=0.0002) | 5.20 | 50/50 | COMPLETE |
 | Qwen3 235B | 0.211 | 0.794 | 0.168 | 0.50 (p=0.005) | 2.23 | 50/50 | COMPLETE |
-| Mistral Small 24B | — | — | — | — | — | —/50 | RUNNING |
+| Mistral Small 24B | 0.183 | 1.027 | 0.188 | 0.67 (p=0.0001) | 2.96 | 50/50 | COMPLETE |
 | Llama 3.3 70B Turbo | — | — | — | — | — | 0/50 | QUEUED |
 
-**N=3 valid models (re-embedded).** K(Ethics) = 0.190 (range 0.167–0.236, CV=0.171).
+**N=4 valid models (re-embedded).** K(Ethics) = 0.190 (range 0.167–0.236, CV=0.148).
 
 ### K Values — Four-Domain Comparison
 | Domain | Truth Type | K | CV | N | Entangled | Arc |
@@ -161,16 +161,16 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 | Medical | Discovered | 0.429 | 0.170 | 8 | Yes (r=0.76) | Convergent (1.72) |
 | Legal | Argued | 0.348 | 0.192 | 5 | No (all ns) | Convergent |
 | Philosophy | Explored | 0.301 | 0.166 | 6 | Yes (r=0.76) | Divergent (15.23) |
-| Ethics | Felt | 0.190 | 0.171 | 3 | Mixed (model-dependent) | Mixed |
+| Ethics | Felt | 0.190 | 0.148 | 4 | Mixed (model-dependent) | Mixed |
 
 **K ordering: Discovered > Argued > Explored > Felt.** The more subjective the truth-type, the lower K.
-**CV ≈ 0.17 in all four domains** — conservation is equally tight regardless of K value.
+**CV ≈ 0.15-0.19 in all four domains** — conservation is equally tight regardless of K value.
 
 ### Ethics-Specific Findings
 - **SCRAMBLED ≈ COLD**: Content fraction 80-91% — highest of any domain. Order IS the reasoning.
-- **Var_Ratio < 1.0 in all models**: Context REDUCES variance. Only domain where this occurs. Moral commitment narrows response space.
-- **Entanglement is model-dependent**: Maverick (r=0.63***), Qwen3 (r=0.50**), DeepSeek (r=0.23 ns). Unlike Medical/Philosophy (universally entangled) or Legal (universally decoupled). The "Felt" mode allows model personality to determine coupling.
-- **Arc is model-dependent**: Maverick divergent (5.20), DeepSeek strongly convergent (0.93), Qwen3 convergent (2.23). Domain doesn't force topology — model personality does.
+- **Var_Ratio mixed**: DeepSeek 0.92, Maverick 0.93, Qwen3 0.79 (context reduces variance), Mistral 1.03 (neutral). Most models show context constraining variance — unique to ethics.
+- **Entanglement is model-dependent**: Mistral (r=0.67***), Maverick (r=0.63***), Qwen3 (r=0.50**), DeepSeek (r=0.23 ns). Three of four entangled, one not — unlike Medical/Philosophy (universally entangled) or Legal (universally decoupled). The "Felt" mode allows model personality to determine coupling.
+- **Arc is model-dependent**: Maverick divergent (5.20), Mistral borderline (2.96), Qwen3 convergent (2.23), DeepSeek strongly convergent (0.93). Domain doesn't force topology — model personality does.
 - **Context individuates, not converges**: Re-embedded TRUE responses are LESS similar to each other than COLD responses (negative re-embedded ΔRCI). Each trial builds a unique moral position. Context doesn't narrow toward an answer — it commits to one.
 - **Model personality visible**: DeepSeek evolves framework (dRCI=0.257, "Constrained Maximization"). Maverick rigid (dRCI=0.181). Qwen3 balanced (dRCI=0.211, "Pluralistic Deontology").
 - **Framework flip**: Qwen3 TRUE P30 → deontology grounded in care. Qwen3 COLD P30 → rule-consequentialism. Context changes what the model believes.
