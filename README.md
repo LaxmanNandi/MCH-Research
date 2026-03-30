@@ -33,7 +33,7 @@
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — Theory of Epistemological Relativity | 📄 Draft — 4 domains, 4 truth-types |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
-| **8** | Encoding Fidelity & Coherent Misalignment | Shannon's assumption fails; EFI metric; K⊥Truth | 📋 Seeking venue (declined by Preprints.org ×2, no substantive feedback) |
+| **8** | Encoding Fidelity & Coherent Misalignment | Shannon's assumption fails; EFI metric; K⊥Truth | 📋 Seeking venue |
 
 ### Key Discovery: Theory of Epistemological Relativity (Paper 6 — Capstone)
 
