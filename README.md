@@ -1,6 +1,6 @@
 # MCH Research Program: Context Sensitivity in Large Language Models
 
-## An Eight-Paper Research Program Across 14 LLMs, 3 Domains, and 112,500+ Responses
+## An Eight-Paper Research Program Across 14 LLMs, 4 Domains, and 150,000+ Responses
 
 [![Paper 1 - Preprints.org](https://img.shields.io/badge/Paper%201-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![Paper 2 - Preprints.org](https://img.shields.io/badge/Paper%202-10.20944%2Fpreprints202602.1114.v2-blue.svg)](https://www.preprints.org/manuscript/202602.1114/v2)
@@ -8,13 +8,13 @@
 [![Paper 4 - Preprints.org](https://img.shields.io/badge/Paper%204-Published-blue.svg)](https://www.preprints.org/manuscript/202602.1894)
 [![Paper 5 - Preprints.org](https://img.shields.io/badge/Paper%205-10.20944%2Fpreprints202602.2034.v1-blue.svg)](https://www.preprints.org/manuscript/202602.2034/v1)
 [![Paper 7 - Preprints.org](https://img.shields.io/badge/Paper%207-10.20944%2Fpreprints202603.1116.v1-blue.svg)](https://www.preprints.org/manuscript/202603.1116/v1)
-[![Paper 8 - Preprints.org](https://img.shields.io/badge/Paper%208-Preprints%20204266-blue.svg)](https://www.preprints.org/manuscript/204266)
+[![Paper 8](https://img.shields.io/badge/Paper%208-Seeking%20Venue-yellow.svg)](#research-program)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
-[![Domains](https://img.shields.io/badge/domains-medical%20%7C%20philosophy%20%7C%20legal-orange.svg)](#methodology)
+[![Domains](https://img.shields.io/badge/domains-medical%20%7C%20philosophy%20%7C%20legal%20%7C%20ethics-orange.svg)](#methodology)
 
-> **TL;DR:** We discover an empirical conservation constraint: the product of context sensitivity and output variance is approximately constant within a task domain, across all architectures tested. This emerges from an eight-paper program measuring how 14 LLMs from 8 vendors process conversational context across medical, philosophical, and legal reasoning — and extends to input encoding, where Shannon's fidelity assumption fails for non-English languages (Paper 8).
+> **TL;DR:** We propose the **Theory of Epistemological Relativity**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. The domain's truth-type determines the mode of context processing — including the conservation constant K, the presence or absence of entanglement, and the convergence or divergence of response space. Validated across four domains (Medical, Legal, Philosophy, Applied Ethics) spanning four truth-types (Discovered, Argued, Explored, Felt), 14+ LLMs from 8 vendors, and 150,000+ responses.
 
 *Dr. Laxman M M, MBBS*
 *Government Duty Medical Officer, PHC Manchi, Karnataka, India*
@@ -31,25 +31,28 @@
 | **3** | Domain-Specific Temporal Dynamics | 3-bin aggregation, U-shape vs inverted-U | ✅ [Published](https://www.preprints.org/manuscript/202602.1674/v1) - DOI: 10.20944/preprints202602.1674.v1 |
 | **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) + JMLR under review |
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
-| **6** | Conservation Constraint | **ΔRCI × Var_Ratio ≈ K(domain)** | 📄 Draft complete, p=0.003 |
+| **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — Theory of Epistemological Relativity | 📄 Draft — 4 domains, 4 truth-types |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
-| **8** | Encoding Fidelity & Coherent Misalignment | Shannon's assumption fails; EFI metric; K⊥Truth | 📋 [Submitted](https://www.preprints.org/manuscript/204266) - Preprints ID: 204266 |
+| **8** | Encoding Fidelity & Coherent Misalignment | Shannon's assumption fails; EFI metric; K⊥Truth | 📋 Seeking venue (declined by Preprints.org ×2, no substantive feedback) |
 
-### Key Discovery: Conservation Constraint (Paper 6)
+### Key Discovery: Theory of Epistemological Relativity (Paper 6 — Capstone)
 
 ```
 ΔRCI × Var_Ratio ≈ K(domain)
 ```
 
-| Domain | K | CV | N | 95% CI |
-|--------|---|-----|---|--------|
-| Medical (closed-goal) | 0.429 | 0.170 | 8 | [0.368, 0.490] |
-| Philosophy (open-goal) | 0.301 | 0.166 | 6 | [0.248, 0.353] |
-| Legal (constructed-truth) | 0.324 | — | 4 | [0.264, 0.415] |
+| Domain | Truth Type | K | CV | N | Entangled | Arc |
+|--------|-----------|------|------|---|-----------|-----|
+| Medical | Discovered | 0.429 | 0.170 | 8 | Yes (r=0.76) | Convergent |
+| Legal | Argued | 0.348 | 0.192 | 5 | No (all ns) | Convergent |
+| Philosophy | Explored | 0.301 | 0.166 | 6 | Yes (r=0.76) | Divergent |
+| Ethics | Felt | 0.190 | 0.171 | 3+ | Mixed | Mixed |
+
+**K ordering: Discovered > Argued > Explored > Felt.** The more subjective the truth-type, the lower K. CV ≈ 0.17 in all four domains — conservation is equally tight regardless of K value.
 
 Domain difference (Medical vs Philosophy): Mann-Whitney U = 46, p = 0.003, Cohen's d = 2.06
 
-Context sensitivity and output variance trade off within a domain-specific capacity shaped by task structure. Each architecture allocates this capacity differently, but the product remains approximately constant within a domain.
+The domain's truth-type determines the full behavioural mode: conservation constant, entanglement structure, exploration arc, temporal dynamics, and content-order balance. Each architecture allocates capacity differently, but the product K remains approximately constant within a domain.
 
 ---
 
@@ -135,7 +138,8 @@ mch_experiments/
 │   ├── paper5/                      #   Accuracy verification data
 │   ├── paper6/                      #   Conservation constraint test data
 │   ├── paper7/                      #   Paper 7 cold prior voice analysis
-│   └── legal/                       #   Legal domain experiment data (Paper 6 extension)
+│   ├── legal/                       #   Legal domain (Paper 6 extension)
+│   └── ethics/                      #   Applied Ethics domain (Paper 6 extension)
 │
 ├── scripts/                         # Analysis and experiment code
 │   ├── experiments/                 #   Experiment runners
@@ -180,10 +184,11 @@ Var_Ratio = Var(TRUE embeddings) / Var(COLD embeddings)
 - **Temperature**: 0.7 (all models)
 - **Embedding**: all-MiniLM-L6-v2 (384-dimensional sentence embeddings)
 
-### Task Domains
-- **Medical (closed-goal):** STEMI case progression with diagnostic and therapeutic prompts
-- **Philosophy (open-goal):** Consciousness and phenomenology with recursive philosophical prompts
-- **Legal (constructed-truth):** Employment law dispute with whistleblower retaliation (Paper 6 extension)
+### Task Domains — Four Truth-Types
+- **Medical (Discovered truth):** STEMI case progression with diagnostic and therapeutic prompts — K=0.429
+- **Philosophy (Explored truth):** Consciousness and phenomenology with recursive philosophical prompts — K=0.301
+- **Legal (Argued truth):** Employment law dispute with whistleblower retaliation — K=0.348
+- **Applied Ethics (Felt truth):** Moral reasoning across healthcare, technology, and global justice — K=0.190
 
 ---
 

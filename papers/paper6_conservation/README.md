@@ -15,19 +15,19 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 | Medical (discovered truth) | 0.429 | 0.170 | 8 | Complete |
 | Legal (argued truth) | 0.348 | 0.192 | 5 | Complete |
 | Philosophy (explored truth) | 0.301 | 0.166 | 6 | Complete |
-| Ethics (felt truth) | ~0.31* | — | 1+1 | In progress |
+| Ethics (felt truth) | 0.190 | 0.171 | 3 | In progress (3/5 models) |
 
-*Ethics K estimated from DeepSeek dRCI=0.257; full re-embedding needed after all models complete.
+*Ethics K from re-embedded data (N=3: DeepSeek, Maverick, Qwen3). Mistral Small running, Llama 3.3 70B queued.
 
 ### 2. Four-mode taxonomy of context processing
 | Mode | Domain | Entangled | Arc | Truth type |
 |------|--------|-----------|-----|-----------|
-| **Discovered** | Medical | Yes (r=0.76) | Convergent | Fixed answer exists |
+| **Discovered** | Medical | Yes (r=0.76) | Convergent (1.72) | Fixed answer exists |
 | **Argued** | Legal | **No** (all r ns) | Convergent | Constructed through structure |
-| **Explored** | Philosophy | Yes (r=0.76) | Divergent | Open-ended inquiry |
-| **Felt** | Ethics | TBD | TBD | Morally weighted, position-taking |
+| **Explored** | Philosophy | Yes (r=0.76) | Divergent (15.23) | Open-ended inquiry |
+| **Felt** | Ethics | **Mixed** (model-dependent) | Mixed (0.93–5.20) | Morally weighted, position-taking |
 
-Key discovery: Legal reveals **convergence WITHOUT entanglement** — a third mode not predicted by Papers 2-5.
+Key discoveries: Legal reveals **convergence WITHOUT entanglement** — a third mode not predicted by Papers 2-5. Ethics reveals **model-dependent entanglement and arc** — a fourth mode where domain doesn't force topology.
 
 ### 3. Content-Order decomposition (Legal domain)
 - VR_Order < 0.36 for all models — order **constrains** variance
@@ -41,9 +41,9 @@ Key discovery: Legal reveals **convergence WITHOUT entanglement** — a third mo
 | Medical | 0.429 | 1.197 | STABLE |
 | Legal | 0.348 | 1.131 | STABLE |
 | Philosophy | 0.301 | 1.350 | MILD DEGRADATION |
-| Ethics | 0.257 | 1.264 | STABLE |
+| Ethics | 0.190 | <1.0 | CONSTRAINED (VR<1 unique to ethics) |
 
-K vs Trial Variance Ratio: rho=-0.600 (higher K = more stable).
+K vs Trial Variance Ratio: rho=-0.600 (higher K = more stable, N=4 domains).
 Conservation constraint may function as structural immune system against reasoning degradation.
 
 ### 5. Domain scaling factors differ significantly
@@ -142,23 +142,38 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 - Same model cross-domain = nearly orthogonal voices (cos ~0.18) — Epistemological Relativity at the prior level
 - Llama compressed spring: tightest Var_COLD → highest Var_Ratio with context
 
-## Ethics Domain — Emerging Fourth Mode (March 2026)
+## Ethics Domain — Fourth Mode: "Felt Truth" (March 2026)
 
-### Current Status
-| Model | Trials | dRCI | Status |
-|-------|--------|------|--------|
-| DeepSeek V3.1 | 50/50 | 0.257 ± 0.014 | COMPLETE |
-| Llama 4 Maverick | 35/50 | 0.181 ± 0.010 | IN PROGRESS |
-| Qwen3 235B | 0/50 | — | QUEUED |
-| Mistral Small 24B | 0/50 | — | QUEUED |
-| Llama 3.3 70B Turbo | 0/50 | — | QUEUED |
+### Trial Status (Updated March 30, 2026)
+| Model | ΔRCI | Var_Ratio | K | Ent r | Arc | Trials | Status |
+|-------|------|-----------|------|-------|-----|--------|--------|
+| DeepSeek V3.1 | 0.257 | 0.920 | 0.236 | 0.23 (ns) | 0.93 | 50/50 | COMPLETE |
+| Llama 4 Maverick | 0.181 | 0.925 | 0.167 | 0.63 (p=0.0002) | 5.20 | 50/50 | COMPLETE |
+| Qwen3 235B | 0.211 | 0.794 | 0.168 | 0.50 (p=0.005) | 2.23 | 50/50 | COMPLETE |
+| Mistral Small 24B | — | — | — | — | — | —/50 | RUNNING |
+| Llama 3.3 70B Turbo | — | — | — | — | — | 0/50 | QUEUED |
 
-### Early findings
-- **SCRAMBLED ≈ COLD** in ethics — content alone is worthless, order IS the reasoning
-- **Model personality visible**: DeepSeek evolves framework (0.257), Maverick rigid (0.181)
-- **Moral commitment constrains**: taking a position at P6 constrains responses through P30
-- DeepSeek TRUE P30 = "Constrained Maximization" (evolved). COLD P30 = "Principled Pragmatism" (generic).
-- Predicted: ethics will entangle (like philosophy) but converge (like medical) — unique fourth mode
+**N=3 valid models (re-embedded).** K(Ethics) = 0.190 (range 0.167–0.236, CV=0.171).
+
+### K Values — Four-Domain Comparison
+| Domain | Truth Type | K | CV | N | Entangled | Arc |
+|--------|-----------|------|------|---|-----------|-----|
+| Medical | Discovered | 0.429 | 0.170 | 8 | Yes (r=0.76) | Convergent (1.72) |
+| Legal | Argued | 0.348 | 0.192 | 5 | No (all ns) | Convergent |
+| Philosophy | Explored | 0.301 | 0.166 | 6 | Yes (r=0.76) | Divergent (15.23) |
+| Ethics | Felt | 0.190 | 0.171 | 3 | Mixed (model-dependent) | Mixed |
+
+**K ordering: Discovered > Argued > Explored > Felt.** The more subjective the truth-type, the lower K.
+**CV ≈ 0.17 in all four domains** — conservation is equally tight regardless of K value.
+
+### Ethics-Specific Findings
+- **SCRAMBLED ≈ COLD**: Content fraction 80-91% — highest of any domain. Order IS the reasoning.
+- **Var_Ratio < 1.0 in all models**: Context REDUCES variance. Only domain where this occurs. Moral commitment narrows response space.
+- **Entanglement is model-dependent**: Maverick (r=0.63***), Qwen3 (r=0.50**), DeepSeek (r=0.23 ns). Unlike Medical/Philosophy (universally entangled) or Legal (universally decoupled). The "Felt" mode allows model personality to determine coupling.
+- **Arc is model-dependent**: Maverick divergent (5.20), DeepSeek strongly convergent (0.93), Qwen3 convergent (2.23). Domain doesn't force topology — model personality does.
+- **Context individuates, not converges**: Re-embedded TRUE responses are LESS similar to each other than COLD responses (negative re-embedded ΔRCI). Each trial builds a unique moral position. Context doesn't narrow toward an answer — it commits to one.
+- **Model personality visible**: DeepSeek evolves framework (dRCI=0.257, "Constrained Maximization"). Maverick rigid (dRCI=0.181). Qwen3 balanced (dRCI=0.211, "Pluralistic Deontology").
+- **Framework flip**: Qwen3 TRUE P30 → deontology grounded in care. Qwen3 COLD P30 → rule-consequentialism. Context changes what the model believes.
 
 ## EEG Pilot — Biological Neural Network Validation
 

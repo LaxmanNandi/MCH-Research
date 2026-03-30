@@ -5,7 +5,7 @@
 
 ## Overview
 
-This research program investigates how domain structure shapes AI context sensitivity through controlled cross-domain experiments comparing medical (closed-goal) vs philosophy (open-goal) reasoning.
+This research program proposes the **Theory of Epistemological Relativity**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. Validated across four domains (Medical, Philosophy, Legal, Applied Ethics) representing four truth-types (Discovered, Explored, Argued, Felt), with a conservation constraint K = ΔRCI × Var_Ratio that holds across 14+ LLMs from 8 vendors.
 
 ---
 
@@ -108,20 +108,24 @@ This research program investigates how domain structure shapes AI context sensit
    - RICH (mild divergence, high accuracy): Qwen3 235B
 3. **Categorical, not continuous**: Four-class taxonomy captures structure better than any continuous model (quadratic R²=0.11, F-test p=0.72)
 
-#### **Paper 6: Conservation Constraint** [DRAFT]
-**Title**: *Conservation Constraint in Context Sensitivity*
+#### **Paper 6: Conservation Constraint — Theory of Epistemological Relativity** [CAPSTONE — DRAFT]
+**Title**: *Conservation Without Entanglement: A Four-Domain Taxonomy of Context Processing in Large Language Models*
+**Working subtitle**: *The Theory of Epistemological Relativity*
 
-**Role**: Theoretical unification - Domain-specific conservation law
-- **Dataset**: Paper 2 conservation-validated subset (N=8 Medical + N=6 Philosophy)
-- **Innovation**: ΔRCI × Var_Ratio ≈ K(domain)
+**Role**: Capstone — Theoretical unification of entire programme
+- **Dataset**: 4 domains, 22+ model-domain runs (8 Med + 6 Phil + 5 Legal + 3+ Ethics)
+- **Innovation**: ΔRCI × Var_Ratio ≈ K(domain); four truth-types determine full behavioural mode
 
 **Key Findings**:
-1. **Conservation constraint**: K(Medical)=0.429 (CV=0.170), K(Philosophy)=0.301 (CV=0.166)
-2. **Domain difference**: Mann-Whitney U=46, p=0.003, Cohen's d=2.06
-3. **Legal domain extension**: K(Legal)=0.362 (CV=0.189), 4 models complete, 3 queued
-4. **Discovered vs Constructed truth**: Entanglement depends on truth-type; conservation holds in both
+1. **Conservation constraint**: K(Medical)=0.429, K(Legal)=0.348, K(Philosophy)=0.301, K(Ethics)=0.190 — all CV≈0.17
+2. **Four truth-types**: Discovered > Argued > Explored > Felt (K decreases with subjectivity)
+3. **Four behavioural modes**: Each truth-type determines entanglement, arc, variance structure, and temporal dynamics
+4. **Legal surprise**: Convergence WITHOUT entanglement — third mode not predicted by Papers 2-5
+5. **Ethics surprise**: Model-dependent entanglement and arc — domain reveals model personality, doesn't constrain it
+6. **Hierarchy**: Conservation > Entanglement > Temporal dynamics
+7. **K ⊥ Truth** (from Paper 8): Conservation holds even when semantic encoding degrades to 7%
 
-**Status**: Draft complete, legal experiments ongoing (4/7 models)
+**Status**: Four domains active. Medical (N=8), Philosophy (N=6), Legal (N=5) complete. Ethics (N=3 complete, 2 running). Writing begins after Ethics completes (~April 2026).
 
 #### **Paper 7: Content-Order Decomposition** [PUBLISHED]
 **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
@@ -190,11 +194,12 @@ mch_experiments/
 
 ## Next Steps
 
-1. **Complete legal domain experiments** — 3 models queued (Kimi K2.5, Llama 3.3 70B, GLM-5)
-2. **Finalize Paper 6** — Incorporate full legal results, submit to Preprints.org
-3. **Paper 4 JMLR review** — Under review since March 4, 2026
+1. **Complete Ethics domain** — Mistral Small running, Llama 3.3 70B queued
+2. **Write Paper 6 capstone** — Four domains, four truth-types, Theory of Epistemological Relativity
+3. **Paper 8 venue** — Declined by Preprints.org ×2; awaiting response to feedback request; Zenodo as backup
+4. **Paper 4 JMLR review** — Under review since March 4, 2026
 
 ---
 
-**Last Updated**: March 16, 2026
-**Status**: 7 papers (6 published, 1 draft). Legal domain experiments ongoing (4/7 models complete).
+**Last Updated**: March 30, 2026
+**Status**: 8 papers (6 published, 1 seeking venue, 1 capstone draft). Ethics domain in progress (3/5 models complete). Theory of Epistemological Relativity: four domains, four truth-types, one conservation law.

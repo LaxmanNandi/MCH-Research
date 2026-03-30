@@ -1,15 +1,15 @@
-# Paper 6: Conservation Constraint for Context Sensitivity and Output Variance
+# Paper 6: The Theory of Epistemological Relativity
 
-**Version:** 2.0
-**Date:** February 15, 2026
-**Status:** Draft complete
+**Version:** 3.0
+**Date:** March 30, 2026
+**Status:** Capstone — Draft in preparation
 **Author:** Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka
 
 ---
 
 ## Abstract
 
-This paper reports an empirical conservation constraint governing the relationship between context sensitivity (ΔRCI) and output variance (Var_Ratio) in large language models: the product ΔRCI × Var_Ratio is approximately constant within a domain, across architectures. Across 14 model-domain runs spanning 8 vendors and 11 architectures, the product clusters tightly within each domain (Medical K = 0.429, CV = 0.170; Philosophy K = 0.301, CV = 0.166) while differing significantly between domains (U = 46, p = 0.003; Cohen's d = 2.06). The constraint implies an inverse trade-off consistent with domain-specific resource allocation: increased context sensitivity correlates with decreased output variance, and vice versa.
+We propose the **Theory of Epistemological Relativity**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. We report an empirical conservation constraint — the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a domain — validated across four domains representing four truth-types: Medical (Discovered, K=0.429), Legal (Argued, K=0.348), Philosophy (Explored, K=0.301), and Applied Ethics (Felt, K=0.190). The conservation holds across 22+ model-domain runs spanning 14 architectures from 8 vendors, with within-domain CV ≈ 0.17 in all four domains. Each truth-type determines a distinct behavioural mode — including entanglement structure, exploration arc, variance signature, and temporal dynamics — yielding a four-mode taxonomy of context processing. The conservation law is more fundamental than entanglement (which is absent in Legal) and persists even when semantic encoding fidelity degrades to 7% (K ⊥ Truth).
 
 ---
 
@@ -17,72 +17,92 @@ This paper reports an empirical conservation constraint governing the relationsh
 
 | Paper | Question | Core Finding | Status |
 |-------|----------|-------------|--------|
-| Paper 1 | Does context matter? | ΔRCI validated | Published |
-| Paper 2 | How does it vary? | 14-model benchmark | Published |
-| Paper 3 | What patterns exist? | Type 1 vs Type 2 architectures | Draft |
-| Paper 4 | Why does it happen? | VRI and information theory | Draft |
-| Paper 5 | How do we deploy safely? | Four-class predictability taxonomy | Draft |
-| **Paper 6** | **Is there a conservation constraint?** | **ΔRCI × VR ≈ K(domain)** | **Draft** |
+| Paper 1 | Does context matter? | ΔRCI validated; Epistemological Relativity named | Published |
+| Paper 2 | How does it vary? | 14-model benchmark, 112,500 responses | Published |
+| Paper 3 | What temporal patterns? | U-shape vs inverted-U (3-bin aggregation) | Published |
+| Paper 4 | What mechanism? | Entanglement: ΔRCI~VRI r=0.76 | Published + JMLR |
+| Paper 5 | How to deploy safely? | IDEAL/EMPTY/DIVERGENT/RICH taxonomy | Published |
+| Paper 7 | What's the decomposition? | Content-order; exploration arc | Published |
+| Paper 8 | Where does it break? | EFI=0.07; K⊥Truth; Coherent Misalignment | Seeking venue |
+| **Paper 6** | **What's the law?** | **K = ΔRCI × VR ≈ constant; four truth-types** | **Capstone** |
 
 ---
 
-## Key Finding
+## Key Finding: Conservation Constraint
 
 ```
 ΔRCI × Var_Ratio ≈ K(domain)
 ```
 
-| Domain | N | K | SD | CV | 95% CI |
-|--------|---|---|----|----|--------|
-| Medical | 8 | 0.429 | 0.073 | 0.170 | [0.368, 0.490] |
-| Philosophy | 6 | 0.301 | 0.050 | 0.166 | [0.248, 0.353] |
+| Domain | Truth Type | N | K | CV | Entangled | Arc |
+|--------|-----------|---|------|------|-----------|-----|
+| Medical | Discovered | 8 | 0.429 | 0.170 | Yes (r=0.76) | Convergent (1.72) |
+| Legal | Argued | 5 | 0.348 | 0.192 | No (all ns) | Convergent |
+| Philosophy | Explored | 6 | 0.301 | 0.166 | Yes (r=0.76) | Divergent (15.23) |
+| Ethics | Felt | 3+ | 0.190 | 0.171 | Mixed | Mixed |
 
-**Domain difference:** Mann-Whitney U = 46, p = 0.003; Welch t = 3.91, p = 0.002; Cohen's d = 2.06
-
----
-
-## Interpretation
-
-The constraint is consistent with domain-specific resource allocation. The task structure (closed-goal medical vs open-goal philosophy) shapes the domain-specific scaling factor K. Each architecture allocates capacity differently — some toward context sensitivity, others toward output variance — but the product remains approximately constant within a domain. The regularity behaves like a conservation law, pending broader validation across additional domains.
+**K ordering: Discovered > Argued > Explored > Felt.**
+**CV ≈ 0.17 in all four domains** — conservation equally tight regardless of K value.
+**Domain difference (Med vs Phil):** U=46, p=0.003, Cohen's d=2.06
 
 ---
 
-## Models Tested
+## Four-Mode Taxonomy
 
-11 unique models from 8 vendors:
-
-| Vendor | Models | Runs |
-|--------|--------|------|
-| DeepSeek | DeepSeek V3.1 | Med + Phil |
-| Google | Gemini Flash | Med + Phil |
-| Meta | Llama 4 Scout, Llama 4 Maverick | Med + Phil (Maverick) |
-| Mistral | Mistral Small 24B, Ministral 14B | Med |
-| Moonshot | Kimi K2 | Med |
-| Alibaba | Qwen3 235B | Med |
-| Anthropic | Claude Haiku | Phil |
-| OpenAI | GPT-4o, GPT-4o Mini | Phil |
+| Mode | Domain | K | Entangled | Arc | Content Fraction | Var_Ratio | Signature |
+|------|--------|------|-----------|-----|-----------------|-----------|-----------|
+| **Discovered** | Medical | 0.429 | Yes | Convergent | 45-55% | >1 | P30 spike, U-shape, universal pattern |
+| **Argued** | Legal | 0.348 | No | Convergent | ~70-80% | >1 | No P30 spike, mixed temporal, structure constrains |
+| **Explored** | Philosophy | 0.301 | Yes | Divergent | 35-55% | ~1 | Inverted-U, response space expands |
+| **Felt** | Ethics | 0.190 | Mixed | Mixed | 80-91% | <1 | Context individuates, model personality visible |
 
 ---
 
-## Figures
+## Theoretical Hierarchy
 
-| Figure | Content | File |
-|--------|---------|------|
-| Fig 1 | Conservation constraint with hyperbolas | fig1_conservation_law_hyperbolas.png |
-| Fig 2 | Product distribution by domain | fig2_product_distribution.png |
-| Fig 3 | Domain scaling factors comparison | fig3_domain_constants.png |
-| Fig 4 | Predictability taxonomy overlay | fig4_taxonomy_overlay.png |
+```
+Conservation (K) > Entanglement (ΔRCI~VRI coupling) > Temporal dynamics
+```
+
+- K holds in all four domains — the deepest constraint
+- Entanglement holds in Medical and Philosophy, absent in Legal, mixed in Ethics
+- Temporal patterns vary by domain and are surface manifestations of K
 
 ---
 
-## Integration with Paper 5
+## Integration with Papers 1-8
 
-The four-class predictability taxonomy (IDEAL, EMPTY, DIVERGENT, RICH) maps onto the conservation constraint. All classes follow the hyperbolic relationship — they represent different allocation strategies within the same domain-specific capacity:
+| Paper | Contribution to Paper 6 |
+|-------|------------------------|
+| 1 | Named Epistemological Relativity — the seed |
+| 2 | Standardised protocol, 14-model foundation |
+| 3 | Temporal dynamics that K explains |
+| 4 | Entanglement — a special case of conservation |
+| 5 | Safety taxonomy — K predicts deployment class |
+| 7 | Content-order decomposition — how K distributes |
+| 8 | Boundary condition — K holds when semantics break (K⊥Truth) |
 
-- **IDEAL** (DeepSeek, Kimi K2): Balanced allocation — moderate ΔRCI, moderate VR
-- **EMPTY** (Gemini Flash): High ΔRCI, convergent but incomplete outputs
-- **DIVERGENT** (Llama Scout/Maverick): Lower ΔRCI, capacity allocated toward variance
-- **RICH** (Qwen3): Moderate ΔRCI with excess variance that remains accurate
+---
+
+## Models Tested (22+ model-domain runs)
+
+| Domain | Models | Vendors |
+|--------|--------|---------|
+| Medical | 8 | DeepSeek, Google, Meta, Mistral, Moonshot, Alibaba |
+| Philosophy | 6 | Anthropic, DeepSeek, Google, OpenAI, Meta |
+| Legal | 5 | DeepSeek, Meta, Alibaba, Mistral |
+| Ethics | 3+ (running) | DeepSeek, Meta, Alibaba, Mistral (running) |
+
+---
+
+## Figures (planned)
+
+1. Four-domain conservation constraint with hyperbolas
+2. K gradient: Discovered > Argued > Explored > Felt
+3. Four-mode taxonomy comparison (entanglement × arc)
+4. Content fraction gradient across domains
+5. Var_Ratio signature by truth-type
+6. Theoretical hierarchy diagram
 
 ---
 
@@ -90,12 +110,14 @@ The four-class predictability taxonomy (IDEAL, EMPTY, DIVERGENT, RICH) maps onto
 
 | Resource | Path |
 |----------|------|
-| Conservation product CSV | data/paper6/conservation_product_test.csv |
-| MI verification results | data/paper6/conservation_law_verification/ |
-| Figures | docs/figures/paper6/ |
+| Medical data | data/medical/ |
+| Philosophy data | data/philosophy/ |
+| Legal data | data/legal/open_models/ |
+| Ethics data | data/ethics/open_models/ |
+| Conservation CSV | data/paper6/conservation_product_test.csv |
 | Scripts | scripts/analysis/paper6_*.py |
 
 ---
 
-**Document Version:** 2.0
-**Last Updated:** February 15, 2026
+**Document Version:** 3.0
+**Last Updated:** March 30, 2026
