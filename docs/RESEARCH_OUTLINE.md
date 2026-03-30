@@ -196,7 +196,7 @@ mch_experiments/
 
 1. **Complete Ethics domain** — Mistral Small running, Llama 3.3 70B queued
 2. **Write Paper 6 capstone** — Four domains, four truth-types, Theory of Epistemological Relativity
-3. **Paper 8 venue** — Declined by Preprints.org ×2; awaiting response to feedback request; Zenodo as backup
+3. **Paper 8 venue** — Seeking appropriate venue for submission
 4. **Paper 4 JMLR review** — Under review since March 4, 2026
 
 ---
