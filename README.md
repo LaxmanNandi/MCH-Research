@@ -58,29 +58,55 @@ The domain's truth-type determines the full behavioural mode: conservation const
 
 ## Key Findings
 
-### 1. Domain Shapes Context Processing
-- **Medical (closed-goal):** Diagnostic independence trough + integration rise (U-shape in 3-bin aggregation)
-- **Philosophy (open-goal):** Mid-conversation peak + late decline (inverted-U in 3-bin aggregation)
-- Raw 30-position curves are oscillatory; temporal patterns emerge under aggregation
+### 1. Conservation Law: ΔRCI × Var_Ratio ≈ K(domain)
+The product of context sensitivity and output variance is approximately constant within a domain, across all architectures tested. Four domains, four truth-types, one conservation law:
+- **Medical (Discovered truth):** K = 0.429 — fixed answers exist, context converges toward them
+- **Legal (Argued truth):** K = 0.348 — answers constructed through structure, not discovered
+- **Philosophy (Explored truth):** K = 0.301 — open inquiry, no fixed answer
+- **Applied Ethics (Felt truth):** K = 0.190 — moral commitment, context individuates
 
-### 2. Vendor Signatures
-Significant vendor-level differences in context utilization (F=90.65, p<0.0001; persists excluding outliers: F(7,16)=3.55, p=0.017)
+Within-domain CV ≈ 0.17 in all four domains. Between-domain: Mann-Whitney U=46, p=0.003, Cohen's d=2.06 (Medical vs Philosophy).
 
-### 3. Entanglement Mechanism
-Strong correlation between ΔRCI and VRI (r=0.76, p=2.37×10⁻⁶⁸, N=360 position-level measurements), validating information-theoretic interpretation
+### 2. Four-Mode Taxonomy of Context Processing
+Each truth-type determines a distinct behavioural mode:
+- **Discovered** (Medical): Entangled (r=0.76), convergent arc (1.72), P30 spike (all z>2.43), U-shape temporal
+- **Argued** (Legal): NOT entangled (all r ns), convergent arc, no P30 spike, mixed temporal — convergence WITHOUT entanglement
+- **Explored** (Philosophy): Entangled (r=0.76), divergent arc (15.23), no P30 spike, inverted-U temporal
+- **Felt** (Ethics): Mixed entanglement (model-dependent), mixed arc, Var_Ratio <1 (unique), SCRAMBLED ≈ COLD (order IS the reasoning)
 
-### 4. Safety-Critical Divergence
-Medical P30 task enablement reveals four behavioral classes:
-- **IDEAL** (DeepSeek, Kimi K2): High accuracy, convergent outputs
-- **EMPTY** (Gemini Flash): High accuracy, but outputs lack clinical detail
-- **DIVERGENT** (Llama Scout/Maverick): Inconsistent outputs, high trial-to-trial variance
-- **RICH** (Qwen3 235B): Moderate accuracy, verbose but informative
+### 3. Theoretical Hierarchy
+Conservation > Entanglement > Temporal dynamics. K holds in all domains. Entanglement is domain-dependent (present in Medical/Philosophy, absent in Legal, mixed in Ethics). Temporal patterns are surface manifestations.
 
-### 5. Conservation Constraint
-All four predictability classes follow the hyperbolic constraint ΔRCI × Var_Ratio ≈ K. They represent different allocation strategies within the same domain-specific capacity.
+### 4. Content-Order Decomposition (Paper 7)
+ΔRCI decomposes into content and order components via SCRAMBLED condition:
+- Content fraction: Medical 45-55%, Philosophy 35-55%, Legal ~70-80%, Ethics 80-91%
+- Exploration Arc: Medical 1.72±0.68 (convergent) vs Philosophy 15.23±16.64 (divergent) — zero overlap
+- Llama P30 safety anomaly driven entirely by order component, not content
 
-### 6. Encoding Fidelity Failure (Paper 8)
-Shannon's encoding fidelity assumption fails for non-English LLMs. The Encoding Fidelity Index (EFI) shows ~90% semantic loss for Kannada, Tamil, and Hindi at the tokenizer-embedding boundary (p < 10⁻¹³). European language control confirms tokenizer-induced loss (d = 1.33). Variance amplification is Dravidian-specific (Kannada 1.72–2.05×). Conservation law K⊥Truth: self-consistency metrics cannot detect this failure. Implications for 1.5 billion non-English speakers.
+### 5. Safety Taxonomy (Paper 5)
+Four deployment classes based on Var_Ratio × Accuracy:
+- **IDEAL** (DeepSeek, Kimi K2): Deployable — high accuracy, convergent
+- **EMPTY** (Gemini Flash): Dangerous — converges but 16% accuracy
+- **DIVERGENT** (Llama Scout/Maverick): Unreliable — high variance, Var_Ratio up to 7.46
+- **RICH** (Qwen3 235B): Promising — high variance but 95% accuracy
+
+### 6. Entanglement Mechanism (Paper 4)
+ΔRCI and VRI correlate at r=0.76, p=2.37×10⁻⁶⁸ (N=360 position-level measurements). Context sensitivity and variance reduction are bidirectionally coupled — a special case of the conservation law, present in Discovered and Explored domains, absent in Argued domains.
+
+### 7. Encoding Fidelity Failure (Paper 8)
+Shannon's encoding fidelity assumption fails for non-English LLMs:
+- EFI: Kannada 0.099, Tamil 0.069, Hindi 0.076 (all p < 10⁻¹³ vs English)
+- European control: German/French significantly higher (d=1.33) — degradation is Dravidian-specific
+- Variance amplification: Kannada 1.72–2.05× (p<0.05)
+- Coherent Misalignment: fluent, confident, semantically wrong outputs — a new failure mode
+- **K ⊥ Truth**: conservation holds even when semantic encoding degrades to 7%
+
+### 8. Programme Scale
+- **150,000+ responses** across 4 domains, 14+ architectures, 8 vendors
+- **50 trials** per model-domain configuration, **30 positions**, **3 conditions** (TRUE/COLD/SCRAMBLED)
+- **22+ model-domain runs** with complete data
+- **6 papers published**, 1 seeking venue, 1 capstone in preparation
+- All data, scripts, and analysis publicly available in this repository
 
 ![Conservation constraint with hyperbolas](docs/figures/paper6/fig1_conservation_law_hyperbolas.png)
 *Figure: Conservation constraint across 14 model-domain runs. Models cluster along domain-specific hyperbolas despite spanning 8 vendors and parameter counts from 14B to 671B.*
@@ -102,15 +128,16 @@ Shannon's encoding fidelity assumption fails for non-English LLMs. The Encoding 
 ### Open-Source (via Together AI)
 | Model | Vendor | Parameters | Domains |
 |-------|--------|-----------|---------|
-| DeepSeek V3.1 | DeepSeek | 671B | Medical, Philosophy |
-| Qwen3 235B | Alibaba | 235B (22B active) | Medical, Philosophy |
-| Llama 4 Maverick | Meta | 400B (17B active) | Medical, Philosophy |
+| DeepSeek V3.1 | DeepSeek | 671B | Medical, Philosophy, Legal, Ethics |
+| Qwen3 235B | Alibaba | 235B (22B active) | Medical, Philosophy, Legal, Ethics |
+| Llama 4 Maverick | Meta | 400B (17B active) | Medical, Philosophy, Legal, Ethics |
 | Llama 4 Scout | Meta | 109B (17B active) | Medical |
-| Mistral Small 24B | Mistral | 24B | Medical |
+| Llama 3.3 70B Turbo | Meta | 70B | Legal |
+| Mistral Small 24B | Mistral | 24B | Medical, Legal, Ethics (running) |
 | Ministral 14B | Mistral | 14B | Medical |
 | Kimi K2 | Moonshot | 1T (32B active) | Medical |
 
-**14 unique models, 8 vendors, 25 model-domain runs, 50 trials each = 112,500 responses**
+**14+ unique models, 8 vendors, 4 domains, 22+ model-domain runs = 150,000+ responses**
 
 ---
 
