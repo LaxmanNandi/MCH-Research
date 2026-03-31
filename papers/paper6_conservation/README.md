@@ -41,7 +41,7 @@ Key discoveries: Legal reveals **convergence WITHOUT entanglement** — a third 
 | Medical | 0.429 | 1.197 | STABLE |
 | Legal | 0.348 | 1.131 | STABLE |
 | Philosophy | 0.301 | 1.350 | MILD DEGRADATION |
-| Ethics | 0.190 | <1.0 | CONSTRAINED (VR<1 unique to ethics) |
+| Ethics | 0.193 | mixed | MIXED (VR ranges 0.79-1.19, model-dependent) |
 
 K vs Trial Variance Ratio: rho=-0.600 (higher K = more stable, N=4 domains).
 Conservation constraint may function as structural immune system against reasoning degradation.

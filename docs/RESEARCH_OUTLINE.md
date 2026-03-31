@@ -117,7 +117,7 @@ This research program proposes the **Theory of Epistemological Relativity**: the
 - **Innovation**: ΔRCI × Var_Ratio ≈ K(domain); four truth-types determine full behavioural mode
 
 **Key Findings**:
-1. **Conservation constraint**: K(Medical)=0.429, K(Legal)=0.348, K(Philosophy)=0.301, K(Ethics)=0.190 — all CV≈0.17
+1. **Conservation constraint**: K(Medical)=0.429, K(Legal)=0.348, K(Philosophy)=0.301, K(Ethics)=0.193 — CV=0.13-0.19
 2. **Four truth-types**: Discovered > Argued > Explored > Felt (K decreases with subjectivity)
 3. **Four behavioural modes**: Each truth-type determines entanglement, arc, variance structure, and temporal dynamics
 4. **Legal surprise**: Convergence WITHOUT entanglement — third mode not predicted by Papers 2-5
@@ -125,7 +125,7 @@ This research program proposes the **Theory of Epistemological Relativity**: the
 6. **Hierarchy**: Conservation > Entanglement > Temporal dynamics
 7. **K ⊥ Truth** (from Paper 8): Conservation holds even when semantic encoding degrades to 7%
 
-**Status**: Four domains active. Medical (N=8), Philosophy (N=6), Legal (N=5) complete. Ethics (N=3 complete, 2 running). Writing begins after Ethics completes (~April 2026).
+**Status**: All four domains COMPLETE. Medical (N=8), Philosophy (N=6), Legal (N=5), Ethics (N=5). 24 model-domain runs. Writing begins April 2026.
 
 #### **Paper 7: Content-Order Decomposition** [PUBLISHED]
 **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
@@ -194,12 +194,12 @@ mch_experiments/
 
 ## Next Steps
 
-1. **Complete Ethics domain** — Mistral Small running, Llama 3.3 70B queued
-2. **Write Paper 6 capstone** — Four domains, four truth-types, Theory of Epistemological Relativity
+1. ~~Complete Ethics domain~~ — **DONE** (N=5, K=0.193, CV=0.134)
+2. **Write Paper 6 capstone** — All data complete. Four domains, four truth-types, Theory of Epistemological Relativity
 3. **Paper 8 venue** — Seeking appropriate venue for submission
 4. **Paper 4 JMLR review** — Under review since March 4, 2026
 
 ---
 
 **Last Updated**: March 30, 2026
-**Status**: 8 papers (6 published, 1 seeking venue, 1 capstone draft). Ethics domain in progress (3/5 models complete). Theory of Epistemological Relativity: four domains, four truth-types, one conservation law.
+**Status**: 8 papers (6 published, 1 seeking venue, 1 capstone ready to write). All four domains complete (24 model-domain runs). Theory of Epistemological Relativity: validated.
