@@ -1,12 +1,17 @@
 # Paper 8: Encoding Fidelity and Coherent Misalignment
 
-**Title:** Encoding Fidelity and Coherent Misalignment: Why Shannon's Channel Model Breaks for Non-English Clinical AI
+**Title:** Encoding Fidelity and Coherent Misalignment: When Shannon's Encoding Assumption Fails for Non-English Clinical AI
 
 **Author:** Dr. Laxman M M, MBBS, Primary Health Centre Manchi, Karnataka, India
 
-**Date:** March 20, 2026
+**Date:** March 31, 2026 (v3)
 
-**Status:** Submitted to Preprints.org (Preprints ID: 204266)
+**Status:** Submitted to Preprints.org (v3, March 31, 2026)
+
+## Revision History
+- **v1** (March 20, 2026): Initial submission (ID: 204266). Declined — no feedback.
+- **v2** (March 26, 2026): 18 new references added (46 total, 15.2% self-citation). Declined — self-citations still high, missing Conflict of Interest section.
+- **v3** (March 31, 2026): K⊥Truth removed (belongs in Paper 6). 12 new external references (56 total, 8.9% self-citation). Conflict of Interest added. Title softened. Keywords updated. Figure 5 updated. Papers 1 & 3 self-citations removed.
 
 ---
 
