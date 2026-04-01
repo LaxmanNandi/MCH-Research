@@ -8,7 +8,7 @@
 [![Paper 4 - Preprints.org](https://img.shields.io/badge/Paper%204-Published-blue.svg)](https://www.preprints.org/manuscript/202602.1894)
 [![Paper 5 - Preprints.org](https://img.shields.io/badge/Paper%205-10.20944%2Fpreprints202602.2034.v1-blue.svg)](https://www.preprints.org/manuscript/202602.2034/v1)
 [![Paper 7 - Preprints.org](https://img.shields.io/badge/Paper%207-10.20944%2Fpreprints202603.1116.v1-blue.svg)](https://www.preprints.org/manuscript/202603.1116/v1)
-[![Paper 8](https://img.shields.io/badge/Paper%208-Seeking%20Venue-yellow.svg)](#research-program)
+[![Paper 8 - Preprints.org](https://img.shields.io/badge/Paper%208-10.20944%2Fpreprints202604.0061.v1-blue.svg)](https://www.preprints.org/manuscript/202604.0061/v1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
@@ -33,7 +33,7 @@
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — Theory of Epistemological Relativity | 📄 Draft — 4 domains, 4 truth-types |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
-| **8** | Encoding Fidelity & Coherent Misalignment | Shannon's assumption fails; EFI metric; K⊥Truth | 📋 Seeking venue |
+| **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 |
 
 ### Key Discovery: Theory of Epistemological Relativity (Paper 6 — Capstone)
 
@@ -313,10 +313,10 @@ python scripts/generate_paper5_figures.py
 ### Paper 8
 ```bibtex
 @article{laxman2026encoding,
-  title={Encoding Fidelity and Coherent Misalignment: Why Shannon's Channel Model Breaks for Non-English Clinical {AI}},
+  title={Encoding Fidelity and Coherent Misalignment in Non-English Clinical {AI}},
   author={Laxman, M M},
   journal={Preprints.org},
-  note={Preprints ID: 204266},
+  doi={10.20944/preprints202604.0061.v1},
   year={2026}
 }
 ```

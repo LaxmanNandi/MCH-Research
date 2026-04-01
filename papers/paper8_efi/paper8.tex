@@ -24,14 +24,13 @@
     linkcolor=blue,
     citecolor=blue,
     urlcolor=blue,
-    pdftitle={Encoding Fidelity and Coherent Misalignment: When Shannon's Encoding Assumption Fails for Non-English Clinical AI},
+    pdftitle={Encoding Fidelity and Coherent Misalignment in Non-English Clinical AI},
     pdfauthor={Laxman M M},
 }
 
 % ================================================================
-\title{\LARGE\textbf{Encoding Fidelity and Coherent Misalignment:\\
-When Shannon's Encoding Assumption Fails\\
-for Non-English Clinical AI}}
+\title{\LARGE\textbf{Encoding Fidelity and Coherent Misalignment\\
+in Non-English Clinical AI}}
 
 \author{
     \textbf{Dr.\ Laxman M M, MBBS}\\
@@ -59,7 +58,7 @@ for Non-English Clinical AI}}
 
 % ================================================================
 \begin{abstract}
-\noindent Shannon's Mathematical Theory of Communication (1948) assumes encoding fidelity --- that the encoder preserves the statistical structure of the source. Large Language Models show significant systematic degradation of this assumption for non-English languages, producing outputs that are internally consistent but semantically degraded. We call this failure mode \emph{Coherent Misalignment} and introduce the Encoding Fidelity Index (EFI), a practical proxy measuring the preservation of semantic content across the encoding boundary. Across 4 languages (English, Kannada, Tamil, Hindi), 2 embedding models (384-dimensional, 768-dimensional), and 2 LLMs (DeepSeek V3.1, Mistral Small 24B), we find: (1) EFI degrades by $\sim$90\% for all non-English Indian languages tested ($p < 10^{-13}$), independent of language family; a European language control (French, Spanish, German) confirms this is tokenizer-induced encoding loss, not inherent cross-lingual distance ($p = 1.6 \times 10^{-8}$, Cohen's $d = 1.33$); (2) variance amplification is Dravidian-specific: Kannada shows $1.72$--$2.05\times$ amplification ($p < 0.05$ in both models), Tamil shows partial amplification ($1.63\times$, $p = 0.016$ in Mistral), while Hindi shows no amplification despite equivalent EFI degradation; (3) complex medical sentences show paradoxical EFI increase from English loanword anchoring; (4) scenario-dependent code-switching and orthographic corruption of medical terms (Mistral). These findings suggest that output-layer consistency metrics are unlikely to detect encoding-level degradation, since they measure response variance structure rather than semantic content. The dissociation between universal encoding degradation and language-specific variance amplification reveals that training data representation, not encoding fidelity alone, determines clinical reliability, with direct implications for 1.5 billion non-English speakers.
+\noindent Shannon's Mathematical Theory of Communication (1948) assumes encoding fidelity --- that the encoder preserves the statistical structure of the source. Large Language Models show significant systematic degradation of this assumption for non-English languages, producing outputs that are internally consistent but semantically degraded. We call this failure mode \emph{Coherent Misalignment} and introduce the Encoding Fidelity Index (EFI), a practical proxy measuring the preservation of semantic content across the encoding boundary. Across 4 languages (English, Kannada, Tamil, Hindi), 2 embedding models (384-dimensional, 768-dimensional), and 2 LLMs (DeepSeek V3.1, Mistral Small 24B), we find: (1) EFI degrades by $\sim$90\% for all non-English Indian languages tested ($p < 10^{-13}$), independent of language family; a European language control (French, Spanish, German) confirms this is tokenizer-induced encoding loss, not inherent cross-lingual distance ($p = 1.6 \times 10^{-8}$, Cohen's $d = 1.33$); (2) variance amplification is Dravidian-specific: Kannada shows $1.72$--$2.05\times$ amplification ($p < 0.05$ in both models), Tamil shows partial amplification ($1.63\times$, $p = 0.016$ in Mistral), while Hindi shows no amplification despite equivalent EFI degradation; (3) complex medical sentences show paradoxical EFI increase from English loanword anchoring; (4) scenario-dependent code-switching and orthographic corruption of medical terms (Mistral). These findings suggest that output-layer consistency metrics are unlikely to detect encoding-level degradation, since they measure response variance structure rather than semantic content. The dissociation between universal encoding degradation and language-specific variance amplification reveals that training data representation, not encoding fidelity alone, determines clinical reliability, with implications for non-English clinical AI deployment.
 
 \vspace{0.5em}
 \noindent\textbf{Keywords:} encoding fidelity, coherent misalignment, Shannon information theory, multilingual clinical AI, tokenizer bias, non-English NLP, variance amplification, Kannada, Tamil, Hindi, patient safety
@@ -275,6 +274,9 @@ Translations were produced and verified by the author, a native Kannada speaker 
     \item \emph{Task 4 --- Code-switching analysis:} For each response, we recorded whether the model responded in the target language or switched to English, and examined orthographic accuracy of medical terminology in target-language responses.
 \end{itemize}
 
+\subsection{AI-Assisted Tools}
+AI tools (Claude, Anthropic; ChatGPT, OpenAI; DeepSeek) were used to assist with data analysis, statistical computation, visualization, and manuscript preparation. All experimental design, clinical interpretations, hypothesis formulation, and scientific conclusions are the sole responsibility of the author.
+
 % ================================================================
 \section{Results}
 
@@ -334,7 +336,7 @@ Hindi    & Devanagari & 0.076 & 0.088 \\
 \end{tabular}
 \end{table}
 
-European languages show significantly higher EFI than Indian languages (MiniLM: $0.305 \pm 0.219$ vs $0.081 \pm 0.097$, $t = 6.22$, $p = 1.6 \times 10^{-8}$, Cohen's $d = 1.33$; MPNet: $0.397 \pm 0.212$ vs $0.107 \pm 0.083$, $t = 8.47$, $p = 5.1 \times 10^{-13}$, $d = 1.81$). The effect strengthens under the higher-dimensional MPNet model. German sits between the groups, consistent with its compound-word morphology (e.g., \emph{Subarachnoidalblutung}) creating partial tokenizer difficulty within Latin script. This control establishes that EFI measures tokenizer-induced encoding loss specific to under-resourced scripts, not a general property of cross-lingual embedding distance. The finding is consistent with dedicated Indic NLP resources \citep{kakwani2020,arunachalam2025} that document the structural challenges of tokenizing Kannada, Tamil, and Hindi despite ongoing efforts to improve coverage. Khanuja et~al.\ \citep{khanuja2021} demonstrate with MuRIL that Indic-specific multilingual training substantially improves representation; Ramesh et~al.\ \citep{ramesh2022} show that large parallel corpora for 11 Indic languages already exist. The encoding degradation measured here is therefore a design choice, not a data limitation.
+European languages show significantly higher EFI than Indian languages (MiniLM: $0.305 \pm 0.219$ vs $0.081 \pm 0.097$, $t = 6.22$, $p = 1.6 \times 10^{-8}$, Cohen's $d = 1.33$; MPNet: $0.397 \pm 0.212$ vs $0.107 \pm 0.083$, $t = 8.47$, $p = 5.1 \times 10^{-13}$, $d = 1.81$). The effect strengthens under the higher-dimensional MPNet model. German sits between the groups, consistent with its compound-word morphology (e.g., \emph{Subarachnoidalblutung}) creating partial tokenizer difficulty within Latin script. This control establishes that EFI measures tokenizer-induced encoding loss specific to under-resourced scripts, not a general property of cross-lingual embedding distance. The finding is consistent with dedicated Indic NLP resources \citep{kakwani2020,arunachalam2025} that document the structural challenges of tokenizing Kannada, Tamil, and Hindi despite ongoing efforts to improve coverage. Khanuja et~al.\ \citep{khanuja2021} demonstrate with MuRIL that Indic-specific multilingual training substantially improves representation; Ramesh et~al.\ \citep{ramesh2022} show that large parallel corpora for 11 Indic languages already exist. The encoding degradation measured here is therefore a potentially addressable gap rather than a fundamental data limitation.
 
 \begin{figure}[H]
 \centering
@@ -499,7 +501,7 @@ Coherent Misalignment manifests in three distinct patterns in our data:
     \item \textbf{Orthographic corruption:} When Mistral does respond in Kannada, it generates misspelled medical terms (\emph{kachchassu}, \emph{kaammu} instead of \emph{kemmu} for ``cough'') --- unintelligible to the reader yet produced with full confidence formatting.
 \end{enumerate}
 
-None of these are hallucination --- the model is not inventing facts \citep{huang2024}. None are deceptive alignment --- the model is not pursuing misaligned goals. None are sycophancy --- the model is not adapting to perceived user preferences \citep{sharma2024}. They are Coherent Misalignment: the model operates faithfully on a degraded representation, producing output that appears correct from the outside but is clinically dangerous.
+None of these are hallucination --- the model is not inventing facts \citep{huang2024}. None are deceptive alignment --- the model is not pursuing misaligned goals. None are sycophancy --- the model is not adapting to perceived user preferences \citep{sharma2024}. They are Coherent Misalignment: the model operates faithfully on a degraded representation, producing output that appears correct from the outside but is clinically concerning.
 
 The code-switching failure is particularly insidious precisely because it is \emph{unpredictable}. A clinician who queries in Kannada and receives an English response for one clinical question but a Kannada response for another cannot develop a stable mental model of system behaviour. The degradation has already occurred at the encoding level --- the model's internal representation of the Kannada input is what generated the (English) response. The patient's symptoms, described in Kannada, may have been partially lost before generation began.
 
@@ -509,7 +511,7 @@ These findings suggest that output-layer consistency metrics are unlikely to det
 
 The finding that complex medical sentences ($\text{EFI} = 0.141$ pooled, up to $0.174$ for Kannada) show higher encoding fidelity than simple sentences ($\text{EFI} = 0.081$) inverts the usual expectation that simpler input should be easier to encode. The explanation is English loanword anchoring: terms like ``ST elevation,'' ``D-dimer,'' and ``troponin'' are borrowed directly into Indian clinical practice without translation. In embedding space, these terms pull the representation toward the well-represented English region, partially rescuing fidelity.
 
-This has a practical implication for clinical AI deployment in resource-constrained settings: code-mixed queries (local-language syntax with English medical terms) may be more reliable than either pure local-language or literal translations of medical terminology. This is an observation, not a recommendation --- the fact that reliability depends on which language variant a clinician uses to ask the same question is itself evidence of a broken system.
+This has a practical implication for clinical AI deployment in resource-constrained settings: code-mixed queries (local-language syntax with English medical terms) may be more reliable than either pure local-language or literal translations of medical terminology. This is an observation, not a recommendation --- the fact that reliability depends on which language variant a clinician uses to ask the same question is itself evidence of a system with significant reliability asymmetries.
 
 \subsection{Multimodal Compounding}
 
@@ -529,7 +531,7 @@ A clinician querying an LLM in Kannada receives clinical advice that is:
 
 The WHO's 2024 guidance on AI for health \citep{who2024} addresses ethical governance of large models but does not identify encoding fidelity as a failure mode. Pfohl et~al.\ \citep{pfohl2024} provide a toolbox for surfacing health equity harms in LLMs; EFI degradation represents precisely this class of harm --- systematic, invisible to standard evaluation, and disproportionately affecting non-English speakers. UNESCO's framework for ethical AI \citep{unesco2023} establishes linguistic inclusion as a requirement, not an aspiration. Current multilingual benchmarks \citep{xuan2025,adelani2025} measure task accuracy across languages but not the encoding-variance pipeline that produces unreliable clinical advice. Khullar et~al.\ \citep{khullar2025} document real-world LLM triage failures for Indian languages (F1 drops of 5--12 percentage points; projected 2 million excess errors at a partner maternal health organisation), independently confirming that clinical AI reliability gaps exist for Indian language users.
 
-Over 1.5 billion people worldwide speak languages where LLM encoding fidelity is likely degraded. For these populations, the promise of AI-assisted healthcare carries a hidden cost: the system appears to work, passes all internal consistency checks, and produces output that looks correct --- but is less reliable than the same system operating in English.
+Many populations worldwide speak languages where LLM encoding fidelity is likely degraded. For these populations, the promise of AI-assisted healthcare carries a hidden cost: the system appears to work, passes all internal consistency checks, and produces output that looks correct --- but is less reliable than the same system operating in English.
 
 \subsection{Limitations}
 
@@ -549,7 +551,7 @@ Six limitations should be noted:
 
 Shannon's Mathematical Theory of Communication assumed encoding fidelity. LLMs show significant systematic degradation of this assumption for non-English languages, producing Coherent Misalignment --- outputs that are internally consistent but semantically degraded. Using the Encoding Fidelity Index, we measured $\sim$90\% encoding degradation for Kannada, Tamil, and Hindi. A European language control confirms this is tokenizer-induced, not inherent cross-lingual distance. The downstream consequences are language-specific: Kannada shows $1.72$--$2.05\times$ variance amplification (replicated across both models), scenario-dependent code-switching, and orthographic corruption of medical terms. Hindi, despite equivalent EFI degradation, shows no variance amplification --- revealing that training data representation, not encoding fidelity alone, determines clinical reliability.
 
-Output-layer consistency metrics are unlikely to detect these failures, since they measure response variance structure rather than semantic content. Clinical AI deployment in linguistically diverse and resource-constrained populations requires external truth anchoring. The encoding fidelity gap is a new failure mode that extends Shannon's original model. For 1.5 billion non-English speakers worldwide, measurement of encoding fidelity must precede deployment.
+Output-layer consistency metrics are unlikely to detect these failures, since they measure response variance structure rather than semantic content. Clinical AI deployment in linguistically diverse and resource-constrained populations requires external truth anchoring. The encoding fidelity gap is a new failure mode that extends Shannon's original model. For non-English clinical deployments, measurement of encoding fidelity must precede deployment.
 
 % ================================================================
 \section{Future Work}

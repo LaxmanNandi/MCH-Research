@@ -23,7 +23,7 @@ We propose the **Theory of Epistemological Relativity**: the behavioural laws of
 | Paper 4 | What mechanism? | Entanglement: ΔRCI~VRI r=0.76 | Published + JMLR |
 | Paper 5 | How to deploy safely? | IDEAL/EMPTY/DIVERGENT/RICH taxonomy | Published |
 | Paper 7 | What's the decomposition? | Content-order; exploration arc | Published |
-| Paper 8 | Where does it break? | EFI=0.07; K⊥Truth; Coherent Misalignment | Seeking venue |
+| Paper 8 | Where does it break? | EFI=0.07; Coherent Misalignment; Dravidian variance | Published (DOI: 10.20944/preprints202604.0061.v1) |
 | **Paper 6** | **What's the law?** | **K = ΔRCI × VR ≈ constant; four truth-types** | **Capstone** |
 
 ---

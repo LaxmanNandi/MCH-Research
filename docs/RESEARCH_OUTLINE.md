@@ -196,10 +196,10 @@ mch_experiments/
 
 1. ~~Complete Ethics domain~~ — **DONE** (N=5, K=0.193, CV=0.134)
 2. **Write Paper 6 capstone** — All data complete. Four domains, four truth-types, Theory of Epistemological Relativity
-3. **Paper 8 venue** — Seeking appropriate venue for submission
+3. ~~Paper 8 venue~~ — **PUBLISHED** (DOI: 10.20944/preprints202604.0061.v1)
 4. **Paper 4 JMLR review** — Under review since March 4, 2026
 
 ---
 
 **Last Updated**: March 30, 2026
-**Status**: 8 papers (6 published, 1 seeking venue, 1 capstone ready to write). All four domains complete (24 model-domain runs). Theory of Epistemological Relativity: validated.
+**Status**: 8 papers (7 published, 1 capstone ready to write). All four domains complete (24 model-domain runs). Theory of Epistemological Relativity: validated.
