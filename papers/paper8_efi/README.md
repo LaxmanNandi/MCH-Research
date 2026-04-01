@@ -4,16 +4,9 @@
 
 **Author:** Dr. Laxman M M, MBBS, Primary Health Centre Manchi, Karnataka, India
 
-**Date:** April 1, 2026 (v5 — published)
+**Date:** April 1, 2026
 
 **Status:** ✅ Published on Preprints.org — DOI: 10.20944/preprints202604.0061.v1
-
-## Revision History
-- **v1** (March 20, 2026): Initial submission (ID: 204266). Declined — no feedback.
-- **v2** (March 26, 2026): 18 new references added (46 total, 15.2% self-citation). Declined — self-citations still high, missing Conflict of Interest section.
-- **v3** (March 31, 2026): K⊥Truth removed (belongs in Paper 6). 12 new external references (56 total, 8.9% self-citation). Conflict of Interest added. Title softened. Keywords updated. Figure 5 updated. Papers 1 & 3 self-citations removed. Declined — no specific feedback.
-- **v4** (March 31, 2026): Same as v3, resubmitted. Declined instantly — no feedback.
-- **v5** (April 1, 2026): Shannon removed from title. AI disclosure moved to Methods. Provocative language softened. **ACCEPTED AND PUBLISHED.**
 
 ---
 
