@@ -1,0 +1,212 @@
+{
+  "all-MiniLM-L6-v2": {
+    "DeepSeek_V3.1": {
+      "Kannada": {
+        "VR": 3.3409244126619453,
+        "CI_low": 1.4520420802838163,
+        "CI_high": 7.6851855497682156,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 0.7310010290661642,
+        "CI_low": 0.31770974850913114,
+        "CI_high": 1.681534165859451,
+        "significant": false
+      },
+      "Hindi": {
+        "VR": 4.849433726948231,
+        "CI_low": 2.107674693384007,
+        "CI_high": 11.155235318001866,
+        "significant": true
+      }
+    },
+    "Mistral_Small": {
+      "Kannada": {
+        "VR": 11.517699400877971,
+        "CI_low": 5.00585530601969,
+        "CI_high": 26.494360862140812,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 7.029227137970679,
+        "CI_low": 3.0550627118420772,
+        "CI_high": 16.169451371612645,
+        "significant": true
+      },
+      "Hindi": {
+        "VR": 1.2372089593374094,
+        "CI_low": 0.5377192804043981,
+        "CI_high": 2.8459729230353363,
+        "significant": false
+      }
+    }
+  },
+  "all-mpnet-base-v2": {
+    "DeepSeek_V3.1": {
+      "Kannada": {
+        "VR": 27.31876508938218,
+        "CI_low": 11.873359463276563,
+        "CI_high": 62.84182243295677,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 13.297076910884334,
+        "CI_low": 5.779213425541237,
+        "CI_high": 30.58749337230968,
+        "significant": true
+      },
+      "Hindi": {
+        "VR": 33.73888252305742,
+        "CI_low": 14.663689181222047,
+        "CI_high": 77.61012833718509,
+        "significant": true
+      }
+    },
+    "Mistral_Small": {
+      "Kannada": {
+        "VR": 28.063938948314956,
+        "CI_low": 12.197229047454236,
+        "CI_high": 64.55595860168627,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 60.401223162856915,
+        "CI_low": 26.251751581293952,
+        "CI_high": 138.94196638518298,
+        "significant": true
+      },
+      "Hindi": {
+        "VR": 34.29966759803818,
+        "CI_low": 14.907419187139297,
+        "CI_high": 78.90011183349951,
+        "significant": true
+      }
+    }
+  },
+  "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2": {
+    "DeepSeek_V3.1": {
+      "Kannada": {
+        "VR": 2.88844537395736,
+        "CI_low": 1.2553843522144956,
+        "CI_high": 6.644340280522864,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 1.9973428143827223,
+        "CI_low": 0.8680908206855869,
+        "CI_high": 4.594521826609394,
+        "significant": false
+      },
+      "Hindi": {
+        "VR": 1.2015044738804224,
+        "CI_low": 0.5222012952797005,
+        "CI_high": 2.7638412846612392,
+        "significant": false
+      }
+    },
+    "Mistral_Small": {
+      "Kannada": {
+        "VR": 2.725407860981588,
+        "CI_low": 1.184524524135651,
+        "CI_high": 6.269302301799717,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 7.103038306535489,
+        "CI_low": 3.0871427320738523,
+        "CI_high": 16.339240464689972,
+        "significant": true
+      },
+      "Hindi": {
+        "VR": 5.292439024129515,
+        "CI_low": 2.300214916939478,
+        "CI_high": 12.174287977638578,
+        "significant": true
+      }
+    }
+  },
+  "sentence-transformers/paraphrase-multilingual-mpnet-base-v2": {
+    "DeepSeek_V3.1": {
+      "Kannada": {
+        "VR": 3.3333356013045643,
+        "CI_low": 1.4487438094853238,
+        "CI_high": 7.66772887724889,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 2.7444427666004003,
+        "CI_low": 1.1927975290105874,
+        "CI_high": 6.313088620654607,
+        "significant": true
+      },
+      "Hindi": {
+        "VR": 1.350560687561015,
+        "CI_low": 0.5869845312522699,
+        "CI_high": 3.1067178415626073,
+        "significant": false
+      }
+    },
+    "Mistral_Small": {
+      "Kannada": {
+        "VR": 7.794102938612294,
+        "CI_low": 3.3874952100192752,
+        "CI_high": 17.92890825371994,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 9.955176315191272,
+        "CI_low": 4.326747073809116,
+        "CI_high": 22.900062292024153,
+        "significant": true
+      },
+      "Hindi": {
+        "VR": 4.375251518654426,
+        "CI_low": 1.9015842719560316,
+        "CI_high": 10.064465876668361,
+        "significant": true
+      }
+    }
+  },
+  "sentence-transformers/LaBSE": {
+    "DeepSeek_V3.1": {
+      "Kannada": {
+        "VR": 2.355421469464276,
+        "CI_low": 1.023719985254316,
+        "CI_high": 5.418216279343381,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 1.0596418869264628,
+        "CI_low": 0.4605445738362649,
+        "CI_high": 2.437512350316197,
+        "significant": false
+      },
+      "Hindi": {
+        "VR": 1.3402734000308099,
+        "CI_low": 0.5825134410566272,
+        "CI_high": 3.0830538181642293,
+        "significant": false
+      }
+    },
+    "Mistral_Small": {
+      "Kannada": {
+        "VR": 4.07703051018064,
+        "CI_low": 1.7719706081785893,
+        "CI_high": 9.378462991875782,
+        "significant": true
+      },
+      "Tamil": {
+        "VR": 9.680169446918327,
+        "CI_low": 4.207222805739484,
+        "CI_high": 22.267459290852308,
+        "significant": true
+      },
+      "Hindi": {
+        "VR": 2.505761929701732,
+        "CI_low": 1.089061384121849,
+        "CI_high": 5.764047010557626,
+        "significant": true
+      }
+    }
+  }
+}

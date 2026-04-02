@@ -1,0 +1,57 @@
+{
+  "pooling_strategies": {
+    "cls": {
+      "pairs": {
+        "Same lang same sent": 1.0,
+        "EN-KN same meaning": 0.9994304777938796,
+        "EN-TA same meaning": 0.9993918806638573,
+        "EN-HI same meaning": 0.9995426032344071,
+        "EN diff meaning": 0.9998086753808597,
+        "EN unrelated": 0.999730167307885,
+        "EN very unrelated": 0.9997242579143718,
+        "EN vs random string": 0.9982830069398938,
+        "EN vs single char": 0.9989006051541199,
+        "EN vs long random": 0.9964246431898615,
+        "Random vs weather": 0.9982376792310527,
+        "Random numpy vectors": 0.002382820583429191
+      },
+      "verdict": "DEGENERATE \u2014 random input similarity > 0.95"
+    },
+    "mean": {
+      "pairs": {
+        "Same lang same sent": 1.0,
+        "EN-KN same meaning": 0.9951033241827622,
+        "EN-TA same meaning": 0.9959980373176495,
+        "EN-HI same meaning": 0.9962014565824989,
+        "EN diff meaning": 0.9960150447396534,
+        "EN unrelated": 0.9947584495579546,
+        "EN very unrelated": 0.9931012530071716,
+        "EN vs random string": 0.9855814053603366,
+        "EN vs single char": 0.9921906265099679,
+        "EN vs long random": 0.9822827723598219,
+        "Random vs weather": 0.9861312840831816,
+        "Random numpy vectors": 0.002382820583429191
+      },
+      "verdict": "DEGENERATE \u2014 random input similarity > 0.95"
+    },
+    "mean_normalized": {
+      "pairs": {
+        "Same lang same sent": 1.0,
+        "EN-KN same meaning": 0.9951034783321913,
+        "EN-TA same meaning": 0.9959979652362462,
+        "EN-HI same meaning": 0.9962011574702652,
+        "EN diff meaning": 0.9960149525600054,
+        "EN unrelated": 0.9947582482296867,
+        "EN very unrelated": 0.993101417919031,
+        "EN vs random string": 0.9855813374476318,
+        "EN vs single char": 0.9921905993423092,
+        "EN vs long random": 0.9822828768701555,
+        "Random vs weather": 0.9861313691423484,
+        "Random numpy vectors": 0.002382820583429191
+      },
+      "verdict": "DEGENERATE \u2014 random input similarity > 0.95"
+    }
+  },
+  "random_numpy_cosine": 0.002382820583429191,
+  "timestamp": "2026-04-02T22:10:05.580938"
+}
