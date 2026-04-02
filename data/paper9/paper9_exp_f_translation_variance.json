@@ -1,0 +1,105 @@
+{
+  "results": [
+    {
+      "complexity": "simple",
+      "kannada": "ರೋಗಿಗೆ ಜ್ವರವಿದೆ.",
+      "reference_english": "The patient has a fever.",
+      "reference_efi": 0.9051507597436266,
+      "translations": [
+        "The patient has a fever.",
+        "The patient has a fever.",
+        "The patient has a fever."
+      ],
+      "translation_efis": [
+        0.9051507597436266,
+        0.9051507597436266,
+        0.9051507597436266
+      ],
+      "mean_efi": 0.9051507597436266,
+      "std_efi": 0.0,
+      "variance": 0.0
+    },
+    {
+      "complexity": "medium",
+      "kannada": "ರೋಗಿಗೆ ಜ್ವರ ಮತ್ತು ತಲೆನೋವು ಇದೆ.",
+      "reference_english": "The patient has a fever and headache.",
+      "reference_efi": 0.9322575329801995,
+      "translations": [
+        "The patient has a fever and a headache.",
+        "The patient has a fever and headache.",
+        "The patient has a fever and a headache."
+      ],
+      "translation_efis": [
+        0.925076782610892,
+        0.9322575329801995,
+        0.925076782610892
+      ],
+      "mean_efi": 0.9274703660673279,
+      "std_efi": 0.0033850381867634462,
+      "variance": 1.1458483525846758e-05
+    },
+    {
+      "complexity": "medium",
+      "kannada": "ರಕ್ತದೊತ್ತಡ 160/100 ಕ್ಕೆ ಹೆಚ್ಚಾಗಿದೆ.",
+      "reference_english": "Blood pressure is elevated at 160/100.",
+      "reference_efi": 0.9401264189733701,
+      "translations": [
+        "Blood pressure is increased to 160/100.",
+        "Blood pressure is elevated to 160/100.",
+        "Blood pressure is elevated at 160/100."
+      ],
+      "translation_efis": [
+        0.9456866946280059,
+        0.9497421352951964,
+        0.9401264189733701
+      ],
+      "mean_efi": 0.9451850829655242,
+      "std_efi": 0.0039415911161536565,
+      "variance": 1.5536140526941427e-05
+    },
+    {
+      "complexity": "complex",
+      "kannada": "ರೋಗಿಯು ಎಡ ತೋಳಿಗೆ ಹರಡುವ ಎದೆ ನೋವನ್ನು ವರದಿ ಮಾಡುತ್ತಾರೆ.",
+      "reference_english": "Patient reports chest pain radiating to the left arm.",
+      "reference_efi": 0.9065610765504266,
+      "translations": [
+        "The patient reports chest pain radiating to the left arm.",
+        "The patient reports chest pain radiating to the left arm.",
+        "The patient reports chest pain radiating to the left arm."
+      ],
+      "translation_efis": [
+        0.9133347713036533,
+        0.9133347713036533,
+        0.9133347713036533
+      ],
+      "mean_efi": 0.9133347713036533,
+      "std_efi": 0.0,
+      "variance": 0.0
+    },
+    {
+      "complexity": "complex",
+      "kannada": "ECG ಯಲ್ಲಿ V1-V4 ಲೀಡ್‌ಗಳಲ್ಲಿ ST ಎಲಿವೇಷನ್ ಕಾಣಿಸುತ್ತಿದೆ.",
+      "reference_english": "The ECG shows ST elevation in leads V1-V4.",
+      "reference_efi": 0.8937711651487151,
+      "translations": [
+        "ST elevation is seen in leads V1-V4 on the ECG.",
+        "Of course. Here is the English translation:\n\nECG shows ST elevation in leads V1-V4.",
+        "The phrase \"ECG ಯಲ್ಲಿ V1-V4 ಲೀಡ್‌ಗಳಲ್ಲಿ ST ಎಲಿವೇಷನ್ ಕಾಣಿಸುತ್ತಿದೆ\" translates to:\n\n**\"ST elevation is seen in leads V1-V4 on the ECG.\"**"
+      ],
+      "translation_efis": [
+        0.9148758648911174,
+        0.7587080001072347,
+        0.8508013067823635
+      ],
+      "mean_efi": 0.8414617239269052,
+      "std_efi": 0.0640963927935873,
+      "variance": 0.004108347569149829
+    }
+  ],
+  "summary": {
+    "mean_std": 0.014284604419300878,
+    "max_std": 0.0640963927935873,
+    "mean_variance": 0.0008270684386405235,
+    "verdict": "SIGNIFICANT LIMITATION"
+  }
+}

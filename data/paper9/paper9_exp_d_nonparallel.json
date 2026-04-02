@@ -1,0 +1,98 @@
+{
+  "parallel": {
+    "pairs": [
+      {
+        "en": "The patient has a fever and headache.",
+        "kn": "ರೋಗಿಗೆ ಜ್ವರ ಮತ್ತು ತಲೆನೋವು ಇದೆ.",
+        "sim": 0.9322575329801995
+      },
+      {
+        "en": "Blood pressure is elevated at 160/100.",
+        "kn": "ರಕ್ತದೊತ್ತಡ 160/100 ಕ್ಕೆ ಹೆಚ್ಚಾಗಿದೆ.",
+        "sim": 0.9401264189733701
+      },
+      {
+        "en": "The ECG shows ST elevation in leads V1-V4.",
+        "kn": "ECG ಯಲ್ಲಿ V1-V4 ಲೀಡ್‌ಗಳಲ್ಲಿ ST ಎಲಿವೇಷನ್ ಕಾಣಿಸುತ್ತಿದೆ.",
+        "sim": 0.8937711651487151
+      },
+      {
+        "en": "Patient reports chest pain radiating to the left arm.",
+        "kn": "ರೋಗಿಯು ಎಡ ತೋಳಿಗೆ ಹರಡುವ ಎದೆ ನೋವನ್ನು ವರದಿ ಮಾಡುತ್ತಾರೆ.",
+        "sim": 0.9065610765504266
+      },
+      {
+        "en": "Administer aspirin 325mg immediately.",
+        "kn": "ತಕ್ಷಣ ಆಸ್ಪಿರಿನ್ 325mg ನೀಡಿ.",
+        "sim": 0.9239808320075165
+      }
+    ],
+    "mean": 0.9193394051320455,
+    "std": 0.016956069073732923
+  },
+  "nonparallel": {
+    "pairs": [
+      {
+        "en": "The patient has a fever and headache.",
+        "kn": "ರಕ್ತದೊತ್ತಡ 160/100 ಕ್ಕೆ ಹೆಚ್ಚಾಗಿದೆ.",
+        "sim": 0.36814793154777775
+      },
+      {
+        "en": "Blood pressure is elevated at 160/100.",
+        "kn": "ತಕ್ಷಣ ಆಸ್ಪಿರಿನ್ 325mg ನೀಡಿ.",
+        "sim": 0.28185745691133784
+      },
+      {
+        "en": "The ECG shows ST elevation in leads V1-V4.",
+        "kn": "ರೋಗಿಗೆ ಜ್ವರ ಮತ್ತು ತಲೆನೋವು ಇದೆ.",
+        "sim": 0.38361587422920906
+      },
+      {
+        "en": "Patient reports chest pain radiating to the left arm.",
+        "kn": "ECG ಯಲ್ಲಿ V1-V4 ಲೀಡ್‌ಗಳಲ್ಲಿ ST ಎಲಿವೇಷನ್ ಕಾಣಿಸುತ್ತಿದೆ.",
+        "sim": 0.3864037394137217
+      },
+      {
+        "en": "Administer aspirin 325mg immediately.",
+        "kn": "ರೋಗಿಯು ಎಡ ತೋಳಿಗೆ ಹರಡುವ ಎದೆ ನೋವನ್ನು ವರದಿ ಮಾಡುತ್ತಾರೆ.",
+        "sim": 0.2695120572774311
+      }
+    ],
+    "mean": 0.33790741187589546,
+    "std": 0.05133257898754849
+  },
+  "unrelated": {
+    "pairs": [
+      {
+        "en": "The patient has a fever and headache.",
+        "kn": "ಇಂದು ಮಳೆ ಬರುತ್ತಿದೆ.",
+        "sim": 0.24060390887238584
+      },
+      {
+        "en": "Blood pressure is elevated at 160/100.",
+        "kn": "ನನಗೆ ಹೊಸ ಪುಸ್ತಕ ಬೇಕು.",
+        "sim": 0.36581222818862275
+      },
+      {
+        "en": "The ECG shows ST elevation in leads V1-V4.",
+        "kn": "ಮಕ್ಕಳು ಶಾಲೆಗೆ ಹೋಗುತ್ತಿದ್ದಾರೆ.",
+        "sim": 0.3477363495321837
+      },
+      {
+        "en": "Patient reports chest pain radiating to the left arm.",
+        "kn": "ಅಡುಗೆ ಮನೆಯಲ್ಲಿ ಅಕ್ಕಿ ಇಲ್ಲ.",
+        "sim": 0.2173313200256454
+      },
+      {
+        "en": "Administer aspirin 325mg immediately.",
+        "kn": "ಬೆಂಗಳೂರು ಒಂದು ದೊಡ್ಡ ನಗರ.",
+        "sim": 0.2102919965772145
+      }
+    ],
+    "mean": 0.27635516063921045,
+    "std": 0.06666955597852298
+  },
+  "verdict": "VALID",
+  "parallel_vs_nonparallel_p": 0.003968253968253968,
+  "parallel_vs_unrelated_p": 0.003968253968253968
+}
