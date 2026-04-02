@@ -65,18 +65,52 @@ With LaBSE: Kannada 0.853, Tamil 0.857, Hindi 0.861 — **all equal.** The Dravi
 - Conservation law K holds across embedding models (Paper 6 robustness check confirmed)
 - The measurement sensitivity discovered here applies to the entire MCH programme
 
+## Validation Experiments (Apr 2026)
+
+### Experiment A — MuRIL Degeneracy Sanity Check
+- Tested CLS, mean pooling, and mean_normalized pooling
+- Cosine similarity ~0.999 for ALL inputs including random strings
+- Random numpy vectors: 0.002 (correct baseline) — confirms degeneracy is model-specific not numerical
+- **Verdict: DEGENERATE — confirmed, not a pipeline bug**
+
+### Experiment B — LaBSE European Language Control
+| Language | MiniLM EFI | MPNet EFI | LaBSE EFI |
+|----------|-----------|-----------|-----------|
+| Kannada  | 0.081     | 0.151     | 0.853     |
+| Tamil    | 0.073     | 0.126     | 0.857     |
+| Hindi    | 0.041     | 0.093     | 0.861     |
+| French   | 0.459     | 0.560     | 0.892     |
+| Spanish  | 0.423     | 0.493     | 0.910     |
+| German   | 0.304     | 0.398     | 0.875     |
+
+- Indic-European gap: MiniLM=0.32, LaBSE=0.035
+- **LaBSE is nearly script-invariant. Residual gap persists but 90% reduced.**
+
+### Experiment C — Variance Ratio Bootstrap CIs (10,000 iterations)
+- Kannada VR significantly >1.0 across ALL five embedding models
+- LaBSE DeepSeek Kannada: VR=2.36 [1.02, 5.42] — barely significant
+- LaBSE Mistral Kannada: VR=4.08 [1.77, 9.38] — strongly significant
+- **Variance amplification is LLM-intrinsic, not measurement artifact**
+- **EFI and variance are INDEPENDENT phenomena**
+
+## Key Conclusion
+LaBSE fixes EFI (0.08→0.85). LaBSE does NOT fix variance (still 2-4×). Different causes. Different solutions. Encoding fidelity is the tokenizer's problem. Variance amplification is the LLM's problem.
+
 ## Data
 
 | File | Description |
 |------|-------------|
 | data/paper9/paper9_efi_v2_with_degeneracy.json | EFI across 7 models with degeneracy validation |
+| data/paper9/paper9_exp_a_muril_degeneracy.json | Exp A: MuRIL degeneracy full results |
+| data/paper9/paper9_exp_b_european_control.json | Exp B: European control across 3 embedding models |
+| data/paper9/paper9_exp_c_variance_bootstrap.json | Exp C: Bootstrap CIs for variance ratios |
 | data/paper9/paper9_variance_reembedding.json | Variance ratios re-computed across 5 models |
-| scripts/experiments/paper9_indic_efi_v2.py | EFI experiment with degeneracy checks |
 
 ## Scripts
 - `scripts/experiments/paper9_indic_efi.py` — v1 (initial run, invalidated by degeneracy)
 - `scripts/experiments/paper9_indic_efi_v2.py` — v2 (with degeneracy validation)
+- `scripts/experiments/paper9_validation.py` — v3 (Experiments A, B, C)
 
 ---
 
-**Status:** Data complete. Manuscript writing pending after Paper 6 capstone.
+**Status:** Data complete. Three validation experiments passed. Manuscript writing pending after Paper 6 capstone.
