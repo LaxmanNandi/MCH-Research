@@ -1,0 +1,146 @@
+{
+  "results": [
+    {
+      "model": "gemini_flash",
+      "domain": "Medical",
+      "K": 0.2811
+    },
+    {
+      "model": "deepseek_v3_1",
+      "domain": "Medical",
+      "K": 0.1915
+    },
+    {
+      "model": "kimi_k2",
+      "domain": "Medical",
+      "K": 0.2521
+    },
+    {
+      "model": "llama_4_maverick",
+      "domain": "Medical",
+      "K": 0.1094
+    },
+    {
+      "model": "llama_4_scout",
+      "domain": "Medical",
+      "K": 0.3134
+    },
+    {
+      "model": "ministral_14b",
+      "domain": "Medical",
+      "K": 0.145
+    },
+    {
+      "model": "mistral_small_24b",
+      "domain": "Medical",
+      "K": 0.1153
+    },
+    {
+      "model": "qwen3_235b",
+      "domain": "Medical",
+      "K": 0.0988
+    },
+    {
+      "model": "claude_haiku",
+      "domain": "Philosophy",
+      "K": 0.1743
+    },
+    {
+      "model": "gemini_flash",
+      "domain": "Philosophy",
+      "K": 0.2155
+    },
+    {
+      "model": "gpt4o_mini",
+      "domain": "Philosophy",
+      "K": 0.0843
+    },
+    {
+      "model": "gpt4o",
+      "domain": "Philosophy",
+      "K": 0.1011
+    },
+    {
+      "model": "deepseek_v3_1",
+      "domain": "Philosophy",
+      "K": 0.2614
+    },
+    {
+      "model": "llama_4_maverick",
+      "domain": "Philosophy",
+      "K": 0.0836
+    },
+    {
+      "model": "deepseek_v3_1",
+      "domain": "Legal",
+      "K": 0.2668
+    },
+    {
+      "model": "llama_3_3_70b_turbo",
+      "domain": "Legal",
+      "K": 0.2112
+    },
+    {
+      "model": "llama_4_maverick",
+      "domain": "Legal",
+      "K": 0.3424
+    },
+    {
+      "model": "mistral_small_24b",
+      "domain": "Legal",
+      "K": 0.1844
+    },
+    {
+      "model": "qwen3_235b",
+      "domain": "Legal",
+      "K": 0.3942
+    },
+    {
+      "model": "deepseek_v3_1",
+      "domain": "Ethics",
+      "K": 0.2822
+    },
+    {
+      "model": "llama_3_3_70b_turbo",
+      "domain": "Ethics",
+      "K": 0.2173
+    },
+    {
+      "model": "llama_4_maverick",
+      "domain": "Ethics",
+      "K": 0.1728
+    },
+    {
+      "model": "mistral_small_24b",
+      "domain": "Ethics",
+      "K": 0.1322
+    },
+    {
+      "model": "qwen3_235b",
+      "domain": "Ethics",
+      "K": 0.2663
+    }
+  ],
+  "summary": {
+    "Medical": {
+      "N": 8,
+      "K_mean": 0.18832500000000002,
+      "CV": 0.4188732779429505
+    },
+    "Philosophy": {
+      "N": 6,
+      "K_mean": 0.15336666666666668,
+      "CV": 0.4481138471737004
+    },
+    "Legal": {
+      "N": 5,
+      "K_mean": 0.2798,
+      "CV": 0.28133495456092644
+    },
+    "Ethics": {
+      "N": 5,
+      "K_mean": 0.21416,
+      "CV": 0.26236886933441383
+    }
+  }
+}
