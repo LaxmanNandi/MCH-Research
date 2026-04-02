@@ -1,6 +1,6 @@
 # MCH Research Program: Context Sensitivity in Large Language Models
 
-## An Eight-Paper Research Program Across 14 LLMs, 4 Domains, and 150,000+ Responses
+## A Nine-Paper Research Program Across 14 LLMs, 4 Domains, and 160,000+ Responses
 
 [![Paper 1 - Preprints.org](https://img.shields.io/badge/Paper%201-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![Paper 2 - Preprints.org](https://img.shields.io/badge/Paper%202-10.20944%2Fpreprints202602.1114.v2-blue.svg)](https://www.preprints.org/manuscript/202602.1114/v2)
@@ -33,7 +33,8 @@
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — Theory of Epistemological Relativity | 📄 Draft — 4 domains, 4 truth-types |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
-| **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 |
+| **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 + npj Digital Medicine (under review) |
+| **9** | Measurement Matters | EFI is embedding-dependent (0.08→0.85); MuRIL degeneracy; variance is LLM-intrinsic | 📊 Data complete |
 
 ### Key Discovery: Theory of Epistemological Relativity (Paper 6 — Capstone)
 
@@ -99,13 +100,22 @@ Shannon's encoding fidelity assumption fails for non-English LLMs:
 - European control: German/French significantly higher (d=1.33) — degradation is Dravidian-specific
 - Variance amplification: Kannada 1.72–2.05× (p<0.05)
 - Coherent Misalignment: fluent, confident, semantically wrong outputs — a new failure mode
-- **K ⊥ Truth**: conservation holds even when semantic encoding degrades to 7%
+### 8. Measurement Matters (Paper 9)
+EFI is embedding-dependent — the measured encoding fidelity gap varies 10× depending on embedding model:
+- **MiniLM (384D):** Kannada EFI = 0.081 — the Paper 8 finding
+- **MPNet (768D):** Kannada EFI = 0.151 — slightly better
+- **LaBSE (768D):** Kannada EFI = 0.853 — **nearly script-invariant**
+- **MuRIL:** DEGENERATE — cosine ~0.999 for all inputs including random strings
+- LaBSE closes Indic-European gap from 0.32 to 0.035
+- **But variance amplification persists** across all embedding models (bootstrap 95% CIs, 10K iterations) — variance is LLM-intrinsic, not a measurement artifact
+- **EFI and variance are INDEPENDENT phenomena** — different causes, different solutions
 
-### 8. Programme Scale
-- **150,000+ responses** across 4 domains, 14+ architectures, 8 vendors
+### 9. Programme Scale
+- **160,000+ responses** across 4 domains, 14+ architectures, 8 vendors
 - **50 trials** per model-domain configuration, **30 positions**, **3 conditions** (TRUE/COLD/SCRAMBLED)
-- **22+ model-domain runs** with complete data
-- **6 papers published**, 1 seeking venue, 1 capstone in preparation
+- **24 model-domain runs** with complete data
+- **8 papers published**, 1 capstone in preparation, 1 data complete
+- **768D robustness check** confirms K holds across embedding dimensions
 - All data, scripts, and analysis publicly available in this repository
 
 ![Conservation constraint with hyperbolas](docs/figures/paper6/fig1_conservation_law_hyperbolas.png)
@@ -137,7 +147,7 @@ Shannon's encoding fidelity assumption fails for non-English LLMs:
 | Ministral 14B | Mistral | 14B | Medical |
 | Kimi K2 | Moonshot | 1T (32B active) | Medical |
 
-**14+ unique models, 8 vendors, 4 domains, 22+ model-domain runs = 150,000+ responses**
+**14+ unique models, 8 vendors, 4 domains, 24 model-domain runs = 160,000+ responses**
 
 ---
 
@@ -153,7 +163,8 @@ mch_experiments/
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
 │   ├── paper6_conservation/         #   Paper 6: Draft complete
 │   ├── paper7_submission/           #   Paper 7: Published (tex, pdf, figures/, archive/)
-│   └── paper8_efi/                  #   Paper 8: Submitted (Preprints ID: 204266)
+│   ├── paper8_efi/                  #   Paper 8: Published + npj Digital Medicine
+│   └── paper9_measurement/          #   Paper 9: Measurement Matters (data complete)
 │
 ├── data/                            # Experimental data (single source of truth)
 │   ├── medical/                     #   Medical domain (STEMI case)
@@ -163,10 +174,11 @@ mch_experiments/
 │   │   ├── closed_models/           #     5 closed-source models
 │   │   └── open_models/             #     7 open-source models
 │   ├── paper5/                      #   Accuracy verification data
-│   ├── paper6/                      #   Conservation constraint test data
+│   ├── paper6/                      #   Conservation constraint + 768D robustness
 │   ├── paper7/                      #   Paper 7 cold prior voice analysis
-│   ├── legal/                       #   Legal domain (Paper 6 extension)
-│   └── ethics/                      #   Applied Ethics domain (Paper 6 extension)
+│   ├── paper9/                      #   Paper 9 validation experiments (A, B, C)
+│   ├── legal/                       #   Legal domain (N=5, complete)
+│   └── ethics/                      #   Applied Ethics domain (N=5, complete)
 │
 ├── scripts/                         # Analysis and experiment code
 │   ├── experiments/                 #   Experiment runners
@@ -317,6 +329,16 @@ python scripts/generate_paper5_figures.py
   author={Laxman, M M},
   journal={Preprints.org},
   doi={10.20944/preprints202604.0061.v1},
+  year={2026}
+}
+```
+
+### Paper 9 (data complete)
+```bibtex
+@article{laxman2026measurement,
+  title={Measurement Matters: {EFI} is Embedding-Dependent and Variance Amplification is {LLM}-Intrinsic},
+  author={Laxman, M M},
+  note={Data complete, manuscript in preparation},
   year={2026}
 }
 ```
