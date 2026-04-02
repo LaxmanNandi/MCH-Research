@@ -1,0 +1,81 @@
+{
+  "results": {
+    "all-MiniLM-L6-v2": {
+      "DeepSeek_V3.1": {
+        "English": 0.007251952660620516,
+        "Kannada": 0.024228225683335828,
+        "Tamil": 0.005301184857652704,
+        "Hindi": 0.03516786381864508
+      },
+      "Mistral_Small": {
+        "English": 0.0016409686985087175,
+        "Kannada": 0.01890018419567336,
+        "Tamil": 0.011534741708117902,
+        "Hindi": 0.0020302211757872333
+      }
+    },
+    "all-mpnet-base-v2": {
+      "DeepSeek_V3.1": {
+        "English": 0.0010246696041425179,
+        "Kannada": 0.027992708209799676,
+        "Tamil": 0.013625110534528464,
+        "Hindi": 0.03457120739911216
+      },
+      "Mistral_Small": {
+        "English": 0.0007888277716680322,
+        "Kannada": 0.022137614424826986,
+        "Tamil": 0.04764616227357995,
+        "Hindi": 0.027056530360314662
+      }
+    },
+    "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2": {
+      "DeepSeek_V3.1": {
+        "English": 0.0068163338690470825,
+        "Kannada": 0.01968860803139792,
+        "Tamil": 0.01361455547377477,
+        "Hindi": 0.00818985563912272
+      },
+      "Mistral_Small": {
+        "English": 0.0014854628478641273,
+        "Kannada": 0.004048492122764989,
+        "Tamil": 0.010551299511314196,
+        "Hindi": 0.007861721544930672
+      }
+    },
+    "sentence-transformers/paraphrase-multilingual-mpnet-base-v2": {
+      "DeepSeek_V3.1": {
+        "English": 0.003638473007610471,
+        "Kannada": 0.012128251610653677,
+        "Tamil": 0.00998558092720736,
+        "Hindi": 0.004913978606830592
+      },
+      "Mistral_Small": {
+        "English": 0.0013165989725980785,
+        "Kannada": 0.01026170792130061,
+        "Tamil": 0.013106974908613553,
+        "Hindi": 0.005760451654318599
+      }
+    },
+    "sentence-transformers/LaBSE": {
+      "DeepSeek_V3.1": {
+        "English": 0.0018868712475820504,
+        "Kannada": 0.004444377046669605,
+        "Tamil": 0.0019994078091751326,
+        "Hindi": 0.0025289233424171708
+      },
+      "Mistral_Small": {
+        "English": 0.0007423927423116036,
+        "Kannada": 0.003026757860941081,
+        "Tamil": 0.007186487541738696,
+        "Hindi": 0.0018602594705712846
+      }
+    }
+  },
+  "models": [
+    "all-MiniLM-L6-v2",
+    "all-mpnet-base-v2",
+    "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+    "sentence-transformers/LaBSE"
+  ]
+}
