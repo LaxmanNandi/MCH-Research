@@ -1,0 +1,887 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{amsmath,amssymb}
+\usepackage{natbib}
+\usepackage{fancybox}
+
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{pifont}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdftitle={Measurement Matters: Embedding Model Choice Determines Encoding Fidelity Assessment in Multilingual Clinical AI},
+    pdfauthor={Laxman M M},
+}
+
+% ================================================================
+\title{\LARGE\textbf{Measurement Matters: Embedding Model Choice\\
+Determines Encoding Fidelity Assessment\\
+in Multilingual Clinical AI}}
+
+\author{
+    \textbf{Dr.\ Laxman M M, MBBS}\\
+    Government Duty Medical Officer, PHC Manchi\\
+    Bantwal Taluk, Dakshina Kannada, Karnataka, India\\
+    DNB General Medicine Resident (2026), KC General Hospital, Bangalore\\
+    Email: \texttt{barlax5377@gmail.com}\\
+    ORCID: \href{https://orcid.org/0009-0009-0405-6531}{0009-0009-0405-6531}
+}
+
+\date{April 2026}
+
+% ================================================================
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\textbf{Paper 9 of the MCH Research Program} --- Paper 8 demonstrated that encoding
+fidelity degrades by $\sim$90\% for non-English clinical input when measured with
+standard sentence embedding models. This paper asks: how much of that finding depends
+on the measurement instrument? Answer: the phenomenon is real, but its measured magnitude
+is substantially instrument-dependent. The encoding fidelity gap and variance amplification
+are distinct phenomena with different solutions.
+}}
+\end{center}
+
+\vspace{0.5em}
+
+% ================================================================
+\begin{abstract}
+\noindent Paper 8 of the MCH Research Program demonstrated $\sim$90\% Encoding Fidelity
+Index (EFI) degradation for Kannada, Tamil, and Hindi clinical input relative to English,
+measured using standard sentence embedding models (MiniLM, MPNet). This paper asks whether
+that finding is an artefact of measurement instrument choice. Using the same 15-sentence
+clinical battery across 6 embedding models ranging from monolingual-distilled
+(all-MiniLM-L6-v2) to language-agnostic (LaBSE), we find: (1) EFI is dramatically
+embedding-dependent --- Kannada EFI ranges from 0.081 (MiniLM) to 0.853 (LaBSE), a
+10$\times$ difference for identical input; (2) the Dravidian-specific EFI gap from Paper~8
+nearly disappears under LaBSE (Indic--European gap: MiniLM = 0.32, LaBSE = 0.035; 90\%
+reduction), indicating near script-invariance with the appropriate measurement tool; (3)
+Indic-specific masked language models (MuRIL, IndicBERTv2) are degenerate as sentence
+encoders --- effective rank 1.42/10 versus 9.88/10 for MiniLM --- and cannot measure EFI;
+any claim that ``Indic models fix encoding'' based on raw MLM embeddings is methodologically
+invalid; (4) critically, variance amplification persists across ALL five non-degenerate
+embedding models (Kannada VR $>$ 1.0, $p < 0.05$), confirming it is LLM-intrinsic rather
+than a measurement artefact; (5) EFI and variance ratio are statistically independent under
+LaBSE ($r = -0.18$, $p = 0.73$), confirming they measure distinct phenomena with different
+causes. The central conclusion: LaBSE fixes the measured EFI gap (tokenizer/embedding
+problem, partially addressable); LaBSE does not fix variance amplification (LLM behaviour
+problem, requiring different intervention). These findings have direct implications for
+methodology in multilingual clinical AI evaluation.
+
+\vspace{0.5em}
+\noindent\textbf{Keywords:} encoding fidelity, embedding model selection, LaBSE, MuRIL
+degeneracy, variance amplification, multilingual clinical AI, measurement methodology,
+Kannada, Tamil, Hindi
+
+\vspace{0.5em}
+\noindent\textbf{Zenodo Repository:}
+\url{https://doi.org/10.5281/zenodo.19371897}\\
+\noindent\textbf{OSF Pre-registration:} \url{https://osf.io/dp8nj/}\\
+\noindent\textbf{Paper 8 DOI:} \url{https://doi.org/10.20944/preprints202604.0061.v1}
+\end{abstract}
+
+% ================================================================
+\section{Introduction}
+
+\subsection{Background}
+
+Paper 8 of the MCH Research Program \citep{laxman2026h} introduced the Encoding Fidelity
+Index (EFI) and demonstrated $\sim$90\% degradation for non-English clinical input, naming
+the resulting failure mode \emph{Coherent Misalignment}. The finding was replicated across
+two embedding models (MiniLM-384D, MPNet-768D) and two LLMs (DeepSeek V3.1, Mistral Small
+24B). A European language control confirmed the degradation was tokenizer-induced rather
+than inherently cross-lingual. This builds on a growing body of evidence that LLMs encode
+substantial clinical knowledge in English \citep{singhal2023} but show measurably degraded
+performance for non-English healthcare queries \citep{jin2024}, a disparity documented
+across diverse language families \citep{blasi2022}. The token cost inequity for non-English
+languages \citep{ahia2023} and systematic vocabulary disadvantages for low-resource scripts
+\citep{limisiewicz2023} create structural encoding barriers that standard benchmarks do not
+capture \citep{ruder2023}.
+
+Paper 8 noted a key limitation: EFI\textsubscript{proxy} measures cosine similarity in
+embedding space, not the theoretical mutual information quantity $I(X;\hat{X})/H(X)$. Both
+embedding models used in Paper~8 --- all-MiniLM-L6-v2 and all-mpnet-base-v2 --- are
+primarily trained on English text with multilingual knowledge distillation. Their
+sensitivity to semantic distinctions in non-English scripts may be limited by their
+training objective rather than by the encoding properties of the LLMs under study.
+
+This raises a direct question: does the $\sim$90\% EFI degradation reflect the true
+encoding fidelity loss, or does it partly reflect the measurement instrument's own
+limitations with non-English text?
+
+\subsection{The Measurement Question}
+
+The EFI\textsubscript{proxy} for a given sentence pair is:
+\begin{equation}
+    \text{EFI}_{\text{proxy}} = \cos\!\big(\mathbf{e}(\text{non-English}),\;
+    \mathbf{e}(\text{English equivalent})\big)
+\end{equation}
+
+where $\mathbf{e}(\cdot)$ is an embedding from a sentence embedding model. The theoretical
+basis for EFI derives from Shannon's Mathematical Theory of Communication \citep{shannon1948},
+which assumes that encoders preserve the statistical structure of the source signal. If the embedding
+model itself assigns low similarity to semantically equivalent sentences across scripts
+--- regardless of actual LLM encoding quality --- the EFI measurement will appear degraded
+even when the underlying encoding is adequate.
+
+Conversely, if the phenomenon is real, it should persist under any well-calibrated
+embedding model, including models specifically designed for cross-lingual semantic
+alignment.
+
+\subsection{Contributions}
+
+This paper makes five contributions:
+
+\begin{enumerate}
+    \item We demonstrate that EFI\textsubscript{proxy} varies $10\times$ across embedding
+    models for identical input, from 0.081 (MiniLM) to 0.853 (LaBSE) for Kannada.
+    \item We show that LaBSE achieves near script-invariance, reducing the Indic-European
+    EFI gap by 90\% and validating that it measures semantic meaning rather than
+    language-surface features (non-parallel control: $\Delta = 0.58$, $p = 0.004$).
+    \item We demonstrate and characterise the degeneracy of Indic masked language models
+    (MuRIL, IndicBERTv2) as sentence encoders, showing effective rank collapse to 1.42/10.
+    \item We confirm that variance amplification is LLM-intrinsic: it persists across all
+    five non-degenerate embedding models with bootstrap confidence intervals excluding 1.0.
+    \item We establish statistical independence of EFI and variance ratio under LaBSE
+    ($r = -0.18$, $p = 0.73$), confirming they are distinct phenomena requiring different
+    interventions.
+\end{enumerate}
+
+% ================================================================
+\section{Related Work}
+
+\subsection{Sentence Embedding Models and Cross-Lingual Alignment}
+
+The sentence embedding landscape spans monolingual-distilled models
+\citep{reimers2020,reimers2019} and language-agnostic models trained directly on parallel
+corpora \citep{feng2022,artetxe2019}. Reimers \& Gurevych \citep{reimers2020} demonstrated
+that knowledge distillation from English sentence transformers can produce multilingual
+models, but noted that alignment quality depends on the quantity and quality of parallel
+data --- a constraint that disproportionately affects low-resource languages. Cross-lingual
+representation learning at scale \citep{conneau2020} and analyses of multilingual BERT's
+limitations \citep{pires2019} further document the systematic gaps between high- and
+low-resource language alignment. Efforts to improve multilingual coverage \citep{nllb2022}
+and benchmarks for under-represented languages \citep{ruder2023} provide context for the
+encoding fidelity gaps measured in this program. Hammerl et~al.\ \citep{hammerl2024}
+provide a comprehensive survey of cross-lingual alignment methods and their limitations.
+
+LaBSE \citep{feng2022} was trained on 6 billion translation pairs across 109 languages,
+using a combination of masked language model pre-training and translation ranking loss to
+achieve language-agnostic sentence representations. For low-resource language pairs,
+LaBSE's alignment quality exceeds distillation-based approaches by substantial margins.
+
+\subsection{Indic Language Models}
+
+MuRIL \citep{khanuja2021} was developed by Google specifically for Indian languages,
+trained on significantly more Indic text than mBERT or XLM-R. IndicBERTv2
+\citep{doddapaneni2023} extended this work with larger corpora and improved vocabulary
+coverage. Both models are primarily designed for token-level tasks (NER, classification,
+POS tagging) rather than sentence-level semantic similarity. Their use as sentence
+encoders requires pooling strategies (CLS token, mean pooling) that were not validated
+in their original training objectives.
+
+\subsection{Embedding Degeneracy}
+
+Representation collapse in transformer models has been documented in several contexts.
+\citet{ethayarajh2019} showed that contextualised representations become increasingly
+anisotropic in upper layers, concentrating in a narrow cone of the embedding space.
+\citet{gao2019} demonstrated that standard language model pre-training produces
+representations with high cosine similarity even for semantically unrelated sentences
+--- a pathology they termed \emph{representation degeneration}. Our finding that MuRIL
+produces near-constant cosine similarity (0.999) for all inputs is a severe instance of
+this phenomenon, potentially exacerbated by the token-level training objective when
+applied to sentence-level tasks.
+
+% ================================================================
+\section{Methods}
+
+\subsection{Sentence Battery}
+
+The same 15-sentence clinical battery from Paper~8 was used: 5 sentences at each of
+three complexity levels (Simple, Medium, Complex) in four languages (English, Kannada,
+Tamil, Hindi). Complex sentences contain English medical loanwords (ST elevation,
+D-dimer, troponin) as used in clinical practice. A European extension (French, Spanish,
+German) was added following the Paper~8 protocol.
+
+\subsection{Embedding Models Evaluated}
+
+Six embedding models were evaluated (Table~\ref{tab:models}):
+
+\begin{table}[H]
+\centering
+\caption{Embedding models evaluated in Paper 9.}
+\label{tab:models}
+\begin{tabular}{llll}
+\toprule
+\textbf{Model} & \textbf{Dim} & \textbf{Category} & \textbf{Training objective} \\
+\midrule
+all-MiniLM-L6-v2        & 384  & EN-distilled   & Multilingual distillation \\
+all-mpnet-base-v2       & 768  & EN-distilled   & Multilingual distillation \\
+paraphrase-multilingual-MiniLM & 384 & Multilingual & Direct multilingual training \\
+paraphrase-multilingual-mpnet  & 768 & Multilingual & Direct multilingual training \\
+LaBSE                   & 768  & Language-agnostic & Translation ranking + MLM \\
+MuRIL                   & 768  & Indic MLM      & Masked language model (Indic) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+IndicBERTv2 was also tested but produced results consistent with MuRIL and is reported
+jointly as ``Indic MLMs'' throughout.
+
+\subsection{EFI Computation}
+
+EFI\textsubscript{proxy} was computed as the cosine similarity between the non-English
+sentence embedding and its English equivalent, for each of the six models. English
+self-similarity serves as the reference (EFI = 1.0 by construction).
+
+\subsection{Degeneracy Validation (Experiment A)}
+
+To determine whether MuRIL's near-constant cosine similarity (0.999) reflected a pipeline
+error or genuine model behaviour, we tested:
+\begin{enumerate}
+    \item CLS pooling, mean pooling, and normalised mean pooling
+    \item Cosine similarity for semantically equivalent pairs (same meaning EN-KN)
+    \item Cosine similarity for semantically unrelated pairs (different English sentences)
+    \item Cosine similarity for random string inputs
+    \item Cosine similarity for random numpy vectors of equal dimension (null distribution)
+\end{enumerate}
+
+Effective rank of the embedding matrix was computed as the participation ratio
+\citep{roy2007}: $\text{eff\_rank} = \exp(H(\mathbf{p}))$ where $\mathbf{p}$ is the
+normalised vector of singular values.
+
+\subsection{LaBSE Semantic Discrimination (Experiment D)}
+
+To validate that LaBSE's high EFI reflects genuine semantic preservation rather than
+language-surface alignment, we compared cosine similarity for:
+\begin{enumerate}
+    \item Parallel pairs (same clinical meaning, EN-KN)
+    \item Non-parallel pairs (different clinical meaning, EN-KN)
+    \item Unrelated pairs (medical vs everyday content, EN-KN)
+\end{enumerate}
+
+Statistical significance tested by Mann-Whitney U (one-sided).
+
+\subsection{European Language Control (Experiment B)}
+
+The same 15 clinical sentences used for French, Spanish, and German in Paper~8 were
+re-embedded using LaBSE to enable direct comparison across embedding models for the
+same inputs.
+
+\subsection{Variance Ratio Bootstrap Confidence Intervals (Experiment C)}
+
+Variance Ratio data from Paper~8's 15-trial stochastic experiments (DeepSeek V3.1 and
+Mistral Small 24B) were re-embedded using the full set of non-degenerate models.
+Bootstrap confidence intervals (10,000 iterations, resampling trials with replacement)
+were computed for VR under each embedding model. Statistical significance assessed by
+testing whether the 95\% CI lower bound exceeds 1.0.
+
+\subsection{EFI--VR Independence (Experiment E)}
+
+Pearson $r$ and Spearman $\rho$ were computed between LaBSE EFI values and LaBSE VR
+values across all language--LLM combinations ($N = 8$: 4 languages $\times$ 2 LLMs).
+Bootstrap 95\% CI for $r$ was computed via 10,000 resampling iterations.
+
+\subsection{Translation Variability (Experiment F)}
+
+For 5 sentences (1 Simple, 2 Medium, 2 Complex), three independent English translations
+of each Kannada source were generated using DeepSeek V3.1. LaBSE EFI was computed for
+each translation variant. Variance in EFI across translations provides an upper bound
+on the noise floor introduced by single-translation methodology.
+
+\subsection{AI-Assisted Tools}
+AI tools (Claude, Anthropic; ChatGPT, OpenAI; DeepSeek) were used to assist with data
+analysis, statistical computation, visualization, and manuscript preparation. All
+experimental design, clinical interpretations, hypothesis formulation, and scientific
+conclusions are the sole responsibility of the author.
+
+% ================================================================
+\section{Results}
+
+\subsection{EFI is Dramatically Embedding-Dependent}
+
+Table~\ref{tab:efi_all} presents EFI values across all six embedding models and target
+languages.
+
+\begin{table}[H]
+\centering
+\caption{EFI by embedding model and language. MuRIL values are struck through
+(degenerate; see Section~4.3). 10$\times$ improvement from MiniLM to LaBSE for Kannada.}
+\label{tab:efi_all}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Embedding Model} & \textbf{Category} & \textbf{Kannada EFI} &
+\textbf{Tamil EFI} & \textbf{Hindi EFI} \\
+\midrule
+all-MiniLM-L6-v2 (384D)             & EN-distilled  & 0.081 & 0.073 & 0.041 \\
+all-mpnet-base-v2 (768D)             & EN-distilled  & 0.151 & 0.126 & 0.093 \\
+paraphrase-multilingual-MiniLM (384D) & Multilingual & 0.268 & 0.311 & 0.751 \\
+paraphrase-multilingual-mpnet (768D)  & Multilingual & 0.616 & 0.677 & 0.789 \\
+LaBSE (768D)                          & Lang-agnostic & \textbf{0.853} & \textbf{0.857} & \textbf{0.861} \\
+MuRIL (768D)                          & Indic MLM     & \textit{0.999} & \textit{0.999} & \textit{0.999} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The 10$\times$ improvement from MiniLM to LaBSE for identical Kannada input
+is striking. The gradient across model categories is consistent: EN-distilled $<$
+multilingual $<$ language-agnostic (Figure~\ref{fig:efi_models}). This pattern holds
+across all three Indian languages. The core implication: the $\sim$90\% EFI degradation
+reported in Paper~8 was a conservative estimate, partially reflecting the measurement
+instrument's own limitations with non-English script.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig1_efi_across_models.png}
+\caption{EFI across embedding models and languages. The gradient from EN-distilled
+(red/orange) to language-agnostic (LaBSE, dark green) is consistent across all Indian
+languages. MuRIL (hatched, degenerate, marked with X) cannot be used for EFI
+measurement. European languages shown for comparison (French, German). English baseline
+= 1.0 (dashed line).}
+\label{fig:efi_models}
+\end{figure}
+
+\subsection{LaBSE Achieves Near Script-Invariance}
+
+Under LaBSE, the Indic-European EFI gap reduces from 0.32 (MiniLM) to 0.035
+(Table~\ref{tab:labse_european}) --- a 90\% reduction.
+
+\begin{table}[H]
+\centering
+\caption{EFI by language and embedding model, including European control.
+Indic-European gap: MiniLM = 0.32, LaBSE = 0.035 (90\% reduction).}
+\label{tab:labse_european}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Language} & \textbf{Script} & \textbf{MiniLM EFI} &
+\textbf{MPNet EFI} & \textbf{LaBSE EFI} \\
+\midrule
+English  & Latin      & 1.000 & 1.000 & 1.000 \\
+Kannada  & Kannada    & 0.081 & 0.151 & 0.853 \\
+Tamil    & Tamil      & 0.073 & 0.126 & 0.857 \\
+Hindi    & Devanagari & 0.041 & 0.093 & 0.861 \\
+\midrule
+French   & Latin      & 0.459 & 0.560 & 0.892 \\
+Spanish  & Latin      & 0.423 & 0.493 & 0.910 \\
+German   & Latin      & 0.304 & 0.398 & 0.875 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The residual gap of 0.035 between Indic and European languages under LaBSE is
+small but non-zero. Whether this reflects genuine residual encoding asymmetry or
+remaining training data imbalance requires further investigation.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig3_european_heatmap.png}
+\caption{EFI by language and embedding model. LaBSE achieves near script-invariance
+across language families. Indic--European gap reduces from 0.32 (MiniLM) to 0.035
+(LaBSE) --- a 90\% reduction. Horizontal divider separates Indic (top) from European
+(bottom) language groups.}
+\label{fig:european_heatmap}
+\end{figure}
+
+\subsection{LaBSE Measures Meaning, Not Language Detection}
+
+A key concern was whether LaBSE's high cross-lingual similarity reflects genuine semantic
+preservation or merely maps all sentences to a common language-neutral subspace regardless
+of meaning. Experiment D addresses this directly (Figure~\ref{fig:labse_discrimination}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig4_labse_discrimination.png}
+\caption{LaBSE cosine similarity for parallel (same meaning), non-parallel (different
+medical meaning), and unrelated (medical vs everyday) EN-KN sentence pairs.
+Parallel-to-non-parallel drop: $\Delta = 0.58$, $p = 0.004$. LaBSE discriminates
+semantic content, not just language identity. Paper 8 EFI threshold shown as reference
+(dashed line).}
+\label{fig:labse_discrimination}
+\end{figure}
+
+\noindent Parallel pairs (same meaning): 0.919. Non-parallel pairs (different medical
+meaning): 0.338. Unrelated pairs: 0.276. The parallel-to-non-parallel drop of 0.58 is
+statistically significant ($p = 0.004$, Mann-Whitney U). LaBSE is measuring meaning, not
+surface language identity. The EFI = 0.853 reported for Kannada under LaBSE reflects
+genuine semantic preservation, not measurement artefact.
+
+\subsection{Indic MLMs Are Degenerate as Sentence Encoders}
+
+Experiment A confirms that MuRIL produces near-constant cosine similarity for all inputs
+regardless of content or language (Figure~\ref{fig:degeneracy}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig2_degeneracy_comparison.png}
+\caption{Pairwise cosine similarity distribution for 10 semantically distinct English
+sentences (45 comparisons). (a) MiniLM: mean = 0.052, effective rank = 9.88/10 ---
+healthy discrimination. (b) MuRIL: mean = 0.9994, effective rank = 1.42/10 --- total
+collapse. All sentences map to the same region of embedding space.}
+\label{fig:degeneracy}
+\end{figure}
+
+\noindent Key validation results:
+\begin{itemize}
+    \item Random numpy vectors: cosine = 0.002 (correct null distribution)
+    \item MuRIL, semantically equivalent EN-KN pairs: 0.999
+    \item MuRIL, unrelated English sentences: 0.999
+    \item MuRIL, random string inputs: 0.999
+    \item MuRIL effective rank: 1.42/10
+    \item MiniLM effective rank: 9.88/10
+    \item LaBSE effective rank: 9.53/10
+\end{itemize}
+
+The null distribution (random vectors = 0.002) confirms the issue is model-specific, not
+numerical. MuRIL collapses all inputs to a 1.42-dimensional subspace --- functionally
+one-dimensional --- regardless of content. This is consistent with the representation
+degeneration phenomenon documented by \citet{gao2019} and is likely an artefact of
+applying a token-level training objective (masked language modelling) to sentence-level
+similarity tasks without fine-tuning on sentence pairs.
+
+\textbf{Methodological warning:} Any study claiming that ``Indic models restore encoding
+fidelity'' based on raw MuRIL or IndicBERTv2 sentence embeddings is measuring model
+degeneracy, not encoding fidelity. The apparent high similarity is a failure mode of the
+measurement instrument.
+
+\subsection{Variance Amplification is LLM-Intrinsic}
+
+Experiment C re-embedded the Paper~8 LLM response data using all five non-degenerate
+embedding models and computed bootstrap confidence intervals
+(Figure~\ref{fig:variance_independence}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig5_variance_independence.png}
+\caption{Variance Ratio (Kannada/English) by embedding model, with 95\% bootstrap CIs
+(10,000 iterations). VR $>$ 1.0 across ALL five embedding models for both DeepSeek
+(blue) and Mistral (red). MPNet shows an outlier at 27$\times$ (geometry-sensitive).
+LaBSE provides the most stable estimate: DeepSeek VR = 2.36 [1.02, 5.42], Mistral VR =
+4.08 [1.77, 9.38]. The dashed line at VR = 1.0 marks no amplification.}
+\label{fig:variance_independence}
+\end{figure}
+
+\noindent Under LaBSE (the most reliable measurement tool):
+\begin{itemize}
+    \item DeepSeek Kannada VR = 2.36 [95\% CI: 1.02, 5.42] --- significant ($p < 0.05$)
+    \item Mistral Kannada VR = 4.08 [95\% CI: 1.77, 9.38] --- strongly significant
+\end{itemize}
+
+VR $>$ 1.0 is confirmed in both LLMs across all five non-degenerate embedding models.
+The MPNet outlier (27.32$\times$) reflects geometry amplification in that model's
+embedding space rather than a property of LLM behaviour; LaBSE provides the most
+conservative and stable estimate. The variance finding from Paper~8 survives measurement
+instrument change.
+
+\subsection{EFI and Variance Ratio Are Independent}
+
+Experiment E computed the correlation between LaBSE EFI and LaBSE VR across all
+language--LLM combinations ($N = 8$). Pearson $r = -0.18$ ($p = 0.73$); Spearman
+$\rho = -0.21$ ($p = 0.61$). Neither correlation is significant. The 95\% bootstrap CI
+for $r$ comfortably includes zero.
+
+This confirms the central finding: EFI degradation and variance amplification are
+statistically independent phenomena. A language can show high EFI degradation without
+variance amplification (Hindi: EFI $\approx$ 0.041, VR $\approx$ 0.91 under Mistral)
+or significant variance amplification despite LaBSE recovering EFI to 0.853 (Kannada:
+VR = 4.08 under Mistral). Different causes require different solutions.
+
+\subsection{Translation Variability}
+
+Experiment F assessed whether single-translation methodology introduces meaningful noise
+into EFI estimates. For 4 out of 5 sentences, translation variability was near-zero
+(std $<$ 0.005). One sentence showed elevated variance (std = 0.064), attributable to
+prompt compliance artefacts: the translation model added wrapper text
+(``Of course. Here is the English translation:'') in two of three trials, which inflated
+the embedding distance. When wrapper text was stripped, all three translations were
+semantically equivalent. Translation variability is not a major confound for clean
+outputs; post-processing to strip compliance artefacts is recommended for production
+pipelines.
+
+% ================================================================
+\section{Discussion}
+
+\subsection{The Phenomenon is Real; the Magnitude was Conservative}
+
+The central question of this paper --- is the Paper~8 EFI finding real or a measurement
+artefact? --- has a clear answer: the phenomenon is real, and the Paper~8 measurement was
+conservative. With the appropriate measurement instrument (LaBSE), EFI for Kannada
+clinical input rises from 0.081 to 0.853 --- still 15\% below the English reference of
+1.0. The Dravidian-specific gap narrows to 0.035 relative to European languages. The
+encoding fidelity problem is real and persists under the best available measurement tool;
+it is less severe than the conservative MiniLM estimate suggested.
+
+The analogy is straightforward: a thermometer not calibrated for the relevant temperature
+range will misreport the reading. The fever is real; the magnitude was measured with the
+wrong instrument.
+
+\subsection{Two Problems, Two Solutions}
+
+The independence of EFI and variance amplification (Experiment E, $r = -0.18$, $p =
+0.73$) has direct practical implications. The problems have different loci:
+
+\textbf{EFI degradation} is a tokenizer/embedding problem. It is partially addressable
+by using cross-lingual embedding models trained on parallel data (LaBSE). The 90\%
+gap reduction under LaBSE suggests that dedicated multilingual sentence embeddings
+substantially recover semantic alignment. At the LLM level, the gap likely reflects the
+token tax documented by \citet{petrov2023} and \citet{ahia2023}; addressing it requires
+improved tokenization for non-English scripts \citep{rust2021} and larger Indic training
+corpora \citep{khanuja2021,ramesh2022}. The existence of large-scale Indic parallel
+corpora \citep{ramesh2022} and dedicated Indic language models \citep{doddapaneni2023}
+suggests this is an addressable gap. UNESCO's framework for ethical AI \citep{unesco2023}
+establishes linguistic inclusion as a requirement; health equity toolboxes
+\citep{pfohl2024} provide complementary methods for surfacing the clinical consequences
+of such gaps.
+
+\textbf{Variance amplification} is an LLM behaviour problem. It persists at 2--4$\times$
+even when EFI is recovered to 0.853 under LaBSE. It cannot be fixed by improving the
+measurement tool or the tokenizer alone. It reflects the LLM's internal response
+distribution becoming less stable for non-English input --- a property of the generation
+process, not the encoding stage. Solutions require either explicit training for output
+stability in non-English languages or deployment-time consistency validation.
+
+\subsection{The MuRIL Degeneracy Warning}
+
+The finding that MuRIL and IndicBERTv2 produce degenerate sentence embeddings has
+immediate practical implications for the research community. Several recent studies have
+proposed using Indic-specific language models to improve clinical AI for Indian languages,
+and some have used raw MLM embeddings to measure semantic similarity. Our Experiment A
+demonstrates that such measurements are methodologically invalid: the near-constant cosine
+similarity of 0.999 reflects embedding space collapse (effective rank 1.42), not genuine
+semantic alignment.
+
+The appropriate use of MuRIL and IndicBERTv2 is for token-level tasks (NER, POS tagging,
+classification) for which they were designed and validated \citep{doddapaneni2023}. Sentence-level semantic
+similarity requires either fine-tuning on sentence pairs or use of models designed for
+that objective (LaBSE, multilingual sentence transformers). This is not a criticism of
+MuRIL's engineering --- it is a warning against applying the model outside its intended
+use case. Note that this degeneracy failure is distinct from hallucination \citep{huang2024}:
+the model does not produce incorrect outputs --- it produces a measurement instrument that
+cannot distinguish any outputs at all.
+
+\subsection{Recommendations for Methodology}
+
+Based on these findings, we recommend the following for multilingual clinical AI
+evaluation:
+
+\begin{enumerate}
+    \item \textbf{Use LaBSE for EFI measurement.} MiniLM and MPNet provide conservative
+    estimates; LaBSE provides the most accurate available proxy for semantic preservation.
+    \item \textbf{Validate embedding models before EFI computation.} Compute effective
+    rank and random-vector null distribution. Effective rank $<$ 3 indicates degeneracy.
+    \item \textbf{Measure EFI and VR separately.} They are independent and require
+    separate evaluation. A model passing EFI standards may still show unacceptable
+    variance amplification.
+    \item \textbf{Use bootstrap CIs for VR.} Point estimates of variance ratio without
+    confidence intervals are insufficient for safety-relevant deployment decisions.
+    \item \textbf{Do not use raw MLM embeddings for sentence-level EFI.} MuRIL and
+    IndicBERTv2 are degenerate for this purpose; use only models fine-tuned on sentence
+    similarity objectives.
+\end{enumerate}
+
+\subsection{Limitations}
+
+\begin{enumerate}
+    \item \textbf{Small sentence battery:} 15 sentences is sufficient for detecting large
+    effects but limits fine-grained analysis. Extension to larger batteries is needed.
+    \item \textbf{Two LLMs in variance experiments:} VR results are from DeepSeek V3.1
+    and Mistral Small 24B only. The variance amplification finding requires replication
+    across more LLMs.
+    \item \textbf{Sample size for independence test:} Experiment E uses $N = 8$ language--
+    LLM combinations. Power to detect moderate correlations is low; the independence
+    conclusion is based on absence of any visible trend rather than high-power
+    confirmation.
+    \item \textbf{EFI proxy:} Even LaBSE cosine similarity is a proxy for the theoretical
+    mutual information quantity $I(X;\hat{X})/H(X)$. The relationship between the proxy
+    and the true quantity remains to be formally characterised.
+\end{enumerate}
+
+% ================================================================
+\section{Conclusion}
+
+Paper~8 demonstrated that encoding fidelity degrades for non-English clinical input.
+Paper~9 asks whether that finding was real or instrument-dependent. The answer is both:
+the phenomenon is real, and the Paper~8 measurement was conservative. Under LaBSE, EFI
+for Kannada recovers from 0.081 to 0.853 --- still 15\% below English, but substantially
+less severe than the MiniLM estimate. The Dravidian-specific EFI gap nearly disappears
+(90\% reduction) with the appropriate cross-lingual measurement tool.
+
+The variance amplification finding is more robust: Kannada VR $>$ 1.0 is confirmed across
+all five non-degenerate embedding models with bootstrap CIs excluding 1.0. EFI and
+variance amplification are statistically independent ($r = -0.18$, $p = 0.73$). They are
+different problems with different causes and different solutions.
+
+The methodological warning about Indic MLM degeneracy is the most immediately actionable
+finding: MuRIL and IndicBERTv2 collapse all sentence embeddings to effective rank 1.42,
+making them invalid instruments for EFI measurement. Studies claiming Indic models
+restore encoding fidelity based on raw MLM embeddings are measuring model failure, not
+model success.
+
+For multilingual clinical AI evaluation, we recommend LaBSE as the measurement standard,
+separate assessment of EFI and variance amplification, and embedding model validation
+prior to any cross-lingual similarity computation.
+
+% ================================================================
+\section{Future Work}
+
+\begin{enumerate}
+    \item \textbf{LaBSE-based reanalysis of Papers 2--7:} The conservation law
+    $K(\text{domain}) = \Delta\text{RCI} \times \text{Var\_Ratio}$ was established
+    using MiniLM. Recomputing with LaBSE will establish whether K values are
+    embedding-model stable.
+    \item \textbf{Sentence-level fine-tuning of Indic models:} Fine-tuning MuRIL on
+    Indic sentence similarity tasks (e.g., using Samanantar parallel corpora
+    \citep{ramesh2022}) may produce non-degenerate sentence encoders. EFI under
+    fine-tuned MuRIL would directly test the tokenizer vs. training data hypothesis.
+    \item \textbf{Extension to additional language families:} African (Swahili, Yoruba),
+    Southeast Asian (Bahasa, Thai), and additional Dravidian (Telugu, Malayalam)
+    languages using the LaBSE protocol.
+    \item \textbf{Formal EFI calibration:} Compute mutual information estimates for a
+    small dataset to establish the calibration curve between
+    EFI\textsubscript{proxy} and the theoretical quantity.
+\end{enumerate}
+
+% ================================================================
+\section*{Ethics Statement}
+
+This study did not involve human participants, patient data, or electronic health
+records. All experiments were conducted on a purpose-built battery of constructed
+clinical sentences. No identifiable patient information was collected or used at any
+stage. Institutional review board (IRB) approval and informed consent were not required.
+
+% ================================================================
+\section*{Author Contributions}
+
+L.M.M. conceived the study, designed all experiments, performed all analyses, and wrote
+the manuscript in its entirety. AI systems (Claude, ChatGPT, DeepSeek) assisted with
+data analysis, visualisation, and manuscript preparation under the sole direction and
+responsibility of the author.
+
+% ================================================================
+\section*{Competing Interests}
+
+The author declares no competing interests.
+
+% ================================================================
+\section*{Data Availability}
+
+All experimental data, analysis scripts, and raw results are available at
+\url{https://doi.org/10.5281/zenodo.19371897} (Zenodo) and
+\url{https://github.com/LaxmanNandi/MCH-Research}. OSF pre-registration:
+\url{https://osf.io/dp8nj/} (March 2026).
+
+% ================================================================
+\section*{Code Availability}
+
+All analysis scripts for Experiments A through F are available at
+\url{https://doi.org/10.5281/zenodo.19371897}. Key scripts:
+\texttt{paper9\_indic\_efi\_v2.py} (EFI across models),
+\texttt{paper9\_validation.py} (Experiments A, B, C),
+\texttt{paper9\_validation\_degs.py} (Experiments D, E, F).
+
+% ================================================================
+\section*{Acknowledgements}
+
+No external funding was received. AI systems (Claude, Anthropic; ChatGPT, OpenAI;
+DeepSeek) assisted with data analysis, statistical computation, visualisation, and
+manuscript preparation. The framework, experimental design, findings, and interpretations
+remain the author's sole responsibility.
+
+% ================================================================
+\bibliographystyle{plainnat}
+
+\begin{thebibliography}{40}
+
+\bibitem[Ahia et~al.(2023)]{ahia2023}
+Ahia, O., Kreutzer, J., \& Ruder, S. (2023).
+\newblock Do all languages cost the same? Tokenization in the era of commercial
+language models.
+\newblock \emph{Proceedings of EMNLP 2023}.
+\newblock arXiv: 2305.13707.
+
+\bibitem[Artetxe \& Schwenk(2019)]{artetxe2019}
+Artetxe, M. \& Schwenk, H. (2019).
+\newblock Massively multilingual sentence embeddings for zero-shot cross-lingual
+transfer and beyond.
+\newblock \emph{Transactions of the Association for Computational Linguistics}, 7,
+597--610.
+
+\bibitem[Blasi et~al.(2022)]{blasi2022}
+Blasi, D.~E., Henrich, J., Adamou, E., Kemmerer, D., \& Majid, A. (2022).
+\newblock Over-reliance on {English} hinders cognitive science.
+\newblock \emph{Trends in Cognitive Sciences}, 26(12), 1153--1170.
+\newblock DOI: 10.1016/j.tics.2022.09.015.
+
+\bibitem[Conneau et~al.(2020)]{conneau2020}
+Conneau, A., Khandelwal, K., Goyal, N., et~al. (2020).
+\newblock Unsupervised cross-lingual representation learning at scale.
+\newblock \emph{Proceedings of ACL 2020}, 8440--8451.
+\newblock arXiv: 1911.02116.
+
+\bibitem[Doddapaneni et~al.(2023)]{doddapaneni2023}
+Doddapaneni, S., Aralikatte, R., Ramesh, G., et~al. (2023).
+\newblock Towards leaving no {Indic} language behind: Building monolingual corpora,
+benchmark and models for {Indic} languages.
+\newblock \emph{Proceedings of ACL 2023}.
+\newblock arXiv: 2212.05409.
+
+\bibitem[Ethayarajh(2019)]{ethayarajh2019}
+Ethayarajh, K. (2019).
+\newblock How contextual are contextualised word representations? Comparing the
+geometry of {BERT}, {ELMo}, and {GPT-2} embeddings.
+\newblock \emph{Proceedings of EMNLP-IJCNLP 2019}, 55--65.
+
+\bibitem[Feng et~al.(2022)]{feng2022}
+Feng, F., Yang, Y., Cer, D., Arivazhagan, N., \& Wang, W. (2022).
+\newblock Language-agnostic {BERT} sentence embedding.
+\newblock \emph{Proceedings of ACL 2022}.
+\newblock arXiv: 2007.01852.
+
+\bibitem[Gao et~al.(2019)]{gao2019}
+Gao, J., He, D., Tan, X., Qin, T., Wang, L., \& Liu, T.-Y. (2019).
+\newblock Representation degeneration problem in training natural language generation
+models.
+\newblock \emph{ICLR 2019}.
+\newblock arXiv: 1907.12009.
+
+\bibitem[Hammerl et~al.(2024)]{hammerl2024}
+Hammerl, K., Libovick\'{y}, J., \& Fraser, A. (2024).
+\newblock Understanding cross-lingual alignment --- a survey.
+\newblock \emph{Findings of ACL 2024}, 10922--10943.
+\newblock arXiv: 2404.06228.
+
+\bibitem[Huang et~al.(2024)]{huang2024}
+Huang, L., Yu, W., Ma, W., et~al. (2024).
+\newblock A survey on hallucination in large language models: Principles, taxonomy,
+challenges, and open questions.
+\newblock \emph{ACM Transactions on Information Systems}, 43(2).
+\newblock arXiv: 2311.05232.
+
+\bibitem[Jin et~al.(2024)]{jin2024}
+Jin, Y., Chandra, M., Verma, G., Hu, Y., De~Choudhury, M., \& Kumar, S. (2024).
+\newblock Better to ask in {English}: Cross-lingual evaluation of large language models
+for healthcare queries.
+\newblock \emph{Proceedings of the ACM Web Conference 2024}.
+\newblock arXiv: 2310.13132.
+
+\bibitem[Khanuja et~al.(2021)]{khanuja2021}
+Khanuja, S., Bansal, A., Mehtab, S., et~al. (2021).
+\newblock {MuRIL}: Multilingual representations for {Indian} languages.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2103.10730.
+
+\bibitem[Laxman(2026h)]{laxman2026h}
+Laxman, M.~M. (2026).
+\newblock Encoding fidelity and coherent misalignment in non-{E}nglish clinical {AI}.
+\newblock \emph{Preprints.org}.
+\newblock DOI: 10.20944/preprints202604.0061.v1.
+
+\bibitem[Limisiewicz et~al.(2023)]{limisiewicz2023}
+Limisiewicz, T., Balhar, J., \& Mare\v{c}ek, D. (2023).
+\newblock Tokenization impacts multilingual language modeling: Assessing vocabulary
+allocation and overlap across languages.
+\newblock \emph{Findings of ACL 2023}, 5661--5681.
+\newblock arXiv: 2305.17179.
+
+\bibitem[{NLLB Team} et~al.(2022)]{nllb2022}
+{NLLB Team}, Costa-juss\`{a}, M.~R., et~al. (2022).
+\newblock No language left behind: Scaling human-centered machine translation.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2207.04672.
+
+\bibitem[Petrov et~al.(2023)]{petrov2023}
+Petrov, A., La~Malfa, E., Torr, P.~H.~S., \& Bibi, A. (2023).
+\newblock Language model tokenizers introduce unfairness between languages.
+\newblock \emph{NeurIPS 2023}.
+\newblock arXiv: 2305.15425.
+
+\bibitem[Pfohl et~al.(2024)]{pfohl2024}
+Pfohl, S.~R., Cole-Lewis, H., Sayres, R., et~al. (2024).
+\newblock A toolbox for surfacing health equity harms and biases in large language models.
+\newblock \emph{Nature Medicine}, 30, 3590--3600.
+\newblock DOI: 10.1038/s41591-024-03258-2.
+
+\bibitem[Pires et~al.(2019)]{pires2019}
+Pires, T., Schlinger, E., \& Garrette, D. (2019).
+\newblock How multilingual is multilingual {BERT}?
+\newblock \emph{Proceedings of ACL 2019}, 4996--5001.
+\newblock arXiv: 1906.01502.
+
+\bibitem[Ramesh et~al.(2022)]{ramesh2022}
+Ramesh, G., Doddapaneni, S., Bheemaraj, A., et~al. (2022).
+\newblock Samanantar: The largest publicly available parallel corpora collection for
+11 {Indic} languages.
+\newblock \emph{Transactions of the Association for Computational Linguistics}, 10,
+145--162.
+\newblock arXiv: 2104.05596.
+
+\bibitem[Reimers \& Gurevych(2019)]{reimers2019}
+Reimers, N. \& Gurevych, I. (2019).
+\newblock Sentence-{BERT}: Sentence embeddings using {Siamese BERT}-networks.
+\newblock \emph{Proceedings of EMNLP-IJCNLP 2019}.
+\newblock arXiv: 1908.10084.
+
+\bibitem[Reimers \& Gurevych(2020)]{reimers2020}
+Reimers, N. \& Gurevych, I. (2020).
+\newblock Making monolingual sentence embeddings multilingual using knowledge
+distillation.
+\newblock \emph{Proceedings of EMNLP 2020}.
+\newblock arXiv: 2004.09813.
+
+\bibitem[Roy \& Vetterli(2007)]{roy2007}
+Roy, O. \& Vetterli, M. (2007).
+\newblock The effective rank: A measure of effective dimensionality.
+\newblock \emph{Proceedings of EUSIPCO 2007}, 606--610.
+
+\bibitem[Ruder et~al.(2023)]{ruder2023}
+Ruder, S., Clark, J.~H., Gutkin, A., et~al. (2023).
+\newblock {XTREME-UP}: A user-centric scarce-data benchmark for under-represented
+languages.
+\newblock \emph{Findings of EMNLP 2023}, 1856--1884.
+\newblock arXiv: 2305.11938.
+
+\bibitem[Rust et~al.(2021)]{rust2021}
+Rust, P., Pfeiffer, J., Vuli\'{c}, I., Ruder, S., \& Gurevych, I. (2021).
+\newblock How good is your tokenizer? {O}n the monolingual performance of multilingual
+language models.
+\newblock \emph{Proceedings of ACL-IJCNLP 2021}, 3118--3135.
+\newblock arXiv: 2012.15613.
+
+\bibitem[Shannon(1948)]{shannon1948}
+Shannon, C.~E. (1948).
+\newblock A mathematical theory of communication.
+\newblock \emph{Bell System Technical Journal}, 27(3), 379--423.
+\newblock DOI: 10.1002/j.1538-7305.1948.tb01338.x.
+
+\bibitem[Singhal et~al.(2023)]{singhal2023}
+Singhal, K., Azizi, S., Tu, T., et~al. (2023).
+\newblock Large language models encode clinical knowledge.
+\newblock \emph{Nature}, 620(7973), 172--180.
+\newblock DOI: 10.1038/s41586-023-06291-2.
+
+\bibitem[{UNESCO}(2023)]{unesco2023}
+{UNESCO} (2023).
+\newblock \emph{Recommendation on the Ethics of Artificial Intelligence:
+Implementation}.
+\newblock Paris: UNESCO.
+
+\end{thebibliography}
+
+\end{document}
