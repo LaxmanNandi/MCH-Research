@@ -1,0 +1,1058 @@
+{
+  "metadata": {
+    "description": "Paper 6: Conservation Constraint - Complete Manuscript Data",
+    "repository": "LaxmanNandi/MCH-Research",
+    "author": "Dr. Laxman M M, MBBS",
+    "generated_by": "compile_paper6_data.py",
+    "baseline_embedding": "all-MiniLM-L6-v2 (384D)",
+    "robustness_embeddings": [
+      "all-mpnet-base-v2 (768D)",
+      "LaBSE (768D)"
+    ],
+    "n_domains": 4,
+    "total_runs": 25,
+    "note": "Medical+Philosophy K values from conservation_law_verification (pre-computed embedding-based). Legal+Ethics K values computed fresh with embedding-based Var_Ratio."
+  },
+  "model_runs": {
+    "Medical": [
+      {
+        "model": "gemini_flash",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.427029,
+        "var_ratio": 1.286555,
+        "K": 0.549396,
+        "mi": -0.425493,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "deepseek_v3_1",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.320004,
+        "var_ratio": 1.071153,
+        "K": 0.342773,
+        "mi": -0.132909,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "kimi_k2",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.416965,
+        "var_ratio": 1.006456,
+        "K": 0.419657,
+        "mi": 0.019069,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "llama_4_maverick",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.316493,
+        "var_ratio": 1.213297,
+        "K": 0.384,
+        "mi": -0.001301,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "llama_4_scout",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.32334,
+        "var_ratio": 1.610013,
+        "K": 0.520582,
+        "mi": -0.225503,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "ministral_14b",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.39128,
+        "var_ratio": 1.079895,
+        "K": 0.422541,
+        "mi": 0.235077,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "mistral_small_24b",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.364581,
+        "var_ratio": 0.985083,
+        "K": 0.359142,
+        "mi": 0.025522,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "qwen3_235b",
+        "domain": "Medical",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.327511,
+        "var_ratio": 1.333585,
+        "K": 0.436764,
+        "mi": 0.127815,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      }
+    ],
+    "Philosophy": [
+      {
+        "model": "claude_haiku",
+        "domain": "Philosophy",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.330566,
+        "var_ratio": 1.01167,
+        "K": 0.334424,
+        "mi": -2.025255,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "gemini_flash",
+        "domain": "Philosophy",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.337978,
+        "var_ratio": 1.119569,
+        "K": 0.37839,
+        "mi": -1.092039,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "gpt4o_mini",
+        "domain": "Philosophy",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.268704,
+        "var_ratio": 0.967661,
+        "K": 0.260015,
+        "mi": -1.503823,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "gpt4o",
+        "domain": "Philosophy",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.283053,
+        "var_ratio": 0.949857,
+        "K": 0.26886,
+        "mi": -1.813203,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "deepseek_v3_1",
+        "domain": "Philosophy",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.301589,
+        "var_ratio": 1.033829,
+        "K": 0.311791,
+        "mi": -1.770155,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      },
+      {
+        "model": "llama_4_maverick",
+        "domain": "Philosophy",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.266284,
+        "var_ratio": 0.939414,
+        "K": 0.250151,
+        "mi": -1.109804,
+        "n_trials": 50,
+        "source": "conservation_law_verification"
+      }
+    ],
+    "Legal": [
+      {
+        "model": "deepseek_v3_1",
+        "domain": "Legal",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.276042,
+        "var_ratio": 1.225057,
+        "K": 0.338168,
+        "entanglement_r": 0.2863,
+        "entanglement_p": 0.12504,
+        "exploration_arc": 0.8255,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_deepseek_v3_1_legal_50trials.json",
+        "content_fraction": 13.53
+      },
+      {
+        "model": "llama_3_3_70b_turbo",
+        "domain": "Legal",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.20594,
+        "var_ratio": 1.427606,
+        "K": 0.294001,
+        "entanglement_r": -0.1129,
+        "entanglement_p": 0.55245,
+        "exploration_arc": 1.9252,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_llama_3_3_70b_turbo_legal_50trials.json",
+        "content_fraction": 1.81
+      },
+      {
+        "model": "llama_4_maverick",
+        "domain": "Legal",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.208872,
+        "var_ratio": 1.411767,
+        "K": 0.294879,
+        "entanglement_r": -0.139,
+        "entanglement_p": 0.463945,
+        "exploration_arc": 1.0385,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_llama_4_maverick_legal_50trials.json",
+        "content_fraction": -12.37
+      },
+      {
+        "model": "mistral_small_24b",
+        "domain": "Legal",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.25224,
+        "var_ratio": 1.33838,
+        "K": 0.337593,
+        "entanglement_r": -0.1339,
+        "entanglement_p": 0.480676,
+        "exploration_arc": 1.141,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_mistral_small_24b_legal_50trials.json",
+        "content_fraction": 19.67
+      },
+      {
+        "model": "qwen3_235b",
+        "domain": "Legal",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.264831,
+        "var_ratio": 1.796172,
+        "K": 0.475681,
+        "entanglement_r": 0.0195,
+        "entanglement_p": 0.918343,
+        "exploration_arc": 2.2163,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_qwen3_235b_legal_50trials.json",
+        "content_fraction": 28.21
+      }
+    ],
+    "Ethics": [
+      {
+        "model": "deepseek_v3_1",
+        "domain": "Ethics",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.256776,
+        "var_ratio": 1.058126,
+        "K": 0.271701,
+        "entanglement_r": 0.2567,
+        "entanglement_p": 0.170833,
+        "exploration_arc": 1.7097,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_deepseek_v3_1_ethics_50trials.json",
+        "content_fraction": 19.14
+      },
+      {
+        "model": "llama_3_3_70b_turbo",
+        "domain": "Ethics",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.172068,
+        "var_ratio": 1.128373,
+        "K": 0.194157,
+        "entanglement_r": 0.2736,
+        "entanglement_p": 0.143441,
+        "exploration_arc": 2.1268,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_llama_3_3_70b_turbo_ethics_50trials.json",
+        "content_fraction": 2.0
+      },
+      {
+        "model": "llama_4_maverick",
+        "domain": "Ethics",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.180729,
+        "var_ratio": 1.176089,
+        "K": 0.212553,
+        "entanglement_r": 0.1317,
+        "entanglement_p": 0.487846,
+        "exploration_arc": 2.7529,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_llama_4_maverick_ethics_50trials.json",
+        "content_fraction": 8.61
+      },
+      {
+        "model": "mistral_small_24b",
+        "domain": "Ethics",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.1827,
+        "var_ratio": 1.028981,
+        "K": 0.187995,
+        "entanglement_r": 0.0642,
+        "entanglement_p": 0.735982,
+        "exploration_arc": 1.726,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_mistral_small_24b_ethics_50trials.json",
+        "content_fraction": 16.1
+      },
+      {
+        "model": "qwen3_235b",
+        "domain": "Ethics",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.210883,
+        "var_ratio": 1.184203,
+        "K": 0.249729,
+        "entanglement_r": 0.2329,
+        "entanglement_p": 0.215482,
+        "exploration_arc": 2.7996,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_qwen3_235b_ethics_50trials.json",
+        "content_fraction": 23.57
+      }
+    ]
+  },
+  "excluded_runs": {
+    "Legal": [
+      {
+        "model": "kimi_k2_5",
+        "domain": "Legal",
+        "embedding": "all-MiniLM-L6-v2",
+        "dim": 384,
+        "drci": 0.508636,
+        "var_ratio": 1.63312,
+        "K": 0.830664,
+        "entanglement_r": -0.2225,
+        "entanglement_p": 0.237347,
+        "exploration_arc": 1.6221,
+        "n_trials": 50,
+        "has_responses": true,
+        "source": "mch_results_kimi_k2_5_legal_50trials.json",
+        "content_fraction": -22.02,
+        "exclusion_reason": "COLD refusal + 21% empty responses"
+      }
+    ]
+  },
+  "domain_statistics": {
+    "Medical": {
+      "N": 8,
+      "K_mean": 0.4294,
+      "K_std": 0.0731,
+      "K_CV": 0.1703,
+      "K_min": 0.3428,
+      "K_max": 0.5494,
+      "dRCI_mean": 0.3609,
+      "VR_mean": 1.1983,
+      "models": [
+        "gemini_flash",
+        "deepseek_v3_1",
+        "kimi_k2",
+        "llama_4_maverick",
+        "llama_4_scout",
+        "ministral_14b",
+        "mistral_small_24b",
+        "qwen3_235b"
+      ]
+    },
+    "Philosophy": {
+      "N": 6,
+      "K_mean": 0.3006,
+      "K_std": 0.05,
+      "K_CV": 0.1665,
+      "K_min": 0.2502,
+      "K_max": 0.3784,
+      "dRCI_mean": 0.298,
+      "VR_mean": 1.0037,
+      "models": [
+        "claude_haiku",
+        "gemini_flash",
+        "gpt4o_mini",
+        "gpt4o",
+        "deepseek_v3_1",
+        "llama_4_maverick"
+      ]
+    },
+    "Legal": {
+      "N": 5,
+      "K_mean": 0.3481,
+      "K_std": 0.0746,
+      "K_CV": 0.2143,
+      "K_min": 0.294,
+      "K_max": 0.4757,
+      "dRCI_mean": 0.2416,
+      "VR_mean": 1.4398,
+      "models": [
+        "deepseek_v3_1",
+        "llama_3_3_70b_turbo",
+        "llama_4_maverick",
+        "mistral_small_24b",
+        "qwen3_235b"
+      ]
+    },
+    "Ethics": {
+      "N": 5,
+      "K_mean": 0.2232,
+      "K_std": 0.0362,
+      "K_CV": 0.1623,
+      "K_min": 0.188,
+      "K_max": 0.2717,
+      "dRCI_mean": 0.2006,
+      "VR_mean": 1.1152,
+      "models": [
+        "deepseek_v3_1",
+        "llama_3_3_70b_turbo",
+        "llama_4_maverick",
+        "mistral_small_24b",
+        "qwen3_235b"
+      ]
+    }
+  },
+  "pairwise_tests": [
+    {
+      "domain_1": "Medical",
+      "domain_2": "Philosophy",
+      "U": 46.0,
+      "p": 0.002664,
+      "cohens_d": 2.055,
+      "n1": 8,
+      "n2": 6
+    },
+    {
+      "domain_1": "Medical",
+      "domain_2": "Legal",
+      "U": 34.0,
+      "p": 0.045066,
+      "cohens_d": 1.101,
+      "n1": 8,
+      "n2": 5
+    },
+    {
+      "domain_1": "Medical",
+      "domain_2": "Ethics",
+      "U": 40.0,
+      "p": 0.001554,
+      "cohens_d": 3.573,
+      "n1": 8,
+      "n2": 5
+    },
+    {
+      "domain_1": "Philosophy",
+      "domain_2": "Legal",
+      "U": 8.0,
+      "p": 0.246753,
+      "cohens_d": -0.747,
+      "n1": 6,
+      "n2": 5
+    },
+    {
+      "domain_1": "Philosophy",
+      "domain_2": "Ethics",
+      "U": 27.0,
+      "p": 0.030303,
+      "cohens_d": 1.771,
+      "n1": 6,
+      "n2": 5
+    },
+    {
+      "domain_1": "Legal",
+      "domain_2": "Ethics",
+      "U": 25.0,
+      "p": 0.007937,
+      "cohens_d": 2.129,
+      "n1": 5,
+      "n2": 5
+    }
+  ],
+  "embedding_comparison": {
+    "MiniLM_384D": {
+      "model": "all-MiniLM-L6-v2",
+      "dim": 384,
+      "per_domain": {
+        "Medical": {
+          "K_mean": 0.4294,
+          "K_CV": 0.1703,
+          "N": 8
+        },
+        "Philosophy": {
+          "K_mean": 0.3006,
+          "K_CV": 0.1665,
+          "N": 6
+        },
+        "Legal": {
+          "K_mean": 0.3481,
+          "K_CV": 0.2143,
+          "N": 5
+        },
+        "Ethics": {
+          "K_mean": 0.2232,
+          "K_CV": 0.1623,
+          "N": 5
+        }
+      }
+    },
+    "MPNet_768D": {
+      "model": "all-mpnet-base-v2",
+      "dim": 768,
+      "per_domain": {
+        "Medical": {
+          "K_mean": 0.1883,
+          "K_CV": 0.4189,
+          "N": 8
+        },
+        "Philosophy": {
+          "K_mean": 0.1534,
+          "K_CV": 0.4481,
+          "N": 6
+        },
+        "Legal": {
+          "K_mean": 0.2798,
+          "K_CV": 0.2813,
+          "N": 5
+        },
+        "Ethics": {
+          "K_mean": 0.2142,
+          "K_CV": 0.2624,
+          "N": 5
+        }
+      },
+      "per_model": [
+        {
+          "model": "gemini_flash",
+          "domain": "Medical",
+          "K": 0.2811
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Medical",
+          "K": 0.1915
+        },
+        {
+          "model": "kimi_k2",
+          "domain": "Medical",
+          "K": 0.2521
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Medical",
+          "K": 0.1094
+        },
+        {
+          "model": "llama_4_scout",
+          "domain": "Medical",
+          "K": 0.3134
+        },
+        {
+          "model": "ministral_14b",
+          "domain": "Medical",
+          "K": 0.145
+        },
+        {
+          "model": "mistral_small_24b",
+          "domain": "Medical",
+          "K": 0.1153
+        },
+        {
+          "model": "qwen3_235b",
+          "domain": "Medical",
+          "K": 0.0988
+        },
+        {
+          "model": "claude_haiku",
+          "domain": "Philosophy",
+          "K": 0.1743
+        },
+        {
+          "model": "gemini_flash",
+          "domain": "Philosophy",
+          "K": 0.2155
+        },
+        {
+          "model": "gpt4o_mini",
+          "domain": "Philosophy",
+          "K": 0.0843
+        },
+        {
+          "model": "gpt4o",
+          "domain": "Philosophy",
+          "K": 0.1011
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Philosophy",
+          "K": 0.2614
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Philosophy",
+          "K": 0.0836
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Legal",
+          "K": 0.2668
+        },
+        {
+          "model": "llama_3_3_70b_turbo",
+          "domain": "Legal",
+          "K": 0.2112
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Legal",
+          "K": 0.3424
+        },
+        {
+          "model": "mistral_small_24b",
+          "domain": "Legal",
+          "K": 0.1844
+        },
+        {
+          "model": "qwen3_235b",
+          "domain": "Legal",
+          "K": 0.3942
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Ethics",
+          "K": 0.2822
+        },
+        {
+          "model": "llama_3_3_70b_turbo",
+          "domain": "Ethics",
+          "K": 0.2173
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Ethics",
+          "K": 0.1728
+        },
+        {
+          "model": "mistral_small_24b",
+          "domain": "Ethics",
+          "K": 0.1322
+        },
+        {
+          "model": "qwen3_235b",
+          "domain": "Ethics",
+          "K": 0.2663
+        }
+      ]
+    },
+    "MPNet_768D_full_robustness": {
+      "model": "all-mpnet-base-v2",
+      "dim": 768,
+      "note": "Med+Phil only, with CI, from embedding_robustness/robustness_results.json",
+      "per_domain": {
+        "Medical": {
+          "K_mean": 0.4022,
+          "K_CV": 0.1545,
+          "N": 8,
+          "K_ci_lo": 0.3503,
+          "K_ci_hi": 0.4542
+        },
+        "Philosophy": {
+          "K_mean": 0.2819,
+          "K_CV": 0.1414,
+          "N": 6,
+          "K_ci_lo": 0.2401,
+          "K_ci_hi": 0.3238
+        }
+      },
+      "per_model": [
+        {
+          "model": "llama_4_scout",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.2714318037033081,
+          "var_ratio": 1.8197713694251367,
+          "product": 0.4939438251307039
+        },
+        {
+          "model": "gemini_flash",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.39848190546035767,
+          "var_ratio": 1.141538027388256,
+          "product": 0.4548822483091302
+        },
+        {
+          "model": "qwen3_235b",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.29307615756988525,
+          "var_ratio": 1.4742635669307202,
+          "product": 0.43207150144132883
+        },
+        {
+          "model": "ministral_14b",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.3648836016654968,
+          "var_ratio": 1.1759443671418843,
+          "product": 0.4290828160409841
+        },
+        {
+          "model": "kimi_k2",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.3401768207550049,
+          "var_ratio": 1.1898364392369194,
+          "product": 0.4047547771180708
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.26449739933013916,
+          "var_ratio": 1.312857203073791,
+          "product": 0.34724731590485813
+        },
+        {
+          "model": "mistral_small_24b",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.322246253490448,
+          "var_ratio": 1.0444629111628314,
+          "product": 0.336574260031949
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Medical",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.2650895118713379,
+          "var_ratio": 1.204129589940438,
+          "product": 0.319202125227145
+        },
+        {
+          "model": "gemini_flash",
+          "domain": "Philosophy",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.3142789602279663,
+          "var_ratio": 1.1169752178331656,
+          "product": 0.3510418100610134
+        },
+        {
+          "model": "gpt4o",
+          "domain": "Philosophy",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.2597538232803345,
+          "var_ratio": 1.142367297738258,
+          "product": 0.2967342731779367
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Philosophy",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.2574304938316345,
+          "var_ratio": 1.079626931572907,
+          "product": 0.2779288941487457
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Philosophy",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.24590086936950684,
+          "var_ratio": 1.0901480143838052,
+          "product": 0.2680683444784193
+        },
+        {
+          "model": "claude_haiku",
+          "domain": "Philosophy",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.30655336380004883,
+          "var_ratio": 0.8663812362940605,
+          "product": 0.2655920823191892
+        },
+        {
+          "model": "gpt4o_mini",
+          "domain": "Philosophy",
+          "n_trials": 50,
+          "n_prompts": 30,
+          "drci": 0.2381543517112732,
+          "var_ratio": 0.974972617543859,
+          "product": 0.23219397166740083
+        }
+      ]
+    },
+    "LaBSE_768D": {
+      "model": "sentence-transformers/LaBSE",
+      "dim": 768,
+      "per_domain": {
+        "Medical": {
+          "K_mean": 0.2148,
+          "K_CV": 0.668,
+          "N": 8
+        },
+        "Philosophy": {
+          "K_mean": 0.1953,
+          "K_CV": 0.456,
+          "N": 6
+        },
+        "Legal": {
+          "K_mean": 0.1934,
+          "K_CV": 0.348,
+          "N": 5
+        },
+        "Ethics": {
+          "K_mean": 0.1871,
+          "K_CV": 0.298,
+          "N": 5
+        }
+      },
+      "per_model": [
+        {
+          "model": "gemini_flash",
+          "domain": "Medical",
+          "K": 0.5171,
+          "VR": 1.2108,
+          "ent_r": 0.389,
+          "arc": 1.58
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Medical",
+          "K": 0.1238,
+          "VR": 0.3868,
+          "ent_r": 0.672,
+          "arc": 1.69
+        },
+        {
+          "model": "kimi_k2",
+          "domain": "Medical",
+          "K": 0.2254,
+          "VR": 0.5406,
+          "ent_r": 0.653,
+          "arc": 0.69
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Medical",
+          "K": 0.124,
+          "VR": 0.3917,
+          "ent_r": 0.624,
+          "arc": 2.16
+        },
+        {
+          "model": "llama_4_scout",
+          "domain": "Medical",
+          "K": 0.1268,
+          "VR": 0.3923,
+          "ent_r": 0.473,
+          "arc": 1.79
+        },
+        {
+          "model": "ministral_14b",
+          "domain": "Medical",
+          "K": 0.3729,
+          "VR": 0.9531,
+          "ent_r": 0.649,
+          "arc": 4.15
+        },
+        {
+          "model": "mistral_small_24b",
+          "domain": "Medical",
+          "K": 0.0712,
+          "VR": 0.1953,
+          "ent_r": 0.78,
+          "arc": 2.35
+        },
+        {
+          "model": "qwen3_235b",
+          "domain": "Medical",
+          "K": 0.1572,
+          "VR": 0.48,
+          "ent_r": 0.655,
+          "arc": 6.24
+        },
+        {
+          "model": "claude_haiku",
+          "domain": "Philosophy",
+          "K": 0.3388,
+          "VR": 1.0249,
+          "ent_r": 0.584,
+          "arc": 0.25
+        },
+        {
+          "model": "gemini_flash",
+          "domain": "Philosophy",
+          "K": 0.2499,
+          "VR": 0.7395,
+          "ent_r": 0.572,
+          "arc": 1.05
+        },
+        {
+          "model": "gpt4o_mini",
+          "domain": "Philosophy",
+          "K": 0.0838,
+          "VR": 0.3119,
+          "ent_r": 0.582,
+          "arc": 0.4
+        },
+        {
+          "model": "gpt4o",
+          "domain": "Philosophy",
+          "K": 0.1727,
+          "VR": 0.6103,
+          "ent_r": 0.564,
+          "arc": 10.31
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Philosophy",
+          "K": 0.2306,
+          "VR": 0.7647,
+          "ent_r": 0.447,
+          "arc": 0.03
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Philosophy",
+          "K": 0.0958,
+          "VR": 0.3599,
+          "ent_r": 0.644,
+          "arc": 1.04
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Legal",
+          "K": 0.2561,
+          "VR": 0.9276,
+          "ent_r": 0.643,
+          "arc": 0.61
+        },
+        {
+          "model": "llama_3_3_70b_turbo",
+          "domain": "Legal",
+          "K": 0.2009,
+          "VR": 0.9754,
+          "ent_r": 0.505,
+          "arc": 1.19
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Legal",
+          "K": 0.1616,
+          "VR": 0.7737,
+          "ent_r": 0.615,
+          "arc": 1.36
+        },
+        {
+          "model": "mistral_small_24b",
+          "domain": "Legal",
+          "K": 0.0823,
+          "VR": 0.3263,
+          "ent_r": 0.498,
+          "arc": 0.93
+        },
+        {
+          "model": "qwen3_235b",
+          "domain": "Legal",
+          "K": 0.2659,
+          "VR": 1.0041,
+          "ent_r": 0.708,
+          "arc": 2.34
+        },
+        {
+          "model": "deepseek_v3_1",
+          "domain": "Ethics",
+          "K": 0.2606,
+          "VR": 1.015,
+          "ent_r": 0.374,
+          "arc": 0.26
+        },
+        {
+          "model": "llama_3_3_70b_turbo",
+          "domain": "Ethics",
+          "K": 0.2059,
+          "VR": 1.1965,
+          "ent_r": 0.621,
+          "arc": 0.23
+        },
+        {
+          "model": "llama_4_maverick",
+          "domain": "Ethics",
+          "K": 0.1501,
+          "VR": 0.8303,
+          "ent_r": 0.73,
+          "arc": 0.59
+        },
+        {
+          "model": "mistral_small_24b",
+          "domain": "Ethics",
+          "K": 0.1006,
+          "VR": 0.5508,
+          "ent_r": 0.485,
+          "arc": 0.56
+        },
+        {
+          "model": "qwen3_235b",
+          "domain": "Ethics",
+          "K": 0.2184,
+          "VR": 1.0354,
+          "ent_r": 0.62,
+          "arc": 0.74
+        }
+      ]
+    }
+  },
+  "programme_dois": {
+    "Paper_1": "10.20944/preprints202601.1881.v2",
+    "Paper_2": "10.20944/preprints202602.1114.v2",
+    "Paper_3": "10.20944/preprints202602.1674.v1",
+    "Paper_5": "10.20944/preprints202602.2034.v1",
+    "Paper_7": "10.20944/preprints202603.1116.v1",
+    "Paper_8": "10.20944/preprints202604.0061.v1"
+  }
+}
