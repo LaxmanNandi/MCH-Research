@@ -1,0 +1,500 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{natbib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+}
+
+\title{\LARGE\textbf{Supplementary Material}\\
+\large Mathematical Definitions, Notation, and Computational Procedures\\
+\normalsize Paper 6: A Conservation Constraint in LLM Context Processing\\
+Across Four Epistemological Domains}
+
+\author{Dr.\ Laxman M M, MBBS\\
+Government Duty Medical Officer, PHC Manchi\\
+Bantwal Taluk, Dakshina Kannada, Karnataka, India}
+
+\date{April 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% ================================================================
+\section{Experimental Conditions}
+
+Each model-domain run consists of three conditions, each comprising 50 independent
+trials of a 30-prompt conversation.
+
+\begin{description}
+    \item[TRUE condition] Each trial presents the model with a coherent 29-message
+    conversational history followed by a prompt. The history is the same across all
+    50 trials within a run. Context is semantically and temporally coherent.
+
+    \item[COLD condition] Each trial presents the model with the same prompt in
+    isolation, with no prior conversational history. This is the context-free baseline.
+
+    \item[SCRAMBLED condition] Each trial presents the model with the same 29 messages
+    from the TRUE history, but in a uniformly randomised order, followed by the same
+    prompt. Content is present; temporal order is destroyed.
+\end{description}
+
+\noindent All conditions use temperature $= 0.7$ and max\_tokens $= 1024$.
+Embeddings are computed using all-MiniLM-L6-v2 (384-dimensional) as the primary model,
+with all-mpnet-base-v2 (768-dimensional) and LaBSE (768-dimensional) for robustness
+validation.
+
+% ================================================================
+\section{Core Metrics}
+
+\subsection{Relational Coherence Index (RCI)}
+
+For a given condition $c \in \{\text{TRUE}, \text{COLD}, \text{SCRAMBLED}\}$,
+model $m$, domain $d$, and prompt position $p \in \{1, \ldots, 30\}$:
+
+Let $\mathbf{e}_{i,p}^{(c)}$ denote the embedding of the response generated in trial
+$i$ at position $p$ under condition $c$.
+
+The RCI at position $p$ is the mean pairwise cosine similarity across $N = 50$ trials:
+
+\begin{equation}
+    \text{RCI}_{p}^{(c)} = \frac{2}{N(N-1)} \sum_{i < j}
+    \cos\!\big(\mathbf{e}_{i,p}^{(c)},\, \mathbf{e}_{j,p}^{(c)}\big)
+\end{equation}
+
+The model-level RCI is the mean across all 30 positions:
+
+\begin{equation}
+    \overline{\text{RCI}}^{(c)} = \frac{1}{30} \sum_{p=1}^{30} \text{RCI}_{p}^{(c)}
+\end{equation}
+
+\subsection{Delta Relational Coherence Index ($\Delta$RCI)}
+
+$\Delta$RCI measures how much the conversational context increases response coherence
+relative to the context-free baseline:
+
+\begin{equation}
+    \Delta\text{RCI} = \overline{\text{RCI}}^{(\text{TRUE})} -
+    \overline{\text{RCI}}^{(\text{COLD})}
+\end{equation}
+
+$\Delta\text{RCI} > 0$ indicates that context increases response alignment across
+trials. $\Delta\text{RCI} < 0$ indicates divergent context coupling (context
+\emph{increases} response variability).
+
+\subsection{Variance Ratio (Var\_Ratio)}
+
+The variance of responses at position $p$ under condition $c$ is computed from the
+pairwise cosine similarity distribution across all $N = 50$ trial pairs. Let:
+
+\begin{equation}
+    S_p^{(c)} = \left\{ \cos\!\big(\mathbf{e}_{i,p}^{(c)},\, \mathbf{e}_{j,p}^{(c)}\big)
+    : 1 \leq i < j \leq N \right\}
+\end{equation}
+
+be the set of all $\binom{N}{2} = 1225$ pairwise cosine similarities at position $p$.
+The positional variance is:
+
+\begin{equation}
+    \text{Var}_{p}^{(c)} = \text{Var}\!\left( S_p^{(c)} \right)
+\end{equation}
+
+The model-level Var\_Ratio is:
+
+\begin{equation}
+    \text{Var\_Ratio} = \frac{\overline{\text{Var}}^{(\text{TRUE})}}
+    {\overline{\text{Var}}^{(\text{COLD})}}
+    \quad \text{where} \quad
+    \overline{\text{Var}}^{(c)} = \frac{1}{30} \sum_{p=1}^{30} \text{Var}_{p}^{(c)}
+\end{equation}
+
+This formulation measures the spread of the pairwise similarity distribution rather
+than dimension-wise embedding variance, capturing how consistently the model produces
+similar responses across trials at each position.
+
+$\text{Var\_Ratio} < 1$: context reduces response variance (convergent coupling).\\
+$\text{Var\_Ratio} > 1$: context increases response variance (divergent coupling).
+
+\subsection{Variance Reduction Index (VRI)}
+
+\begin{equation}
+    \text{VRI} = 1 - \text{Var\_Ratio}
+\end{equation}
+
+VRI is used in entanglement analysis (Section~\ref{sec:entanglement}). Positive VRI
+indicates convergent coupling; negative VRI indicates divergent coupling.
+
+% ================================================================
+\section{The Conservation Product K}
+
+\subsection{Definition}
+
+For a given model-domain run, the conservation product is:
+
+\begin{equation}
+    K = \Delta\text{RCI} \times \text{Var\_Ratio}
+\end{equation}
+
+\subsection{Domain-Level Statistics}
+
+For domain $d$ with $N_d$ model-domain runs yielding values
+$K_1^{(d)}, K_2^{(d)}, \ldots, K_{N_d}^{(d)}$:
+
+\begin{align}
+    \bar{K}^{(d)} &= \frac{1}{N_d} \sum_{i=1}^{N_d} K_i^{(d)}
+    \quad \text{(domain mean)} \\[6pt]
+    \text{SD}^{(d)} &= \sqrt{\frac{1}{N_d - 1} \sum_{i=1}^{N_d}
+    \left(K_i^{(d)} - \bar{K}^{(d)}\right)^2}
+    \quad \text{(standard deviation)} \\[6pt]
+    \text{CV}^{(d)} &= \frac{\text{SD}^{(d)}}{\bar{K}^{(d)}}
+    \quad \text{(coefficient of variation)}
+\end{align}
+
+CV is used as the primary measure of within-domain conservation tightness.
+Lower CV indicates tighter clustering of $K$ values within the domain.
+
+\subsection{Domain Values (Primary Embedding: MiniLM 384D)}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Domain} & \textbf{N} & $\bar{K}$ & \textbf{SD} & \textbf{CV} \\
+\midrule
+Medical (Discovered)     & 8 & 0.429 & 0.073 & 0.170 \\
+Legal (Argued)           & 5 & 0.348 & 0.074 & 0.214 \\
+Philosophy (Explored)    & 6 & 0.301 & 0.050 & 0.166 \\
+Applied Ethics (Felt)    & 5 & 0.223 & 0.036 & 0.162 \\
+\bottomrule
+\end{tabular}
+\caption{Domain-level $K$ statistics under primary embedding (all-MiniLM-L6-v2).}
+\end{table}
+
+% ================================================================
+\section{Content-Order Decomposition}
+\label{sec:content_order}
+
+The SCRAMBLED condition separates $\Delta$RCI into two components:
+
+\begin{align}
+    \Delta\text{RCI}_{\text{content}} &= \overline{\text{RCI}}^{(\text{SCRAM})} -
+    \overline{\text{RCI}}^{(\text{COLD})}
+    \quad \text{(content component)} \\[4pt]
+    \Delta\text{RCI}_{\text{order}} &= \overline{\text{RCI}}^{(\text{TRUE})} -
+    \overline{\text{RCI}}^{(\text{SCRAM})}
+    \quad \text{(order component)}
+\end{align}
+
+The content fraction is:
+
+\begin{equation}
+    \text{Content Fraction} = \frac{\Delta\text{RCI}_{\text{content}}}
+    {\Delta\text{RCI}} \times 100\%
+    = \frac{\overline{\text{RCI}}^{(\text{SCRAM})} - \overline{\text{RCI}}^{(\text{COLD})}}
+    {\overline{\text{RCI}}^{(\text{TRUE})} - \overline{\text{RCI}}^{(\text{COLD})}}
+    \times 100\%
+\end{equation}
+
+Content Fraction $= 100\%$ means SCRAMBLED $\approx$ TRUE: conversational order
+carries no additional information. Content Fraction $= 0\%$ means SCRAMBLED $\approx$
+COLD: all context sensitivity is carried by order, not content.
+
+% ================================================================
+\section{Exploration Arc}
+\label{sec:arc}
+
+The Exploration Arc measures whether response variance converges or diverges over the
+course of the 30-prompt conversation:
+
+\begin{equation}
+    \text{Arc} = \frac{\text{Var}_{30}^{(\text{TRUE})}}{\text{Var}_{1}^{(\text{TRUE})}}
+\end{equation}
+
+Arc $< 1$: responses converge (become more similar across trials) as conversation
+deepens. This is the pattern for Medical (Discovered truth), where diagnostic
+conclusions narrow with accumulated context.
+
+Arc $> 1$: responses diverge (become more variable across trials) as conversation
+deepens. This is the pattern for Philosophy (Explored truth), where inquiry expands
+rather than converges.
+
+% ================================================================
+\section{Entanglement}
+\label{sec:entanglement}
+
+Entanglement measures the coupling between context sensitivity and variance reduction
+across the 30 prompt positions within a single model-domain run.
+
+For each position $p$, compute position-level $\Delta\text{RCI}_p$ and
+$\text{VRI}_p = 1 - \text{Var\_Ratio}_p$.
+
+Entanglement is the Pearson correlation across all 30 positions:
+
+\begin{equation}
+    r_{\text{ent}} = \text{Pearson}\!\left(
+    \{\Delta\text{RCI}_p\}_{p=1}^{30},\;
+    \{\text{VRI}_p\}_{p=1}^{30}
+    \right)
+\end{equation}
+
+Statistical significance tested at $\alpha = 0.05$ (two-sided).
+
+Positive $r_{\text{ent}}$: positions where context sensitivity is high also show
+greater variance reduction. This is \emph{convergent entanglement}.
+
+Negative $r_{\text{ent}}$: positions where context sensitivity is high show greater
+variance \emph{amplification}. This is \emph{divergent entanglement}.
+
+% ================================================================
+\section{Effective Rank (from Paper 9)}
+
+The effective rank of an embedding matrix $\mathbf{E} \in \mathbb{R}^{N \times D}$
+is computed as the exponential of the Shannon entropy of the normalised singular
+value spectrum:
+
+\begin{equation}
+    \text{eff\_rank}(\mathbf{E}) = \exp\!\left(H(\mathbf{p})\right)
+    \quad \text{where} \quad
+    p_k = \frac{\sigma_k}{\sum_j \sigma_j}
+\end{equation}
+
+and $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{\min(N,D)} \geq 0$ are the
+singular values of $\mathbf{E}$ and $H(\mathbf{p}) = -\sum_k p_k \log p_k$ is the
+Shannon entropy of the normalised spectrum.
+
+Effective rank $\approx \min(N,D)$ indicates a full-rank, non-degenerate embedding
+space. Effective rank $\approx 1$ indicates near-complete collapse to a single
+dimension. MuRIL achieves effective rank $= 1.42/10$; MiniLM achieves $9.88/10$
+(Paper 9, \url{https://doi.org/10.5281/zenodo.19466613}).
+
+% ================================================================
+\section{Entanglement Stability Index (ESI, from Paper 4)}
+\label{sec:esi}
+
+The Entanglement Stability Index predicts which models will exhibit
+multi-turn instability (the ``Lost in Conversation'' phenomenon):
+
+\begin{equation}
+    \text{ESI} = \frac{1}{\left| 1 - \text{Var\_Ratio} \right|}
+\end{equation}
+
+ESI measures the proximity of Var\_Ratio to unity. When
+$\text{Var\_Ratio} \approx 1$, context neither amplifies nor
+reduces variance, yielding high ESI (stable). When Var\_Ratio
+deviates substantially from 1 (either convergent or divergent),
+ESI is low (unstable).
+
+\begin{itemize}
+    \item ESI $> 2.0$: Stable multi-turn behaviour
+    \item ESI $< 1.0$: Elevated instability risk
+    \item ESI $\to \infty$: Var\_Ratio $= 1.0$ (perfect stability)
+    \item ESI $\to 0$: Extreme divergent or convergent coupling
+\end{itemize}
+
+Paper 4 \citep{laxman2026d} demonstrated that ESI $< 1.0$ at task-critical
+positions (Medical P30) identifies models exhibiting the ``Lost in Conversation''
+phenomenon documented by Laban et al.\ (2025) across 200,000+ conversations.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{Var\_Ratio (P30)} & \textbf{ESI} & \textbf{Assessment} \\
+\midrule
+Llama 4 Scout    & 7.46 & 0.15 & Unstable \\
+Llama 4 Maverick & 2.64 & 0.61 & Caution  \\
+Qwen3 235B       & 1.02 & 50.0 & Stable   \\
+GPT-4o           & 0.58 & 2.38 & Stable   \\
+Claude Haiku     & 0.65 & 2.86 & Stable   \\
+\bottomrule
+\end{tabular}
+\caption{ESI at medical summarisation position (P30). From Paper 4
+\citep{laxman2026d}.}
+\end{table}
+
+% ================================================================
+\section{Encoding Fidelity Index (EFI)}
+\label{sec:efi}
+
+Introduced in Paper 8. EFI measures how faithfully an LLM encodes non-English input
+relative to its English equivalent.
+
+\subsection{Theoretical Definition}
+
+EFI is defined as the normalised mutual information between the source message $X$
+and the model's internal representation $\hat{X}$:
+
+\begin{equation}
+    \text{EFI} = \frac{I(X;\, \hat{X})}{H(X)}
+\end{equation}
+
+where $H(X)$ is the Shannon entropy of the source. EFI $= 1$ indicates perfect
+encoding fidelity; EFI $= 0$ indicates complete encoding failure.
+
+Since $I(X; \hat{X})$ requires access to model internals, a practical proxy is used.
+
+\subsection{Proxy Definition}
+
+\begin{equation}
+    \text{EFI}_{\text{proxy}} = \cos\!\big(\mathbf{e}(\text{non-English input}),\,
+    \mathbf{e}(\text{English equivalent})\big)
+\end{equation}
+
+where $\mathbf{e}(\cdot)$ is a sentence embedding. English self-similarity serves as
+the reference: $\text{EFI}_{\text{proxy}}(\text{English}) = 1.0$ by construction.
+
+\subsection{Measurement Instrument Dependence}
+
+Paper 9 established that EFI$_{\text{proxy}}$ is substantially instrument-dependent.
+Under the primary embedding (MiniLM), Kannada EFI $= 0.081$ --- a 92\% degradation.
+Under LaBSE (language-agnostic), Kannada EFI $= 0.853$ --- only 15\% below the
+English reference. The phenomenon is real under all instruments; its measured
+magnitude is conservative under English-distilled models.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Language} & \textbf{EFI (MiniLM)} & \textbf{EFI (LaBSE)} \\
+\midrule
+English  & 1.000 & 1.000 \\
+Kannada  & 0.081 & 0.853 \\
+Tamil    & 0.073 & 0.857 \\
+Hindi    & 0.041 & 0.861 \\
+\bottomrule
+\end{tabular}
+\caption{EFI by language and embedding model (from Papers 8 and 9).}
+\end{table}
+
+\subsection{Relationship to Var\_Ratio}
+
+EFI and Var\_Ratio are statistically independent under LaBSE ($r = -0.18$,
+$p = 0.73$, $N = 6$; Paper 9). They measure distinct phenomena: EFI measures
+encoding quality at the input stage; Var\_Ratio measures output consistency at the
+generation stage. Both are components of the MCH safety framework but require
+separate evaluation.
+
+% ================================================================
+\section{Statistical Tests}
+
+\subsection{Domain Separation}
+
+Pairwise domain separation is tested using the Mann-Whitney $U$ statistic
+(non-parametric, two-sided). Effect sizes reported as Cohen's $d$:
+
+\begin{equation}
+    d = \frac{\bar{K}^{(d_1)} - \bar{K}^{(d_2)}}
+    {\sqrt{\left(\text{SD}^{(d_1)2} + \text{SD}^{(d_2)2}\right)/2}}
+\end{equation}
+
+\subsection{Entanglement Significance}
+
+Pearson $r$ tested against $H_0: r = 0$ using the $t$-distribution with $df = 28$
+(two-sided). Significance codes: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.
+
+\subsection{Bootstrap Confidence Intervals (from Paper 9)}
+
+For Var\_Ratio confidence intervals: 10,000 bootstrap iterations, resampling
+trials with replacement. 95\% CI lower bound exceeding 1.0 indicates significant
+variance amplification.
+
+% ================================================================
+\section{Embedding Model Specifications}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Model} & \textbf{Dim} & \textbf{Category} & \textbf{Role in Paper 6} \\
+\midrule
+all-MiniLM-L6-v2  & 384 & EN-distilled  & Primary embedding \\
+all-mpnet-base-v2 & 768 & EN-distilled  & Robustness check 1 \\
+LaBSE             & 768 & Language-agnostic & Robustness check 2 \\
+\bottomrule
+\end{tabular}
+\caption{Embedding models used for $K$ computation. LaBSE validated as semantically
+faithful in Paper 9 (non-parallel control: $\Delta = 0.58$, $p = 0.004$).}
+\end{table}
+
+% ================================================================
+\section{Relationship Between Metrics}
+
+The following relationships hold by construction or empirical observation:
+
+\begin{align}
+    K &= \Delta\text{RCI} \times \text{Var\_Ratio} \\
+    \text{VRI} &= 1 - \text{Var\_Ratio} \\
+    \Delta\text{RCI} &= \Delta\text{RCI}_{\text{content}} +
+    \Delta\text{RCI}_{\text{order}} \\
+    r_{\text{ent}} &\approx +0.76 \text{ in Medical domain (Paper 4)}
+\end{align}
+
+The conservation constraint states that $K$ is approximately constant within a
+domain across model architectures:
+
+\begin{equation}
+    K_i^{(d)} \approx \bar{K}^{(d)} \quad \forall\, i \in \{1, \ldots, N_d\}
+\end{equation}
+
+with CV $= 0.162$--$0.214$ under MiniLM, indicating approximate rather than exact
+conservation.
+
+% ================================================================
+\section{Data and Code Availability}
+
+All raw data, analysis scripts, and computed metrics are available at:
+\begin{itemize}
+    \item GitHub: \url{https://github.com/LaxmanNandi/MCH-Research}
+    \item OSF pre-registration: \url{https://osf.io/dp8nj/}
+\end{itemize}
+
+Key scripts:
+\begin{itemize}
+    \item \texttt{paper6\_conservation.py} --- K computation across all domains
+    \item \texttt{paper6\_robustness\_reembed.py} --- Three-embedding robustness
+    \item \texttt{paper6\_entanglement.py} --- Entanglement analysis
+    \item \texttt{compile\_paper6\_data.py} --- Final data compilation to JSON
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{5}
+
+\bibitem[Laxman(2026d)]{laxman2026d}
+Laxman, M.~M. (2026d).
+\newblock Engagement as entanglement: Variance signatures of bidirectional
+context coupling in large language models.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202603.0055.v1}
+
+\bibitem[Laxman(2026h)]{laxman2026h}
+Laxman, M.~M. (2026h).
+\newblock Encoding fidelity and coherent misalignment in non-{E}nglish clinical {AI}.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202604.0061.v1}
+
+\bibitem[Laxman(2026i)]{laxman2026i}
+Laxman, M.~M. (2026i).
+\newblock Measurement matters: Embedding model choice determines encoding
+fidelity assessment in multilingual clinical {AI}.
+\newblock \emph{Zenodo}.
+\newblock \url{https://doi.org/10.5281/zenodo.19466613}
+
+\end{thebibliography}
+
+\end{document}

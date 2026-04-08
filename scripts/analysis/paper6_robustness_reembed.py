@@ -24,7 +24,8 @@ sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 # ============================================================================
 
 EMBEDDING_MODELS = [
-    ("all-mpnet-base-v2", 768),
+    # ("all-mpnet-base-v2", 768),  # Already completed
+    ("sentence-transformers/LaBSE", 768),
 ]
 
 BASE_DATA = "C:/Users/barla/mch_experiments/data"
