@@ -106,7 +106,7 @@ EFI is embedding-dependent — the measured encoding fidelity gap varies 10× de
 - **MPNet (768D):** Kannada EFI = 0.151 — slightly better
 - **LaBSE (768D):** Kannada EFI = 0.853 — **nearly script-invariant**
 - **MuRIL:** DEGENERATE — cosine ~0.999 for all inputs including random strings
-- LaBSE closes Indic-European gap from 0.32 to 0.035
+- LaBSE closes Indic-European gap from 0.33 to 0.035
 - **But variance amplification persists** across all embedding models (bootstrap 95% CIs, 10K iterations) — variance is LLM-intrinsic, not a measurement artifact
 - **EFI and variance are INDEPENDENT phenomena** — different causes, different solutions
 
