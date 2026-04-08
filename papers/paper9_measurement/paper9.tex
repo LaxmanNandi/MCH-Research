@@ -72,7 +72,7 @@ clinical battery across 6 embedding models ranging from monolingual-distilled
 (all-MiniLM-L6-v2) to language-agnostic (LaBSE), we find: (1) EFI is dramatically
 embedding-dependent --- Kannada EFI ranges from 0.081 (MiniLM) to 0.853 (LaBSE), a
 10$\times$ difference for identical input; (2) the Dravidian-specific EFI gap from Paper~8
-nearly disappears under LaBSE (Indic--European gap: MiniLM = 0.32, LaBSE = 0.035; 90\%
+nearly disappears under LaBSE (Indic--European gap: MiniLM = 0.33, LaBSE = 0.035; 90\%
 reduction), indicating near script-invariance with the appropriate measurement tool; (3)
 Indic-specific masked language models (MuRIL, IndicBERTv2) are degenerate as sentence
 encoders --- effective rank 1.42/10 versus 9.88/10 for MiniLM --- and cannot measure EFI;
@@ -361,13 +361,13 @@ measurement. European languages shown for comparison (French, German). English b
 
 \subsection{LaBSE Achieves Near Script-Invariance}
 
-Under LaBSE, the Indic-European EFI gap reduces from 0.32 (MiniLM) to 0.035
+Under LaBSE, the Indic-European EFI gap reduces from 0.33 (MiniLM) to 0.035
 (Table~\ref{tab:labse_european}) --- a 90\% reduction.
 
 \begin{table}[H]
 \centering
 \caption{EFI by language and embedding model, including European control.
-Indic-European gap: MiniLM = 0.32, LaBSE = 0.035 (90\% reduction).}
+Indic-European gap: MiniLM = 0.33, LaBSE = 0.035 (90\% reduction).}
 \label{tab:labse_european}
 \begin{tabular}{llccc}
 \toprule
@@ -394,7 +394,7 @@ remaining training data imbalance requires further investigation.
 \centering
 \includegraphics[width=0.85\textwidth]{fig3_european_heatmap.png}
 \caption{EFI by language and embedding model. LaBSE achieves near script-invariance
-across language families. Indic--European gap reduces from 0.32 (MiniLM) to 0.035
+across language families. Indic--European gap reduces from 0.33 (MiniLM) to 0.035
 (LaBSE) --- a 90\% reduction. Horizontal divider separates Indic (top) from European
 (bottom) language groups.}
 \label{fig:european_heatmap}
@@ -419,8 +419,10 @@ semantic content, not just language identity. Paper 8 EFI threshold shown as ref
 
 \noindent Parallel pairs (same meaning): 0.919. Non-parallel pairs (different medical
 meaning): 0.338. Unrelated pairs: 0.276. The parallel-to-non-parallel drop of 0.58 is
-statistically significant ($p = 0.004$, Mann-Whitney U). LaBSE is measuring meaning, not
-surface language identity. The EFI = 0.853 reported for Kannada under LaBSE reflects
+statistically significant ($p = 0.004$, Mann-Whitney U). This represents the minimum
+achievable $p$-value for this sample size ($N = 5$ per group), reflecting complete
+separation of parallel and non-parallel similarity distributions. LaBSE is measuring
+meaning, not surface language identity. The EFI = 0.853 reported for Kannada under LaBSE reflects
 genuine semantic preservation, not measurement artefact.
 
 \subsection{Indic MLMs Are Degenerate as Sentence Encoders}
@@ -493,12 +495,13 @@ instrument change.
 \subsection{EFI and Variance Ratio Are Independent}
 
 Experiment E computed the correlation between LaBSE EFI and LaBSE VR across all
-language--LLM combinations ($N = 8$). Pearson $r = -0.18$ ($p = 0.73$); Spearman
-$\rho = -0.21$ ($p = 0.61$). Neither correlation is significant. The 95\% bootstrap CI
-for $r$ comfortably includes zero.
+language--LLM combinations ($N = 6$). No evidence of dependence was observed between
+EFI and variance ratio under LaBSE (Pearson $r = -0.18$, $p = 0.73$, $N = 6$), though
+the small sample size and narrow EFI range under LaBSE limit statistical power for this
+test. Spearman $\rho = -0.21$ ($p = 0.61$). The 95\% bootstrap CI for $r$ includes zero.
 
-This confirms the central finding: EFI degradation and variance amplification are
-statistically independent phenomena. A language can show high EFI degradation without
+These results are consistent with EFI degradation and variance amplification being
+distinct phenomena. A language can show high EFI degradation without
 variance amplification (Hindi: EFI $\approx$ 0.041, VR $\approx$ 0.91 under Mistral)
 or significant variance amplification despite LaBSE recovering EFI to 0.853 (Kannada:
 VR = 4.08 under Mistral). Different causes require different solutions.
