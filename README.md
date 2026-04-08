@@ -45,7 +45,7 @@
 | Domain | Truth Type | K | CV | N | Entangled | Arc |
 |--------|-----------|------|------|---|-----------|-----|
 | Medical | Discovered | 0.429 | 0.170 | 8 | Yes (r=0.76) | Convergent |
-| Legal | Argued | 0.348 | 0.192 | 5 | No (all ns) | Convergent |
+| Legal | Argued | 0.348 | 0.214 | 5 | No (all ns) | Convergent |
 | Philosophy | Explored | 0.301 | 0.166 | 6 | Yes (r=0.76) | Divergent |
 | Ethics | Felt | 0.223 | 0.162 | 5 | Mixed | Mixed |
 
