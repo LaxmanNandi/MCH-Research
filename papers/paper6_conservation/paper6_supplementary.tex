@@ -100,20 +100,18 @@ trials. $\Delta\text{RCI} < 0$ indicates divergent context coupling (context
 
 \subsection{Variance Ratio (Var\_Ratio)}
 
-The variance of responses at position $p$ under condition $c$ is computed from the
-pairwise cosine similarity distribution across all $N = 50$ trial pairs. Let:
+The variance of responses at position $p$ under condition $c$ is computed as the
+mean variance across all embedding dimensions, taken across $N = 50$ trials:
 
 \begin{equation}
-    S_p^{(c)} = \left\{ \cos\!\big(\mathbf{e}_{i,p}^{(c)},\, \mathbf{e}_{j,p}^{(c)}\big)
-    : 1 \leq i < j \leq N \right\}
+    \text{Var}_{p}^{(c)} = \frac{1}{D} \sum_{k=1}^{D}
+    \text{Var}_{i}\!\left( e_{i,p,k}^{(c)} \right)
 \end{equation}
 
-be the set of all $\binom{N}{2} = 1225$ pairwise cosine similarities at position $p$.
-The positional variance is:
-
-\begin{equation}
-    \text{Var}_{p}^{(c)} = \text{Var}\!\left( S_p^{(c)} \right)
-\end{equation}
+where $D$ is the embedding dimensionality (384 for MiniLM), $e_{i,p,k}^{(c)}$ is
+the $k$-th dimension of the embedding for trial $i$ at position $p$ under condition
+$c$, and $\text{Var}_{i}$ denotes variance across the 50 trials. In code:
+\texttt{np.mean(np.var(embs\_at\_p, axis=0))}.
 
 The model-level Var\_Ratio is:
 
@@ -124,9 +122,10 @@ The model-level Var\_Ratio is:
     \overline{\text{Var}}^{(c)} = \frac{1}{30} \sum_{p=1}^{30} \text{Var}_{p}^{(c)}
 \end{equation}
 
-This formulation measures the spread of the pairwise similarity distribution rather
-than dimension-wise embedding variance, capturing how consistently the model produces
-similar responses across trials at each position.
+This formulation captures how spread out the response embeddings are across trials
+at each position, averaged over all embedding dimensions. It is identical in both
+\texttt{paper6\_conservation\_law.py} and \texttt{compile\_paper6\_data.py},
+ensuring consistency across all 24 model-domain runs.
 
 $\text{Var\_Ratio} < 1$: context reduces response variance (convergent coupling).\\
 $\text{Var\_Ratio} > 1$: context increases response variance (divergent coupling).
