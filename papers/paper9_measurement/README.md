@@ -83,7 +83,7 @@ With LaBSE: Kannada 0.853, Tamil 0.857, Hindi 0.861 — **all equal.** The Dravi
 | Spanish  | 0.423     | 0.493     | 0.910     |
 | German   | 0.304     | 0.398     | 0.875     |
 
-- Indic-European gap: MiniLM=0.32, LaBSE=0.035
+- Indic-European gap: MiniLM=0.33, LaBSE=0.035
 - **LaBSE is nearly script-invariant. Residual gap persists but 90% reduced.**
 
 ### Experiment C — Variance Ratio Bootstrap CIs (10,000 iterations)

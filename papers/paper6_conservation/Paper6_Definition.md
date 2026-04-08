@@ -9,7 +9,7 @@
 
 ## Abstract
 
-We propose the **Theory of Epistemological Relativity**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. We report an empirical conservation constraint — the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a domain — validated across four domains representing four truth-types: Medical (Discovered, K=0.429), Legal (Argued, K=0.348), Philosophy (Explored, K=0.301), and Applied Ethics (Felt, K=0.193). The conservation holds across 24 model-domain runs spanning 14 architectures from 8 vendors, with within-domain CV = 0.13–0.19 in all four domains. Each truth-type determines a distinct behavioural mode — including entanglement structure, exploration arc, variance signature, and temporal dynamics — yielding a four-mode taxonomy of context processing. The conservation law is more fundamental than entanglement (which is absent in Legal) and persists across all four truth-types with increasing precision (Ethics CV = 0.134, the tightest of any domain).
+We propose the **Theory of Epistemological Relativity**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. We report an empirical conservation constraint — the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a domain — validated across four domains representing four truth-types: Medical (Discovered, K=0.429), Legal (Argued, K=0.348), Philosophy (Explored, K=0.301), and Applied Ethics (Felt, K=0.223). The conservation holds across 24 model-domain runs spanning 14 architectures from 8 vendors, with within-domain CV = 0.16–0.21 in all four domains. Each truth-type determines a distinct behavioural mode — including entanglement structure, exploration arc, variance signature, and temporal dynamics — yielding a four-mode taxonomy of context processing. The conservation law is more fundamental than entanglement (which is absent in Legal) and persists across all four truth-types with increasing precision (Ethics CV = 0.162, the tightest of any domain).
 
 ---
 
@@ -39,7 +39,7 @@ We propose the **Theory of Epistemological Relativity**: the behavioural laws of
 | Medical | Discovered | 8 | 0.429 | 0.170 | Yes (r=0.76) | Convergent (1.72) |
 | Legal | Argued | 5 | 0.348 | 0.192 | No (all ns) | Convergent |
 | Philosophy | Explored | 6 | 0.301 | 0.166 | Yes (r=0.76) | Divergent (15.23) |
-| Ethics | Felt | 5 | 0.193 | 0.134 | Mixed | Mixed |
+| Ethics | Felt | 5 | 0.223 | 0.162 | Mixed | Mixed |
 
 **K ordering: Discovered > Argued > Explored > Felt.**
 **CV ≈ 0.17 in all four domains** — conservation equally tight regardless of K value.
@@ -54,7 +54,7 @@ We propose the **Theory of Epistemological Relativity**: the behavioural laws of
 | **Discovered** | Medical | 0.429 | Yes | Convergent | 45-55% | >1 | P30 spike, U-shape, universal pattern |
 | **Argued** | Legal | 0.348 | No | Convergent | ~70-80% | >1 | No P30 spike, mixed temporal, structure constrains |
 | **Explored** | Philosophy | 0.301 | Yes | Divergent | 35-55% | ~1 | Inverted-U, response space expands |
-| **Felt** | Ethics | 0.193 | Mixed | Mixed | 80-91% | Mixed | Context individuates, model personality visible |
+| **Felt** | Ethics | 0.223 | Mixed | Mixed | 80-91% | Mixed | Context individuates, model personality visible |
 
 ---
 

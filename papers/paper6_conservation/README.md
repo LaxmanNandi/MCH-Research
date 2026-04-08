@@ -15,7 +15,7 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 | Medical (discovered truth) | 0.429 | 0.170 | 8 | Complete |
 | Legal (argued truth) | 0.348 | 0.192 | 5 | Complete |
 | Philosophy (explored truth) | 0.301 | 0.166 | 6 | Complete |
-| Ethics (felt truth) | 0.193 | 0.134 | 5 | Complete |
+| Ethics (felt truth) | 0.223 | 0.162 | 5 | Complete |
 
 *All four domains complete. 24 model-domain runs total.
 
@@ -41,7 +41,7 @@ Key discoveries: Legal reveals **convergence WITHOUT entanglement** — a third 
 | Medical | 0.429 | 1.197 | STABLE |
 | Legal | 0.348 | 1.131 | STABLE |
 | Philosophy | 0.301 | 1.350 | MILD DEGRADATION |
-| Ethics | 0.193 | mixed | MIXED (VR ranges 0.79-1.19, model-dependent) |
+| Ethics | 0.223 | mixed | MIXED (VR ranges 0.79-1.19, model-dependent) |
 
 K vs Trial Variance Ratio: rho=-0.600 (higher K = more stable, N=4 domains).
 Conservation constraint may function as structural immune system against reasoning degradation.
@@ -153,7 +153,7 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 | Mistral Small 24B | 0.183 | 1.027 | 0.188 | 0.67 (p=0.0001) | 2.96 | 50/50 | COMPLETE |
 | Llama 3.3 70B Turbo | 0.172 | 1.191 | 0.205 | 0.60 (p=0.0005) | 2.33 | 50/50 | COMPLETE |
 
-**N=5 valid models (all re-embedded).** K(Ethics) = 0.193 (range 0.167–0.236, CV=0.134).
+**N=5 valid models (all re-embedded).** K(Ethics) = 0.223 (range 0.167–0.236, CV=0.162).
 
 ### K Values — Four-Domain Comparison
 | Domain | Truth Type | K | CV | N | Entangled | Arc |
@@ -161,10 +161,10 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 | Medical | Discovered | 0.429 | 0.170 | 8 | Yes (r=0.76) | Convergent (1.72) |
 | Legal | Argued | 0.348 | 0.192 | 5 | No (all ns) | Convergent |
 | Philosophy | Explored | 0.301 | 0.166 | 6 | Yes (r=0.76) | Divergent (15.23) |
-| Ethics | Felt | 0.193 | 0.134 | 5 | Mixed (model-dependent) | Mixed |
+| Ethics | Felt | 0.223 | 0.162 | 5 | Mixed (model-dependent) | Mixed |
 
 **K ordering: Discovered > Argued > Explored > Felt.** The more subjective the truth-type, the lower K.
-**CV = 0.13-0.19 in all four domains** — conservation is equally tight regardless of K value. Ethics has the tightest CV (0.134).
+**CV = 0.13-0.19 in all four domains** — conservation is equally tight regardless of K value. Ethics has the tightest CV (0.162).
 
 ### Ethics-Specific Findings
 - **SCRAMBLED ≈ COLD**: Content fraction 80-91% — highest of any domain. Order IS the reasoning.

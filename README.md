@@ -47,7 +47,7 @@
 | Medical | Discovered | 0.429 | 0.170 | 8 | Yes (r=0.76) | Convergent |
 | Legal | Argued | 0.348 | 0.192 | 5 | No (all ns) | Convergent |
 | Philosophy | Explored | 0.301 | 0.166 | 6 | Yes (r=0.76) | Divergent |
-| Ethics | Felt | 0.193 | 0.134 | 5 | Mixed | Mixed |
+| Ethics | Felt | 0.223 | 0.162 | 5 | Mixed | Mixed |
 
 **K ordering: Discovered > Argued > Explored > Felt.** The more subjective the truth-type, the lower K. CV ≈ 0.17 in all four domains — conservation is equally tight regardless of K value.
 
@@ -64,7 +64,7 @@ The product of context sensitivity and output variance is approximately constant
 - **Medical (Discovered truth):** K = 0.429 — fixed answers exist, context converges toward them
 - **Legal (Argued truth):** K = 0.348 — answers constructed through structure, not discovered
 - **Philosophy (Explored truth):** K = 0.301 — open inquiry, no fixed answer
-- **Applied Ethics (Felt truth):** K = 0.193 — moral commitment, context individuates
+- **Applied Ethics (Felt truth):** K = 0.223 — moral commitment, context individuates
 
 Within-domain CV ≈ 0.17 in all four domains. Between-domain: Mann-Whitney U=46, p=0.003, Cohen's d=2.06 (Medical vs Philosophy).
 
