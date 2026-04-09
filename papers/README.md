@@ -11,84 +11,76 @@ papers/
 ├── paper3_cross_domain/     Paper 3 ✅ Published (Preprints.org)
 ├── paper4_entanglement/     Paper 4 ✅ Published (Preprints.org) + JMLR under review
 ├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
-├── paper6_conservation/     Paper 6 📄 Draft complete + Legal experiments in progress
-├── paper7_cud/              Paper 7: Concept docs + CUD pilot
-└── paper7_submission/       Paper 7 ✅ Published (tex, pdf, figures/)
+├── paper6_conservation/     Paper 6 📄 Submitted (Preprints.org ID: 207501)
+├── paper7_submission/       Paper 7 ✅ Published (Preprints.org)
+├── paper8_efi/              Paper 8 ✅ Published (Preprints.org) + npj Digital Medicine
+└── paper9_measurement/      Paper 9 ✅ Published (Zenodo)
 ```
 
 ## Paper Lineage
 
 ```
-Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Paper 5 (Safety) → Paper 6 (Conservation Law) → Paper 7 (Decomposition)
+Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Paper 5 (Safety) → Paper 7 (Decomposition) → Paper 6 (Conservation Law — Capstone)
+Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 ```
 
 ### Paper 1: Context Curves Behavior
 - **Status**: Published (Preprints.org, February 2, 2026, corrected version)
 - **DOI**: 10.20944/preprints202601.1881.v2
-- **Role**: Foundation -- Introduced ΔRCI metric and Epistemological Relativity
+- **Role**: Foundation — Introduced ΔRCI metric and epistemological relativity concept
 - **Models**: 7 closed models (GPT-4o/mini/5.2, Claude Opus/Haiku, Gemini Flash/Pro)
 - **Domains**: 2 (Philosophy: 700 trials + Medical: 300 trials = 1,000 total)
 - **Location**: `paper1_legacy/`
 
 ### Paper 2: Scaling Context Sensitivity
-- **Status**: Published -- Preprints.org (ID: 198770, February 12, 2026; v2 correction submitted)
+- **Status**: Published (Preprints.org, February 12, 2026; v2 correction)
 - **DOI**: 10.20944/preprints202602.1114.v2
-- **v2 Correction**: Gemini Flash Medical ΔRCI corrected -0.133 → +0.427 (alignment method fix)
-- **Role**: Core study -- Unified methodology, cross-domain validation
-- **Models**: 14 unique models, 25 model-domain runs (13 medical + 12 philosophy)
-- **Methodology**: Standardized 50 trials, corrected trial definition
+- **Role**: Core study — Unified methodology, cross-domain validation
+- **Models**: 14 unique models, 25 model-domain runs
 - **Location**: `paper2_standardized/`
 
 ### Paper 3: Domain-Specific Temporal Dynamics
-- **Status**: ✅ Published (Preprints.org, February 16, 2026)
+- **Status**: Published (Preprints.org, February 16, 2026)
 - **DOI**: 10.20944/preprints202602.1674.v1
-- **Role**: Extension of Paper 2 -- Position-level analysis across 30 conversation positions
-- **Key Finding**: Domain-specific temporal signatures (U-shape medical, inverted-U philosophy in 3-bin aggregation)
-- **Dataset**: 12 model-domain runs (8 Medical + 4 Philosophy with response text, for consistency with Papers 4-5)
+- **Role**: Extension — Position-level analysis, U-shape vs inverted-U in 3-bin aggregation
 - **Location**: `paper3_cross_domain/`
 
 ### Paper 4: Engagement as Entanglement
-- **Status**: ✅ Published on Preprints.org (ID: 199894, February 22, 2026) + Submitted to JMLR (March 4, 2026)
+- **Status**: Published (Preprints.org, February 22, 2026) + JMLR under review
 - **DOI**: 10.20944/preprints202603.0055.v1
-- **Role**: Extension of Paper 2 -- Variance-based entanglement mechanism
-- **Key Finding**: ΔRCI ~ VRI correlation r=0.76, p=2.37×10⁻⁶⁸ (N=360), ESI metric for instability prediction
-- **Dataset**: Paper 2 subset (12 models with response text for variance computation)
-- **Location**: `paper4_entanglement/` (includes `jmlr_submission/` folder)
-- **Journal**: JMLR (Journal of Machine Learning Research) - under review
+- **Role**: Mechanism — ΔRCI~VRI correlation r=0.76, ESI metric
+- **Location**: `paper4_entanglement/`
 
 ### Paper 5: Stochastic Incompleteness
-- **Status**: ✅ Published on Preprints.org (ID: 200695, February 28, 2026)
+- **Status**: Published (Preprints.org, February 28, 2026)
 - **DOI**: 10.20944/preprints202602.2034.v1
-- **Title**: *Stochastic Incompleteness: A Predictability Taxonomy for Clinical AI Deployment*
-- **Role**: Application -- Deployment framework based on accuracy verification
-- **Key Finding**: Four behavioral classes (IDEAL, EMPTY, DIVERGENT, RICH) based on 2×2 Var_Ratio × Accuracy matrix
-- **Dataset**: 8 medical models with response text (P30 summarization, 50 trials each)
+- **Role**: Application — Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH)
 - **Location**: `paper5_safety/`
 
-### Paper 6: Conservation Constraint
-- **Status**: 📄 Draft complete + Legal domain experiments in progress
-- **Role**: Unifying theory -- Conservation constraint across all prior papers
-- **Key Finding**: ΔRCI × Var_Ratio ≈ K(domain). Medical K=0.429, Philosophy K=0.301 (Mann-Whitney p=0.003, Cohen's d=2.06)
-- **Dataset**: 14 model-domain runs (8 Medical + 6 Philosophy) across 11 architectures, 8 vendors
-- **Legal extension**: 4 models complete (DeepSeek, Maverick, Qwen3, Mistral Small), 3 queued (Kimi K2.5, Llama 3.3, GLM-5). K(Legal)=0.362, no entanglement, order-dominated.
-- **Location**: `paper6_conservation/` + `/data/legal/open_models/`
+### Paper 6: Conservation Constraint (Capstone)
+- **Status**: Submitted (Preprints.org, April 9, 2026 — ID: 207501, Pending Check)
+- **Title**: A Conservation Constraint in LLM Context Processing Across Four Epistemological Domains
+- **Role**: Capstone — ΔRCI × Var_Ratio ≈ K(domain) across 4 domains, 24 runs, 14 architectures
+- **K values**: Medical 0.429, Legal 0.348, Philosophy 0.301, Ethics 0.223
+- **Location**: `paper6_conservation/` (v1_submission/ has submitted tex)
 
-### Paper 7: Content-Order Decomposition & Variance Dissociation
-- **Status**: ✅ Published (Preprints.org, March 16, 2026)
+### Paper 7: Content-Order Decomposition
+- **Status**: Published (Preprints.org, March 16, 2026)
 - **DOI**: 10.20944/preprints202603.1116.v1
-- **Title**: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
-- **Role**: Structural decomposition -- Breaks ΔRCI into content/order components, introduces exploration arc
-- **Key Findings**: Content fraction ~45-55% Medical / ~35-55% Philosophy; Exploration Arc separates domains (Medical convergent, Philosophy divergent); CUD pilot in Supplementary S1
-- **Model set**: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
-- **Figures**: 9 (all verified against raw data)
-- **Location**: `paper7_submission/` (tex, pdf, figures/) + `paper7_cud/` (concept docs)
+- **Role**: Structural decomposition — Content fraction, exploration arc, CUD pilot
+- **Location**: `paper7_submission/`
 
-## Each Paper Folder Contains
+### Paper 8: Encoding Fidelity & Coherent Misalignment
+- **Status**: Published (Preprints.org, April 2, 2026) + npj Digital Medicine ("With Editor")
+- **DOI**: 10.20944/preprints202604.0061.v1
+- **Role**: Cross-lingual — EFI metric, Coherent Misalignment, Dravidian-specific variance
+- **Location**: `paper8_efi/`
 
-- `Paper[X]_Manuscript.tex` or `Paper[X]_Draft.md` -- Paper content
-- `figures/` -- All figures specific to this paper
-- `README.md` -- Overview and key findings
-- `archive/` -- Legacy drafts and superseded versions
+### Paper 9: Measurement Matters
+- **Status**: Published (Zenodo, April 7, 2026)
+- **DOI**: 10.5281/zenodo.19466613
+- **Role**: Measurement validation — EFI is embedding-dependent, MuRIL degeneracy, LaBSE validated
+- **Location**: `paper9_measurement/`
 
 ## Data Location
 
@@ -102,34 +94,28 @@ Paper 1 (Legacy) → Paper 2 (Standardized) → Papers 3 & 4 (Extensions) → Pa
 ├── philosophy/
 │   ├── open_models/      7 models (DeepSeek, Kimi, Llama 4 ×2, Mistral ×2, Qwen)
 │   └── closed_models/    5 models (GPT ×3, Claude, Gemini)
+├── legal/open_models/    5 valid + 2 excluded (Kimi K2.5, GLM-5)
+├── ethics/open_models/   5 models (DeepSeek, Llama 70B, Maverick, Mistral, Qwen)
 ├── paper5/               Accuracy verification and Llama deep-dive data
-├── paper6/               Conservation law test data and MI verification
-├── paper7/               Paper 7 cold prior voice analysis
-└── legal/                Legal domain experiment data (Paper 6 extension)
+├── paper6/               Conservation law verification, manuscript data JSON, robustness
+├── paper7/               Cold prior voice analysis
+├── paper9/               Validation experiments (A through G)
+└── eeg_pilot/            EEG pilot (Sleep-EDF, 20 subjects)
 ```
 
 ## Quick Navigation
 
 | Document | Location |
 |----------|----------|
-| Research outline | `/docs/RESEARCH_OUTLINE.md` |
-| Paper 1 vs 2 comparison | `/docs/PAPER_COMPARISON.md` |
-| Paper 1 figures | `paper1_legacy/figures/` |
-| Paper 2 manuscript | `paper2_standardized/Paper2_Manuscript.tex` |
-| Paper 3 manuscript | `paper3_cross_domain/paper3_temporal_dynamics.tex` |
-| Paper 4 manuscript | `paper4_entanglement/Paper4_Manuscript.tex` |
-| Paper 5 manuscript | `paper5_safety/Paper5_Final_Corrected.tex` |
-| Paper 6 draft | `paper6_conservation/Paper6_Draft.md` |
-| Paper 7 manuscript | `paper7_submission/paper7.tex` |
+| Paper 6 submitted tex | `paper6_conservation/v1_submission/paper6_final.tex` |
+| Paper 6 supplementary | `paper6_conservation/paper6_supplementary.tex` |
+| Paper 6 manuscript data | `/data/paper6/paper6_manuscript_data.json` |
+| Paper 8 manuscript | `paper8_efi/paper8.tex` |
+| Paper 9 manuscript | `paper9_measurement/paper9.tex` |
 | Conservation data | `/data/paper6/conservation_product_test.csv` |
+| Submission status | `SUBMISSION_STATUS.md` |
 
 ---
 
-**Last Updated**: March 16, 2026
-**Data Status**:
-- ✅ Foundation data: 25/25 model-domain runs complete
-- ✅ Paper 5 accuracy verification complete
-- ✅ Paper 6 conservation constraint data complete
-- ✅ Paper 7 published (DOI: 10.20944/preprints202603.1116.v1)
-- 🔄 Legal domain experiments: 4/7 models complete, 3 queued
-**Publications**: 7 published (Papers 1-5 + 7 on Preprints.org), Paper 4 under JMLR review, Paper 6 draft ready
+**Last Updated**: April 10, 2026
+**Publications**: 8 published, 1 submitted (Paper 6), Paper 4 under JMLR review, Paper 8 under npj Digital Medicine review

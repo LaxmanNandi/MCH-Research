@@ -1,71 +1,47 @@
 # MCH Research Program — Submission Status
-**Updated**: March 16, 2026
+**Updated**: April 10, 2026
 
 ## Publication Summary
 
-| Paper | Title | Platform | Status | DOI |
-|-------|-------|----------|--------|-----|
+| Paper | Title | Platform | Status | DOI / ID |
+|-------|-------|----------|--------|----------|
 | **1** | Context Curves Behavior | Preprints.org | ✅ Published | 10.20944/preprints202601.1881.v2 |
 | **2** | Scaling Context Sensitivity | Preprints.org | ✅ Published (v2) | 10.20944/preprints202602.1114.v2 |
 | **3** | Domain-Specific Temporal Dynamics | Preprints.org | ✅ Published | 10.20944/preprints202602.1674.v1 |
-| **4** | Engagement as Entanglement | Preprints.org + JMLR | ✅ Published (preprint) / Under review (JMLR) | 10.20944/preprints202603.0055.v1 |
+| **4** | Engagement as Entanglement | Preprints.org + JMLR | ✅ Published + Under review | 10.20944/preprints202603.0055.v1 |
 | **5** | Stochastic Incompleteness | Preprints.org | ✅ Published | 10.20944/preprints202602.2034.v1 |
-| **6** | Conservation Constraint | — | 📄 Draft complete | — |
-| **7** | Content-Order Decomposition & Variance Dissociation | Preprints.org | ✅ Published | 10.20944/preprints202603.1116.v1 |
+| **6** | Conservation Constraint (Capstone) | Preprints.org | 📄 Submitted (Pending Check) | ID: 207501 |
+| **7** | Content-Order Decomposition | Preprints.org | ✅ Published | 10.20944/preprints202603.1116.v1 |
+| **8** | Encoding Fidelity & Coherent Misalignment | Preprints.org + npj Digital Medicine | ✅ Published + With Editor | 10.20944/preprints202604.0061.v1 |
+| **9** | Measurement Matters | Zenodo | ✅ Published | 10.5281/zenodo.19466613 |
 
-**Total**: 7 papers published, 1 draft ready (Paper 6), Paper 4 under JMLR review
+**Total**: 8 published (7 Preprints.org + 1 Zenodo), 1 submitted (Paper 6), Paper 4 under JMLR review, Paper 8 under npj Digital Medicine review
 
 ---
 
 ## Paper 4: Engagement as Entanglement
-**Status**: ✅ PUBLISHED (Preprints.org, Feb 22, 2026) + JMLR under review (Mar 4, 2026)
+- **Preprints.org**: Published (DOI: 10.20944/preprints202603.0055.v1)
+- **JMLR**: Under review (submitted March 4, 2026)
 
-- Preprints.org ID: 199894
-- DOI: 10.20944/preprints202603.0055.v1
-- JMLR: Submitted (Journal of Machine Learning Research)
-- Manuscript: `paper4_entanglement/Paper4_Manuscript.tex`
-- Supplementary: `paper4_entanglement/Paper4_Supplementary.tex`
-- JMLR package: `paper4_entanglement/jmlr_submission/`
+## Paper 6: Conservation Constraint (Capstone)
+- **Preprints.org**: Submitted April 9, 2026 (ID: 207501, Pending Check)
+- **Title**: A Conservation Constraint in LLM Context Processing Across Four Epistemological Domains
+- **Scope**: 4 domains, 24 model-domain runs, 14 architectures, 8 vendors, 3 embedding validations
+- **OSF Pre-registration**: https://osf.io/dp8nj/
+- **Submission**: paper6_final.tex + paper6_supplementary.tex + 6 figures
 
----
+## Paper 8: Encoding Fidelity
+- **Preprints.org**: Published (DOI: 10.20944/preprints202604.0061.v1)
+- **npj Digital Medicine** (Nature portfolio): "With Editor" stage
+- **Submission ID**: d7c96965-56f4-410b-a41d-bc84bed0ee4f
 
-## Paper 5: Stochastic Incompleteness
-**Status**: ✅ PUBLISHED (Preprints.org, Feb 28, 2026)
-
-- Preprints.org ID: 200695
-- DOI: 10.20944/preprints202602.2034.v1
-- Manuscript: `paper5_safety/Paper5_Final_Corrected.tex`
-- Figures: 6 (fig1.png through fig6.png)
-- Data: `cross_model_p30_accuracy.json` (verified source of truth)
-
----
-
-## Paper 6: Conservation Constraint
-**Status**: 📄 DRAFT COMPLETE, LATEX PENDING
-
-- Draft: `paper6_conservation/Paper6_Draft.md`
-- Key result: ΔRCI × Var_Ratio ≈ K(domain), p=0.003, Cohen's d=2.06
-- Figures: 4 main + variants in `paper6_conservation/figures/`
-- Next: Convert to LaTeX and submit
+## Paper 9: Measurement Matters
+- **Zenodo**: Published (DOI: 10.5281/zenodo.19466613)
+- **Note**: Declined by Preprints.org for scope/novelty. Published on Zenodo same day.
 
 ---
 
-## Paper 7: Content-Order Decomposition & Variance Dissociation
-**Status**: ✅ PUBLISHED (Preprints.org, March 16, 2026)
-
-- Full title: *The Structure and Trajectory of Context Sensitivity in LLMs: Content-Order Decomposition and Variance Dissociation*
-- Preprints.org ID: 202603.1116
-- DOI: 10.20944/preprints202603.1116.v1
-- URL: https://www.preprints.org/manuscript/202603.1116/v1
-- Model set: Conservation-validated subset (N=8 Medical + N=6 Philosophy from Paper 6)
-- Figures: 9 (all verified against raw data)
-- CUD pilot moved to Supplementary S1
-- Manuscript: `papers/paper7_submission/paper7.tex`
-- Figures: `papers/paper7_submission/figures/`
-
----
-
-## Timeline Achieved
+## Timeline
 
 | Date | Milestone |
 |------|-----------|
@@ -75,9 +51,11 @@
 | Feb 22, 2026 | Paper 4 published (Preprints.org) |
 | Feb 26, 2026 | Paper 4 submitted to JMLR |
 | Feb 28, 2026 | Paper 5 published (Preprints.org) |
-| Mar 6, 2026 | Paper 6 OSF pre-registration (Legal domain experiment) |
-| Mar 12, 2026 | Paper 7 submitted |
-| Mar 13, 2026 | Paper 7 accepted |
-| Mar 16, 2026 | Paper 7 published online (DOI: 10.20944/preprints202603.1116.v1) |
+| Mar 6, 2026 | Paper 6 OSF pre-registration |
+| Mar 16, 2026 | Paper 7 published (Preprints.org) |
+| Apr 2, 2026 | Paper 8 published (Preprints.org) |
+| Apr 2, 2026 | Paper 8 submitted to npj Digital Medicine |
+| Apr 7, 2026 | Paper 9 published (Zenodo) |
+| Apr 9, 2026 | Paper 6 submitted (Preprints.org ID: 207501) |
 
-**7 papers published in 47 days** (Jan 28 – Mar 16, 2026), Paper 4 under JMLR review
+**9 papers in 71 days** (Jan 28 – Apr 9, 2026). 1,015+ downloads with zero promotion.
