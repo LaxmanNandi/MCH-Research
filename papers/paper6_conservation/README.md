@@ -13,7 +13,7 @@ Capstone paper of the MCH Research Program. Reports that the product of context 
 | Domain | K | CV | N | Status |
 |--------|------|------|---|--------|
 | Medical (discovered truth) | 0.429 | 0.170 | 8 | Complete |
-| Legal (argued truth) | 0.348 | 0.192 | 5 | Complete |
+| Legal (argued truth) | 0.348 | 0.214 | 5 | Complete |
 | Philosophy (explored truth) | 0.301 | 0.166 | 6 | Complete |
 | Ethics (felt truth) | 0.223 | 0.162 | 5 | Complete |
 
@@ -53,35 +53,36 @@ Conservation constraint may function as structural immune system against reasoni
 - Conservation holds under mpnet (768D): Medical K=0.402, Philosophy K=0.282
 - CVs improved — constraint is tighter, not weaker
 
-## Dataset (Updated March 2026)
-- **Configurations**: 20+ model-domain runs (8 Med, 6 Phil, 5 Legal, 1+ Ethics)
-- **Models**: 11+ unique architectures from 8 vendors
+## Dataset (Updated April 2026)
+- **Configurations**: 24 model-domain runs (8 Med, 6 Phil, 5 Legal, 5 Ethics)
+- **Models**: 14 unique architectures from 8 vendors
 - **Data sources**:
-  - `/data/paper6/` — conservation product CSV, MI verification
-  - `/data/legal/` — legal domain results + metrics
-  - `/data/ethics/` — ethics domain (in progress)
+  - `/data/paper6/` — conservation product CSV, MI verification, manuscript data JSON
+  - `/data/paper6/robustness/` — MiniLM, MPNet, LaBSE robustness results
+  - `/data/legal/open_models/` — legal domain results + metrics
+  - `/data/ethics/open_models/` — ethics domain results (all 5 models complete)
   - `/data/medical/`, `/data/philosophy/` — original domains
 
 ## Contents
-- `Paper6_Draft.md`: Complete manuscript (v2.0)
-- `Paper6_Definition.md`: Paper definition and scope
-- `figures/`: All Paper 6 figures (4 main + variant renderings)
+- `Paper6_Draft.md`: Current manuscript draft
+- `figures/`: Legacy figures (2-domain, Papers 2-5 era)
+- `figures_v2/`: Updated figures (4-domain, all 24 runs)
+- `paper6_supplementary.tex/.pdf`: Verified supplementary material
+- `v1_submission/`: Preprint submission package
+- `archive/`: Old planning docs (Definition, Draft_v1, experimental design)
 
-## Main Figures
-1. Conservation constraint with domain hyperbolas (14 model-domain runs)
-2. Product distribution by domain (within-domain clustering)
-3. Domain scaling factors comparison (K_med vs K_phil with 95% CI)
-4. Predictability taxonomy overlay on conservation constraint
+## Main Figures (figures_v2/)
+1. `fig1_conservation_scatter.png` — Conservation constraint with 4 domain hyperbolas (24 runs)
+2. `fig2_k_by_domain.png` — K by domain bar chart with CV
+3. `fig3_four_mode_taxonomy.png` — Four-mode taxonomy quadrant
+4. `fig4_three_embedding.png` — Three-embedding robustness (MiniLM, MPNet, LaBSE)
+5. `fig5_content_order.png` — Content-order decomposition
+6. `fig6_hierarchy.png` — Theoretical hierarchy (nested diagram)
 
-## Legal Domain Extension — Emerging Insight (March 13, 2026)
+## Legal Domain — Final Results (N=5)
 
-### Reasoning Topology Hypothesis
-4 models complete (N=4): K(Legal) = 0.362 (CV=0.189). Sits between Philosophy (K=0.301) and Medical (K=0.429), contradicting both the pre-registered prediction (K≈0.41) and early 3-model estimate (K≈0.30).
-
-**Proposed reframing**: K is not domain-specific but **reasoning-topology-specific**:
-- **Convergent reasoning** (single correct answer) → K ≈ 0.43 (Medical: symptoms → diagnosis)
-- **Divergent reasoning** (interpretive, argued positions) → K ≈ 0.30 (Philosophy: open inquiry)
-- **Hybrid reasoning** (rigid rules + interpretive application) → K ≈ 0.36 (Legal: statutes + argument)
+### K(Legal) = 0.348 (CV=0.214, N=5)
+Sits between Philosophy (K=0.301) and Medical (K=0.429). Pre-registered prediction was K≈0.41 — actual value lower, reflecting the constructed nature of legal truth.
 
 ### Discovered Truth vs Constructed Truth (March 15, 2026)
 
@@ -139,7 +140,7 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 - **Location**: `/data/paper7/`
 - **Figures**: `/docs/figures/paper6_supplementary/`
 - Domain forces cross-vendor centroid convergence (cos > 0.97 in Medical) — grounds K(domain) at the baseline level
-- Same model cross-domain = nearly orthogonal voices (cos ~0.18) — Epistemological Relativity at the prior level
+- Same model cross-domain = nearly orthogonal voices (cos ~0.18) — domain shapes prior voice
 - Llama compressed spring: tightest Var_COLD → highest Var_Ratio with context
 
 ## Ethics Domain — Fourth Mode: "Felt Truth" (March 2026)
@@ -159,12 +160,12 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 | Domain | Truth Type | K | CV | N | Entangled | Arc |
 |--------|-----------|------|------|---|-----------|-----|
 | Medical | Discovered | 0.429 | 0.170 | 8 | Yes (r=0.76) | Convergent (1.72) |
-| Legal | Argued | 0.348 | 0.192 | 5 | No (all ns) | Convergent |
+| Legal | Argued | 0.348 | 0.214 | 5 | No (all ns) | Convergent |
 | Philosophy | Explored | 0.301 | 0.166 | 6 | Yes (r=0.76) | Divergent (15.23) |
 | Ethics | Felt | 0.223 | 0.162 | 5 | Mixed (model-dependent) | Mixed |
 
 **K ordering: Discovered > Argued > Explored > Felt.** The more subjective the truth-type, the lower K.
-**CV = 0.13-0.19 in all four domains** — conservation is equally tight regardless of K value. Ethics has the tightest CV (0.162).
+**CV = 0.16-0.21 in all four domains** — conservation is equally tight regardless of K value. Ethics has the tightest CV (0.162).
 
 ### Ethics-Specific Findings
 - **SCRAMBLED ≈ COLD**: Content fraction 80-91% — highest of any domain. Order IS the reasoning.
@@ -193,4 +194,4 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 
 ---
 
-**Status**: In preparation. Writing begins with 3 complete domains + Ethics preliminary data. Final version after Ethics experiment completes (~April 2026).
+**Status**: All 4 domains complete (24 model-domain runs). Three embedding robustness checks done. Draft exists. Manuscript fixes pending before submission.

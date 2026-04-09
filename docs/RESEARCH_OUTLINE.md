@@ -5,7 +5,7 @@
 
 ## Overview
 
-This research program proposes the **Theory of Epistemological Relativity**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. Validated across four domains (Medical, Philosophy, Legal, Applied Ethics) representing four truth-types (Discovered, Explored, Argued, Felt), with a conservation constraint K = ΔRCI × Var_Ratio that holds across 14+ LLMs from 8 vendors.
+This research program reports an **empirical conservation constraint**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. Validated across four domains (Medical, Philosophy, Legal, Applied Ethics) representing four truth-types (Discovered, Explored, Argued, Felt), with a conservation constraint K = ΔRCI × Var_Ratio that holds across 14+ LLMs from 8 vendors.
 
 ---
 
@@ -108,16 +108,16 @@ This research program proposes the **Theory of Epistemological Relativity**: the
    - RICH (mild divergence, high accuracy): Qwen3 235B
 3. **Categorical, not continuous**: Four-class taxonomy captures structure better than any continuous model (quadratic R²=0.11, F-test p=0.72)
 
-#### **Paper 6: Conservation Constraint — Theory of Epistemological Relativity** [CAPSTONE — DRAFT]
+#### **Paper 6: Conservation Constraint** [CAPSTONE — DRAFT]
 **Title**: *Conservation Without Entanglement: A Four-Domain Taxonomy of Context Processing in Large Language Models*
-**Working subtitle**: *The Theory of Epistemological Relativity*
+**Working subtitle**: *An Empirical Conservation Constraint for Context Processing*
 
 **Role**: Capstone — Theoretical unification of entire programme
 - **Dataset**: 4 domains, 22+ model-domain runs (8 Med + 6 Phil + 5 Legal + 3+ Ethics)
 - **Innovation**: ΔRCI × Var_Ratio ≈ K(domain); four truth-types determine full behavioural mode
 
 **Key Findings**:
-1. **Conservation constraint**: K(Medical)=0.429, K(Legal)=0.348, K(Philosophy)=0.301, K(Ethics)=0.193 — CV=0.13-0.19
+1. **Conservation constraint**: K(Medical)=0.429, K(Legal)=0.348, K(Philosophy)=0.301, K(Ethics)=0.223 — CV=0.16-0.21
 2. **Four truth-types**: Discovered > Argued > Explored > Felt (K decreases with subjectivity)
 3. **Four behavioural modes**: Each truth-type determines entanglement, arc, variance structure, and temporal dynamics
 4. **Legal surprise**: Convergence WITHOUT entanglement — third mode not predicted by Papers 2-5
@@ -194,12 +194,12 @@ mch_experiments/
 
 ## Next Steps
 
-1. ~~Complete Ethics domain~~ — **DONE** (N=5, K=0.193, CV=0.134)
-2. **Write Paper 6 capstone** — All data complete. Four domains, four truth-types, Theory of Epistemological Relativity
+1. ~~Complete Ethics domain~~ — **DONE** (N=5, K=0.223, CV=0.162)
+2. **Write Paper 6 capstone** — All data complete. Four domains, four truth-types, empirical conservation constraint
 3. ~~Paper 8 venue~~ — **PUBLISHED** (DOI: 10.20944/preprints202604.0061.v1)
 4. **Paper 4 JMLR review** — Under review since March 4, 2026
 
 ---
 
 **Last Updated**: March 30, 2026
-**Status**: 8 papers (7 published, 1 capstone ready to write). All four domains complete (24 model-domain runs). Theory of Epistemological Relativity: validated.
+**Status**: 9 papers (8 published, 1 capstone ready to write). All four domains complete (24 model-domain runs). Conservation constraint: validated.

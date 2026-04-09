@@ -52,7 +52,7 @@ Analysis of COLD condition (no-context) responses across 14 model-domain runs to
 - Domain sets centroid direction (WHAT models say) — explains K(Medical) > K(Philosophy)
 - Architecture sets variance level (HOW MUCH models vary) — explains position on hyperbola
 - Conservation law K(domain) operates above the prior level
-- COLD centroid convergence grounds Epistemological Relativity at the baseline
+- COLD centroid convergence grounds domain-dependent context processing at the baseline
 
 ## Files
 - `cold_prior_voice_results.json` — full results with per-position variance

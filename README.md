@@ -14,7 +14,7 @@
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
 [![Domains](https://img.shields.io/badge/domains-medical%20%7C%20philosophy%20%7C%20legal%20%7C%20ethics-orange.svg)](#methodology)
 
-> **TL;DR:** We propose the **Theory of Epistemological Relativity**: the behavioural laws of language models are conserved across architectures but vary across epistemological domains. The domain's truth-type determines the mode of context processing — including the conservation constant K, the presence or absence of entanglement, and the convergence or divergence of response space. Validated across four domains (Medical, Legal, Philosophy, Applied Ethics) spanning four truth-types (Discovered, Argued, Explored, Felt), 14+ LLMs from 8 vendors, and 150,000+ responses.
+> **TL;DR:** We report an **empirical conservation constraint** in LLM context processing: the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within an epistemological domain. The domain's truth-type determines the mode of context processing — including the conservation constant K, the presence or absence of entanglement, and the convergence or divergence of response space. Validated across four domains (Medical, Legal, Philosophy, Applied Ethics) spanning four truth-types (Discovered, Argued, Explored, Felt), 14+ LLMs from 8 vendors, and 160,000+ responses.
 
 *Dr. Laxman M M, MBBS*
 *Government Duty Medical Officer, PHC Manchi, Karnataka, India*
@@ -31,12 +31,12 @@
 | **3** | Domain-Specific Temporal Dynamics | 3-bin aggregation, U-shape vs inverted-U | ✅ [Published](https://www.preprints.org/manuscript/202602.1674/v1) - DOI: 10.20944/preprints202602.1674.v1 |
 | **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) + JMLR under review |
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
-| **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — Theory of Epistemological Relativity | 📄 Draft — 4 domains, 4 truth-types |
+| **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — empirical conservation constraint, four truth-types | 📄 Draft — 4 domains, 4 truth-types |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
 | **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 + npj Digital Medicine (peer review) |
 | **9** | Measurement Matters | EFI is embedding-dependent (0.08→0.85); MuRIL degeneracy; variance is LLM-intrinsic | ✅ [Published](https://doi.org/10.5281/zenodo.19466613) - Zenodo DOI: 10.5281/zenodo.19466613 |
 
-### Key Discovery: Theory of Epistemological Relativity (Paper 6 — Capstone)
+### Key Discovery: Conservation Constraint (Paper 6 — Capstone)
 
 ```
 ΔRCI × Var_Ratio ≈ K(domain)
@@ -118,8 +118,8 @@ EFI is embedding-dependent — the measured encoding fidelity gap varies 10× de
 - **768D robustness check** confirms K holds across embedding dimensions
 - All data, scripts, and analysis publicly available in this repository
 
-![Conservation constraint with hyperbolas](docs/figures/paper6/fig1_conservation_law_hyperbolas.png)
-*Figure: Conservation constraint across 14 model-domain runs. Models cluster along domain-specific hyperbolas despite spanning 8 vendors and parameter counts from 14B to 671B.*
+![Conservation constraint across four domains](docs/figures/paper6/fig1_conservation_4domain.png)
+*Figure: Conservation constraint across 24 model-domain runs in four epistemological domains. Models cluster along domain-specific hyperbolas (K = 0.429 Medical, 0.348 Legal, 0.301 Philosophy, 0.223 Ethics) despite spanning 14+ architectures from 8 vendors.*
 
 ---
 
