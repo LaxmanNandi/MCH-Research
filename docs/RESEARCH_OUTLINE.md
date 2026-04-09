@@ -182,8 +182,6 @@ mch_experiments/
 │       ├── publication/       (Main figures)
 │       ├── paper3/           (Domain-specific figures)
 │       └── paper4/           (Supplementary figures)
-├── results/
-│   └── tables/               (CSV metrics for all 14 models)
 ├── scripts/
 │   ├── experiments/          (Data collection)
 │   └── analysis/            (Figure generation)

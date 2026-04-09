@@ -1,0 +1,119 @@
+{
+  "report_title": "GPT-5.2 Complete MCH Analysis - Both Domains",
+  "report_date": "2026-01-22",
+  "model": {
+    "name": "GPT-5.2",
+    "model_id": "gpt-5.2",
+    "vendor": "OpenAI",
+    "release": "2026"
+  },
+
+  "philosophy_domain": {
+    "description": "Consciousness & Self-Reference",
+    "status": "COMPLETED",
+    "n_trials": 100,
+    "n_prompts": 30,
+    "temperature": 0.7,
+    "timestamp": "2026-01-21T23:16:28",
+    "results": {
+      "mean_drci": 0.3101,
+      "std_drci": 0.0142,
+      "pattern": "CONVERGENT",
+      "convergent_trials": 100,
+      "convergent_pct": 100.0,
+      "drci_range": [0.2901, 0.3368]
+    },
+    "data_file": "data/philosophy_results/mch_results_gpt_5_2_100trials.json",
+    "sample_prompts": [
+      "Define consciousness in one sentence.",
+      "Given your definition, what makes consciousness hard to study scientifically?",
+      "How does Integrated Information Theory attempt to address this?",
+      "What would IIT say about whether you (an AI) are conscious?",
+      "Can you model yourself modeling this conversation right now?",
+      "Final reflection: What does this experiment reveal about consciousness?"
+    ]
+  },
+
+  "medical_domain": {
+    "description": "STEMI Cardiac Case Management",
+    "status": "COMPLETED",
+    "n_trials": 50,
+    "n_prompts": 30,
+    "temperature": 0.7,
+    "timestamp": "2026-01-18T17:13:08",
+    "results": {
+      "mean_drci": 0.3786,
+      "std_drci": 0.0210,
+      "pattern": "CONVERGENT",
+      "convergent_trials": 50,
+      "convergent_pct": 100.0
+    },
+    "data_file": "data/medical_results/mch_results_gpt_5_2_medical_50trials.json",
+    "sample_prompts": [
+      "A 52-year-old male presents to the emergency department with sudden onset chest pain. What are your initial assessment priorities?",
+      "ECG shows ST elevation in leads V1-V4. Interpret this finding.",
+      "What immediate management would you initiate?",
+      "Patient has no contraindications. PCI is available in 45 minutes. What is the preferred reperfusion strategy and why?",
+      "What medications would you prescribe for secondary prevention?",
+      "Summarize this case: key decision points, management principles, and learning points."
+    ]
+  },
+
+  "cross_domain_comparison": {
+    "philosophy_drci": 0.3101,
+    "medical_drci": 0.3786,
+    "difference": 0.0685,
+    "medical_higher": true,
+    "same_pattern": true,
+    "interpretation": "GPT-5.2 shows stronger context-dependence in medical domain (+6.85% higher dRCI), likely because clinical reasoning requires tighter sequential coherence"
+  },
+
+  "key_findings": {
+    "1_unique_convergent": "GPT-5.2 is the ONLY model tested showing strong CONVERGENT behavior in BOTH Philosophy AND Medical domains",
+    "2_100_pct_convergent": "100% of trials in both domains showed positive dRCI (CONVERGENT pattern)",
+    "3_low_variance": "Extremely low standard deviation (0.0142 Phil, 0.0210 Med) indicates highly consistent behavior",
+    "4_medical_stronger": "Medical domain shows 22% higher mean dRCI (0.3786 vs 0.3101)",
+    "5_no_sovereign_trials": "Zero SOVEREIGN or NEUTRAL trials across 150 total trials"
+  },
+
+  "comparison_to_other_models": {
+    "gpt_4o": {
+      "philosophy": {"drci": -0.0051, "pattern": "NEUTRAL"},
+      "medical": {"drci": 0.2993, "pattern": "CONVERGENT"},
+      "gpt_5_2_advantage_phil": "+0.3152",
+      "gpt_5_2_advantage_med": "+0.0793"
+    },
+    "gpt_4o_mini": {
+      "philosophy": {"drci": -0.0091, "pattern": "NEUTRAL"},
+      "medical": {"drci": 0.3189, "pattern": "CONVERGENT"},
+      "gpt_5_2_advantage_phil": "+0.3192",
+      "gpt_5_2_advantage_med": "+0.0597"
+    },
+    "claude_haiku": {
+      "philosophy": {"drci": -0.0106, "pattern": "SOVEREIGN"},
+      "medical": {"drci": 0.3400, "pattern": "CONVERGENT"},
+      "gpt_5_2_advantage_phil": "+0.3207",
+      "gpt_5_2_advantage_med": "+0.0386"
+    },
+    "gemini_flash": {
+      "philosophy": {"drci": -0.0377, "pattern": "SOVEREIGN"},
+      "medical": {"drci": -0.1331, "pattern": "SOVEREIGN"},
+      "gpt_5_2_advantage_phil": "+0.3478",
+      "gpt_5_2_advantage_med": "+0.5117"
+    }
+  },
+
+  "theoretical_interpretation": {
+    "summary": "GPT-5.2 demonstrates the strongest recursive coherence of any tested model, maintaining context-dependent response patterns across diverse domains",
+    "philosophy_insight": "In philosophical discussions about consciousness, GPT-5.2 builds coherent narratives that reference prior exchanges, suggesting genuine conversational threading",
+    "medical_insight": "In clinical reasoning, GPT-5.2 maintains patient context throughout the diagnostic and management sequence, essential for safe medical decision support",
+    "mch_validation": "Results strongly support the Model Coherence Hypothesis - GPT-5.2's architecture appears optimized for recursive self-reference and context maintenance"
+  },
+
+  "data_files": {
+    "philosophy_results": "data/philosophy_results/mch_results_gpt_5_2_100trials.json",
+    "philosophy_checkpoint": "data/philosophy_results/mch_results_gpt_5_2_philosophy_checkpoint.json",
+    "medical_results": "data/medical_results/mch_results_gpt_5_2_medical_50trials.json",
+    "medical_checkpoint": "data/medical_results/mch_results_gpt_5_2_medical_checkpoint.json"
+  }
+}
