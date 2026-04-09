@@ -181,14 +181,21 @@ mch_experiments/
 │   ├── legal/                       #   Legal domain (N=5, complete)
 │   └── ethics/                      #   Applied Ethics domain (N=5, complete)
 │
-├── scripts/                         # Analysis and experiment code
-│   ├── experiments/                 #   Experiment runners
-│   ├── analysis/                    #   Analysis scripts (Papers 3-7)
-│   └── validate/                    #   Validation and verification
+├── scripts/                         # Analysis and experiment code (by paper)
+│   ├── paper3/                      #   Paper 3 verification
+│   ├── paper6/                      #   Paper 6 conservation law (15 scripts)
+│   ├── paper7/                      #   Paper 7 claims verification
+│   ├── paper8/                      #   Paper 8 EFI analysis (5 scripts)
+│   ├── paper9/                      #   Paper 9 validation experiments
+│   ├── eeg_pilot/                   #   EEG biological pilot
+│   ├── shared/                      #   Cross-paper utilities
+│   ├── experiments/                 #   Domain experiment runners
+│   └── archive/                     #   Historical scripts (Papers 1-5, utilities)
 │
 ├── docs/                            # Documentation and figures
 │   ├── figures/                     #   All figures by paper
-│   └── figure_data/                 #   CSV data behind figures
+│   ├── figure_data/                 #   CSV data behind figures
+│   └── archive/                     #   Historical working documents
 │
 └── archive/                         # Historical materials
 ```
@@ -243,13 +250,13 @@ cd MCH-Research
 pip install -r requirements.txt
 
 # Run conservation constraint test (Paper 6)
-python scripts/analysis/paper6_conservation_product.py
+python scripts/paper6/paper6_conservation_product.py
 
 # Generate Paper 6 figures
-python scripts/analysis/paper6_figures.py
+python scripts/paper6/paper6_figures.py
 
-# Generate Paper 5 figures
-python scripts/generate_paper5_figures.py
+# Compile Paper 6 manuscript data from raw trials
+python scripts/paper6/compile_paper6_data.py
 ```
 
 ---
