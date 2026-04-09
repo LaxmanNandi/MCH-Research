@@ -32,7 +32,7 @@
 | **3** | Domain-Specific Temporal Dynamics | 3-bin aggregation, U-shape vs inverted-U | ✅ [Published](https://www.preprints.org/manuscript/202602.1674/v1) - DOI: 10.20944/preprints202602.1674.v1 |
 | **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) + JMLR under review |
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
-| **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — empirical conservation constraint, four truth-types | 📄 Draft — 4 domains, 4 truth-types |
+| **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — empirical conservation constraint, four truth-types | 📄 [Submitted](https://www.preprints.org/manuscript/207501) — Preprints ID: 207501 |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
 | **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 + npj Digital Medicine (peer review) |
 | **9** | Measurement Matters | EFI is embedding-dependent (0.08→0.85); MuRIL degeneracy; variance is LLM-intrinsic | ✅ [Published](https://doi.org/10.5281/zenodo.19466613) - Zenodo DOI: 10.5281/zenodo.19466613 |
@@ -115,7 +115,7 @@ EFI is embedding-dependent — the measured encoding fidelity gap varies 10× de
 - **160,000+ responses** across 4 domains, 14+ architectures, 8 vendors
 - **50 trials** per model-domain configuration, **30 positions**, **3 conditions** (TRUE/COLD/SCRAMBLED)
 - **24 model-domain runs** with complete data
-- **9 papers published**, 1 capstone in preparation
+- **9 papers** across the programme (8 published, 1 submitted — Preprints ID: 207501)
 - **768D robustness check** confirms K holds across embedding dimensions
 - All data, scripts, and analysis publicly available in this repository
 
@@ -162,7 +162,7 @@ mch_experiments/
 │   ├── paper3_cross_domain/         #   Paper 3: Published (Preprints.org)
 │   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org) + JMLR
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
-│   ├── paper6_conservation/         #   Paper 6: Draft complete
+│   ├── paper6_conservation/         #   Paper 6: Submitted (Preprints ID: 207501)
 │   ├── paper7_submission/           #   Paper 7: Published (tex, pdf, figures/, archive/)
 │   ├── paper8_efi/                  #   Paper 8: Published + npj Digital Medicine
 │   └── paper9_measurement/          #   Paper 9: Published (Zenodo DOI: 10.5281/zenodo.19466613)

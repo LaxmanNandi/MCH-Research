@@ -1,6 +1,6 @@
 # Paper 6: Conservation Constraint for Context Sensitivity
 
-**Status**: IN PREPARATION — 4 domains (Medical, Philosophy, Legal, Ethics)
+**Status**: SUBMITTED — Preprints.org ID: 207501 (April 9, 2026)
 **Title**: *Conservation Without Entanglement: A Four-Domain Taxonomy of Context Processing in Large Language Models*
 **Working subtitle**: How domain truth-type determines entanglement, variance structure, and reasoning stability
 
@@ -194,4 +194,4 @@ No consensus temporal pattern — unlike Medical (all U-shape) or Philosophy (al
 
 ---
 
-**Status**: All 4 domains complete (24 model-domain runs). Three embedding robustness checks done. Draft exists. Manuscript fixes pending before submission.
+**Status**: SUBMITTED to Preprints.org (ID: 207501, April 9, 2026). 24 model-domain runs, three embedding robustness checks, Table 4 verified against authoritative JSON.

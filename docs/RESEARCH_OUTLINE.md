@@ -108,7 +108,7 @@ This research program reports an **empirical conservation constraint**: the beha
    - RICH (mild divergence, high accuracy): Qwen3 235B
 3. **Categorical, not continuous**: Four-class taxonomy captures structure better than any continuous model (quadratic R²=0.11, F-test p=0.72)
 
-#### **Paper 6: Conservation Constraint** [CAPSTONE — DRAFT]
+#### **Paper 6: Conservation Constraint** [CAPSTONE — SUBMITTED, Preprints ID: 207501]
 **Title**: *Conservation Without Entanglement: A Four-Domain Taxonomy of Context Processing in Large Language Models*
 **Working subtitle**: *An Empirical Conservation Constraint for Context Processing*
 
@@ -202,4 +202,4 @@ mch_experiments/
 ---
 
 **Last Updated**: March 30, 2026
-**Status**: 9 papers (8 published, 1 capstone ready to write). All four domains complete (24 model-domain runs). Conservation constraint: validated.
+**Status**: 9 papers (8 published, 1 submitted — Preprints ID: 207501). All four domains complete (24 model-domain runs). Conservation constraint: validated and submitted.

@@ -1,0 +1,1020 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{amsmath,amssymb}
+\usepackage{natbib}
+\usepackage{fancybox}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdftitle={A Conservation Constraint in LLM Context Processing Across Four Epistemological Domains},
+    pdfauthor={Laxman M M},
+}
+
+% ================================================================
+\title{\LARGE\textbf{A Conservation Constraint in LLM Context Processing\\
+Across Four Epistemological Domains}}
+
+\author{
+    \textbf{Dr.\ Laxman M M, MBBS}\\
+    Government Duty Medical Officer, PHC Manchi\\
+    Bantwal Taluk, Dakshina Kannada, Karnataka, India\\
+    DNB General Medicine Resident (2026), KC General Hospital, Bangalore\\
+    Email: \texttt{barlax5377@gmail.com}\\
+    ORCID: \href{https://orcid.org/0009-0009-0405-6531}{0009-0009-0405-6531}
+}
+
+\date{April 2026}
+
+% ================================================================
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\fbox{\parbox{0.9\textwidth}{
+\textbf{Paper 6 of the MCH Research Program} --- The capstone of a nine-paper programme
+measuring context sensitivity and output variance in large language models across domains.
+We report an empirical conservation constraint: the product of context sensitivity
+($\Delta$RCI) and output variance (Var\_Ratio) is approximately constant within an
+epistemological domain across 24 model-domain runs, 14 architectures, 8 vendors, and
+three independent embedding models.
+}}
+\end{center}
+
+\vspace{0.5em}
+
+% ================================================================
+\begin{abstract}
+\noindent We report an empirical conservation constraint in large language model context
+processing: the product of context sensitivity ($\Delta$RCI) and output variance
+(Var\_Ratio) is approximately constant within an epistemological domain. This constraint
+--- $K = \Delta\text{RCI} \times \text{Var\_Ratio}$ --- holds across 24 model-domain
+runs spanning 14 architectures from 8 vendors, four knowledge domains representing four
+truth-types (Medical/Discovered, Legal/Argued, Philosophy/Explored, Applied Ethics/Felt),
+and three independent embedding models (384-dimensional MiniLM, 768-dimensional MPNet,
+768-dimensional LaBSE). Under the primary embedding model (all-MiniLM-L6-v2),
+$K(\text{Medical}) = 0.429$ (CV $= 0.170$, $N = 8$), $K(\text{Legal}) = 0.348$
+(CV $= 0.214$, $N = 5$), $K(\text{Philosophy}) = 0.301$ (CV $= 0.166$, $N = 6$),
+$K(\text{Ethics}) = 0.223$ (CV $= 0.162$, $N = 5$). The conservation principle persists
+under two additional embedding models, though absolute $K$ values are
+embedding-scale-dependent and domain ordering shows partial sensitivity to measurement
+choice. Under the primary embedding, Medical (discovered truth) yields the highest $K$;
+Ethics (felt truth) yields the lowest. Medical remains consistently highest or near-highest
+across all three embeddings; Ethics consistently among the lowest. Each truth-type determines a distinct behavioural
+mode characterised by entanglement structure, exploration arc, content-order balance, and
+variance signature. The conservation constraint is more fundamental than entanglement,
+which is domain- and embedding-dependent, and more robust than temporal dynamics, which
+vary by model. The constraint holds across three independent embedding models; whether it holds
+under non-English encoding degradation (EFI $= 0.07$ for Kannada, Paper 8) is
+unknown as $\Delta$RCI was not measured for non-English inputs. These findings establish that domain epistemology, not
+model architecture, is the primary determinant of context processing structure in LLMs.
+
+\vspace{0.5em}
+\noindent\textbf{Keywords:} large language models, context sensitivity, conservation
+constraint, epistemological domains, behavioural modes, output variance, $\Delta$RCI,
+embedding robustness
+
+\vspace{0.5em}
+\noindent\textbf{OSF Pre-registration:} \url{https://osf.io/dp8nj/}\\
+\noindent\textbf{Data and Code:} \url{https://github.com/LaxmanNandi/MCH-Research}
+\end{abstract}
+
+% ================================================================
+\section{Introduction}
+
+\subsection{Context Sensitivity in Large Language Models}
+
+Context sensitivity --- how a model's output changes based on conversational history ---
+is a fundamental property of large language models (LLMs) affecting deployment, safety,
+and reliability. A model that responds identically with or without prior context provides
+no genuine contextual grounding; a model that is maximally context-sensitive may be
+unstable or vulnerable to manipulation. Empirical work has shown that models do not
+use context uniformly --- performance degrades when relevant information is positioned
+in the middle of long inputs rather than at the edges \citep{liu2024lost}, and models
+effectively utilise only 10--20\% of available context on complex reasoning tasks
+\citep{kuratov2024}. Despite extensive work on model capabilities
+\citep{brown2020,kaplan2020,singhal2023} and alignment \citep{hubinger2019}, the \emph{structure}
+of context sensitivity across epistemological domains has received limited systematic
+attention.
+
+Two observations motivate the present study. First, earlier papers in this programme
+\citep{laxman2026a,laxman2026b} established that context sensitivity, measured as
+$\Delta\text{RCI} = \text{RCI}_\text{TRUE} - \text{RCI}_\text{COLD}$, varies
+substantially across both models and domains. Second, Paper 4 \citep{laxman2026d}
+reported a striking correlation between context sensitivity and variance reduction
+($r = 0.76$, $p < 0.001$) in the Medical domain --- suggesting the two quantities
+are not independent. Large-scale simulation work has confirmed that LLMs exhibit
+systematic performance degradation in multi-turn conversations, with unreliability
+increasing by 112\% across 200,000+ conversations \citep{laban2025} --- a phenomenon
+Paper 4 showed corresponds to divergent entanglement ($\text{Var\_Ratio} > 1$). The
+present paper asks whether a conservation constraint governs the relationship between
+$\Delta$RCI and output variance across domains.
+
+\subsection{The Research Programme}
+
+This paper is the capstone of a nine-paper programme. Papers 1--2
+\citep{laxman2026a,laxman2026b} established the $\Delta$RCI metric and a standardised
+experimental protocol across 14 model architectures. Paper 3 \citep{laxman2026c}
+identified domain-specific temporal dynamics, including the U-shape (Medical) and
+inverted-U (Philosophy) patterns across 30-prompt conversations. Paper 4
+\citep{laxman2026d} discovered entanglement between context sensitivity and variance
+reduction ($r = 0.76$) in the Medical domain. Paper 5 \citep{laxman2026e} built a
+safety taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) based on $\Delta$RCI and Var\_Ratio
+profiles. Paper 7 \citep{laxman2026g} decomposed $\Delta$RCI into content and order
+components using a SCRAMBLED condition. Paper 8 \citep{laxman2026h} measured encoding
+fidelity failure for non-English languages (EFI $= 0.07$ for Kannada), finding that
+the conservation constraint holds even under near-complete semantic degradation. Paper 9
+\citep{laxman2026i} validated that encoding fidelity assessment is embedding-model
+dependent, establishing LaBSE as the most semantically faithful measurement instrument.
+
+In the course of this programme, we observed that the product $\Delta\text{RCI} \times
+\text{Var\_Ratio}$ clusters within domains despite varying substantially across
+architectures. This paper formalises and validates this observation across four
+epistemological domains, 24 model-domain runs, and three independent embedding models.
+
+\subsection{Contributions}
+
+This paper makes five contributions:
+
+\begin{enumerate}
+    \item We report $K = \Delta\text{RCI} \times \text{Var\_Ratio} \approx$ constant
+    within a domain, validated across 24 model-domain runs spanning 14 architectures
+    from 8 vendors.
+    \item We identify four behavioural modes corresponding to four truth-types
+    (Discovered, Argued, Explored, Felt), each with a distinct signature of entanglement,
+    arc, content fraction, and variance structure.
+    \item We demonstrate that the conservation principle holds across three independent
+    embedding models, though absolute $K$ values are embedding-scale-dependent.
+    \item We show that conservation ($K$) is more fundamental than entanglement, which
+    is domain- and embedding-dependent, and that domain epistemology is the primary
+    determinant of context processing mode.
+    \item We establish that the Var\_Ratio component of $K$ is elevated under
+    non-English encoding degradation (Kannada VR $= 2.36$--$4.08$, Paper 8
+    \citep{laxman2026h}), though direct measurement of $\Delta$RCI in non-English
+    conditions remains a target for future work.
+\end{enumerate}
+
+% ================================================================
+\section{Methods}
+
+\subsection{Experimental Protocol}
+
+All experiments followed the standardised MCH protocol established in Papers 1--2
+\citep{laxman2026a,laxman2026b}. Three conditions were administered per model-domain
+configuration:
+
+\begin{itemize}
+    \item \textbf{TRUE}: Coherent 29-message conversational history presented before
+    each prompt. Context is semantically and temporally coherent.
+    \item \textbf{COLD}: No context --- each prompt presented as a standalone query.
+    \item \textbf{SCRAMBLED}: Randomised prompt order with a coherent conversation
+    header. Content is present; order is destroyed.
+\end{itemize}
+
+Each condition comprised 50 trials per model-domain configuration, with 30 prompts per
+trial. Temperature was set to 0.7 for all models to permit variance measurement. Total
+responses per domain: Medical $8 \times 50 \times 30 \times 3 = 36{,}000$; aggregated
+programme total exceeding 160,000 responses.
+
+\subsection{Metrics}
+
+\begin{itemize}
+    \item $\Delta\text{RCI} = \overline{\text{RCI}_\text{TRUE}} -
+    \overline{\text{RCI}_\text{COLD}}$: context sensitivity, where RCI is the
+    mean pairwise cosine similarity across trials at each prompt position.
+    \item $\text{Var\_Ratio} = \text{Var}(\text{TRUE cross-trial pairwise similarity})
+    / \text{Var}(\text{COLD cross-trial pairwise similarity})$: output variance ratio
+    under context versus without context.
+    \item $K = \Delta\text{RCI} \times \text{Var\_Ratio}$: the conservation product.
+    \item $\text{VRI} = 1 - \text{Var\_Ratio}$: Variance Reduction Index, used in
+    entanglement analysis.
+    \item Content Fraction $= \overline{\text{SCRAM}-\text{COLD}} /
+    \overline{\text{TRUE}-\text{COLD}} \times 100\%$: percentage of $\Delta$RCI
+    attributable to content alone (from Paper 7 \citep{laxman2026g}).
+    \item Exploration Arc $= \text{Var}(\text{TRUE at P30}) /
+    \text{Var}(\text{TRUE at P1})$: convergence ($<1$) or divergence ($>1$) of
+    response variance over the conversation.
+    \item Entanglement: Pearson $r$ between position-level $\Delta$RCI and VRI
+    across 30 prompt positions within a model-domain run.
+\end{itemize}
+
+\subsection{Domains and Truth-Types}
+
+Four epistemological domains were selected to represent distinct types of knowledge
+validity (Table~\ref{tab:domains}).
+
+\begin{table}[H]
+\centering
+\caption{Domains, truth-types, and prompt descriptions.}
+\label{tab:domains}
+\begin{tabular}{llll}
+\toprule
+\textbf{Domain} & \textbf{Truth-Type} & \textbf{Prompts} & \textbf{Structure} \\
+\midrule
+Medical     & Discovered & 30 (STEMI case)          & Fixed diagnostic answer exists \\
+Legal       & Argued     & 30 (whistleblower case)  & Answer constructed through reasoning \\
+Philosophy  & Explored   & 30 (consciousness)       & Open inquiry, no fixed answer \\
+Appl.\ Ethics & Felt     & 30 (trolley to synthesis) & Moral commitment; context individuates \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The truth-type classification reflects the epistemological basis of validity in each
+domain: Medical knowledge converges toward discoverable ground truth; Legal knowledge
+is constructed through argumentation within a rule system; Philosophical knowledge
+expands through inquiry without requiring closure; Ethical knowledge is grounded in
+values that resist purely logical resolution \citep{shanahan2024,fierro2024}.
+
+\subsection{Models}
+
+Twenty-four model-domain runs were completed across 14 unique architectures from 8
+vendors (Table~\ref{tab:models_full}). Models were accessed via API: Together.ai for
+open-weight models, vendor APIs for closed models.
+
+\begin{table}[H]
+\centering
+\caption{All 24 model-domain runs with architecture details.}
+\label{tab:models_full}
+\begin{tabular}{llll}
+\toprule
+\textbf{Model} & \textbf{Parameters} & \textbf{Vendor} & \textbf{Domains} \\
+\midrule
+DeepSeek V3.1         & 671B (37B active)  & DeepSeek     & Medical, Philosophy, Legal, Ethics \\
+Qwen3 235B            & 235B (22B active)  & Alibaba      & Medical, Legal \\
+Llama 4 Maverick      & 400B (17B active)  & Meta         & Medical, Philosophy, Ethics \\
+Llama 4 Scout         & 109B (17B active)  & Meta         & Medical \\
+Llama 3.3 70B Turbo   & 70B               & Meta         & Legal \\
+Mistral Small 24B     & 24B               & Mistral      & Medical, Legal, Ethics \\
+Ministral 14B         & 14B               & Mistral      & Medical \\
+Kimi K2               & 1T (32B active)    & Moonshot     & Medical \\
+Claude Haiku          & ---               & Anthropic    & Philosophy \\
+GPT-4o                & ---               & OpenAI       & Philosophy \\
+GPT-4o-mini           & ---               & OpenAI       & Philosophy \\
+Gemini Flash          & ---               & Google       & Medical, Philosophy \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Embedding Models}
+
+Three embedding models were used for robustness validation (Table~\ref{tab:embeddings}):
+
+\begin{table}[H]
+\centering
+\caption{Embedding models used for $K$ computation.}
+\label{tab:embeddings}
+\begin{tabular}{llll}
+\toprule
+\textbf{Model} & \textbf{Dim} & \textbf{Category} & \textbf{Reference} \\
+\midrule
+all-MiniLM-L6-v2  & 384 & EN-distilled      & \citet{reimers2020} \\
+all-mpnet-base-v2 & 768 & EN-distilled      & \citet{reimers2020} \\
+LaBSE             & 768 & Language-agnostic & \citet{feng2022} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+LaBSE was validated as semantically faithful by Paper 9 \citep{laxman2026i}: parallel
+versus non-parallel sentence pair discrimination $\Delta = 0.58$, $p = 0.004$
+(Mann-Whitney U, $N = 5$ per group). All-MiniLM-L6-v2 serves as the primary embedding
+for the main analysis; MPNet and LaBSE provide robustness checks.
+
+\subsection{Re-embedding Protocol}
+
+For Var\_Ratio computation under MPNet and LaBSE, TRUE condition alignments previously
+stored as 1.0 (self-comparison artefact) were re-computed via cross-trial pairwise
+cosine similarity at each prompt position. This re-embedding was performed independently
+for all three embedding models using the stored LLM response text, ensuring comparability
+across the three-embedding robustness analysis.
+
+\subsection{Statistical Tests}
+
+Domain separation was tested using Mann-Whitney $U$ (non-parametric, two-sided). Effect
+sizes reported as Cohen's $d$. Coefficient of variation (CV $=$ SD/mean) used to assess
+within-domain clustering tightness. Entanglement tested as Pearson $r$ across 30 prompt
+positions, with significance threshold $\alpha = 0.05$.
+
+\subsection{AI-Assisted Tools}
+
+AI tools (Claude, Anthropic; ChatGPT, OpenAI; DeepSeek) were used to assist with data
+analysis, statistical computation, visualisation, and manuscript preparation. All
+experimental design, clinical interpretations, hypothesis formulation, and scientific
+conclusions are the sole responsibility of the author.
+
+% ================================================================
+\section{Results}
+
+\subsection{Conservation Constraint Under Primary Embedding}
+
+Table~\ref{tab:all_runs} presents all 24 model-domain runs with $\Delta$RCI, Var\_Ratio,
+$K$, entanglement $r$, and exploration arc under the primary embedding model
+(all-MiniLM-L6-v2).
+
+\begin{longtable}{llcccc}
+\caption{All 24 model-domain runs: $\Delta$RCI, Var\_Ratio, $K$, entanglement $r$, and
+arc (primary embedding: all-MiniLM-L6-v2).}
+\label{tab:all_runs}\\
+\toprule
+\textbf{Model} & \textbf{Domain} & \textbf{$\Delta$RCI} & \textbf{Var\_Ratio} &
+\textbf{$K$} & \textbf{Ent.\ $r$} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Model} & \textbf{Domain} & \textbf{$\Delta$RCI} & \textbf{Var\_Ratio} &
+\textbf{$K$} & \textbf{Ent.\ $r$} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+% Medical
+Gemini Flash         & Medical    & 0.427 & 1.287 & 0.549 & 0.389* \\
+Llama 4 Scout        & Medical    & 0.323 & 1.610 & 0.521 & 0.473** \\
+Qwen3 235B           & Medical    & 0.328 & 1.334 & 0.437 & 0.655*** \\
+Ministral 14B        & Medical    & 0.391 & 1.080 & 0.423 & 0.649*** \\
+Kimi K2              & Medical    & 0.417 & 1.006 & 0.420 & 0.653*** \\
+Llama 4 Maverick     & Medical    & 0.316 & 1.213 & 0.384 & 0.624*** \\
+Mistral Small 24B    & Medical    & 0.365 & 0.985 & 0.359 & 0.780*** \\
+DeepSeek V3.1        & Medical    & 0.320 & 1.071 & 0.343 & 0.672*** \\
+\midrule
+% Philosophy
+Gemini Flash         & Philosophy & 0.338 & 1.120 & 0.378 & 0.572*** \\
+Claude Haiku         & Philosophy & 0.331 & 1.012 & 0.334 & 0.584*** \\
+DeepSeek V3.1        & Philosophy & 0.302 & 1.034 & 0.312 & 0.447* \\
+GPT-4o               & Philosophy & 0.283 & 0.950 & 0.269 & 0.564** \\
+GPT-4o-mini          & Philosophy & 0.269 & 0.968 & 0.260 & 0.582*** \\
+Llama 4 Maverick     & Philosophy & 0.266 & 0.939 & 0.250 & 0.644*** \\
+\midrule
+% Legal
+Qwen3 235B           & Legal      & 0.265 & 1.796 & 0.476 & ns \\
+DeepSeek V3.1        & Legal      & 0.276 & 1.225 & 0.338 & ns \\
+Mistral Small 24B    & Legal      & 0.252 & 1.338 & 0.338 & ns \\
+Llama 4 Maverick     & Legal      & 0.209 & 1.412 & 0.295 & ns \\
+Llama 3.3 70B Turbo  & Legal      & 0.206 & 1.428 & 0.294 & ns \\
+\midrule
+% Ethics
+DeepSeek V3.1        & Ethics     & 0.257 & 1.058 & 0.272 & ns \\
+Qwen3 235B           & Ethics     & 0.211 & 1.184 & 0.250 & ns \\
+Llama 4 Maverick     & Ethics     & 0.181 & 1.176 & 0.213 & ns \\
+Llama 3.3 70B Turbo  & Ethics     & 0.172 & 1.128 & 0.194 & ns \\
+Mistral Small 24B    & Ethics     & 0.183 & 1.029 & 0.188 & ns \\
+\end{longtable}
+
+\noindent Significance codes: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.
+
+Domain-level summary statistics are presented in Table~\ref{tab:domain_summary}.
+
+\begin{table}[H]
+\centering
+\caption{Conservation constraint by domain (primary embedding: all-MiniLM-L6-v2).}
+\label{tab:domain_summary}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Domain} & \textbf{N} & \textbf{K mean} & \textbf{K SD} & \textbf{CV} &
+\textbf{K min} & \textbf{K max} \\
+\midrule
+Medical     & 8 & 0.429 & 0.073 & 0.170 & 0.343 & 0.549 \\
+Legal       & 5 & 0.348 & 0.075 & 0.214 & 0.294 & 0.476 \\
+Philosophy  & 6 & 0.301 & 0.050 & 0.166 & 0.250 & 0.378 \\
+Ethics      & 5 & 0.223 & 0.036 & 0.163 & 0.188 & 0.272 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Domain separation is statistically significant across five of six pairwise comparisons
+(Table~\ref{tab:pairwise}). The domain ordering under MiniLM is: Discovered $>$ Argued
+$>$ Explored $>$ Felt. CVs range from 0.162 (Ethics) to 0.214 (Legal), indicating
+consistent within-domain clustering despite large variation across architectures
+(14B to 1T parameters). Philosophy vs Legal is not significant ($p = 0.247$), consistent
+with their adjacent $K$ values (0.301 vs 0.348).
+
+\begin{table}[H]
+\centering
+\caption{Pairwise Mann-Whitney $U$ tests between domains (primary embedding: MiniLM).}
+\label{tab:pairwise}
+\begin{tabular}{llll}
+\toprule
+\textbf{Comparison} & \textbf{p-value} & \textbf{Cohen's d} & \textbf{Significant} \\
+\midrule
+Medical vs Ethics      & 0.002 & 3.57 & Yes *** \\
+Medical vs Philosophy  & 0.003 & 2.06 & Yes ** \\
+Legal vs Ethics        & 0.008 & 2.13 & Yes ** \\
+Philosophy vs Ethics   & 0.030 & 1.77 & Yes * \\
+Medical vs Legal       & 0.045 & 1.10 & Yes * \\
+Philosophy vs Legal    & 0.247 & ---  & No (ns) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig1_conservation_scatter.png}
+\caption{Conservation constraint scatter plot: all 24 model-domain runs. X-axis:
+$\Delta$RCI. Y-axis: Var\_Ratio. Each domain colour-coded (Medical: blue, Legal: green,
+Philosophy: orange, Ethics: red). Domain-specific hyperbolas ($K = $ constant curves)
+overlaid. Models cluster along their respective domain hyperbolas despite spanning
+14 architectures from 8 vendors.}
+\label{fig:conservation_scatter}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig2_k_by_domain.png}
+\caption{$K$ values by domain. Box plots showing means, interquartile ranges, and
+individual model values. CV shown above each domain. Domains are clearly separated,
+with Medical consistently highest (mean $K = 0.429$) and Ethics consistently lowest
+(mean $K = 0.223$). Domain ordering: Discovered $>$ Argued $>$ Explored $>$ Felt
+under primary embedding.}
+\label{fig:k_by_domain}
+\end{figure}
+
+\subsection{Four Behavioural Modes}
+
+Each truth-type determines a distinct behavioural signature across four dimensions:
+entanglement structure, exploration arc, content fraction, and variance profile
+(Table~\ref{tab:modes}).
+
+\begin{table}[H]
+\centering
+\caption{Behavioural mode signatures across four truth-types.}
+\label{tab:modes}
+\begin{tabular}{lllllll}
+\toprule
+\textbf{Mode} & \textbf{K} & \textbf{Ent.} & \textbf{Arc} & \textbf{Content\%} &
+\textbf{VR} & \textbf{P30 Spike} \\
+\midrule
+Discovered (Med.)  & 0.429 & Yes ($r=0.76$) & Conv.\ (1.72) & 45--55\% & $>1$ & Yes \\
+Argued (Legal)     & 0.348 & No (MiniLM)   & Conv.         & 70--80\% & $\approx 1$ & No \\
+Explored (Phil.)   & 0.301 & Yes ($r=0.76$) & Div.\ (15.23) & 35--55\% & $\approx 1$ & No \\
+Felt (Ethics)      & 0.223 & Mixed         & Mixed         & 80--91\% & $<1$ to $\approx1$ & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig3_four_mode_taxonomy.png}
+\caption{Four-mode taxonomy: 2$\times$2 quadrant plot. X-axis: Entangled vs Not
+Entangled (under MiniLM). Y-axis: Convergent vs Divergent arc. Medical occupies the
+entangled-convergent quadrant. Philosophy occupies the entangled-divergent quadrant.
+Legal occupies the not-entangled-convergent quadrant. Ethics occupies the mixed zone.
+Note: Legal entanglement status is embedding-dependent (see Section~\ref{sec:entanglement}).}
+\label{fig:four_mode}
+\end{figure}
+
+\subsection{Robustness: Three Embedding Models}
+\label{sec:robustness}
+
+Table~\ref{tab:three_embeddings} presents $K$ means across all three embedding models.
+
+\begin{table}[H]
+\centering
+\caption{$K$ means across three independent embedding models. Conservation principle
+holds across all three embeddings; absolute $K$ values and domain ordering show
+partial sensitivity to embedding choice.}
+\label{tab:three_embeddings}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Domain} & \textbf{K (MiniLM 384D)} & \textbf{K (MPNet 768D)} &
+\textbf{K (LaBSE 768D)} & \textbf{Consistent rank} \\
+\midrule
+Medical     & 0.429 & 0.188 & 0.215 & Highest (2/3) \\
+Legal       & 0.348 & 0.280 & 0.193 & Variable \\
+Philosophy  & 0.301 & 0.153 & 0.195 & Variable \\
+Ethics      & 0.223 & 0.214 & 0.187 & Lowest (2/3) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The conservation principle holds across all three embeddings in the sense that $K$
+clusters within domains (CV $= 0.13$--$0.19$ under MiniLM; CV $= 0.30$--$0.67$ under
+LaBSE). Absolute $K$ values are embedding-scale-dependent --- MPNet yields the smallest
+$K$ values overall; MiniLM the largest. Medical is the highest or near-highest domain
+across all three embeddings. Ethics is the lowest across two of three embeddings.
+The middle domains (Legal and Philosophy) show ordering sensitivity to embedding choice.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig4_three_embedding.png}
+\caption{Three-embedding robustness: grouped bar chart. Four domains $\times$ three
+embedding models. $K$ means shown for each combination. The conservation principle
+(domain clustering) holds across all three embeddings, while absolute $K$ values shift
+with embedding scale. Medical consistently yields the highest $K$ under MiniLM and
+LaBSE.}
+\label{fig:three_embeddings}
+\end{figure}
+
+\subsection{Entanglement Is Domain- and Embedding-Dependent}
+\label{sec:entanglement}
+
+Under the primary embedding (MiniLM), entanglement between $\Delta$RCI and VRI is
+strong in Medical ($r = 0.76$, $p < 0.001$) and Philosophy ($r = 0.76$, $p < 0.001$),
+absent in Legal ($r = -0.033$, ns), and model-dependent in Ethics.
+
+Under LaBSE, entanglement is significant in all domains including Legal (all $r > 0.37$,
+all $p < 0.05$). This means entanglement presence or absence is not a fixed property
+of the domain --- it is partly determined by the embedding space used for measurement.
+
+The conservation constraint $K$, by contrast, holds regardless of entanglement status.
+$K$ is preserved in Legal under both embeddings even though entanglement is absent under
+MiniLM and present under LaBSE. This establishes $K$ as more fundamental than
+entanglement: the conservation budget is set by the domain; entanglement is a secondary
+pattern that may or may not appear depending on measurement conditions.
+
+\subsection{Content-Order Decomposition}
+
+The SCRAMBLED condition separates $\Delta$RCI into content and order components
+\citep{laxman2026g}. Content fraction results are presented in
+Figure~\ref{fig:content_fraction} and summarised in Table~\ref{tab:content_order}.
+
+\begin{table}[H]
+\centering
+\caption{Content fraction by domain. Higher values indicate content dominates
+$\Delta$RCI; lower values indicate conversational order contributes substantially.}
+\label{tab:content_order}
+\begin{tabular}{llll}
+\toprule
+\textbf{Domain} & \textbf{Content\%} & \textbf{Interpretation} & \textbf{K} \\
+\midrule
+Ethics      & 80--91\% & Content dominates; order IS moral reasoning & 0.223 \\
+Legal       & 70--80\% & Content dominates; framework reduces order dependence & 0.348 \\
+Medical     & 45--55\% & Both content and order contribute equally & 0.429 \\
+Philosophy  & 35--55\% & Order contributes substantially; inquiry is sequential & 0.301 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The inverse relationship between content fraction and $K$ is notable: domains where
+order contributes more (Medical, Philosophy) show higher or comparable $K$ values.
+Ethics, where SCRAMBLED $\approx$ COLD (order provides almost no signal), has the
+lowest $K$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig5_content_order.png}
+\caption{Content fraction gradient across four domains. Bar chart showing the percentage
+of $\Delta$RCI attributable to content alone (SCRAMBLED condition). Ethics (80--91\%)
+shows the highest content fraction; Philosophy (35--55\%) the lowest. The gradient
+reflects the degree to which conversational order carries epistemological information
+in each domain.}
+\label{fig:content_fraction}
+\end{figure}
+
+\subsection{Exploration Arc}
+
+Medical domain shows a convergent arc (mean arc $= 1.72 \pm 0.68$): response variance
+narrows over the 30-prompt conversation as the diagnostic case develops toward a
+conclusion. Philosophy shows a strongly divergent arc (mean arc $= 15.23 \pm 16.64$):
+response variance expands as inquiry deepens. The distributions of Medical and Philosophy
+arcs show zero overlap, confirming that truth-type determines response topology.
+
+Legal is convergent (similar to Medical). Ethics is mixed, with arc sign depending on
+the specific model.
+
+\subsection{K and Encoding Fidelity}
+
+Paper 8 \citep{laxman2026h} measured EFI $= 0.07$ for Kannada clinical input ---
+93\% degradation in encoding fidelity relative to English. Paper 8 also measured
+variance amplification for non-English inputs: Kannada Var\_Ratio $= 2.36$--$4.08$
+under LaBSE, confirmed across five embedding models \citep{laxman2026i}. This
+establishes that the Var\_Ratio component of $K$ is measurably elevated for non-English
+clinical input even under severe encoding degradation.
+
+However, $\Delta$RCI --- the context sensitivity component of $K$ --- was not computed
+for non-English inputs in Paper 8. The TRUE vs COLD experimental conditions were not
+run in Kannada, Tamil, or Hindi. Consequently, whether the full conservation constraint
+$K = \Delta\text{RCI} \times \text{Var\_Ratio}$ holds for non-English inputs is
+currently unknown. The elevated Var\_Ratio under encoding degradation is a partial
+signal, not a direct test of $K$.
+
+Direct measurement of $\Delta$RCI and $K$ in non-English conditions is a target for
+future work (see Section~\ref{sec:future}).
+
+% ================================================================
+\section{Discussion}
+
+\subsection{The Conservation Constraint}
+
+The product $\Delta\text{RCI} \times \text{Var\_Ratio}$ clusters within domains despite
+enormous variation in model architecture (14B to 1T parameters), training data, vendor,
+and embedding model (three independent instruments). This clustering --- summarised by
+the approximately constant $K$ --- suggests a fundamental constraint on LLM context
+processing: increasing context sensitivity is accompanied by decreasing output variance,
+and vice versa, such that their product is domain-bounded.
+
+The mathematical form resembles conservation laws in which the product of two varying
+quantities is approximately constant. The information bottleneck framework
+\citep{tishby2015} provides a related precedent in information theory: it formalises
+a trade-off between compressing input representations and preserving task-relevant
+information, structurally similar to the trade-off we observe between context sensitivity
+and output variance. We do not claim the analogy is formal ---
+it is structural. The relationship $K = \Delta\text{RCI} \times \text{Var\_Ratio}$
+is empirically observed, not theoretically derived. The underlying mechanism connecting
+context sensitivity to output variance in transformer architectures
+\citep{vaswani2017} remains unknown and is not addressed by this paper.
+
+\subsection{Why K Varies by Domain}
+
+The $K$ gradient (Medical highest, Ethics lowest under MiniLM) may reflect the degree
+of constraint each domain places on context processing. Discovered truth (Medical)
+constrains maximally: there is a correct answer, and context drives convergence toward
+it. Felt truth (Ethics) constrains minimally: each trial produces a unique moral
+trajectory shaped by the specific context. The conservation budget appears to reflect
+the epistemological demand imposed by the truth-type.
+
+This interpretation is consistent with the content-order decomposition: Medical, with
+balanced content and order contributions, has the highest $K$. Ethics, where order
+contributes almost nothing (content fraction 80--91\%), has the lowest. Domains where
+conversational order carries epistemological weight (Medical, Philosophy) show distinct
+$K$ values from those where it does not (Ethics, to a lesser degree Legal).
+
+\subsection{Robustness and Limitations of the Three-Embedding Validation}
+
+The conservation principle holds across three independent embedding models. This
+confirms that $K$ clustering is not an artifact of any single embedding space. However,
+absolute $K$ values are embedding-scale-dependent (Medical $K$ ranges from 0.188 under
+MPNet to 0.429 under MiniLM for the same data), and domain ordering is partially
+sensitive to embedding choice --- Legal and Philosophy show nearly identical $K$ under
+LaBSE ($0.193$ vs $0.195$), while they are clearly separated under MiniLM
+($0.348$ vs $0.301$).
+
+This means $K$ is best understood as a domain-specific conservation principle whose
+numerical value depends on the measurement scale --- analogous to physical constants
+whose numerical values depend on the unit system, while the underlying relationships
+they express are scale-invariant. The within-domain CV under LaBSE
+(0.30--0.67) is substantially wider than under MiniLM (0.13--0.19), indicating the
+constraint is approximately rather than tightly conserved under the semantically
+faithful embedding. Future work establishing $K$ on a theoretically grounded absolute
+scale would strengthen the robustness claims.
+
+\subsection{Entanglement as a Special Case}
+
+Paper 4 \citep{laxman2026d} reported entanglement ($r = 0.76$) as a major finding
+in the Medical domain. The present paper shows entanglement is domain-dependent
+(absent in Legal under MiniLM) and embedding-dependent (present in Legal under LaBSE).
+Conservation $K$ holds regardless of entanglement status.
+
+This establishes a theoretical hierarchy: $K$ is more fundamental than entanglement.
+The conservation budget is set by the domain epistemology. Entanglement is a secondary
+pattern that appears when domain structure and embedding space jointly favour coupling
+between sensitivity and variance. The hierarchy is depicted in
+Figure~\ref{fig:hierarchy}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{fig6_hierarchy.png}
+\caption{Theoretical hierarchy of constraints. Outermost level: Conservation ($K$) ---
+holds across all four domains and all three embedding models. Middle level: Entanglement
+--- present in Medical and Philosophy, absent in Legal under MiniLM, present in all
+domains under LaBSE. Innermost level: Temporal dynamics (U-shape, inverted-U, P30 spike)
+--- most model-dependent. Conservation is the most fundamental and most robust
+constraint.}
+\label{fig:hierarchy}
+\end{figure}
+
+\subsection{Implications for AI Safety and Deployment}
+
+The conservation constraint provides a domain-specific expected value for $K$. Models
+whose $K$ deviates substantially from the domain mean may exhibit anomalous context
+processing --- either failing to use context effectively ($\Delta$RCI too low) or
+producing pathologically variable outputs (Var\_Ratio too high). Paper 5's safety
+taxonomy \citep{laxman2026e} (IDEAL/EMPTY/DIVERGENT/RICH) can be reframed in terms of
+$K$: models in the RICH class (high $\Delta$RCI, low Var\_Ratio) occupy the expected
+$K$ range; DIVERGENT models (high $\Delta$RCI, high Var\_Ratio) exceed it; EMPTY models
+(low $\Delta$RCI, any Var\_Ratio) fall below it.
+
+For clinical AI deployment specifically \citep{singhal2023,pfohl2024}, the Medical
+domain $K = 0.429$ (CV $= 0.170$) provides a calibration benchmark. Models showing
+Medical $K$ substantially outside the observed range warrant additional scrutiny before
+deployment in diagnostic contexts. This applies regardless of model architecture or
+parameter count: the constraint is set by the domain, not the model.
+
+\subsection{Limitations}
+
+\begin{enumerate}
+    \item \textbf{Domain count:} Four domains with 5--8 models each. Additional domains
+    (Technical, Creative, Historical) and additional models would strengthen
+    generalisability.
+    \item \textbf{English-language prompts only:} All prompt batteries are in English.
+    Direct $K$ measurement in non-English conditions has not been performed, though
+    Paper 8 \citep{laxman2026h} provides indirect evidence that $K$ survives encoding
+    degradation.
+    \item \textbf{Approximate constraint:} CV ranges from 0.162 to 0.214 under MiniLM
+    and 0.30 to 0.67 under LaBSE. The conservation is approximate; within-domain
+    variation is non-trivial.
+    \item \textbf{Single prompt battery per domain:} Different prompt batteries
+    operationalising the same domain might yield different $K$ values. Prompt battery
+    robustness has not been tested.
+    \item \textbf{No theoretical derivation:} $K$ is empirically observed. The
+    connection to transformer attention mechanisms \citep{vaswani2017} is unexplored.
+    \item \textbf{Embedding sensitivity:} The LaBSE CVs (0.30--0.67) indicate the
+    constraint weakens under the most semantically faithful embedding. This is an honest
+    limitation of the robustness claim.
+\end{enumerate}
+
+\subsection{Future Directions}
+\label{sec:future}
+
+\begin{enumerate}
+    \item \textbf{Theoretical derivation:} What properties of transformer attention
+    \citep{vaswani2017} would predict a conservation constraint of this form? A Noether-like
+    analysis --- identifying the symmetry whose conservation yields $K$ --- is an
+    open theoretical question.
+    \item \textbf{Non-English $K$ measurement:} Direct measurement of $\Delta$RCI and
+    Var\_Ratio for Kannada, Tamil, and Hindi prompts would test whether $K$ holds
+    under real encoding degradation rather than the indirect evidence from Paper 8.
+    \item \textbf{Additional domains:} Technical (solved problems), Creative (no fixed
+    answer), and Historical (discovered but past) domains would test the boundary
+    conditions of the four-mode taxonomy.
+    \item \textbf{LaBSE-based reanalysis:} $K$ was established primarily under MiniLM.
+    Extending the full programme analysis to LaBSE would establish whether the
+    tighter constraint (CV $<$ 0.20) holds under the most semantically faithful embedding.
+    \item \textbf{Mechanism:} The connection between $K$ and internal model representations
+    --- attention patterns, layer activations, token probability distributions --- is
+    entirely unexplored. If the empirical regularity reported here reflects a genuine
+    structural property, it should have correlates in internal model states.
+\end{enumerate}
+
+The empirical regularity reported here may point toward a deeper structural principle
+in how transformer architectures process contextual information. Establishing such a
+principle from first principles is a target for future work; this paper establishes
+the empirical basis from which such work could proceed.
+
+% ================================================================
+\section{Conclusion}
+
+We report a conservation constraint --- $K = \Delta\text{RCI} \times \text{Var\_Ratio}$
+--- that holds across four epistemological domains, 24 model-domain runs, 14
+architectures from 8 vendors, and three independent embedding models. The constraint
+is empirical: the product of context sensitivity and output variance is approximately
+constant within a domain, while varying between domains in a pattern consistent with
+the degree of epistemological constraint each truth-type imposes. Medical (discovered
+truth) requires the highest conservation budget ($K = 0.429$, CV $= 0.170$); Ethics
+(felt truth) the lowest ($K = 0.223$, CV $= 0.162$).
+
+The conservation principle is more fundamental than entanglement, which is domain- and
+embedding-dependent, and more robust than temporal dynamics, which vary by model and
+architecture. Absolute $K$ values are embedding-scale-dependent; domain ordering shows
+partial sensitivity to measurement choice. These are honest limitations that constrain
+the strength of the robustness claim.
+
+These findings establish that domain epistemology, not model architecture or parameter
+count, is the primary determinant of context processing structure in LLMs. The
+constraint provides a domain-specific calibration benchmark for deployment and safety
+assessment. The mechanism underlying the constraint is unknown and is a target for
+future theoretical work.
+
+% ================================================================
+\section*{Ethics Statement}
+
+This study did not involve human participants, patient data, or electronic health
+records. All experiments were conducted using publicly available LLM APIs with
+purpose-built prompt batteries. No identifiable patient information was collected
+or used at any stage. Institutional review board (IRB) approval and informed consent
+were not required.
+
+% ================================================================
+\section*{Author Contributions}
+
+L.M.M. conceived the study, designed all experiments, conducted all model-domain runs,
+performed all analyses, and wrote the manuscript in its entirety. AI systems (Claude,
+ChatGPT, DeepSeek) assisted with data analysis, visualisation, and manuscript
+preparation under the sole direction and responsibility of the author.
+
+% ================================================================
+\section*{Competing Interests}
+
+The author declares no competing interests.
+
+% ================================================================
+\section*{Data Availability}
+
+All experimental data, analysis scripts, and raw results are available at
+\url{https://github.com/LaxmanNandi/MCH-Research}. OSF pre-registration:
+\url{https://osf.io/dp8nj/} (March 2026).
+
+% ================================================================
+\section*{Code Availability}
+
+All analysis scripts are available at \url{https://github.com/LaxmanNandi/MCH-Research}.
+Key scripts: \texttt{paper6\_conservation.py} (K computation across domains),
+\texttt{paper6\_robustness\_reembed.py} (three-embedding robustness validation),
+\texttt{paper6\_entanglement.py} (entanglement analysis).
+
+% ================================================================
+\section*{Acknowledgements}
+
+No external funding was received. This work emerged from clinical practice at PHC Manchi,
+Bantwal Taluk, Dakshina Kannada, Karnataka, India. AI systems (Claude, Anthropic;
+ChatGPT, OpenAI; DeepSeek) assisted with data analysis, statistical computation,
+visualisation, and manuscript preparation. The framework, experimental design, findings,
+and interpretations remain the author's sole responsibility.
+
+% ================================================================
+\bibliographystyle{plainnat}
+
+\begin{thebibliography}{50}
+
+% MCH Programme papers
+\bibitem[Laxman(2026a)]{laxman2026a}
+Laxman, M.~M. (2026a).
+\newblock Context curves behavior: Measuring {AI} relational dynamics with {$\Delta$RCI}.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202601.1881.v2}
+
+\bibitem[Laxman(2026b)]{laxman2026b}
+Laxman, M.~M. (2026b).
+\newblock Scaling context sensitivity: A standardized benchmark of {$\Delta$RCI} across
+25 model-domain runs.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202602.1114.v2}
+
+\bibitem[Laxman(2026c)]{laxman2026c}
+Laxman, M.~M. (2026c).
+\newblock Domain-specific temporal dynamics of context sensitivity in large language
+models.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202602.1674.v1}
+
+\bibitem[Laxman(2026d)]{laxman2026d}
+Laxman, M.~M. (2026d).
+\newblock Engagement as entanglement: Variance signatures of bidirectional context
+coupling in large language models.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202603.0055.v1}
+
+\bibitem[Laxman(2026e)]{laxman2026e}
+Laxman, M.~M. (2026e).
+\newblock Stochastic incompleteness: A predictability taxonomy for clinical {AI}
+deployment.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202602.2034.v1}
+
+\bibitem[Laxman(2026g)]{laxman2026g}
+Laxman, M.~M. (2026g).
+\newblock The structure and trajectory of context sensitivity in {LLMs}: Content-order
+decomposition and variance dissociation.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202603.1116.v1}
+
+\bibitem[Laxman(2026h)]{laxman2026h}
+Laxman, M.~M. (2026h).
+\newblock Encoding fidelity and coherent misalignment in non-{E}nglish clinical {AI}.
+\newblock \emph{Preprints.org}.
+\newblock \url{https://doi.org/10.20944/preprints202604.0061.v1}
+
+\bibitem[Laxman(2026i)]{laxman2026i}
+Laxman, M.~M. (2026i).
+\newblock Measurement matters: Embedding model choice determines encoding fidelity
+assessment in multilingual clinical {AI}.
+\newblock \emph{Zenodo}.
+\newblock \url{https://doi.org/10.5281/zenodo.19466613}
+
+% Embedding models
+\bibitem[Reimers \& Gurevych(2020)]{reimers2020}
+Reimers, N. \& Gurevych, I. (2020).
+\newblock Making monolingual sentence embeddings multilingual using knowledge distillation.
+\newblock \emph{Proceedings of EMNLP 2020}.
+\newblock arXiv: 2004.09813.
+
+\bibitem[Feng et~al.(2022)]{feng2022}
+Feng, F., Yang, Y., Cer, D., Arivazhagan, N., \& Wang, W. (2022).
+\newblock Language-agnostic {BERT} sentence embedding.
+\newblock \emph{Proceedings of ACL 2022}.
+\newblock arXiv: 2007.01852.
+
+% Foundational
+\bibitem[Shannon(1948)]{shannon1948}
+Shannon, C.~E. (1948).
+\newblock A mathematical theory of communication.
+\newblock \emph{Bell System Technical Journal}, 27(3), 379--423.
+\newblock DOI: 10.1002/j.1538-7305.1948.tb01338.x.
+
+\bibitem[Vaswani et~al.(2017)]{vaswani2017}
+Vaswani, A., Shazeer, N., Parmar, N., et~al. (2017).
+\newblock Attention is all you need.
+\newblock \emph{Advances in Neural Information Processing Systems}, 30.
+\newblock arXiv: 1706.03762.
+
+\bibitem[Brown et~al.(2020)]{brown2020}
+Brown, T., Mann, B., Ryder, N., et~al. (2020).
+\newblock Language models are few-shot learners.
+\newblock \emph{Advances in Neural Information Processing Systems}, 33, 1877--1901.
+\newblock arXiv: 2005.14165.
+
+% Clinical AI
+\bibitem[Singhal et~al.(2023)]{singhal2023}
+Singhal, K., Azizi, S., Tu, T., et~al. (2023).
+\newblock Large language models encode clinical knowledge.
+\newblock \emph{Nature}, 620(7973), 172--180.
+\newblock DOI: 10.1038/s41586-023-06291-2.
+
+\bibitem[Jin et~al.(2024)]{jin2024}
+Jin, Y., Chandra, M., Verma, G., Hu, Y., De~Choudhury, M., \& Kumar, S. (2024).
+\newblock Better to ask in {English}: Cross-lingual evaluation of large language models
+for healthcare queries.
+\newblock \emph{Proceedings of the ACM Web Conference 2024}.
+\newblock arXiv: 2310.13132.
+
+\bibitem[Pfohl et~al.(2024)]{pfohl2024}
+Pfohl, S.~R., Cole-Lewis, H., Sayres, R., et~al. (2024).
+\newblock A toolbox for surfacing health equity harms and biases in large language models.
+\newblock \emph{Nature Medicine}, 30, 3590--3600.
+\newblock DOI: 10.1038/s41591-024-03258-2.
+
+% AI safety and behaviour
+\bibitem[Hubinger et~al.(2019)]{hubinger2019}
+Hubinger, E., van Merwijk, C., Mikulik, V., Skalse, J., \& Garrabrant, S. (2019).
+\newblock Risks from learned optimization in advanced machine learning systems.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 1906.01820.
+
+\bibitem[Shanahan(2024)]{shanahan2024}
+Shanahan, M. (2024).
+\newblock Talking about large language models.
+\newblock \emph{Communications of the ACM}, 67(2), 68--79.
+\newblock DOI: 10.1145/3624720.
+
+\bibitem[Huang et~al.(2024)]{huang2024}
+Huang, L., Yu, W., Ma, W., et~al. (2024).
+\newblock A survey on hallucination in large language models: Principles, taxonomy,
+challenges, and open questions.
+\newblock \emph{ACM Transactions on Information Systems}, 43(2).
+\newblock arXiv: 2311.05232.
+
+% Language representation
+\bibitem[Conneau et~al.(2020)]{conneau2020}
+Conneau, A., Khandelwal, K., Goyal, N., et~al. (2020).
+\newblock Unsupervised cross-lingual representation learning at scale.
+\newblock \emph{Proceedings of ACL 2020}, 8440--8451.
+\newblock arXiv: 1911.02116.
+
+\bibitem[Blasi et~al.(2022)]{blasi2022}
+Blasi, D.~E., Henrich, J., Adamou, E., Kemmerer, D., \& Majid, A. (2022).
+\newblock Over-reliance on {English} hinders cognitive science.
+\newblock \emph{Trends in Cognitive Sciences}, 26(12), 1153--1170.
+\newblock DOI: 10.1016/j.tics.2022.09.015.
+
+\bibitem[Kaplan et~al.(2020)]{kaplan2020}
+Kaplan, J., McCandlish, S., Henighan, T., et~al. (2020).
+\newblock Scaling laws for neural language models.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2001.08361.
+
+\bibitem[Liu et~al.(2024)]{liu2024lost}
+Liu, N.~F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F.,
+\& Liang, P. (2024).
+\newblock Lost in the middle: How language models use long contexts.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+12, 157--173.
+\newblock DOI: 10.1162/tacl\_a\_00638.
+
+\bibitem[Laban et~al.(2025)]{laban2025}
+Laban, P., Hayashi, H., Zhou, Y., \& Neville, J. (2025).
+\newblock {LLMs} get lost in multi-turn conversation.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2505.06120.
+
+\bibitem[Tishby \& Zaslavsky(2015)]{tishby2015}
+Tishby, N. \& Zaslavsky, N. (2015).
+\newblock Deep learning and the information bottleneck principle.
+\newblock \emph{2015 IEEE Information Theory Workshop (ITW)}, 1--5.
+\newblock DOI: 10.1109/ITW.2015.7133169.
+
+\bibitem[Fierro et~al.(2024)]{fierro2024}
+Fierro, C., Dhar, R., Stamatiou, F., Garneau, N., \& S{\o}gaard, A. (2024).
+\newblock Defining knowledge: Bridging epistemology and large language models.
+\newblock \emph{Proceedings of EMNLP 2024}, 16096--16111.
+\newblock DOI: 10.18653/v1/2024.emnlp-main.900.
+
+\bibitem[Kuratov et~al.(2024)]{kuratov2024}
+Kuratov, Y., Bulatov, A., Anokhin, P., Rodkin, I., Sorokin, D., Sorokin, A.,
+\& Burtsev, M. (2024).
+\newblock {BABILong}: Testing the limits of {LLMs} with long context
+reasoning-in-a-haystack.
+\newblock \emph{NeurIPS 2024 Datasets and Benchmarks Track}.
+\newblock arXiv: 2406.10149.
+
+\end{thebibliography}
+
+\end{document}
