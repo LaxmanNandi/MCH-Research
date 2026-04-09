@@ -319,6 +319,17 @@ python scripts/paper6/compile_paper6_data.py
 }
 ```
 
+### Paper 6
+```bibtex
+@article{laxman2026conservation,
+  title={A Conservation Constraint in {LLM} Context Processing Across Four Epistemological Domains},
+  author={Laxman, M M},
+  journal={Preprints.org},
+  note={Submitted, ID: 207501},
+  year={2026}
+}
+```
+
 ### Paper 7
 ```bibtex
 @article{laxman2026decomposition,
