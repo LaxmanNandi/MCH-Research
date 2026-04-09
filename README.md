@@ -5,10 +5,11 @@
 [![Paper 1 - Preprints.org](https://img.shields.io/badge/Paper%201-10.20944%2Fpreprints202601.1881.v2-blue.svg)](https://www.preprints.org/manuscript/202601.1881/v2)
 [![Paper 2 - Preprints.org](https://img.shields.io/badge/Paper%202-10.20944%2Fpreprints202602.1114.v2-blue.svg)](https://www.preprints.org/manuscript/202602.1114/v2)
 [![Paper 3 - Preprints.org](https://img.shields.io/badge/Paper%203-10.20944%2Fpreprints202602.1674.v1-blue.svg)](https://www.preprints.org/manuscript/202602.1674/v1)
-[![Paper 4 - Preprints.org](https://img.shields.io/badge/Paper%204-Published-blue.svg)](https://www.preprints.org/manuscript/202602.1894)
+[![Paper 4 - Preprints.org](https://img.shields.io/badge/Paper%204-10.20944%2Fpreprints202603.0055.v1-blue.svg)](https://www.preprints.org/manuscript/202603.0055/v1)
 [![Paper 5 - Preprints.org](https://img.shields.io/badge/Paper%205-10.20944%2Fpreprints202602.2034.v1-blue.svg)](https://www.preprints.org/manuscript/202602.2034/v1)
 [![Paper 7 - Preprints.org](https://img.shields.io/badge/Paper%207-10.20944%2Fpreprints202603.1116.v1-blue.svg)](https://www.preprints.org/manuscript/202603.1116/v1)
 [![Paper 8 - Preprints.org](https://img.shields.io/badge/Paper%208-10.20944%2Fpreprints202604.0061.v1-blue.svg)](https://www.preprints.org/manuscript/202604.0061/v1)
+[![Paper 9 - Zenodo](https://img.shields.io/badge/Paper%209-10.5281%2Fzenodo.19466613-blue.svg)](https://doi.org/10.5281/zenodo.19466613)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Models Tested](https://img.shields.io/badge/models-14-green.svg)](#models-tested)
@@ -227,7 +228,7 @@ Var_Ratio = Var(TRUE embeddings) / Var(COLD embeddings)
 - **Medical (Discovered truth):** STEMI case progression with diagnostic and therapeutic prompts — K=0.429
 - **Philosophy (Explored truth):** Consciousness and phenomenology with recursive philosophical prompts — K=0.301
 - **Legal (Argued truth):** Employment law dispute with whistleblower retaliation — K=0.348
-- **Applied Ethics (Felt truth):** Moral reasoning across healthcare, technology, and global justice — K=0.190
+- **Applied Ethics (Felt truth):** Moral reasoning across healthcare, technology, and global justice — K=0.223
 
 ---
 
