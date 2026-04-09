@@ -109,8 +109,8 @@ This research program reports an **empirical conservation constraint**: the beha
 3. **Categorical, not continuous**: Four-class taxonomy captures structure better than any continuous model (quadratic R²=0.11, F-test p=0.72)
 
 #### **Paper 6: Conservation Constraint** [CAPSTONE — SUBMITTED, Preprints ID: 207501]
-**Title**: *Conservation Without Entanglement: A Four-Domain Taxonomy of Context Processing in Large Language Models*
-**Working subtitle**: *An Empirical Conservation Constraint for Context Processing*
+**Title**: *A Conservation Constraint in LLM Context Processing Across Four Epistemological Domains*
+**Preprints ID**: 207501
 
 **Role**: Capstone — Theoretical unification of entire programme
 - **Dataset**: 4 domains, 22+ model-domain runs (8 Med + 6 Phil + 5 Legal + 3+ Ethics)

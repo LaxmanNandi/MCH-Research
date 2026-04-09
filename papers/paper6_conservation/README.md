@@ -1,8 +1,7 @@
 # Paper 6: Conservation Constraint for Context Sensitivity
 
 **Status**: SUBMITTED — Preprints.org ID: 207501 (April 9, 2026)
-**Title**: *Conservation Without Entanglement: A Four-Domain Taxonomy of Context Processing in Large Language Models*
-**Working subtitle**: How domain truth-type determines entanglement, variance structure, and reasoning stability
+**Title**: *A Conservation Constraint in LLM Context Processing Across Four Epistemological Domains*
 
 ## Overview
 Capstone paper of the MCH Research Program. Reports that the product of context sensitivity (ΔRCI) and output variance (Var_Ratio) is approximately constant within a domain — K(domain) — across all architectures tested. Extended to 4 domains (Medical, Philosophy, Legal, Applied Ethics) revealing a four-mode taxonomy of context processing determined by truth-type. Legal domain reveals convergence WITHOUT entanglement — a third mode not predicted by Papers 2-5. K also functions as a stability predictor: higher K correlates with lower variance degradation across trials (rho=-0.600).
