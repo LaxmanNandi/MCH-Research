@@ -104,14 +104,17 @@ embedding robustness
 
 Context sensitivity --- how a model's output changes based on conversational history ---
 is a fundamental property of large language models (LLMs) affecting deployment, safety,
-and reliability. A model that responds identically with or without prior context provides
-no genuine contextual grounding; a model that is maximally context-sensitive may be
-unstable or vulnerable to manipulation. Empirical work has shown that models do not
-use context uniformly --- performance degrades when relevant information is positioned
-in the middle of long inputs rather than at the edges \citep{liu2024lost}, and models
-effectively utilise only 10--20\% of available context on complex reasoning tasks
-\citep{kuratov2024}. Despite extensive work on model capabilities
-\citep{brown2020,kaplan2020,singhal2023} and alignment \citep{hubinger2019}, the \emph{structure}
+and reliability \citep{liang2023helm,chang2024survey}. A model that responds identically
+with or without prior context provides no genuine contextual grounding; a model that is
+maximally context-sensitive may be unstable or vulnerable to manipulation. Empirical work
+has shown that models do not use context uniformly --- performance degrades when relevant
+information is positioned in the middle of long inputs rather than at the edges
+\citep{liu2024lost,bai2024longbench,zhang2024infinitebench}, and models effectively
+utilise only 10--20\% of available context on complex reasoning tasks
+\citep{kuratov2024,hsieh2024ruler,an2025context}. Despite extensive work on model capabilities
+\citep{brown2020,kaplan2020,singhal2023,hendrycks2021,chiang2024chatbot} and alignment
+\citep{hubinger2019,ouyang2022,bai2022constitutional}, and systematic evaluation
+\citep{zheng2023,sclar2024sensitivity}, the \emph{structure}
 of context sensitivity across epistemological domains has received limited systematic
 attention.
 
@@ -123,7 +126,7 @@ reported a striking correlation between context sensitivity and variance reducti
 ($r = 0.76$, $p < 0.001$) in the Medical domain --- suggesting the two quantities
 are not independent. Large-scale simulation work has confirmed that LLMs exhibit
 systematic performance degradation in multi-turn conversations, with unreliability
-increasing by 112\% across 200,000+ conversations \citep{laban2025} --- a phenomenon
+increasing by 112\% across 200,000+ conversations \citep{laban2025,kwan2024mteval,wang2024mint,maharana2024memory} --- a phenomenon
 Paper 4 showed corresponds to divergent entanglement ($\text{Var\_Ratio} > 1$). The
 present paper asks whether a conservation constraint governs the relationship between
 $\Delta$RCI and output variance across domains.
@@ -190,9 +193,10 @@ configuration:
 \end{itemize}
 
 Each condition comprised 50 trials per model-domain configuration, with 30 prompts per
-trial. Temperature was set to 0.7 for all models to permit variance measurement. Total
-responses per domain: Medical $8 \times 50 \times 30 \times 3 = 36{,}000$; aggregated
-programme total exceeding 160,000 responses.
+trial. Temperature was set to 0.7 for all models to permit variance measurement
+\citep{renze2024,shi2024decoding,atil2024,dietrich2025reproducibility}. Total responses per domain: Medical
+$8 \times 50 \times 30 \times 3 = 36{,}000$; aggregated programme total exceeding
+160,000 responses.
 
 \subsection{Metrics}
 
@@ -238,16 +242,21 @@ Appl.\ Ethics & Felt     & 30 (trolley to synthesis) & Moral commitment; context
 \end{table}
 
 The truth-type classification reflects the epistemological basis of validity in each
-domain: Medical knowledge converges toward discoverable ground truth; Legal knowledge
-is constructed through argumentation within a rule system; Philosophical knowledge
-expands through inquiry without requiring closure; Ethical knowledge is grounded in
-values that resist purely logical resolution \citep{shanahan2024,fierro2024}.
+domain: Medical knowledge converges toward discoverable ground truth
+\citep{thirunavukarasu2023,singhal2025expert,ayers2023physician,nori2023}; Legal knowledge
+is constructed through argumentation within a rule system
+\citep{guha2023,nay2024tax,dahl2024hallucinations,choi2022lawschool}; Philosophical
+knowledge expands through inquiry without requiring closure; Ethical knowledge is grounded
+in values that resist purely logical resolution
+\citep{shanahan2024,fierro2024,bender2021,ji2024moralbench,suzgun2024belief,paseri2025epistemological}.
 
 \subsection{Models}
 
 Twenty-four model-domain runs were completed across 14 unique architectures from 8
 vendors (Table~\ref{tab:models_full}). Models were accessed via API: Together.ai for
-open-weight models, vendor APIs for closed models.
+open-weight models, vendor APIs for closed models. The model set spans dense transformers
+\citep{vaswani2017} and mixture-of-experts architectures \citep{fedus2022switch},
+representing parameter counts from 14B to 1T \citep{hoffmann2022,wei2022emergent,kaplan2020}.
 
 \begin{table}[H]
 \centering
@@ -294,8 +303,13 @@ LaBSE             & 768 & Language-agnostic & \citet{feng2022} \\
 
 LaBSE was validated as semantically faithful by Paper 9 \citep{laxman2026i}: parallel
 versus non-parallel sentence pair discrimination $\Delta = 0.58$, $p = 0.004$
-(Mann-Whitney U, $N = 5$ per group). All-MiniLM-L6-v2 serves as the primary embedding
-for the main analysis; MPNet and LaBSE provide robustness checks.
+(Mann-Whitney U, $N = 5$ per group). Cross-lingual representation quality varies
+substantially across language families \citep{conneau2020,jin2024}. All-MiniLM-L6-v2
+serves as the primary embedding for the main analysis; MPNet and LaBSE provide
+robustness checks. Embedding model selection followed the MTEB benchmark
+\citep{muennighoff2023,enevoldsen2025mmteb}, which established that no single embedding
+method dominates across tasks, motivating multi-model validation. Cosine similarity as
+a semantic proxy has been examined by \citet{gao2021simcse,steck2024cosine,ethayarajh2019contextual}.
 
 \subsection{Re-embedding Protocol}
 
@@ -623,15 +637,18 @@ processing: increasing context sensitivity is accompanied by decreasing output v
 and vice versa, such that their product is domain-bounded.
 
 The mathematical form resembles conservation laws in which the product of two varying
-quantities is approximately constant. The information bottleneck framework
-\citep{tishby2015} provides a related precedent in information theory: it formalises
-a trade-off between compressing input representations and preserving task-relevant
-information, structurally similar to the trade-off we observe between context sensitivity
-and output variance. We do not claim the analogy is formal ---
+quantities is approximately constant. Shannon's information theory \citep{shannon1948}
+established that communication systems have fundamental capacity constraints; the
+information bottleneck framework
+\citep{tishby2015,saxe2019,kawaguchi2023bottleneck} provides a related
+precedent: it formalises a trade-off between compressing input representations and
+preserving task-relevant information, structurally similar to the trade-off we observe
+between context sensitivity and output variance. We do not claim the analogy is formal ---
 it is structural. The relationship $K = \Delta\text{RCI} \times \text{Var\_Ratio}$
-is empirically observed, not theoretically derived. The underlying mechanism connecting
-context sensitivity to output variance in transformer architectures
-\citep{vaswani2017} remains unknown and is not addressed by this paper.
+is empirically observed, not theoretically derived \citep{bahri2024scaling}. The
+underlying mechanism connecting context sensitivity to output variance in transformer
+architectures \citep{vaswani2017,hoffmann2022,fedus2022switch} remains unknown and is
+not addressed by this paper.
 
 \subsection{Why K Varies by Domain}
 
@@ -670,9 +687,12 @@ scale would strengthen the robustness claims.
 \subsection{Entanglement as a Special Case}
 
 Paper 4 \citep{laxman2026d} reported entanglement ($r = 0.76$) as a major finding
-in the Medical domain. The present paper shows entanglement is domain-dependent
-(absent in Legal under MiniLM) and embedding-dependent (present in Legal under LaBSE).
-Conservation $K$ holds regardless of entanglement status.
+in the Medical domain. The mechanistic basis for in-context learning in transformers ---
+including induction heads \citep{olsson2022induction} and chain-of-thought reasoning
+\citep{wei2022cot} --- suggests that context coupling is an emergent property of
+attention mechanisms \citep{wei2022emergent}. The present paper shows entanglement is
+domain-dependent (absent in Legal under MiniLM) and embedding-dependent (present in
+Legal under LaBSE). Conservation $K$ holds regardless of entanglement status.
 
 This establishes a theoretical hierarchy: $K$ is more fundamental than entanglement.
 The conservation budget is set by the domain epistemology. Entanglement is a secondary
@@ -703,11 +723,15 @@ $K$: models in the RICH class (high $\Delta$RCI, low Var\_Ratio) occupy the expe
 $K$ range; DIVERGENT models (high $\Delta$RCI, high Var\_Ratio) exceed it; EMPTY models
 (low $\Delta$RCI, any Var\_Ratio) fall below it.
 
-For clinical AI deployment specifically \citep{singhal2023,pfohl2024}, the Medical
-domain $K = 0.429$ (CV $= 0.170$) provides a calibration benchmark. Models showing
-Medical $K$ substantially outside the observed range warrant additional scrutiny before
-deployment in diagnostic contexts. This applies regardless of model architecture or
-parameter count: the constraint is set by the domain, not the model.
+For clinical AI deployment specifically \citep{singhal2023,thirunavukarasu2023,pfohl2024},
+the Medical domain $K = 0.429$ (CV $= 0.170$) provides a calibration benchmark. Models
+showing Medical $K$ substantially outside the observed range warrant additional scrutiny
+before deployment in diagnostic contexts. Output variance is a distinct safety dimension
+from hallucination \citep{ji2023,lin2022,huang2024,manakul2023selfcheck} and from
+sycophancy \citep{sharma2024sycophancy}: a model may produce factually correct but
+highly variable outputs, or consistent but incorrect ones. Trustworthiness assessment
+requires all three dimensions \citep{wang2023decodingtrust}. The conservation constraint
+characterises the variance dimension specifically.
 
 \subsection{Limitations}
 
@@ -718,7 +742,9 @@ parameter count: the constraint is set by the domain, not the model.
     \item \textbf{English-language prompts only:} All prompt batteries are in English.
     Direct $K$ measurement in non-English conditions has not been performed, though
     Paper 8 \citep{laxman2026h} provides indirect evidence that $K$ survives encoding
-    degradation.
+    degradation. Multilingual evaluation gaps are well-documented
+    \citep{ahuja2023,blasi2022,lai2023chatgpt,joshi2020diversity}
+    and represent a priority for future work.
     \item \textbf{Approximate constraint:} CV ranges from 0.162 to 0.214 under MiniLM
     and 0.30 to 0.67 under LaBSE. The conservation is approximate; within-domain
     variation is non-trivial.
@@ -728,8 +754,9 @@ parameter count: the constraint is set by the domain, not the model.
     \item \textbf{No theoretical derivation:} $K$ is empirically observed. The
     connection to transformer attention mechanisms \citep{vaswani2017} is unexplored.
     \item \textbf{Embedding sensitivity:} The LaBSE CVs (0.30--0.67) indicate the
-    constraint weakens under the most semantically faithful embedding. This is an honest
-    limitation of the robustness claim.
+    constraint weakens under the most semantically faithful embedding. Cosine similarity
+    in embedding space has known geometric limitations \citep{steck2024cosine,ethayarajh2019contextual}.
+    This is an honest limitation of the robustness claim.
 \end{enumerate}
 
 \subsection{Future Directions}
@@ -743,16 +770,21 @@ parameter count: the constraint is set by the domain, not the model.
     \item \textbf{Non-English $K$ measurement:} Direct measurement of $\Delta$RCI and
     Var\_Ratio for Kannada, Tamil, and Hindi prompts would test whether $K$ holds
     under real encoding degradation rather than the indirect evidence from Paper 8.
+    Indic language resources \citep{gala2023indictrans2} and multilingual benchmarks
+    \citep{ahuja2023,lai2023chatgpt} provide the infrastructure for such work.
     \item \textbf{Additional domains:} Technical (solved problems), Creative (no fixed
     answer), and Historical (discovered but past) domains would test the boundary
-    conditions of the four-mode taxonomy.
+    conditions of the four-mode taxonomy. Legal AI benchmarks \citep{guha2023} and
+    moral evaluation frameworks \citep{ji2024moralbench} are directly applicable.
     \item \textbf{LaBSE-based reanalysis:} $K$ was established primarily under MiniLM.
-    Extending the full programme analysis to LaBSE would establish whether the
-    tighter constraint (CV $<$ 0.20) holds under the most semantically faithful embedding.
+    Extending the full programme analysis to LaBSE \citep{enevoldsen2025mmteb} would
+    establish whether the tighter constraint (CV $<$ 0.20) holds under the most
+    semantically faithful embedding.
     \item \textbf{Mechanism:} The connection between $K$ and internal model representations
-    --- attention patterns, layer activations, token probability distributions --- is
-    entirely unexplored. If the empirical regularity reported here reflects a genuine
-    structural property, it should have correlates in internal model states.
+    --- attention patterns \citep{olsson2022induction}, layer activations, token probability
+    distributions --- is entirely unexplored. If the empirical regularity reported here
+    reflects a genuine structural property \citep{wei2022emergent}, it should have
+    correlates in internal model states.
 \end{enumerate}
 
 The empirical regularity reported here may point toward a deeper structural principle
@@ -1014,6 +1046,375 @@ Kuratov, Y., Bulatov, A., Anokhin, P., Rodkin, I., Sorokin, D., Sorokin, A.,
 reasoning-in-a-haystack.
 \newblock \emph{NeurIPS 2024 Datasets and Benchmarks Track}.
 \newblock arXiv: 2406.10149.
+
+% LLM evaluation benchmarks
+\bibitem[Zheng et~al.(2023)]{zheng2023}
+Zheng, L., Chiang, W.-L., Sheng, Y., et~al. (2023).
+\newblock Judging {LLM}-as-a-judge with {MT-Bench} and {Chatbot Arena}.
+\newblock \emph{Advances in Neural Information Processing Systems 36
+(NeurIPS 2023) Datasets and Benchmarks Track}.
+\newblock arXiv: 2306.05685.
+
+\bibitem[Hendrycks et~al.(2021)]{hendrycks2021}
+Hendrycks, D., Burns, C., Basart, S., Zou, A., Mazeika, M., Song, D.,
+\& Steinhardt, J. (2021).
+\newblock Measuring massive multitask language understanding.
+\newblock \emph{Proceedings of ICLR 2021}.
+\newblock arXiv: 2009.03300.
+
+% Legal AI
+\bibitem[Guha et~al.(2023)]{guha2023}
+Guha, N., Nyarko, J., Ho, D.~E., R{\'e}, C., Chilton, A., et~al. (2023).
+\newblock {LegalBench}: A collaboratively built benchmark for measuring legal
+reasoning in large language models.
+\newblock \emph{Advances in Neural Information Processing Systems 36
+(NeurIPS 2023) Datasets and Benchmarks Track}.
+\newblock arXiv: 2308.11462.
+
+% Sentence embeddings
+\bibitem[Muennighoff et~al.(2023)]{muennighoff2023}
+Muennighoff, N., Tazi, N., Magne, L., \& Reimers, N. (2023).
+\newblock {MTEB}: Massive text embedding benchmark.
+\newblock \emph{Proceedings of EACL 2023}, 2014--2037.
+\newblock DOI: 10.18653/v1/2023.eacl-main.148.
+
+\bibitem[Gao et~al.(2021)]{gao2021simcse}
+Gao, T., Yao, X., \& Chen, D. (2021).
+\newblock {SimCSE}: Simple contrastive learning of sentence embeddings.
+\newblock \emph{Proceedings of EMNLP 2021}, 6894--6910.
+\newblock DOI: 10.18653/v1/2021.emnlp-main.552.
+
+% Alignment
+\bibitem[Ouyang et~al.(2022)]{ouyang2022}
+Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C.~L.,
+Mishkin, P., et~al. (2022).
+\newblock Training language models to follow instructions with human feedback.
+\newblock \emph{Advances in Neural Information Processing Systems 35
+(NeurIPS 2022)}.
+\newblock arXiv: 2203.02155.
+
+% Medical AI
+\bibitem[Thirunavukarasu et~al.(2023)]{thirunavukarasu2023}
+Thirunavukarasu, A.~J., Ting, D.~S.~J., Elangovan, K., et~al. (2023).
+\newblock Large language models in medicine.
+\newblock \emph{Nature Medicine}, 29(8), 1930--1940.
+\newblock DOI: 10.1038/s41591-023-02448-8.
+
+\bibitem[Nori et~al.(2023)]{nori2023}
+Nori, H., Lee, Y.~T., Zhang, S., et~al. (2023).
+\newblock Can generalist foundation models outcompete special-purpose tuning?
+{C}ase study in medicine.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2311.16452.
+
+% Multilingual evaluation
+\bibitem[Ahuja et~al.(2023)]{ahuja2023}
+Ahuja, K., Diddee, H., Hada, R., et~al. (2023).
+\newblock {MEGA}: Multilingual evaluation of generative {AI}.
+\newblock \emph{Proceedings of EMNLP 2023}.
+\newblock DOI: 10.18653/v1/2023.emnlp-main.258.
+
+% Scaling and architecture
+\bibitem[Hoffmann et~al.(2022)]{hoffmann2022}
+Hoffmann, J., Borgeaud, S., Mensch, A., et~al. (2022).
+\newblock Training compute-optimal large language models.
+\newblock \emph{Advances in Neural Information Processing Systems 35
+(NeurIPS 2022)}.
+\newblock arXiv: 2203.15556.
+
+% Output variance and reproducibility
+\bibitem[Atil et~al.(2024)]{atil2024}
+Atil, B., Aykent, S., Chittams, A., et~al. (2024).
+\newblock Non-determinism of ``deterministic'' {LLM} settings.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2408.04667.
+
+\bibitem[Renze \& Guven(2024)]{renze2024}
+Renze, M. \& Guven, E. (2024).
+\newblock The effect of sampling temperature on problem solving in large
+language models.
+\newblock \emph{Findings of EMNLP 2024}.
+\newblock DOI: 10.18653/v1/2024.findings-emnlp.432.
+
+% Information bottleneck
+\bibitem[Saxe et~al.(2019)]{saxe2019}
+Saxe, A., Bansal, Y., Dapello, J., et~al. (2019).
+\newblock On the information bottleneck theory of deep learning.
+\newblock \emph{Journal of Statistical Mechanics: Theory and Experiment},
+2019(12), 124020.
+\newblock DOI: 10.1088/1742-5468/ab3985.
+
+\bibitem[Shwartzziv \& Tishby(2017)]{shwartzziv2017}
+Shwartz-Ziv, R. \& Tishby, N. (2017).
+\newblock Opening the black box of deep neural networks via information.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 1703.00810.
+
+% AI safety and hallucination
+\bibitem[Ji et~al.(2023)]{ji2023}
+Ji, Z., Lee, N., Frieske, R., et~al. (2023).
+\newblock Survey of hallucination in natural language generation.
+\newblock \emph{ACM Computing Surveys}, 55(12), 1--38.
+\newblock DOI: 10.1145/3571730.
+
+\bibitem[Lin et~al.(2022)]{lin2022}
+Lin, S., Hilton, J., \& Evans, O. (2022).
+\newblock {TruthfulQA}: Measuring how models mimic human falsehoods.
+\newblock \emph{Proceedings of ACL 2022}, 3214--3252.
+\newblock DOI: 10.18653/v1/2022.acl-long.229.
+
+% Epistemological approaches
+\bibitem[Bender et~al.(2021)]{bender2021}
+Bender, E.~M., Gebru, T., McMillan-Major, A., \& Shmitchell, S. (2021).
+\newblock On the dangers of stochastic parrots: {C}an language models be
+too big?
+\newblock \emph{Proceedings of FAccT 2021}, 610--623.
+\newblock DOI: 10.1145/3442188.3445922.
+
+\bibitem[Chang et~al.(2024)]{chang2024survey}
+Chang, Y., Wang, X., Wang, J., et~al. (2024).
+\newblock A survey on evaluation of large language models.
+\newblock \emph{ACM Transactions on Intelligent Systems and Technology},
+15(3), 1--45.
+\newblock DOI: 10.1145/3641289.
+
+% Multi-turn and context evaluation
+\bibitem[Wang et~al.(2024a)]{wang2024mint}
+Wang, X., Wang, Z., Liu, J., Chen, Y., Yuan, L., Peng, H., \& Ji, H. (2024).
+\newblock {MINT}: Evaluating {LLMs} in multi-turn interaction with tools and language feedback.
+\newblock \emph{ICLR 2024}.
+\newblock arXiv: 2309.10691.
+
+\bibitem[Kwan et~al.(2024)]{kwan2024mteval}
+Kwan, W.-C., Zeng, X., Jiang, Y., Wang, Y., Li, L., Shang, L., Jiang, X., Liu, Q., \& Wong, K.-F. (2024).
+\newblock {MT-Eval}: A multi-turn capabilities evaluation benchmark for large language models.
+\newblock \emph{Proceedings of EMNLP 2024}, 20153--20177.
+\newblock DOI: 10.18653/v1/2024.emnlp-main.1124.
+
+\bibitem[Katsis et~al.(2025)]{katsis2025mtrag}
+Katsis, Y., Rosenthal, S., Fadnis, K., et~al. (2025).
+\newblock {mtRAG}: A multi-turn conversational benchmark for evaluating retrieval-augmented generation systems.
+\newblock \emph{Transactions of the Association for Computational Linguistics}, 13, 784--808.
+\newblock DOI: 10.1162/TACL.a.19.
+
+\bibitem[Bai et~al.(2024a)]{bai2024longbench}
+Bai, Y., Lv, X., Zhang, J., et~al. (2024).
+\newblock {LongBench}: A bilingual, multitask benchmark for long context understanding.
+\newblock \emph{Proceedings of ACL 2024}, 3119--3137.
+\newblock arXiv: 2308.14508.
+
+\bibitem[Zhang et~al.(2024a)]{zhang2024infinitebench}
+Zhang, X., Chen, Y., Hu, S., et~al. (2024).
+\newblock {InfiniteBench}: Extending long context evaluation beyond 100{K} tokens.
+\newblock \emph{Proceedings of ACL 2024}, 15262--15277.
+\newblock arXiv: 2402.13718.
+
+\bibitem[Hsieh et~al.(2024)]{hsieh2024ruler}
+Hsieh, C.-P., Sun, S., Kriman, S., et~al. (2024).
+\newblock {RULER}: What's the real context size of your long-context language models?
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2404.06654.
+
+\bibitem[An et~al.(2025)]{an2025context}
+An, C., Zhang, J., Zhong, M., et~al. (2025).
+\newblock Why does the effective context length of {LLMs} fall short?
+\newblock \emph{ICLR 2025}.
+\newblock arXiv: 2410.18745.
+
+\bibitem[Maharana et~al.(2024)]{maharana2024memory}
+Maharana, A., Lee, D.-H., Tulyakov, S., Bansal, M., Barbieri, F., \& Fang, Y. (2024).
+\newblock Evaluating very long-term conversational memory of {LLM} agents.
+\newblock \emph{Proceedings of ACL 2024}, 13851--13870.
+\newblock arXiv: 2402.17753.
+
+% Systematic LLM evaluation
+\bibitem[Liang et~al.(2023)]{liang2023helm}
+Liang, P., Bommasani, R., Lee, T., et~al. (2023).
+\newblock Holistic evaluation of language models.
+\newblock \emph{Transactions on Machine Learning Research}.
+\newblock arXiv: 2211.09110.
+
+\bibitem[Chiang et~al.(2024)]{chiang2024chatbot}
+Chiang, W.-L., Zheng, L., Sheng, Y., et~al. (2024).
+\newblock Chatbot {Arena}: An open platform for evaluating {LLMs} by human preference.
+\newblock \emph{Proceedings of ICML 2024}, vol.~235, 8359--8388.
+\newblock arXiv: 2403.04132.
+
+\bibitem[Sclar et~al.(2024)]{sclar2024sensitivity}
+Sclar, M., Choi, Y., Tsvetkov, Y., \& Suhr, A. (2024).
+\newblock Quantifying language models' sensitivity to spurious features in prompt design.
+\newblock \emph{ICLR 2024}.
+\newblock arXiv: 2310.11324.
+
+% Medical AI
+\bibitem[Singhal et~al.(2025)]{singhal2025expert}
+Singhal, K., Tu, T., Gottweis, J., et~al. (2025).
+\newblock Toward expert-level medical question answering with large language models.
+\newblock \emph{Nature Medicine}, 31, 943--950.
+\newblock DOI: 10.1038/s41591-024-03423-7.
+
+\bibitem[Ayers et~al.(2023)]{ayers2023physician}
+Ayers, J.~W., Poliak, A., Dredze, M., et~al. (2023).
+\newblock Comparing physician and artificial intelligence chatbot responses to patient questions.
+\newblock \emph{JAMA Internal Medicine}, 183(6), 589--596.
+\newblock DOI: 10.1001/jamainternmed.2023.1838.
+
+% Legal AI
+\bibitem[Nay et~al.(2024)]{nay2024tax}
+Nay, J.~J., Karamardian, D., Lawsky, S.~B., et~al. (2024).
+\newblock Large language models as tax attorneys: A case study in legal capabilities emergence.
+\newblock \emph{Philosophical Transactions of the Royal Society A}, 382(2270).
+\newblock DOI: 10.1098/rsta.2023.0159.
+
+\bibitem[Dahl et~al.(2024)]{dahl2024hallucinations}
+Dahl, M., Magesh, V., Suzgun, M., \& Ho, D.~E. (2024).
+\newblock Large legal fictions: Profiling legal hallucinations in large language models.
+\newblock \emph{Journal of Legal Analysis}, 16(1), 64--93.
+\newblock DOI: 10.1093/jla/laae003.
+
+\bibitem[Choi et~al.(2022)]{choi2022lawschool}
+Choi, J.~H., Hickman, K.~E., Monahan, A., \& Schwarcz, D. (2022).
+\newblock {ChatGPT} goes to law school.
+\newblock \emph{Journal of Legal Education}, 71(3).
+\newblock SSRN: 4335905.
+
+% Epistemological and Ethics
+\bibitem[Suzgun et~al.(2024)]{suzgun2024belief}
+Suzgun, M., Gur, T., Bianchi, F., et~al. (2024).
+\newblock Belief in the machine: Investigating epistemological blind spots of language models.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2410.21195.
+
+\bibitem[Paseri \& Durante(2025)]{paseri2025epistemological}
+Paseri, L. \& Durante, M. (2025).
+\newblock Examining epistemological challenges of large language models in law.
+\newblock \emph{Cambridge Forum on AI: Law and Governance}, 1, e7.
+\newblock DOI: 10.1017/aig.2024.7.
+
+\bibitem[Ji et~al.(2024)]{ji2024moralbench}
+Ji, J., Chen, Y., Jin, M., et~al. (2024).
+\newblock {MoralBench}: Moral evaluation of {LLMs}.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2406.04428.
+
+% Output variance and stochasticity
+\bibitem[Shi et~al.(2024)]{shi2024decoding}
+Shi, C., Yang, H., Cai, D., et~al. (2024).
+\newblock A thorough examination of decoding methods in the era of {LLMs}.
+\newblock \emph{Proceedings of EMNLP 2024}, 8601--8629.
+\newblock DOI: 10.18653/v1/2024.emnlp-main.489.
+
+\bibitem[Dietrich \& Hollstein(2025)]{dietrich2025reproducibility}
+Dietrich, J. \& Hollstein, A. (2025).
+\newblock Performance and reproducibility of large language models in named entity recognition.
+\newblock \emph{Drug Safety}, 48(3), 287--303.
+\newblock DOI: 10.1007/s40264-024-01499-1.
+
+% Sentence embeddings
+\bibitem[Steck et~al.(2024)]{steck2024cosine}
+Steck, H., Ekanadham, C., \& Kallus, N. (2024).
+\newblock Is cosine-similarity of embeddings really about similarity?
+\newblock \emph{Companion Proceedings of the ACM Web Conference 2024}.
+\newblock DOI: 10.1145/3589335.3651526.
+
+\bibitem[Ethayarajh(2019)]{ethayarajh2019contextual}
+Ethayarajh, K. (2019).
+\newblock How contextual are contextualized word representations?
+\newblock \emph{Proceedings of EMNLP-IJCNLP 2019}, 55--65.
+\newblock DOI: 10.18653/v1/D19-1006.
+
+\bibitem[Chen et~al.(2024a)]{chen2024m3embedding}
+Chen, J., Xiao, S., Zhang, P., Luo, K., Lian, D., \& Liu, Z. (2024).
+\newblock {M3-Embedding}: Multi-linguality, multi-functionality, multi-granularity text embeddings through self-knowledge distillation.
+\newblock \emph{Findings of ACL 2024}.
+\newblock DOI: 10.18653/v1/2024.findings-acl.137.
+
+\bibitem[Enevoldsen et~al.(2025)]{enevoldsen2025mmteb}
+Enevoldsen, K., Chung, I., Kerboua, I., et~al. (2025).
+\newblock {MMTEB}: Massive multilingual text embedding benchmark.
+\newblock \emph{ICLR 2025}.
+\newblock arXiv: 2502.13595.
+
+% Information theory and scaling
+\bibitem[Kawaguchi et~al.(2023)]{kawaguchi2023bottleneck}
+Kawaguchi, K., Deng, Z., Ji, X., \& Huang, J. (2023).
+\newblock How does information bottleneck help deep learning?
+\newblock \emph{Proceedings of ICML 2023}, 16049--16096.
+\newblock arXiv: 2305.18887.
+
+\bibitem[Bahri et~al.(2024)]{bahri2024scaling}
+Bahri, Y., Dyer, E., Kaplan, J., Lee, J., \& Sharma, U. (2024).
+\newblock Explaining neural scaling laws.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 121(27).
+\newblock DOI: 10.1073/pnas.2311878121.
+
+% AI safety and trustworthiness
+\bibitem[Wang et~al.(2023)]{wang2023decodingtrust}
+Wang, B., Chen, W., Pei, H., et~al. (2023).
+\newblock {DecodingTrust}: A comprehensive assessment of trustworthiness in {GPT} models.
+\newblock \emph{NeurIPS 2023}.
+\newblock arXiv: 2306.11698.
+
+\bibitem[Sharma et~al.(2024)]{sharma2024sycophancy}
+Sharma, M., Tong, M., Korbak, T., et~al. (2024).
+\newblock Towards understanding sycophancy in language models.
+\newblock \emph{ICLR 2024}.
+\newblock arXiv: 2310.13548.
+
+\bibitem[Manakul et~al.(2023)]{manakul2023selfcheck}
+Manakul, P., Liusie, A., \& Gales, M. (2023).
+\newblock {SelfCheckGPT}: Zero-resource black-box hallucination detection for generative large language models.
+\newblock \emph{Proceedings of EMNLP 2023}, 9004--9017.
+\newblock DOI: 10.18653/v1/2023.emnlp-main.557.
+
+% Transformer architecture
+\bibitem[Fedus et~al.(2022)]{fedus2022switch}
+Fedus, W., Zoph, B., \& Shazeer, N. (2022).
+\newblock Switch transformers: Scaling to trillion parameter models with simple and efficient sparsity.
+\newblock \emph{Journal of Machine Learning Research}, 23(120), 1--40.
+
+\bibitem[Wei et~al.(2022a)]{wei2022cot}
+Wei, J., Wang, X., Schuurmans, D., et~al. (2022).
+\newblock Chain-of-thought prompting elicits reasoning in large language models.
+\newblock \emph{NeurIPS 2022}.
+\newblock arXiv: 2201.11903.
+
+\bibitem[Olsson et~al.(2022)]{olsson2022induction}
+Olsson, C., Elhage, N., Nanda, N., et~al. (2022).
+\newblock In-context learning and induction heads.
+\newblock \emph{Transformer Circuits Thread}.
+\newblock arXiv: 2209.11895.
+
+\bibitem[Wei et~al.(2022b)]{wei2022emergent}
+Wei, J., Tay, Y., Bommasani, R., et~al. (2022).
+\newblock Emergent abilities of large language models.
+\newblock \emph{Transactions on Machine Learning Research}.
+\newblock arXiv: 2206.07682.
+
+\bibitem[Bai et~al.(2022)]{bai2022constitutional}
+Bai, Y., Kadavath, S., Kundu, S., et~al. (2022).
+\newblock Constitutional {AI}: Harmlessness from {AI} feedback.
+\newblock \emph{arXiv preprint}.
+\newblock arXiv: 2212.08073.
+
+% Multilingual
+\bibitem[Lai et~al.(2023)]{lai2023chatgpt}
+Lai, V.~D., Ngo, N., Veyseh, A.~P.~B., et~al. (2023).
+\newblock {ChatGPT} beyond {English}: Towards a comprehensive evaluation of large language models in multilingual learning.
+\newblock \emph{Findings of EMNLP 2023}, 13171--13189.
+\newblock DOI: 10.18653/v1/2023.findings-emnlp.878.
+
+\bibitem[Joshi et~al.(2020)]{joshi2020diversity}
+Joshi, P., Santy, S., Budhiraja, A., Bali, K., \& Choudhury, M. (2020).
+\newblock The state and fate of linguistic diversity and inclusion in the {NLP} world.
+\newblock \emph{Proceedings of ACL 2020}.
+\newblock DOI: 10.18653/v1/2020.acl-main.560.
+
+\bibitem[Gala et~al.(2023)]{gala2023indictrans2}
+Gala, J., Chitale, P.~A., et~al. (2023).
+\newblock {IndicTrans2}: Towards high-quality and accessible machine translation models for all 22 scheduled {Indian} languages.
+\newblock \emph{Transactions on Machine Learning Research}.
+\newblock arXiv: 2305.16307.
 
 \end{thebibliography}
 
