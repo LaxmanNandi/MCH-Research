@@ -34,7 +34,7 @@
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
 | **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — empirical conservation constraint, four truth-types | 📄 [Submitted](https://www.preprints.org/manuscript/207501) — Preprints ID: 207501 |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
-| **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 + npj Digital Medicine (peer review) |
+| **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 + Scientific Reports (peer review) |
 | **9** | Measurement Matters | EFI is embedding-dependent (0.08→0.85); MuRIL degeneracy; variance is LLM-intrinsic | ✅ [Published](https://doi.org/10.5281/zenodo.19466613) - Zenodo DOI: 10.5281/zenodo.19466613 |
 
 ### Key Discovery: Conservation Constraint (Paper 6 — Capstone)
@@ -164,7 +164,7 @@ mch_experiments/
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
 │   ├── paper6_conservation/         #   Paper 6: Submitted (Preprints ID: 207501)
 │   ├── paper7_submission/           #   Paper 7: Published (tex, pdf, figures/, archive/)
-│   ├── paper8_efi/                  #   Paper 8: Published + npj Digital Medicine
+│   ├── paper8_efi/                  #   Paper 8: Published + Scientific Reports (peer review)
 │   └── paper9_measurement/          #   Paper 9: Published (Zenodo DOI: 10.5281/zenodo.19466613)
 │
 ├── data/                            # Experimental data (single source of truth)

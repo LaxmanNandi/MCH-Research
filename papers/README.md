@@ -13,7 +13,7 @@ papers/
 ├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
 ├── paper6_conservation/     Paper 6 📄 Submitted (Preprints.org ID: 207501)
 ├── paper7_submission/       Paper 7 ✅ Published (Preprints.org)
-├── paper8_efi/              Paper 8 ✅ Published (Preprints.org) + npj Digital Medicine
+├── paper8_efi/              Paper 8 ✅ Published (Preprints.org) + Scientific Reports (peer review)
 └── paper9_measurement/      Paper 9 ✅ Published (Zenodo)
 ```
 
@@ -58,7 +58,7 @@ Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 - **Location**: `paper5_safety/`
 
 ### Paper 6: Conservation Constraint (Capstone)
-- **Status**: Submitted (Preprints.org, April 9, 2026 — ID: 207501, Pending Check)
+- **Status**: Resubmitted (Preprints.org, April 13, 2026 — ID: 208191, Pending Decision)
 - **Title**: A Conservation Constraint in LLM Context Processing Across Four Epistemological Domains
 - **Role**: Capstone — ΔRCI × Var_Ratio ≈ K(domain) across 4 domains, 24 runs, 14 architectures
 - **K values**: Medical 0.429, Legal 0.348, Philosophy 0.301, Ethics 0.223
@@ -71,7 +71,7 @@ Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 - **Location**: `paper7_submission/`
 
 ### Paper 8: Encoding Fidelity & Coherent Misalignment
-- **Status**: Published (Preprints.org, April 2, 2026) + npj Digital Medicine ("With Editor")
+- **Status**: Published (Preprints.org, April 2, 2026) + Scientific Reports (peer review)
 - **DOI**: 10.20944/preprints202604.0061.v1
 - **Role**: Cross-lingual — EFI metric, Coherent Misalignment, Dravidian-specific variance
 - **Location**: `paper8_efi/`
@@ -117,5 +117,5 @@ Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 
 ---
 
-**Last Updated**: April 10, 2026
-**Publications**: 8 published, 1 submitted (Paper 6), Paper 4 under JMLR review, Paper 8 under npj Digital Medicine review
+**Last Updated**: April 15, 2026
+**Publications**: 8 published, 1 resubmitted (Paper 6, ID: 208191), Paper 4 under JMLR review, Paper 8 under Scientific Reports peer review
