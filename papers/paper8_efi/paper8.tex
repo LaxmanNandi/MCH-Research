@@ -205,79 +205,6 @@ Low encoding fidelity introduces noise into the model's internal representation.
 With measured $\text{EFI} \approx 0.08$ for Kannada and $\text{VR} \approx 1.72$--$2.05\times$, the data are consistent with variance amplification through a degraded encoding bottleneck. However, the relationship is not simple: Hindi ($\text{EFI} \approx 0.08$) shows no variance amplification ($\text{VR} \approx 0.91$--$1.38\times$), indicating that training data representation mediates the encoding-to-variance pathway. We present this as an empirical observation, not a formal derivation --- the precise functional relationship requires further theoretical work.
 
 % ================================================================
-\section{Methods}
-
-\subsection{Experimental Design Summary}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{ll}
-\toprule
-\textbf{Parameter} & \textbf{Value} \\
-\midrule
-Languages tested & 4 (English, Kannada, Tamil, Hindi) \\
-Embedding models & 2 (MiniLM-384D, MPNet-768D) \\
-LLMs tested & 2 (DeepSeek V3.1 671B, Mistral Small 24B) \\
-Clinical sentences & 15 (5 per complexity level) \\
-Complexity levels & 3 (Simple, Medium, Complex) \\
-Trials (Experiment 5) & 15 per language per scenario \\
-Total API calls (Experiments 4--5) & 600 \\
-\bottomrule
-\end{tabular}
-\caption{Experimental scale summary.}
-\label{tab:scale}
-\end{table}
-
-\subsection{Clinical Sentence Battery}
-
-We constructed a battery of 15 clinical sentences at three complexity levels, each in four languages (English, Kannada, Tamil, Hindi):
-
-\begin{itemize}
-    \item \textbf{Simple} (5 sentences): Single symptoms or findings (e.g., ``The patient has fever''; Kannada and Tamil equivalents provided in supplementary materials).
-    \item \textbf{Medium} (5 sentences): Multi-symptom descriptions (e.g., ``Patient complains of chest pain radiating to left arm with sweating'').
-    \item \textbf{Complex} (5 sentences): Diagnostic reasoning with English medical terminology (e.g., ``ECG shows ST elevation in leads II, III, aVF suggesting inferior wall MI'').
-\end{itemize}
-
-Translations were produced and verified by the author, a native Kannada speaker with clinical fluency in all four languages. Complex sentences retain English medical terms (ST elevation, D-dimer, troponin) as used in actual clinical practice in India, where code-mixed medical communication is the norm.
-
-\subsection{EFI Measurement (Experiments 1--3)}
-
-\textbf{Embedding models:} all-MiniLM-L6-v2 (384-dimensional) and all-mpnet-base-v2 (768-dimensional), both from the Sentence-Transformers library \citep{reimers2020}. These models use multilingual knowledge distillation to extend monolingual English embeddings across languages. Feng et~al.\ \citep{feng2022} provide an alternative language-agnostic approach (LaBSE) which serves as a methodological reference for future cross-model validation of EFI.
-
-\textbf{Protocol:} Each sentence was encoded in all four languages. EFI\textsubscript{proxy} was computed as the cosine similarity between the non-English embedding and its English equivalent. English self-similarity serves as the reference ($\text{EFI} = 1.0$).
-
-\textbf{Experiment 1:} EFI measurement across 3 languages (English, Kannada, Tamil) $\times$ 3 complexity levels $\times$ 5 sentences using MiniLM.
-
-\textbf{Experiment 2:} Hindi added as a fourth language to test whether degradation is Dravidian-specific or language-family independent.
-
-\textbf{Experiment 3:} Same battery run with MPNet (768D) alongside MiniLM (384D) to test embedding-model independence.
-
-\textbf{Statistics:} Mann-Whitney U for pairwise comparisons, Welch's $t$-test for English vs.\ non-English, Pearson correlation for cross-model agreement.
-
-\subsection{LLM Replication (Experiments 4--5)}
-
-\textbf{Models:} DeepSeek V3.1 (671B MoE) and Mistral Small 24B, accessed via Together.ai API.
-
-\textbf{Experiment 4} (deterministic, temperature = 0.0):
-\begin{itemize}
-    \item \emph{Task 1 --- Language identification:} ``Identify the language of this text: [sentence].'' Tests whether the model can recognise the input language.
-    \item \emph{Task 2 --- Translation fidelity:} ``Translate this clinical sentence to English: [non-English sentence].'' Translation embeddings compared to reference English embeddings via cosine similarity.
-\end{itemize}
-
-\textbf{Experiment 5} (stochastic, temperature = 0.7, 15 trials per condition):
-\begin{itemize}
-    \item \emph{Task 3 --- Clinical advice consistency:} Same clinical scenario presented in four languages. Fifteen responses collected per language per scenario (5 scenarios $\times$ 4 languages $\times$ 15 trials $\times$ 2 models = 600 API calls). Full raw responses saved for audit. Variance Ratio computed as:
-    \begin{equation}
-        \text{VR}(\text{language}) = \frac{\text{Var}(\text{responses in language})}{\text{Var}(\text{responses in English})}
-    \end{equation}
-    where variance is the mean pairwise cosine distance across the 15 responses. Statistical significance assessed by paired $t$-test and Mann-Whitney U (one-sided) across the 5 scenario-level VR values.
-    \item \emph{Task 4 --- Code-switching analysis:} For each response, we recorded whether the model responded in the target language or switched to English, and examined orthographic accuracy of medical terminology in target-language responses.
-\end{itemize}
-
-\subsection{AI-Assisted Tools}
-AI tools (Claude, Anthropic; ChatGPT, OpenAI; DeepSeek) were used to assist with data analysis, statistical computation, visualization, and manuscript preparation. All experimental design, clinical interpretations, hypothesis formulation, and scientific conclusions are the sole responsibility of the author.
-
-% ================================================================
 \section{Results}
 
 \subsection{EFI Degradation is Massive and Universal}
@@ -362,7 +289,7 @@ Complex  & 0.141 \\
 \end{tabular}
 \end{table}
 
-Complex sentences --- which contain English medical terms such as ``ST elevation,'' ``D-dimer,'' and ``troponin'' --- show the highest EFI (Figure~\ref{fig:complexity}). These English terms act as anchors, pulling the non-English embedding toward better-represented regions of the embedding space. This suggests that code-mixed clinical communication, common in Indian healthcare settings, may paradoxically yield more reliable AI responses than pure non-English input.
+Complex sentences --- which contain English medical terms such as ``ST elevation,'' ``D-dimer,'' and ``troponin'' --- show the highest EFI (Table~\ref{tab:complexity}, Figure~\ref{fig:complexity}). These English terms act as anchors, pulling the non-English embedding toward better-represented regions of the embedding space. This suggests that code-mixed clinical communication, common in Indian healthcare settings, may paradoxically yield more reliable AI responses than pure non-English input.
 
 Medium-complexity sentences show the \emph{lowest} EFI (0.020), consistent with their lack of both the simplicity that permits direct translation and the English anchors that rescue complex sentences.
 
@@ -377,7 +304,7 @@ Medium-complexity sentences show the \emph{lowest} EFI (0.020), consistent with 
 
 \textbf{Language identification:} Both DeepSeek and Mistral correctly identify 100\% of input languages across all three non-English languages. The models \emph{know} what language they are receiving --- the failures documented below occur despite correct language recognition.
 
-\textbf{Translation fidelity} (cosine similarity of LLM translation to reference English):
+\textbf{Translation fidelity} (cosine similarity of LLM translation to reference English, Table~\ref{tab:translation}):
 
 \begin{table}[H]
 \centering
@@ -433,7 +360,7 @@ Analysis of raw responses revealed scenario-dependent code-switching. For DeepSe
 
 \textbf{Orthographic corruption:} When Mistral does respond in Kannada, it misspells medical terms. The Kannada word for ``cough'' (\emph{kemmu}) appears as \emph{kachchassu}, \emph{kaammu}, \emph{keemu}, and \emph{kaasu} across different trials --- none of which are real Kannada words.
 
-\textbf{Response centroid similarity:}
+\textbf{Response centroid similarity} (Table~\ref{tab:fidelity}):
 
 \begin{table}[H]
 \centering
@@ -547,6 +474,79 @@ Six limitations should be noted:
 \end{enumerate}
 
 % ================================================================
+\section{Methods}
+
+\subsection{Experimental Design Summary}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Languages tested & 4 (English, Kannada, Tamil, Hindi) \\
+Embedding models & 2 (MiniLM-384D, MPNet-768D) \\
+LLMs tested & 2 (DeepSeek V3.1 671B, Mistral Small 24B) \\
+Clinical sentences & 15 (5 per complexity level) \\
+Complexity levels & 3 (Simple, Medium, Complex) \\
+Trials (Experiment 5) & 15 per language per scenario \\
+Total API calls (Experiments 4--5) & 600 \\
+\bottomrule
+\end{tabular}
+\caption{Experimental scale summary.}
+\label{tab:scale}
+\end{table}
+
+\subsection{Clinical Sentence Battery}
+
+The experimental design is summarised in Table~\ref{tab:scale}. We constructed a battery of 15 clinical sentences at three complexity levels, each in four languages (English, Kannada, Tamil, Hindi):
+
+\begin{itemize}
+    \item \textbf{Simple} (5 sentences): Single symptoms or findings (e.g., ``The patient has fever''; Kannada and Tamil equivalents provided in supplementary materials).
+    \item \textbf{Medium} (5 sentences): Multi-symptom descriptions (e.g., ``Patient complains of chest pain radiating to left arm with sweating'').
+    \item \textbf{Complex} (5 sentences): Diagnostic reasoning with English medical terminology (e.g., ``ECG shows ST elevation in leads II, III, aVF suggesting inferior wall MI'').
+\end{itemize}
+
+Translations were produced and verified by the author, a native Kannada speaker with clinical fluency in all four languages. Complex sentences retain English medical terms (ST elevation, D-dimer, troponin) as used in actual clinical practice in India, where code-mixed medical communication is the norm.
+
+\subsection{EFI Measurement (Experiments 1--3)}
+
+\textbf{Embedding models:} all-MiniLM-L6-v2 (384-dimensional) and all-mpnet-base-v2 (768-dimensional), both from the Sentence-Transformers library \citep{reimers2020}. These models use multilingual knowledge distillation to extend monolingual English embeddings across languages. Feng et~al.\ \citep{feng2022} provide an alternative language-agnostic approach (LaBSE) which serves as a methodological reference for future cross-model validation of EFI.
+
+\textbf{Protocol:} Each sentence was encoded in all four languages. EFI\textsubscript{proxy} was computed as the cosine similarity between the non-English embedding and its English equivalent. English self-similarity serves as the reference ($\text{EFI} = 1.0$).
+
+\textbf{Experiment 1:} EFI measurement across 3 languages (English, Kannada, Tamil) $\times$ 3 complexity levels $\times$ 5 sentences using MiniLM.
+
+\textbf{Experiment 2:} Hindi added as a fourth language to test whether degradation is Dravidian-specific or language-family independent.
+
+\textbf{Experiment 3:} Same battery run with MPNet (768D) alongside MiniLM (384D) to test embedding-model independence.
+
+\textbf{Statistics:} Mann-Whitney U for pairwise comparisons, Welch's $t$-test for English vs.\ non-English, Pearson correlation for cross-model agreement.
+
+\subsection{LLM Replication (Experiments 4--5)}
+
+\textbf{Models:} DeepSeek V3.1 (671B MoE) and Mistral Small 24B, accessed via Together.ai API.
+
+\textbf{Experiment 4} (deterministic, temperature = 0.0):
+\begin{itemize}
+    \item \emph{Task 1 --- Language identification:} ``Identify the language of this text: [sentence].'' Tests whether the model can recognise the input language.
+    \item \emph{Task 2 --- Translation fidelity:} ``Translate this clinical sentence to English: [non-English sentence].'' Translation embeddings compared to reference English embeddings via cosine similarity.
+\end{itemize}
+
+\textbf{Experiment 5} (stochastic, temperature = 0.7, 15 trials per condition):
+\begin{itemize}
+    \item \emph{Task 3 --- Clinical advice consistency:} Same clinical scenario presented in four languages. Fifteen responses collected per language per scenario (5 scenarios $\times$ 4 languages $\times$ 15 trials $\times$ 2 models = 600 API calls). Full raw responses saved for audit. Variance Ratio computed as:
+    \begin{equation}
+        \text{VR}(\text{language}) = \frac{\text{Var}(\text{responses in language})}{\text{Var}(\text{responses in English})}
+    \end{equation}
+    where variance is the mean pairwise cosine distance across the 15 responses. Statistical significance assessed by paired $t$-test and Mann-Whitney U (one-sided) across the 5 scenario-level VR values.
+    \item \emph{Task 4 --- Code-switching analysis:} For each response, we recorded whether the model responded in the target language or switched to English, and examined orthographic accuracy of medical terminology in target-language responses.
+\end{itemize}
+
+\subsection{AI-Assisted Tools}
+AI tools (Claude, Anthropic; ChatGPT, OpenAI; DeepSeek) were used to assist with data analysis, statistical computation, visualization, and manuscript preparation. All experimental design, clinical interpretations, hypothesis formulation, and scientific conclusions are the sole responsibility of the author.
+
+% ================================================================
 \section{Conclusion}
 
 Shannon's Mathematical Theory of Communication assumed encoding fidelity. LLMs show significant systematic degradation of this assumption for non-English languages, producing Coherent Misalignment --- outputs that are internally consistent but semantically degraded. Using the Encoding Fidelity Index, we measured $\sim$90\% encoding degradation for Kannada, Tamil, and Hindi. A European language control confirms this is tokenizer-induced, not inherent cross-lingual distance. The downstream consequences are language-specific: Kannada shows $1.72$--$2.05\times$ variance amplification (replicated across both models), scenario-dependent code-switching, and orthographic corruption of medical terms. Hindi, despite equivalent EFI degradation, shows no variance amplification --- revealing that training data representation, not encoding fidelity alone, determines clinical reliability.
@@ -565,18 +565,36 @@ Output-layer consistency metrics are unlikely to detect these failures, since th
 \end{enumerate}
 
 % ================================================================
+\section*{Funding}
+
+This research received no external funding. All experiments were conducted using publicly available LLM APIs at the author's personal expense.
+
+% ================================================================
 \section*{Acknowledgements}
 
-The clinical perspective in this paper comes from practice in resource-constrained primary health settings where AI-assisted care is increasingly deployed but where patients present in local languages. These observations apply wherever AI-assisted healthcare meets non-English speaking populations. No external funding was received. AI systems (Claude, ChatGPT, DeepSeek) assisted with data analysis, visualisation, and manuscript preparation. The framework, findings, and interpretations remain the author's sole responsibility.
+The clinical perspective in this paper comes from practice in resource-constrained primary health settings where AI-assisted care is increasingly deployed but where patients present in local languages. These observations apply wherever AI-assisted healthcare meets non-English speaking populations. AI systems (Claude, ChatGPT, DeepSeek) assisted with data analysis, visualisation, and manuscript preparation. The framework, findings, and interpretations remain the author's sole responsibility.
 
 % ================================================================
 \section*{Data Availability}
 
-All experimental data, analysis scripts, and raw LLM responses are available at \url{https://github.com/LaxmanNandi}. OSF pre-registration: \url{https://osf.io/dp8nj/} (March 2026).
+All experimental data, analysis scripts, and raw LLM responses are available at \url{https://doi.org/10.5281/zenodo.19371897} (Zenodo, DOI: 10.5281/zenodo.19371897). The repository is also available at \url{https://github.com/LaxmanNandi/MCH-Research}. OSF pre-registration: \url{https://osf.io/dp8nj/} (March 2026).
 
 % ================================================================
-\section*{Conflict of Interest}
-The author declares no conflict of interest.
+\section*{Ethics Statement}
+
+This study did not involve human participants, patient data, or electronic health records. All experiments were conducted on a purpose-built battery of constructed clinical sentences. No identifiable patient information was collected or used at any stage. Institutional review board (IRB) approval and informed consent were not required.
+
+% ================================================================
+\section*{Author Contributions}
+L.M.M. conceived the study, designed the experimental framework, collected all data, performed all analyses, and wrote the manuscript in its entirety. AI systems (Claude, ChatGPT, DeepSeek) assisted with data analysis, visualisation, and manuscript preparation under the sole direction and responsibility of the author.
+
+% ================================================================
+\section*{Competing Interests}
+The author declares no competing interests.
+
+% ================================================================
+\section*{Code Availability}
+All analysis scripts, experimental pipelines, and replication code are available at \url{https://doi.org/10.5281/zenodo.19371897} (Zenodo, DOI: 10.5281/zenodo.19371897). The GitHub repository is at \url{https://github.com/LaxmanNandi/MCH-Research}.
 
 % ================================================================
 \bibliographystyle{plainnat}
