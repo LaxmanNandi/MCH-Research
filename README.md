@@ -30,11 +30,11 @@
 | **1** | Context Curves Behavior | ΔRCI metric validated | ✅ [Published](https://www.preprints.org/manuscript/202601.1881/v2) - DOI: 10.20944/preprints202601.1881.v2 |
 | **2** | Scaling Context Sensitivity | 14-model benchmark, 25 runs | ✅ [Published v2](https://www.preprints.org/manuscript/202602.1114/v2) - DOI: 10.20944/preprints202602.1114.v2 |
 | **3** | Domain-Specific Temporal Dynamics | 3-bin aggregation, U-shape vs inverted-U | ✅ [Published](https://www.preprints.org/manuscript/202602.1674/v1) - DOI: 10.20944/preprints202602.1674.v1 |
-| **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) + JMLR under review |
+| **4** | Engagement as Entanglement | VRI mechanism, r=0.76, ESI metric | ✅ [Published](https://www.preprints.org/manuscript/202603.0055/v1) (Preprints.org). Next venue under consideration. |
 | **5** | Stochastic Incompleteness | Four-class deployment taxonomy (IDEAL/EMPTY/DIVERGENT/RICH) | ✅ [Published](https://www.preprints.org/manuscript/202602.2034/v1) - DOI: 10.20944/preprints202602.2034.v1 |
-| **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — empirical conservation constraint, four truth-types | 📄 [Submitted](https://www.preprints.org/manuscript/207501) — Preprints ID: 207501 |
+| **6** | **Conservation Constraint (Capstone)** | **ΔRCI × Var_Ratio ≈ K(domain)** — empirical conservation constraint, four truth-types | 📦 Preprints.org declined twice (IDs 207501, 208191). Planned for Zenodo. Manuscript and unified pipeline complete. |
 | **7** | Content-Order Decomposition | Decomposes ΔRCI into content/order; exploration arc | ✅ [Published](https://www.preprints.org/manuscript/202603.1116/v1) - DOI: 10.20944/preprints202603.1116.v1 |
-| **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1 + Scientific Reports (peer review) |
+| **8** | Encoding Fidelity & Coherent Misalignment | EFI metric; Coherent Misalignment; Dravidian-specific variance | ✅ [Published](https://www.preprints.org/manuscript/202604.0061/v1) - DOI: 10.20944/preprints202604.0061.v1. Scientific Reports (Nature portfolio): under peer review. |
 | **9** | Measurement Matters | EFI is embedding-dependent (0.08→0.85); MuRIL degeneracy; variance is LLM-intrinsic | ✅ [Published](https://doi.org/10.5281/zenodo.19466613) - Zenodo DOI: 10.5281/zenodo.19466613 |
 
 ### Key Discovery: Conservation Constraint (Paper 6 — Capstone)
@@ -115,7 +115,7 @@ EFI is embedding-dependent — the measured encoding fidelity gap varies 10× de
 - **160,000+ responses** across 4 domains, 14+ architectures, 8 vendors
 - **50 trials** per model-domain configuration, **30 positions**, **3 conditions** (TRUE/COLD/SCRAMBLED)
 - **24 model-domain runs** with complete data
-- **9 papers** across the programme (8 published, 1 submitted — Preprints ID: 207501)
+- **9 papers** across the programme (8 with permanent DOIs; Paper 6 declined by Preprints.org twice, headed to Zenodo)
 - **768D robustness check** confirms K holds across embedding dimensions
 - All data, scripts, and analysis publicly available in this repository
 
@@ -160,11 +160,11 @@ mch_experiments/
 │   ├── paper1_legacy/               #   Paper 1: Published (Preprints.org)
 │   ├── paper2_standardized/         #   Paper 2: Published (Preprints.org)
 │   ├── paper3_cross_domain/         #   Paper 3: Published (Preprints.org)
-│   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org) + JMLR
+│   ├── paper4_entanglement/         #   Paper 4: Published (Preprints.org); next venue under consideration
 │   ├── paper5_safety/               #   Paper 5: Published (Preprints.org)
-│   ├── paper6_conservation/         #   Paper 6: Submitted (Preprints ID: 207501)
+│   ├── paper6_conservation/         #   Paper 6: Preprints.org declined ×2; planned for Zenodo
 │   ├── paper7_submission/           #   Paper 7: Published (tex, pdf, figures/, archive/)
-│   ├── paper8_efi/                  #   Paper 8: Published + Scientific Reports (peer review)
+│   ├── paper8_efi/                  #   Paper 8: Published + Scientific Reports (under peer review)
 │   └── paper9_measurement/          #   Paper 9: Published (Zenodo DOI: 10.5281/zenodo.19466613)
 │
 ├── data/                            # Experimental data (single source of truth)
@@ -303,7 +303,6 @@ python scripts/paper6/compile_paper6_data.py
   author={Laxman, M M},
   journal={Preprints.org},
   doi={10.20944/preprints202603.0055.v1},
-  note={Also submitted to JMLR},
   year={2026}
 }
 ```
@@ -325,7 +324,7 @@ python scripts/paper6/compile_paper6_data.py
   title={A Conservation Constraint in {LLM} Context Processing Across Four Epistemological Domains},
   author={Laxman, M M},
   journal={Preprints.org},
-  note={Submitted, ID: 207501},
+  note={Submitted; Zenodo deposit planned},
   year={2026}
 }
 ```

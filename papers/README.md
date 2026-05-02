@@ -9,11 +9,11 @@ papers/
 ├── paper1_legacy/           Paper 1 ✅ Published (Preprints.org)
 ├── paper2_standardized/     Paper 2 ✅ Published v2 (Preprints.org)
 ├── paper3_cross_domain/     Paper 3 ✅ Published (Preprints.org)
-├── paper4_entanglement/     Paper 4 ✅ Published (Preprints.org) + JMLR under review
+├── paper4_entanglement/     Paper 4 ✅ Published (Preprints.org); next venue under consideration
 ├── paper5_safety/           Paper 5 ✅ Published (Preprints.org)
-├── paper6_conservation/     Paper 6 📄 Submitted (Preprints.org ID: 207501)
+├── paper6_conservation/     Paper 6 📦 Preprints.org declined ×2 (207501, 208191); planned for Zenodo
 ├── paper7_submission/       Paper 7 ✅ Published (Preprints.org)
-├── paper8_efi/              Paper 8 ✅ Published (Preprints.org) + Scientific Reports (peer review)
+├── paper8_efi/              Paper 8 ✅ Published (Preprints.org) + Scientific Reports (under peer review)
 └── paper9_measurement/      Paper 9 ✅ Published (Zenodo)
 ```
 
@@ -46,7 +46,7 @@ Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 - **Location**: `paper3_cross_domain/`
 
 ### Paper 4: Engagement as Entanglement
-- **Status**: Published (Preprints.org, February 22, 2026) + JMLR under review
+- **Status**: Published (Preprints.org, February 22, 2026). Journal submission in process; next venue under consideration.
 - **DOI**: 10.20944/preprints202603.0055.v1
 - **Role**: Mechanism — ΔRCI~VRI correlation r=0.76, ESI metric
 - **Location**: `paper4_entanglement/`
@@ -58,7 +58,7 @@ Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 - **Location**: `paper5_safety/`
 
 ### Paper 6: Conservation Constraint (Capstone)
-- **Status**: Resubmitted (Preprints.org, April 13, 2026 — ID: 208191, Pending Decision)
+- **Status**: Preprints.org declined twice (ID 207501 on Apr 9; ID 208191 resubmission on Apr 13 with expanded bibliography 27→83 refs). Final decline correspondence closed Apr 21, 2026. **Planned for Zenodo.** Manuscript and unified K computation pipeline complete; methodology audit trail published in `scripts/paper6/METHODOLOGY_AUDIT.md`.
 - **Title**: A Conservation Constraint in LLM Context Processing Across Four Epistemological Domains
 - **Role**: Capstone — ΔRCI × Var_Ratio ≈ K(domain) across 4 domains, 24 runs, 14 architectures
 - **K values**: Medical 0.429, Legal 0.348, Philosophy 0.301, Ethics 0.223
@@ -71,7 +71,7 @@ Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 - **Location**: `paper7_submission/`
 
 ### Paper 8: Encoding Fidelity & Coherent Misalignment
-- **Status**: Published (Preprints.org, April 2, 2026) + Scientific Reports (peer review)
+- **Status**: Published (Preprints.org, April 2, 2026). Scientific Reports (Nature portfolio): under peer review.
 - **DOI**: 10.20944/preprints202604.0061.v1
 - **Role**: Cross-lingual — EFI metric, Coherent Misalignment, Dravidian-specific variance
 - **Location**: `paper8_efi/`
@@ -117,5 +117,5 @@ Paper 8 (Encoding Fidelity) → Paper 9 (Measurement Matters)
 
 ---
 
-**Last Updated**: April 15, 2026
-**Publications**: 8 published, 1 resubmitted (Paper 6, ID: 208191), Paper 4 under JMLR review, Paper 8 under Scientific Reports peer review
+**Last Updated**: April 29, 2026
+**Publications**: 8 with permanent DOIs (7 Preprints.org + 1 Zenodo). Paper 6 declined by Preprints.org; planned for Zenodo. Paper 4 next venue under consideration. Paper 8 under peer review at Scientific Reports.
