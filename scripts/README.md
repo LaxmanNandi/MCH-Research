@@ -1,61 +1,104 @@
 # Scripts Directory
 
-## Organization
+This directory contains the experiment runners, analysis pipelines, and
+figure-generation scripts for the MCH research programme (Papers 1–9).
 
-### `experiments/` -- Running Experiments
-Scripts that execute the MCH experimental protocol (API calls, embedding computation, data collection).
+## Layout
 
-| Script | Purpose |
-|--------|---------|
-| `run_medical_experiments.py` | Run medical domain experiments for open models |
-| `rerun_philosophy_open_models.py` | Re-run philosophy experiments with response text saving |
+```
+scripts/
+├── shared/         # Path helpers and shared utilities (NEW)
+├── experiments/    # API-call experiment runners (medical, legal, ethics, etc.)
+├── analysis/       # Generic analysis utilities
+├── eeg_pilot/      # Sleep-EDF brain coherence pilot
+├── paper3/         # Paper 3 (cross-domain temporal) scripts
+├── paper6/         # Paper 6 (conservation constraint) scripts
+├── paper7/         # Paper 7 (content-order decomposition) scripts
+├── paper8/         # Paper 8 (encoding fidelity / EFI) scripts
+├── paper9/         # Paper 9 (measurement validation) scripts
+├── validate/       # Verification scripts
+└── archive/        # Frozen historical scripts (do not modify)
+```
 
-### `analysis/` -- Data Analysis
-Scripts for analyzing experimental data and generating results for Papers 3-6.
-
-| Script | Paper | Purpose |
-|--------|-------|---------|
-| `generate_paper3_cross_domain.py` | 3 | Cross-domain temporal analysis |
-| `regenerate_entanglement_figures.py` | 4 | Entanglement validation figures |
-| `regenerate_paper4_fig5_fig7.py` | 4 | Paper 4 specific figures |
-| `paper6_conservation_law.py` | 6 | MI-based conservation test |
-| `paper6_conservation_product.py` | 6 | Direct product conservation test |
-| `paper6_figures.py` | 6 | Paper 6 publication figures |
-| `paper6_verify.py` | 6 | Full Paper 6 data verification |
-| `validate_entanglement.py` | 4 | Entanglement theory validation |
-
-### `validate/` -- Verification Scripts
-Scripts for validating data integrity and paper claims.
-
-| Script | Purpose |
-|--------|---------|
-| `paper5_accuracy_analysis.py` | Paper 5 accuracy verification |
-| `paper6_ushape_analysis.py` | Var_Ratio U-shape analysis |
-
-### Root Scripts (Legacy)
-Scripts at the `scripts/` root level are from earlier phases of the project. Key ones:
-
-| Script | Purpose |
-|--------|---------|
-| `generate_paper1_figures.py` | Paper 1 figure generation |
-| `generate_paper2_figures.py` | Paper 2 figure generation |
-| `generate_paper5_figures.py` | Paper 5 figure generation |
-| `paper2_analysis.py` | Paper 2 statistical analysis |
-| `mch_*.py` | Individual model experiment runners |
+The README at `papers/README.md` describes the publication status of each paper.
 
 ## Running Scripts
 
-All scripts use absolute paths to `C:/Users/barla/mch_experiments` as the base directory. Run from any location:
+All active scripts use **repository-relative paths** via `scripts/shared/paths.py`.
+You can run them from any working directory:
 
 ```bash
-python scripts/analysis/paper6_conservation_product.py
-python scripts/generate_paper5_figures.py
+python scripts/paper6/paper6_unified_K_pipeline.py
+python scripts/paper6/paper6_conservation_product.py
+python scripts/paper8/paper8_efi_pipeline.py
 ```
+
+To check that path resolution is working, run:
+
+```bash
+python scripts/shared/paths.py
+```
+
+You should see the absolute path of the repository root and its main subdirectories.
+
+## Active Pipelines (Paper 6 example)
+
+For Paper 6 (the conservation constraint), the canonical entry points are:
+
+| Script | Purpose |
+|--------|---------|
+| `paper6/paper6_unified_K_pipeline.py` | **Authoritative single-source K computation across all 24 model-domain runs.** Reads `paper6_manuscript_data.json` and verifies stored vs recomputed K. No fallbacks. |
+| `paper6/paper6_conservation_product.py` | Legacy combined-source product test. Retained for figure generation. |
+| `paper6/paper6_figures.py` | Publication figures for Paper 6. |
+| `paper6/compile_paper6_data.py` | Rebuild `paper6_manuscript_data.json` from raw trial JSONs. |
+
+For provenance and audit history, see `scripts/paper6/METHODOLOGY_AUDIT.md`.
+
+## Adding a New Script
+
+When writing a new script, use the shared path helper instead of hardcoding
+absolute paths. Two patterns work:
+
+**Pattern 1 — module-style (preferred for new scripts):**
+
+```python
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from shared.paths import repo_root, data_dir
+
+raw = data_dir() / "medical" / "open_models" / "mch_results_x.json"
+```
+
+**Pattern 2 — direct (single-file scripts):**
+
+```python
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+INPUT = REPO_ROOT / "data" / "paper6" / "paper6_manuscript_data.json"
+```
+
+Either pattern keeps the script portable. **Do not** hardcode
+`C:/Users/barla/mch_experiments`. Many older scripts in `archive/` still do —
+they are frozen and were not migrated.
 
 ## Dependencies
 
-See `/requirements.txt` for package dependencies. Key libraries:
-- `sentence-transformers` (all-MiniLM-L6-v2 embeddings)
-- `scipy` (statistical tests)
+See repository root `requirements.txt`. Key libraries:
+
+- `sentence-transformers` (all-MiniLM-L6-v2, all-mpnet-base-v2, LaBSE embeddings)
+- `scipy`, `numpy`, `pandas` (statistics and data wrangling)
 - `matplotlib` (figure generation)
-- `pandas`, `numpy` (data processing)
+- `mne`, `mne-bids` (EEG pilot only)
+
+## Provenance
+
+The MCH programme's data hygiene principle: **every result must be traceable
+back to raw trial JSONs.** Per-trial files in `data/{medical,philosophy,legal,ethics}/`
+are the ground truth. Any aggregated CSV or summary JSON is derived. If you
+find a discrepancy, the raw trial files are authoritative.
+
+For the conservation constraint specifically, the audit trail is documented
+in `scripts/paper6/METHODOLOGY_AUDIT.md`.

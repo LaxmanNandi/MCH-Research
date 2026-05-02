@@ -19,7 +19,11 @@ from pathlib import Path
 from collections import defaultdict
 from scipy import stats as scipy_stats
 
-BASE = Path("C:/Users/barla/mch_experiments")
+# Import shared path helper (no hardcoded absolute paths)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from shared.paths import repo_root  # noqa: E402
+
+BASE = repo_root()
 
 # ============================================================================
 # 0. Load embedding model (needed for Legal + Ethics)

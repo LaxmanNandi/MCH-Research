@@ -12,10 +12,15 @@ import json
 import numpy as np
 import os
 from datetime import datetime
+from pathlib import Path
+
+# Import shared path helper (no hardcoded absolute paths)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from shared.paths import data_dir  # noqa: E402
 
 sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 
-OUTPUT_DIR = "C:/Users/barla/mch_experiments/data/paper9"
+OUTPUT_DIR = str(data_dir() / "paper9")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 

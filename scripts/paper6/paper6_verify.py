@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Paper 6 Conservation Law — Full Re-Verification"""
 import json, csv, sys, os
+from pathlib import Path
 import numpy as np
 from scipy import stats
 
+# Import shared path helper (no hardcoded absolute paths)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from shared.paths import repo_root  # noqa: E402
+
 sys.stdout.reconfigure(encoding='utf-8')
-BASE = "C:/Users/barla/mch_experiments"
+BASE = str(repo_root())
 
 print("=" * 70)
 print("PAPER 6 CONSERVATION LAW — FULL RE-VERIFICATION")

@@ -1,8 +1,29 @@
 # Paper 6: Conservation Law Verification Report
 
+> **STATUS: ARCHIVED — Superseded MI Hypothesis (April 2026)**
+>
+> This report tested an early hypothesis that the conservation product
+> ΔRCI × Var_Ratio could be derived from mutual information:
+> `ΔRCI = 1 - exp(-2·MI)` and `ΔRCI × Var_Ratio = 1 - 2·MI`.
+>
+> **The MI hypothesis was rejected.** Test 1 (MI → ΔRCI) was not
+> significant (r = 0.408, p = 0.147). Predicted dRCI values were
+> physically impossible (e.g. -56.4267), reflecting KSG estimator bias
+> rather than a real information-theoretic relationship.
+>
+> The current published manuscript
+> (`papers/paper6_conservation/v1_submission/paper6_final.tex`) presents
+> K = ΔRCI × Var_Ratio as an **empirical conservation constraint**, with
+> no claim of an underlying MI quantity. The authoritative data is in
+> `data/paper6/paper6_manuscript_data.json`.
+>
+> See `STATUS_ARCHIVED.md` in this folder for full context.
+
+---
+
 **Date:** February 15, 2026
 **Author:** Dr. Laxman M M, MBBS | Primary Health Centre Manchi, Karnataka
-**Status:** Empirical verification complete
+**Status:** ARCHIVED — MI hypothesis tested and rejected; current manuscript uses empirical-only framing.
 
 ---
 

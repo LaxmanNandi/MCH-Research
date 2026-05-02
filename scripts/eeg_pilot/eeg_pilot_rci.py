@@ -20,6 +20,12 @@ import warnings
 warnings.filterwarnings('ignore')
 
 import sys
+from pathlib import Path
+
+# Import shared path helper (no hardcoded absolute paths)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from shared.paths import data_dir  # noqa: E402
+
 sys.stdout.reconfigure(encoding='utf-8')
 
 print("=" * 70)
@@ -303,7 +309,9 @@ for result in all_results:
         }
     output['results'].append(subj_data)
 
-with open('C:/Users/barla/mch_experiments/data/eeg_pilot/sleep_rci_pilot.json', 'w') as f:
+eeg_out = data_dir() / "eeg_pilot" / "sleep_rci_pilot.json"
+eeg_out.parent.mkdir(parents=True, exist_ok=True)
+with open(eeg_out, 'w') as f:
     json.dump(output, f, indent=2)
 
 print("Results saved to data/eeg_pilot/sleep_rci_pilot.json")
