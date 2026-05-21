@@ -197,8 +197,16 @@ mch_experiments/
 │   ├── figure_data/                 #   CSV data behind figures
 │   └── archive/                     #   Historical working documents
 │
+├── related_work/                    # Contemporary research landscape snapshot
+│
 └── archive/                         # Historical materials
 ```
+
+See [`related_work/`](related_work/) for a maintained snapshot of the
+contemporary research landscape — multilingual clinical AI, multi-turn
+LLM evaluation, interpretability and fidelity measurement, misalignment
+and AI safety, and Indian-language AI infrastructure — including how
+each work intersects with the MCH program.
 
 ---
 
